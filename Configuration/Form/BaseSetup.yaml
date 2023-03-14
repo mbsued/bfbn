@@ -1,0 +1,101 @@
+TYPO3:
+    CMS:
+        Form:
+            persistenceManager:
+                allowedExtensionPaths:
+                    1642077900: EXT:bfbn/Resources/Private/Forms/
+                allowSaveToExtensionPaths: true
+                allowDeleteFromExtensionPaths: false        
+            prototypes:
+                standard:
+                    formElementsDefinition:
+                        FileUpload:
+                          properties:
+                            containerClassAttribute: input
+                            elementClassAttribute: ''
+                            elementErrorClassAttribute: error
+                            saveToFileMount: '1:/user_upload/'
+                            allowedMimeTypes:
+                              - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                              - text/xml
+                          formEditor:
+                            editors:
+                              300:
+                                selectOptions:
+                                  80:
+                                    value: text/xml
+                                    label: 'XML-Datei'    
+                    finishersDefinition:
+                        PdfFinisher:
+                            implementationClassName: 'OliverBauer\Bfbn\Domain\Finishers\PdfFinisher'
+                        EmailToSender:
+                            implementationClassName: 'OliverBauer\Bfbn\Domain\Finishers\EmailFinisher'
+                            options:
+                                templateRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Templates/Email/'
+                                layoutRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Layouts/Email/'
+                                partialRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Partials/Email/'
+                            formEditor:
+                                predefinedDefaults:
+                                    options:
+                                        useFluidEmail: true
+                        EmailToReceiver:
+                            implementationClassName: 'OliverBauer\Bfbn\Domain\Finishers\EmailFinisher'
+                            options:
+                                templateRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Templates/Email/'
+                                layoutRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Layouts/Email/'
+                                partialRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Partials/Email/'
+                            formEditor:
+                                predefinedDefaults:
+                                    options:
+                                        useFluidEmail: true                            
+                        Confirmation:
+                            implementationClassName: 'OliverBauer\Bfbn\Domain\Finishers\ConfirmationFinisher'
+                            options:
+                                templateName: ConfirmationWithLink
+                                templateRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Frontend/Templates/Finishers/Confirmation/'
+
+                    formEditor:
+                        # TYPO3 8–9
+                        translationFile:
+                            10: 'EXT:form/Resources/Private/Language/Database.xlf'
+                            20: 'EXT:bfbn/Resources/Private/Language/locallang.xlf'
+
+                        # TYPO3 10
+                        translationFiles:
+                            1000: 'EXT:bfbn/Resources/Private/Language/locallang.xlf'
+
+                    formEngine:
+                        # TYPO3 8–9
+                        translationFile:
+                            10: 'EXT:form/Resources/Private/Language/Database.xlf'
+                            20: 'EXT:bfbn/Resources/Private/Language/locallang.xlf'
+
+                        # TYPO3 10
+                        translationFiles:
+                            1000: 'EXT:bfbn/Resources/Private/Language/locallang.xlf'
+                    validatorsDefinition:
+                        Filename:
+                            implementationClassName: 'OliverBauer\Bfbn\Domain\Validation\FilenameValidator'
+                            options:
+                                teil1: 'tp'
+                                teil2: 'nnnn'
+                                teil3: 'maerzstatistik'
+                                teil4: '2022'
+                                fileext: 'xlsx'
+                            formEditor:
+                                iconIdentifier: form-validator
+                                label: 'Dateiname'
+                                predefinedDefaults:
+                                  options:
+                                    teil1: 'tp'
+                                    teil2: 'nnnn'
+                                    teil3: 'maerzstatistik'
+                                    teil4: '2022'
+                                    fileext: 'xlsx'

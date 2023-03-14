@@ -1,0 +1,14 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+	elements {
+		pi1 {
+			iconIdentifier = bfbn_plugin-pi1
+			title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_bfbn.name
+			description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_bfbn.description
+			tt_content_defValues {
+				CType = list
+				list_type = bfbn_pi1
+			}
+		}
+	}
+	show = *
+}

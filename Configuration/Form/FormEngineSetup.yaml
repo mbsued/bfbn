@@ -1,0 +1,50 @@
+TYPO3:
+    CMS:
+        Form:
+            prototypes:
+                standard:
+                    finishersDefinition:
+                        PdfFinisher:
+                            # displayed when overriding finisher settings
+                            FormEngine:
+                                label: 'PDF Configuration'
+                                elements:
+                                    pdfTemplate:
+                                        label: 'PDF Template Datensatz'
+                                        config:
+                                            type: 'group'
+                                            internal_type: db
+                                            allowed: tx_bfbn_domain_model_pdftemplate
+                                            size: 1
+                                            minitems: 1
+                                            maxitems: 1
+                                            fieldWizard:
+                                                recordsOverview:
+                                                    disabled: 1
+                                    htmlTemplate:
+                                        label: 'HTML Template Datensatz'
+                                        config:
+                                            type: 'group'
+                                            internal_type: db
+                                            allowed: tx_bfbn_domain_model_htmltemplate
+                                            size: 1
+                                            minitems: 1
+                                            maxitems: 1
+                                            fieldWizard:
+                                                recordsOverview:
+                                                    disabled: 1
+                                    isPdfAttachedToReceiver:
+                                        label: 'PDF an Empänger-Mail'
+                                        config:
+                                            type: 'check'
+                                            default: 1
+                                    isPdfAttachedToUser:
+                                        label: 'PDF an Sender-Mail'
+                                        config:
+                                            type: 'check'
+                                            default: 1
+                                    openPdfNewWindows:
+                                        label: 'PDF in neuem Fenster'
+                                        config:
+                                            type: 'check'
+                                            default: 0

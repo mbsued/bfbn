@@ -1,0 +1,105 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  dashboard.buttons.bfbnnewsn:
+    class: 'TYPO3\CMS\Dashboard\Widgets\Provider\ButtonProvider'
+    arguments:
+      $title: 'mehr Nachrichten aus Nordbayern'
+      $link: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-nordbayern/nachrichten'
+      $target: '_blank'
+
+  dashboard.widget.bfbnnewsn:
+    class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $buttonProvider: '@dashboard.buttons.bfbnnewsn'
+      $cache: '@cache.dashboard.rss'
+      $options:
+        feedUrl: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-nordbayern/nachrichten/9818'
+    tags:
+      - name: dashboard.widget
+        identifier: 'bfbnnewsn'
+        groupNames: 'bfbnnews'
+        title: 'Nachrichten Nordbayern'
+        description: 'Anzeige der Nachrichten der MB-Dienststelle Nordbayern'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'medium'
+
+  dashboard.buttons.bfbnnewso:
+    class: 'TYPO3\CMS\Dashboard\Widgets\Provider\ButtonProvider'
+    arguments:
+      $title: 'mehr Nachrichten aus Ostbayern'
+      $link: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-ostbayern/nachrichten'
+      $target: '_blank'
+
+  dashboard.widget.bfbnnewso:
+    class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $buttonProvider: '@dashboard.buttons.bfbnnewso'
+      $cache: '@cache.dashboard.rss'
+      $options:
+        feedUrl: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-ostbayern/nachrichten/9818'
+    tags:
+      - name: dashboard.widget
+        identifier: 'bfbnnewso'
+        groupNames: 'bfbnnews'
+        title: 'Nachrichten Ostbayern'
+        description: 'Anzeige der Nachrichten der MB-Dienststelle Ostbayern'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'medium'
+
+  dashboard.buttons.bfbnnewss:
+    class: 'TYPO3\CMS\Dashboard\Widgets\Provider\ButtonProvider'
+    arguments:
+      $title: 'mehr Nachrichten aus Südbayern'
+      $link: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-suedbayern/nachrichten'
+      $target: '_blank'
+
+  dashboard.widget.bfbnnewss:
+    class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $buttonProvider: '@dashboard.buttons.bfbnnewss'
+      $cache: '@cache.dashboard.rss'
+      $options:
+        feedUrl: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-suedbayern/nachrichten/9818'
+    tags:
+      - name: dashboard.widget
+        identifier: 'bfbnnewss'
+        groupNames: 'bfbnnews'
+        title: 'Nachrichten Südbayern'
+        description: 'Anzeige der Nachrichten der MB-Dienststelle Südbayern'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'medium'
+
+  dashboard.buttons.bfbnnewsw:
+    class: 'TYPO3\CMS\Dashboard\Widgets\Provider\ButtonProvider'
+    arguments:
+      $title: 'mehr Nachrichten aus Westbayern'
+      $link: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-westbayern/nachrichten'
+      $target: '_blank'
+
+  dashboard.widget.bfbnnewsw:
+    class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $buttonProvider: '@dashboard.buttons.bfbnnewsw'
+      $cache: '@cache.dashboard.rss'
+      $options:
+        feedUrl: 'https://www.bfbn.de/schulaufsicht/mb-dienststelle-westbayern/nachrichten/9818'
+    tags:
+      - name: dashboard.widget
+        identifier: 'bfbnnewsw'
+        groupNames: 'bfbnnews'
+        title: 'Nachrichten Westbayern'
+        description: 'Anzeige der Nachrichten der MB-Dienststelle Westbayern'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'medium'

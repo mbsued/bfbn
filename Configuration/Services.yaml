@@ -1,0 +1,15 @@
+imports:
+  - { resource: Backend/DashboardWidgets.yaml }
+  
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  OliverBauer\Bfbn\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+    
+  OliverBauer\Bfbn\Utility\FormHook:
+    public: true

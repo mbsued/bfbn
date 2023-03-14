@@ -1,0 +1,15 @@
+
+plugin.tx_bfbn {
+    view {
+        # cat=plugin.tx_bfbn/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:bfbn/Resources/Private/Templates/
+        # cat=plugin.tx_bfbn/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:bfbn/Resources/Private/Partials/
+        # cat=plugin.tx_bfbn/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:bfbn/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_bfbn//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

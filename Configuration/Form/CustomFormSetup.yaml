@@ -1,0 +1,14 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                templateRootPaths:
+                  20: 'EXT:bfbn/Resources/Private/Templates/Form/Frontend/'
+                partialRootPaths:
+                  20: 'EXT:bfbn/Resources/Private/Partials/Form/Frontend/'
+                layoutRootPaths:
+                  20: 'EXT:bfbn/Resources/Private/Layouts/Form/Frontend/'

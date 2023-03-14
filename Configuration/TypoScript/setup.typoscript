@@ -1,0 +1,137 @@
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            # register your own additional configuration
+            # choose a number higher than 10 (10 is reserved)
+            100 = EXT:bfbn/Configuration/Form/CustomFormSetup.yaml
+        }
+    }
+}
+plugin.tx_bfbn {
+    view {
+        templateRootPaths.0 = EXT:{extension.shortExtensionKey}/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_bfbn.view.templateRootPath}
+        partialRootPaths.0 = EXT:bfbn/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_bfbn.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tx_bfbn/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_bfbn.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_bfbn_bfbn.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+	settings {
+		mblink {
+			nordbayern = 22
+			ostbayern = 23
+			suedbayern = 244
+			westbayern = 24
+		}
+		schulsuche {
+			ausbildungsrichtung = 128
+			sprache = 141
+			vorklasse = 142
+			umkreis = 143
+		}
+		ergaenzungspruefung {
+			ordnerstandard = 82
+			ordnernord = 121
+			ordnerost = 122
+			ordnerwest = 123
+			ordnersued = 175
+		}
+		schulfremde {
+			ordnerstandard = 118		
+			ordnernord = 124
+			ordnerost = 125
+			ordnerwest = 126
+			ordnersued = 176
+		}		
+		aufgabenauswahl {
+			ordnerstandard = 157		
+			ordnernord = 158
+			ordnerost = 159
+			ordnerwest = 160
+			ordnersued = 173		
+		}
+		neubestellung {
+			ordnerstandard = 167		
+			ordnernord = 168
+			ordnerost = 169
+			ordnerwest = 170
+			ordnersued = 174		
+		}
+		unfallstatistik {
+			ordnerstandard = 262		
+			ordnernord = 263
+			ordnerost = 264
+			ordnerwest = 265
+			ordnersued = 266		
+		}		
+		maerz {
+			ordnerstandard = 163		
+			ordnernord = 164
+			ordnerost = 165
+			ordnerwest = 166
+			ordnersued = 177		
+		}
+		abschluss {
+			ordnerstandard = 197		
+			ordnernord = 198
+			ordnerost = 199
+			ordnerwest = 200
+			ordnersued = 201		
+		}			
+	}
+}
+
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            2000 = EXT:bfbn/Configuration/Form/BaseSetup.yaml
+            2001 = EXT:bfbn/Configuration/Form/FormEngineSetup.yaml
+        }
+    }
+}
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            2000 = EXT:bfbn/Configuration/Form/BaseSetup.yaml
+            2001 = EXT:bfbn/Configuration/Form/FormEditorSetup.yaml
+            2002 = EXT:bfbn/Configuration/Form/FormEngineSetup.yaml
+        }
+    }
+}
+
+# these classes are only used in auto-generated templates
+plugin.tx_bfbn._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+
+    .typo3-messages .message-error {
+        color:red;
+    }
+
+    .typo3-messages .message-ok {
+        color:green;
+    }
+)
