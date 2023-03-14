@@ -1,0 +1,29 @@
+{
+    "name": "oliverbauer/bfbn",
+    "type": "typo3-cms-extension",
+    "description": "Extension für BFBN",
+	"license": "GPL-2.0-or-later",	
+    "authors": [
+        {
+            "name": "BFBN-Team",
+            "role": "Developer"
+        }	
+	],
+    "require": {
+        "typo3/cms-core": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OliverBauer\\Bfbn\\": "Classes"
+        }
+    },
+    "replace": {
+        "oliverbauer/bfbn": "self.version",
+        "typo3-ter/bfbn": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "bfbn"
+        }
+    }
+}
