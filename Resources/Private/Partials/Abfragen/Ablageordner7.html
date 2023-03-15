@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:if condition="{institution.mbbezirk.uid}==1">
+      <f:then>
+        <f:form.hidden property="pid" value="{settings.unfallstatistik.ordnernord}" />            
+      </f:then>
+      <f:else>
+        <f:if condition="{institution.mbbezirk.uid}==2">
+          <f:then>
+            <f:form.hidden property="pid" value="{settings.unfallstatistik.ordnerost}" />        
+          </f:then>
+          <f:else>
+            <f:if condition="{institution.mbbezirk.uid}==3">
+              <f:then>
+                <f:form.hidden property="pid" value="{settings.unfallstatistik.ordnersued}" />      
+              </f:then>
+              <f:else>
+                <f:if condition="{institution.mbbezirk.uid}==4">
+                  <f:then>
+                    <f:form.hidden property="pid" value="{settings.unfallstatistik.ordnerwest}" />            
+                  </f:then>
+                  <f:else>
+                    <f:form.hidden property="pid" value="{settings.unfallstatistik.ordnerstandard}" />            
+                  </f:else> 
+                </f:if>
+              </f:else>
+            </f:if>
+          </f:else>
+        </f:if>
+      </f:else> 
+  </f:if>
+</html>

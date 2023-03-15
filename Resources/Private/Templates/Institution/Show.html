@@ -1,0 +1,77 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    
+    <f:flashMessages />
+	<f:if condition="{institution.art.uid} == 1">
+		<f:then>
+		</f:then>
+		<f:else>
+			<h1>{institution.bezeichnung}{f:if(condition: '{institution.status.uid}==4', then: '&nbsp(staatlich genehmigt)', else: '')}</h1>
+		</f:else>
+	</f:if>
+		
+	<f:if condition="{institution.art.uid} == 1">
+		<f:then>
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+					<div class="card mt-3">
+						<div class="card-header">
+							Zuständigkeit
+						</div>
+						<div class="card-body">
+		</f:then>
+	</f:if>
+	<f:if condition="{institution.art.uid} == 1 && {institution.mbbezirk.uid} == 1">
+		<f:then>
+			<div class="card-text">
+				<p>Die Ministerialbeauftragte für die Berufliche Oberschule in Nordbayern ist für die Regierungsbezirke Unterfranken, Mittelfranken und Oberfranken zuständig.</p>
+			</div>
+		</f:then>
+		<f:else>
+			<f:if condition="{institution.art.uid} == 1 && {institution.mbbezirk.uid} == 2">
+				<f:then>
+					<div class="card-text">
+						<p>Die Ministerialbeauftragte für die Berufliche Oberschule in Ostbayern ist für die Regierungsbezirke Oberpfalz, Niederbayern und aus dem Regierungsbezirk Oberbayern  für die Landkreise Eichstätt, Neuburg-Schrobenhausen, Pfaffenhofen a. d. Ilm, Freising, Erding sowie die Stadt Ingolstadt zuständig.</p>
+					</div>								
+				</f:then>
+				<f:else>
+					<f:if condition="{institution.art.uid} == 1 && {institution.mbbezirk.uid} == 4">
+                      <f:then>
+						<div class="card-text">
+							<p>Der Ministerialbeauftragte für die Berufliche Oberschule in Westbayern ist für den Regierungsbezirk Schwaben sowie aus dem Regierungsbezirk Oberbayern für die Landkreise Dachau, Fürstenfeldbruck, Garmisch-Partenkirchen, Landsberg am Lech, Starnberg, Bad Tölz-Wolfratshausen und Weilheim-Schongau zuständig.</p>
+						</div>
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{institution.art.uid} == 1 && {institution.mbbezirk.uid} == 3">
+                            <div class="card-text">
+                                <p>Der Ministerialbeauftragte für die Berufliche Oberschule in Südbayern ist für den Regierungsbezirk Oberbayern zuständig mit Ausnahme der Landkreise Eichstätt, Neuburg-Schrobenhausen, Pfaffenhofen a. d. Ilm, Freising, Erding, Dachau, Fürstenfeldbruck, Garmisch-Partenkirchen, Landsberg am Lech, Starnberg, Bad Tölz-Wolfratshausen und Weilheim-Schongau, sowie die Stadt Ingolstadt.</p>
+                            </div>
+                          </f:if>
+                      </f:else>
+					</f:if>
+				</f:else>				
+			</f:if>
+		</f:else>
+	</f:if>
+	<f:if condition="{institution.art.uid} == 1">
+		<f:then>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:then>
+	</f:if>
+	<f:render partial="Institution/Detail_Kontakt" arguments="{institution:institution}" />
+	<f:render partial="Institution/Detail_Ansprechpartner" arguments="{institution:institution}" />	
+
+	<f:if condition="{institution.art.uid} > 1">
+		<f:render partial="Institution/Detail_Ausbildungsrichtungen" arguments="{institution:institution}" />	
+	</f:if>
+	<f:if condition="{institution.art.uid} > 1">
+		<f:link.action action="list" class="btn btn-primary mb-3 mt-3">Zurück zur Übersicht</f:link.action><br />
+	</f:if>	
+
+</f:section>
+</html>

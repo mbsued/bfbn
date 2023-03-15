@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <div class="card mt-3">
+    <h6 class="card-header">Filtern nach Ausbildungsrichtungen (Mehrfachauswahl ist möglich)</h6>
+    <div class="card-body">                	
+      <div class="d-flex flex-lg-row flex-xl-row flex-xxl-row flex-column">
+        <f:for each="{auswahlausbildungsrichtung}" as="ausbildungsrichtung" iteration="zaehler">
+          <div class="me-3">
+            <f:form.checkbox class="form-check-input" value="{ausbildungsrichtung.uid}" property="ausbildungsrichtung" multiple="true" checked="true"/>
+            <label class="form-check-label ms-2" for="ausbildungsrichtung">{ausbildungsrichtung.bezeichnung}</label>
+          </div>  
+        </f:for>         
+      </div>  
+    </div>
+  </div>
+</html>

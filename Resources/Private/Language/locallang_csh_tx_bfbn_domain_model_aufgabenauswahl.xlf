@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_csh" date="2021-05-07T12:46:49Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="deutsch1a.description" resname="deutsch1a.description">
+				<source>Deutsch ABU Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch1l.description" resname="deutsch1l.description">
+				<source>Deutsch ABU Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch1e.description" resname="deutsch1e.description">
+				<source>Deutsch ABU Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch1d.description" resname="deutsch1d.description">
+				<source>Deutsch ABU Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch2a.description" resname="deutsch2a.description">
+				<source>Deutsch GST Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch2l.description" resname="deutsch2l.description">
+				<source>Deutsch GST Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch2e.description" resname="deutsch2e.description">
+				<source>Deutsch GST Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch2d.description" resname="deutsch1d.description">
+				<source>Deutsch GST Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch3a.description" resname="deutsch3a.description">
+				<source>Deutsch GSU Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch3l.description" resname="deutsch3l.description">
+				<source>Deutsch GSU Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch3e.description" resname="deutsch3e.description">
+				<source>Deutsch GSU Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch3d.description" resname="deutsch3d.description">
+				<source>Deutsch GSU Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch4a.description" resname="deutsch4a.description">
+				<source>Deutsch IWI Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch4l.description" resname="deutsch4l.description">
+				<source>Deutsch IWI Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch4e.description" resname="deutsch4e.description">
+				<source>Deutsch IWI Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch4d.description" resname="deutsch4d.description">
+				<source>Deutsch IWI Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch5a.description" resname="deutsch5a.description">
+				<source>Deutsch SOZ Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch5l.description" resname="deutsch5l.description">
+				<source>Deutsch SOZ Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch5e.description" resname="deutsch5e.description">
+				<source>Deutsch SOZ Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch5d.description" resname="deutsch5d.description">
+				<source>Deutsch SOZ Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch6a.description" resname="deutsch6a.description">
+				<source>Deutsch TEC Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch6l.description" resname="deutsch6l.description">
+				<source>Deutsch TEC Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch6e.description" resname="deutsch6e.description">
+				<source>Deutsch TEC Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch6d.description" resname="deutsch6d.description">
+				<source>Deutsch TEC Dramatik</source>
+			</trans-unit>
+			<trans-unit id="deutsch7a.description" resname="deutsch7a.description">
+				<source>Deutsch WUV Argumentation</source>
+			</trans-unit>
+			<trans-unit id="deutsch7l.description" resname="deutsch7l.description">
+				<source>Deutsch WUV Lyrik</source>
+			</trans-unit>
+			<trans-unit id="deutsch7e.description" resname="deutsch7e.description">
+				<source>Deutsch WUV Epik</source>
+			</trans-unit>
+			<trans-unit id="deutsch7d.description" resname="deutsch7d.description">
+				<source>Deutsch WUV Dramatik</source>
+			</trans-unit>
+			<trans-unit id="mathe1a1.description" resname="mathe1a1.description">
+				<source>Mathematik ABU Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe1a2.description" resname="mathe1a2.description">
+				<source>Mathematik ABU Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe1b1.description" resname="mathe1b1.description">
+				<source>Mathematik ABU Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe1b2.description" resname="mathe1b2.description">
+				<source>Mathematik ABU Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe2a1.description" resname="mathe2a1.description">
+				<source>Mathematik GST Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe2a2.description" resname="mathe2a2.description">
+				<source>Mathematik GST Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe2b1.description" resname="mathe2b1.description">
+				<source>Mathematik GST Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe2b2.description" resname="mathe2b2.description">
+				<source>Mathematik GST Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe3a1.description" resname="mathe3a1.description">
+				<source>Mathematik GSU Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe3a2.description" resname="mathe3a2.description">
+				<source>Mathematik GSU Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe3b1.description" resname="mathe3b1.description">
+				<source>Mathematik GSU Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe3b2.description" resname="mathe3b2.description">
+				<source>Mathematik GSU Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe4a1.description" resname="mathe4a1.description">
+				<source>Mathematik IWI Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe4a2.description" resname="mathe4a2.description">
+				<source>Mathematik IWI Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe4b1.description" resname="mathe4b1.description">
+				<source>Mathematik IWI Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe4b2.description" resname="mathe4b2.description">
+				<source>Mathematik IWI Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe5a1.description" resname="mathe5a1.description">
+				<source>Mathematik SOZ Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe5a2.description" resname="mathe5a2.description">
+				<source>Mathematik SOZ Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe5b1.description" resname="mathe5b1.description">
+				<source>Mathematik SOZ Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe5b2.description" resname="mathe5b2.description">
+				<source>Mathematik SOZ Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe6a1.description" resname="mathe6a1.description">
+				<source>Mathematik TEC Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe6a2.description" resname="mathe6a2.description">
+				<source>Mathematik TEC Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe6b1.description" resname="mathe6b1.description">
+				<source>Mathematik TEC Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe6b2.description" resname="mathe6b2.description">
+				<source>Mathematik TEC Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="mathe7a1.description" resname="mathe7a1.description">
+				<source>Mathematik WUV Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="mathe7a2.description" resname="mathe7a2.description">
+				<source>Mathematik WUV Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="mathe7b1.description" resname="mathe7b1.description">
+				<source>Mathematik WUV Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="mathe7b2.description" resname="mathe7b2.description">
+				<source>Mathematik WUV Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="physik1.description" resname="physik1.description">
+				<source>Physik Wahlaufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="physik2.description" resname="physik2.description">
+				<source>Physik Wahlaufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="physik3.description" resname="physik3.description">
+				<source>Physik Wahlaufgabe 3</source>				
+			</trans-unit>
+			<trans-unit id="paepsy1.description" resname="paepsy1.description">
+				<source>Pädagogik/Psychologie Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="paepsy2.description" resname="paepsy2.description">
+				<source>Pädagogik/Psychologie Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="gesuwi1.description" resname="gesuwi1.description">
+				<source>Gesundheitswissenschaften Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="gesuwi2.description" resname="gesuwi2.description">
+				<source>Gesundheitswissenschaften Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="gest1.description" resname="gest1.description">
+				<source>Gestaltung Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="gest2.description" resname="gest2.description">
+				<source>Gestaltung Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="gest3.description" resname="gest3.description">
+				<source>Gestaltung Aufgabe 3</source>				
+			</trans-unit>			
+			<trans-unit id="schulart.description" resname="schulart.description">
+				<source>Schulart</source>
+			</trans-unit>			
+			<trans-unit id="jahrgangsstufe.description" resname="jahrgangsstufe.description">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="institution.description" resname="institution.description">
+				<source>Institution</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

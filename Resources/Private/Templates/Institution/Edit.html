@@ -1,0 +1,406 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+<f:section name="content">
+  <f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 3">
+	<f:asset.script identifier="vanilla_custom-script1">
+	document.getElementById('vorkursfos').onchange = changeListenerFos;
+    function changeListenerFos(){
+      var value = this.value
+        if (value == "1"){
+          document.getElementById('vorkursfosartundtag').style.visibility = 'visible';
+        }else if (value == "0"){
+          document.getElementById('vorkursfosartundtag').style.visibility = 'hidden';
+        }
+      }  
+	</f:asset.script>
+  </f:if>
+  <f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 4">
+	<f:asset.script identifier="vanilla_custom-script2">
+
+	document.getElementById('vorkursbos').onchange = changeListenerBos;
+    function changeListenerBos(){
+      var value = this.value
+        if (value == "1"){
+          document.getElementById('vorkursbosartundtag').style.visibility = 'visible';
+        }else if (value == "0"){
+          document.getElementById('vorkursbosartundtag').style.visibility = 'hidden';
+        }
+      }
+	</f:asset.script>
+  </f:if>
+    <h1>Änderung der Schuldaten</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="update" name="institution" object="{institution}" >
+		<div class="card mt-3">
+			<div class="card-header"><h4>Kontaktdaten</h4>
+			</div>
+			<div class="card-body">
+
+					<div class="form-group">
+						<label for="bezeichnung">Schulname</label>
+						<f:form.textfield class="form-control" readonly="True" property="bezeichnung" />
+					</div>
+				
+				
+					<div class="form-group">
+						<label for="strasse">Strasse</label>
+						<f:form.textfield class="form-control" required="true" property="strasse" />
+					</div>
+				
+				<div class="row">
+					<div class="form-group col-md-3">
+						<label for="plz">PLZ</label>
+						<f:form.textfield class="form-control" required="true" type="number" property="plz" />
+					</div>
+					<div class="form-group col-md-9">
+						<label for="ort">Ort</label>
+						<f:form.textfield class="form-control" required="true" property="ort" />
+					</div>			
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label for="telefon">Telefonnummer</label>
+						<f:form.textfield class="form-control " required="true" property="telefon" />
+					</div>
+					<div class="form-group col-md-6">
+						<label for="fax">Telefaxnummer</label>
+						<f:form.textfield class="form-control " required="true" property="fax" />
+					</div>			
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label for="email">E-Mail</label>
+						<f:form.textfield class="form-control " required="true" property="email" />
+					</div>
+					<div class="form-group col-md-6">
+						<label for="homepage">Homepage</label>
+						<f:form.textfield class="form-control " required="true" property="homepage" />
+					</div>			
+				</div>              
+			</div>
+		</div>
+		<div class="card mt-3">
+			<div class="card-header h4">Ansprechpartner
+			</div>
+			<div class="card-body">
+				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 1, ueberschrifttext: 'Schulleitung'}" />
+				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung'}" />
+				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 3, ueberschrifttext: 'Sekretariat'}" />
+				<f:render section="Fachmitarbeiter" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 9}" />              
+				<div class="row mt-2">
+					<div class="form-group col-md-6">
+						<f:link.action class="btn btn-primary" controller="Person" action="new" arguments="{funktionuid: 2}" title="Einen neuen Ansprechpartner für die Stellvertretende Schulleitung anlegen" >Neuer Ansprechpartner (Stellv. Schulleitung)</f:link.action>
+					</div>
+					<div class="form-group col-md-6">
+						<f:link.action class="btn btn-primary" controller="Person" action="new" arguments="{funktionuid: 3}" title="Einen neuen Ansprechpartner für das Sekretariat anlegen">Neuer Ansprechpartner (Sekretariat)</f:link.action>
+					</div>
+				</div>
+			</div>
+		</div>
+		<f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 3">		
+			<div class="card mt-3">
+				<div class="card-header h4">Ausbildungsrichtungen Fachoberschule
+				</div>
+				<div class="card-body">
+					<div class="row mb-3">
+						<div class="col-md-12" ><i>Angebotene Ausbildungsrichtungen sind markiert. Mit der STRG-Taste können Sie mehrere Einträge an- bzw. abwählen.</i>
+						</div>
+					</div>
+					<fieldset class="nolabel">					
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="abufos">ABU</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbabufos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+							</div>
+							<div class="form-group col-md-6">
+								<label for="gstfos">Gestaltung</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbgstfos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							</div>
+						</div>	
+						<div class="row">	
+							<div class="form-group col-md-6">
+								<label for="gesfos">Gesundheit</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbgesfos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+							</div>
+							<div class="form-group col-md-6">
+								<label for="iwifos">Int. Wirtschaft</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbiwifos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							</div>
+						</div>
+						<div class="row">	
+							<div class="form-group col-md-4">
+								<label for="sozfos">Sozialwesen</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbsozfos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+							</div>
+							<div class="form-group col-md-4">
+								<label for="tecfos">Technik</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbtecfos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="wuvfos">Wirtschaft</label>
+								<f:form.select class="form-control " multiple="true" size="6" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbwuvfos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							</div>			
+						</div>
+					</fieldset>
+					<div class="row mt-3">
+						<div class="col-md-3">
+							<label for="vorklassefos">Vorklasse</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorklassefos" id="vorklassefos" value="{institution.vorklassefos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+						</div>
+						<div class="col-md-3">
+							<label for="ivk">Integrationsvorklasse</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="ivk" id="ivk" value="{institution.ivk}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+						</div>
+						<div class="col-md-3">
+							<label for="vorkursfos">Vorkurs</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkursfos" id="vorkursfos" value="{institution.vorkursfos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+						</div> 
+						<div class="col-md-3">
+							<label for="dbfh">DBFH</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="dbfh" id="dbfh" value="{institution.dbfh}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+						</div>                       
+					</div>
+					<div class="row mt-3" id="vorkursfosartundtag">
+						<div class="form-group col-md-4">
+							<label for="vorkursartfos">Art des Vorkurses</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkursartfos" value="{institution.vorkursartfos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung"/>
+		
+						</div>
+						<div class="form-group col-md-4">
+							<label for="vorkurstagfos">Tag des Vorkurses</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkurstagfos" value="{institution.vorkurstagfos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							
+						</div>					
+					</div>				
+				</div>
+			</div>	
+		</f:if>
+		<f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 4">
+			<div class="card mt-3">
+				<div class="card-header h4">Ausbildungsrichtungen Berufsoberschule
+				</div>
+				<div class="card-body">
+					<div class="row mb-3">
+						<div class="col-md-12"><i>Angebotene Ausbildungsrichtungen sind markiert. Mit der STRG-Taste können Sie mehrere Einträge an- bzw. abwählen.</i>
+						</div>
+					</div>			
+					<div class="row">
+						<div class="form-group col-md-4">
+							<label for="abubos">ABU</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbabubos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+						</div>
+						<div class="form-group col-md-4">
+							<label for="gesbos">Gesundheit</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbgesbos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+						</div>
+						<div class="form-group col-md-4">
+							<label for="iwibos">Int. Wirtschaft</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbiwibos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="form-group col-md-4">
+							<label for="sozbos">Sozialwesen</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbsozbos}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+						</div>
+						<div class="form-group col-md-4">
+							<label for="tecbos">Technik</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbtecbos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="wuvbos">Wirtschaft</label>
+							<f:form.select class="form-control " multiple="true" size="4" property="ausbildungsrichtungen" value="{institution.ausbildungsrichtungen}" options="{ausbwuvbos}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>			
+					</div>
+					<div class="row mt-3">
+                      <f:if condition="{institution.art.uid} == 2">                      
+						<div class="col-md-4">
+							<label for="vorklassebos">Vorklasse</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorklassebos" id="vorklassebos" value="{institution.vorklassebos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="col-md-4">
+							<label for="vorkursbos">Vorkurs</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkursbos" id="vorkursbos" value="{institution.vorkursbos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="col-md-4">
+							<label for="bosteilzeit">Teilzeit</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="bosteilzeit" id="bosteilzeit" value="{institution.bosteilzeit}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>                  
+                      </f:if>
+                      <f:if condition="{institution.art.uid} == 4">                      
+						<div class="col-md-3">
+							<label for="vorklassebos">Vorklasse</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorklassebos" id="vorklassebos" value="{institution.vorklassebos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="col-md-3">
+							<label for="ivk">Integrationsvorklasse</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="ivk" id="ivk" value="{institution.ivk}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+						</div>                       
+						<div class="col-md-3">
+							<label for="vorkursbos">Vorkurs</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkursbos" id="vorkursbos" value="{institution.vorkursbos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="col-md-3">
+							<label for="bosteilzeit">Teilzeit</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="bosteilzeit" id="bosteilzeit" value="{institution.bosteilzeit}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+                      </f:if>                      
+					</div>
+					<div class="row mt-3" id="vorkursbosartundtag">
+						<div class="form-group col-md-4">
+							<label for="vorkursartbos">Art des Vorkurses</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkursartbos" value="{institution.vorkursartbos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="vorkurstagbos">Tag des Vorkurses</label>
+							<f:form.select class="form-control " multiple="false" size="1" property="vorkurstagbos" value="{institution.vorkurstagbos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung"/>
+						</div>					
+					</div>				
+				</div>	
+			</div>
+		</f:if>
+		<div class="card mt-3">
+			<div class="card-header h4">Sprachangebot (Wahlpflichtunterricht)
+			</div>
+			<div class="card-body">
+				<div class="row mb-3">
+					<div class="col-md-12"><i>Angebotene Sprachen sind markiert. Mit der STRG-Taste können Sie mehrere Einträge an- bzw. abwählen.</i>
+					</div>
+				</div>			
+				<div class="row">
+					<div class="form-group col-md-4">
+						<label for="franzoesisch">Französisch</label>
+						<f:form.select class="form-control " multiple="true" size="3" property="sprachen" value="{institution.sprachen}" options="{franzoesisch}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+					</div>
+					<div class="form-group col-md-4">
+						<label for="italienisch">Italienisch</label>
+						<f:form.select class="form-control " multiple="true" size="2" property="sprachen" value="{institution.sprachen}" options="{italienisch}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+					</div>
+					<div class="form-group col-md-4">
+						<label for="latein">Latein</label>
+						<f:form.select class="form-control " multiple="true" size="2" property="sprachen" value="{institution.sprachen}" options="{latein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="form-group col-md-4">
+						<label for="russisch">Russisch</label>
+						<f:form.select class="form-control " multiple="true" size="2" property="sprachen" value="{institution.sprachen}" options="{russisch}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+					</div>
+					<div class="form-group col-md-4">
+						<label for="spanisch">Spanisch</label>
+						<f:form.select class="form-control " multiple="true" size="3" property="sprachen" value="{institution.sprachen}" options="{spanisch}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="card mt-3">
+			<div class="card-header h4">Sprachangebot (Internationale Wirtschaft)
+			</div>
+			<div class="card-body">
+				<div class="row mb-3">
+					<div class="col-md-12"><i>Angebotene Sprachen sind markiert. Mit der STRG-Taste können Sie mehrere Einträge an- bzw. abwählen.</i>
+					</div>
+				</div>			
+				<div class="row">
+					<div class="form-group col-md-4">
+						<label for="sprachenintw">Angebotene Sprachen</label>
+						<f:form.select class="form-control " multiple="true" size="4" property="sprachenintw" value="{institution.sprachenintw}" options="{auswahlsprachenintw}" optionValueField="uid" optionLabelField="bezeichnung"/>				
+					</div>
+				</div>
+			</div>	
+		</div>		
+		<div class="card mt-3">
+			<div class="card-header h4">Hinweistext
+			</div>
+			<div class="card-body">
+				<div class="row mb-3">
+					<div class="col-md-12"><i>Hier können Sie einen bis zu 255 Zeichen langen Hinweistext eingeben.</i>
+					</div>
+				</div>			
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label for="hinweistext">Hinweistext</label>
+						<f:form.textfield class="form-control "  property="hinweis" />		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3 mb-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+					<f:form.submit class="btn btn-primary"  value="Änderungen speichern" />
+				</div>
+			</div>
+		</div>
+    </f:form>
+  </f:section>
+</html>
+
+<f:section name="Ansprechpartner">
+	<f:variable name="ueberschrift" value="Nein" />
+	<f:for each="{institution.personen}" as="person" iteration="personIteration">
+		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
+			<f:if condition="{funktion.uid} == {uid}">
+              <f:then>
+				<f:if condition="{ueberschrift} == 'Nein'">
+					<f:then>
+						<div class="mt-2 mb-2"><i>{ueberschrifttext}</i></div>
+						<f:variable name="ueberschrift" value="Ja" />	
+					</f:then>
+				</f:if>
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="amtsbezeichnung">Amtsbezeichnung</label>
+						<f:form.textfield class="form-control" property="personen.{personIteration.index}.amtsbezeichnung" value="{person.amtsbezeichnung}" />
+					</div>
+					<div class="form-group col-md-1">
+						<label for="titel">Titel</label>
+						<f:form.textfield class="form-control" property="personen.{personIteration.index}.titel" value="{person.titel}" />
+					</div>					
+					<div class="form-group col-md-3">
+						<label for="vorname">Vorname</label>
+						<f:form.textfield class="form-control" property="personen.{personIteration.index}.vorname" value="{person.vorname}" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="vorname">Nachname</label>
+						<f:form.textfield class="form-control" property="personen.{personIteration.index}.nachname" value="{person.nachname}" />
+					</div>
+					<div class="form-group col-md-2">
+						<label for="geschlecht">Geschlecht</label>
+						<f:form.select class="form-control" property="personen.{personIteration.index}.geschlecht" value="{person.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>
+					<f:if condition="{funktion.uid} > 1">
+						<div class="form-group col-md-1">							
+							<f:link.action class="btn btn-primary mt-4" controller="Person" action="delete" arguments="{person : person}" title="Löschen von {person.vorname} {person.nachname}"><i class="fa fa-trash"></i></f:link.action>
+						</div>
+					</f:if>
+				</div>
+              </f:then>
+              <f:else>
+              </f:else>
+			</f:if>
+		</f:for>
+	</f:for>
+</f:section>
+<f:section name="Fachmitarbeiter">
+	<f:for each="{institution.personen}" as="person" iteration="personIteration">
+		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
+			<f:if condition="{funktion.uid} == {uid}">
+              <f:then>
+				<div class="row">
+					<div class="form-group col-md-2">
+						<f:form.hidden class="form-control" property="personen.{personIteration.index}.geschlecht" value="{person.geschlecht}" />
+					</div>
+                </div>
+              </f:then>
+              <f:else>
+              </f:else>
+			</f:if>
+		</f:for>
+	</f:for>
+</f:section>

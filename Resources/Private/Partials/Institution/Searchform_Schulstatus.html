@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <div class="card mt-3">
+    <h6 class="card-header">Filtern nach Schulstatus (Mehrfachauswahl ist möglich)</h6>
+    <div class="card-body">                	
+      <div class="d-flex flex-lg-row flex-xl-row flex-xxl-row flex-column">
+        <f:for each="{stati}" as="status">
+          <div class="me-3">
+            <f:if condition="{status.uid} < 3">
+                <f:then>
+                  <f:form.checkbox class="form-check-input" value="{status.uid}" property="status" multiple="true" checked="true"/>
+                </f:then>
+                <f:else>
+                  <f:form.checkbox class="form-check-input" value="{status.uid}" property="status" multiple="true" checked="false"/>
+                </f:else>              
+            </f:if>      
+            <label class="form-check-label ms-2 me-5" for="status">{status.langbezeichnung}{f:if(condition: '{status.uid}==4', then: ' *', else: '')}</label>
+          </div>  
+        </f:for>
+      </div>        
+      <div class="text-bottom small mt-3">
+        * Schüler können an staatlich genehmigten Ersatzschulen keine Abschlussprüfung ablegen. Sie haben die Möglichkeit, sich als "andere Bewerber" der Abschlussprüfung an einer öffentlichen Schule zu unterziehen. An der eigenen Schule erbrachte Leistungen gehen dabei nicht in das Abschlusszeugnis ein.
+      </div>
+    </div>
+  </div>  
+</html>

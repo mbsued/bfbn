@@ -1,0 +1,366 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">      
+    <f:if condition="{institution.mbbezirk.uid}==1">
+      <f:then>
+        <formvh:render
+            persistenceIdentifier="EXT:bfbn/Resources/Private/Forms/meldung.form.yaml"
+            overrideConfiguration="{
+                finishers: {
+                    0: {
+                        options: {
+                            subject: 'Meldung der {institution.kurzbezeichnung} (Schulnummer: {institution.nummer}) zur {art}',
+                            title: 'FOSBOS-Netz - Meldung zur {art}',
+                            senderName: 'FOSBOS-Netz - Märzstatistik',
+                            recipients: {
+                                'hans-peter.schloegl@bfbn.de': 'MB-Norbayern'      
+                            }       
+                        }               
+                   },
+                   1: {
+                   		options: {
+                        	contentElementUid: '686'           
+                        }                
+                   },                
+                   2: {
+                   		options: {
+                        	0: {
+                            	databaseColumnMappings : {
+                                	pid : {
+                                   		value: '{settings.maerz.ordnernord}'
+                                   }   
+                                }                                   
+                            },
+                            1: {
+                            	databaseColumnMappings : {
+                                	pid : {
+                                   		value: '{settings.maerz.ordnernord}'
+                                   }   
+                                }                                   
+                            }       
+                        }                
+                     }                
+                 },                   
+                renderables: {
+                    0: {
+                        label: '',
+                        renderables: {
+                            0: {
+                                label: '',
+                                properties: {
+                                   text: '{text1}'
+                                   }
+                            },
+                            1: {                                
+                                renderables: {
+                                   0: {
+                                    validators: {
+                                        2: {
+                                            options : {
+                                                teil1: 'tp',
+                                                teil2: '{institution.nummer}',
+                                                teil3: 'maerzstatistik',
+                                                teil4: '2023',
+                                                fileext: 'xlsx'
+                                            }
+                                        }   
+                                    }
+                                  }  
+                               }    
+                            },       
+                            2: {
+                                defaultValue: '{institution.mbbezirk.uid}'
+                            },
+                            3: {
+                                defaultValue: '{institution.nummer}'       
+                            },
+                            4: {
+                                defaultValue: '{institution.kurzbezeichnung}'
+                            },
+                            5: {
+                                defaultValue: '{settings.art}'
+                            },
+                            6: {
+                                defaultValue: '{institution.uid}'
+                            }                                   
+                        }
+                    }
+                }
+            }"
+        />        
+      </f:then>
+      <f:else>
+        <f:if condition="{institution.mbbezirk.uid}==2">
+          <f:then>
+            <formvh:render
+                persistenceIdentifier="EXT:bfbn/Resources/Private/Forms/meldung.form.yaml"
+                overrideConfiguration="{
+                    finishers: {
+                        0: {
+                            options: {
+                                subject: 'Meldung der {institution.kurzbezeichnung} (Schulnummer: {institution.nummer}) zur {art}',
+                                title: 'FOSBOS-Netz - Meldung zur {art}',
+                                senderName: 'FOSBOS-Netz - Märzstatistik',
+                                recipients: {
+                                    'hans-peter.schloegl@bfbn.de': 'MB-Ostbayern'      
+                                }       
+                            }               
+                        },
+                       1: {
+                            options: {
+                                contentElementUid: '686'           
+                            }                
+                       },                                       
+                       2: {
+                            options: {
+                                0: {
+                                    databaseColumnMappings : {
+                                        pid : {
+                                            value: '{settings.maerz.ordnerost}'
+                                       }   
+                                    }                                   
+                                },
+                                1: {
+                                    databaseColumnMappings : {
+                                        pid : {
+                                            value: '{settings.maerz.ordnerost}'
+                                       }   
+                                    }                                   
+                                }       
+                            }                
+                       }                   
+                    },                   
+                    renderables: {
+                        0: {
+                            label: '',
+                            renderables: {
+                                0: {
+                                    label: '',
+                                    properties: {
+                                       text: '{text1}'
+                                       }
+                                },
+                                1: {                                       
+                                    renderables: {
+                                       0: {
+                                        validators: {
+                                            2: {
+                                                options : {
+                                                    teil1: 'tp',
+                                                    teil2: '{institution.nummer}',
+                                                    teil3: 'maerzstatistik',
+                                                    teil4: '2023',
+                                                    fileext: 'xlsx'
+                                                }
+                                            }   
+                                        }
+                                      }  
+                                   }    
+                                },
+                                2: {
+                                    defaultValue: '{institution.mbbezirk.uid}'
+                                },
+                                3: {
+                                    defaultValue: '{institution.nummer}'       
+                                },
+                                4: {
+                                    defaultValue: '{institution.kurzbezeichnung}'
+                                },
+                                5: {
+                                    defaultValue: '{settings.art}'
+                                },
+                                6: {
+                                    defaultValue: '{institution.uid}'
+                                }                               
+                            }
+                        }
+                    }
+                }"
+            />            
+          </f:then>
+          <f:else>
+            <f:if condition="{institution.mbbezirk.uid}==3">
+              <f:then>
+                <formvh:render
+                    persistenceIdentifier="EXT:bfbn/Resources/Private/Forms/meldung.form.yaml"
+                    overrideConfiguration="{
+                        finishers: {
+                            0: {
+                                options: {
+                                    subject: 'Meldung der {institution.kurzbezeichnung} (Schulnummer: {institution.nummer}) zur {art}',
+                                    title: 'FOSBOS-Netz - Meldung zur {art}',
+                                    senderName: 'FOSBOS-Netz - Märzstatistik',
+                                    recipients: {
+                                        'hans-peter.schloegl@bfbn.de': 'MB-Südbayern'      
+                                    }       
+                                }               
+                            },
+                           1: {
+                                options: {
+                                    contentElementUid: '686'           
+                                }                
+                           },                                           
+                           2: {
+                                options: {
+                                    0: {
+                                        databaseColumnMappings : {
+                                            pid : {
+                                                value: '{settings.maerz.ordnersued}'
+                                           }   
+                                        }                                   
+                                    },
+                                    1: {
+                                        databaseColumnMappings : {
+                                            pid : {
+                                                value: '{settings.maerz.ordnersued}'
+                                           }   
+                                        }                                   
+                                    }       
+                                }                
+                           }                   
+                        },                   
+                        renderables: {
+                            0: {
+                                label: '',
+                                renderables: {
+                                    0: {
+                                        label: '',
+                                        properties: {
+                                           text: '{text1}'
+                                           }
+                                    },
+                                    1: {
+                                        renderables: {
+                                           0: {
+                                            validators: {
+                                                2: {
+                                                    options : {
+                                                        teil1: 'tp',
+                                                        teil2: '{institution.nummer}',
+                                                        teil3: 'maerzstatistik',
+                                                        teil4: '2023',
+                                                        fileext: 'xlsx'
+                                                    }
+                                                }   
+                                            }
+                                          }  
+                                       }    
+                                    },                                           
+                                    2: {
+                                        defaultValue: '{institution.mbbezirk.uid}'
+                                    },
+                                    3: {
+                                        defaultValue: '{institution.nummer}'       
+                                    },
+                                    4: {
+                                        defaultValue: '{institution.kurzbezeichnung}'
+                                    },
+                                    5: {
+                                        defaultValue: '{settings.art}'
+                                    },
+                                    6: {
+                                        defaultValue: '{institution.uid}'
+                                    }                               
+                                }
+                            }
+                        }
+                    }"
+                />                
+              </f:then>
+              <f:else>
+                <f:if condition="{institution.mbbezirk.uid}==4">
+                  <f:then>
+                    <formvh:render
+                        persistenceIdentifier="EXT:bfbn/Resources/Private/Forms/meldung.form.yaml"
+                        overrideConfiguration="{
+                            finishers: {
+                                0: {
+                                    options: {
+                                        subject: 'Meldung der {institution.kurzbezeichnung} (Schulnummer: {institution.nummer}) zur {art}',
+                                        title: 'FOSBOS-Netz - Meldung zur {art}',
+                                        senderName: 'FOSBOS-Netz - Märzstatistik',
+                                        recipients: {
+                                            'hans-peter.schloegl@bfbn.de': 'MB-Westbayern'      
+                                        }       
+                                    }               
+                                },
+                               1: {
+                                    options: {
+                                        contentElementUid: '686'           
+                                    }                
+                               },                                               
+                               2: {
+                                    options: {
+                                        0: {
+                                            databaseColumnMappings : {
+                                                pid : {
+                                                    value: '{settings.maerz.ordnerwest}'
+                                               }   
+                                            }                                   
+                                        },
+                                        1: {
+                                            databaseColumnMappings : {
+                                                pid : {
+                                                    value: '{settings.maerz.ordnerwest}'
+                                               }   
+                                            }                                   
+                                        }       
+                                    }                
+                               }                   
+                            },                   
+                            renderables: {
+                                0: {
+                                    label: '',
+                                    renderables: {
+                                        0: {
+                                            label: '',
+                                            properties: {
+                                               text: '{text1}'
+                                               }
+                                        },
+                                        1: {
+                                            renderables: {
+                                               0: {
+                                                validators: {
+                                                    2: {
+                                                        options : {
+                                                            teil1: 'tp',
+                                                            teil2: '{institution.nummer}',
+                                                            teil3: 'maerzstatistik',
+                                                            teil4: '2023',
+                                                            fileext: 'xlsx'
+                                                        }
+                                                    }   
+                                                }
+                                              }  
+                                           }    
+                                        },                                           
+                                        2: {
+                                            defaultValue: '{institution.mbbezirk.uid}'
+                                        },
+                                        3: {
+                                            defaultValue: '{institution.nummer}'       
+                                        },
+                                        4: {
+                                            defaultValue: '{institution.kurzbezeichnung}'
+                                        },
+                                        5: {
+                                            defaultValue: '{settings.art}'
+                                        },
+                                        6: {
+                                            defaultValue: '{institution.uid}'
+                                        }                               
+                                    }
+                                }
+                            }
+                        }"
+                    />                
+                  </f:then>
+                  <f:else>
+                  </f:else>
+                </f:if>                
+              </f:else>
+            </f:if>
+          </f:else>
+        </f:if>
+      </f:else>              
+	</f:if>
+</html>

@@ -1,0 +1,155 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+	<f:section name="content">
+		<f:flashMessages />		
+      	<f:if condition="{settings.art}==1">
+          <div class="card mt-5 mb-5">
+            <h5 class="card-header">Suche nach Ort</h5>
+              <f:form class="form-horizontal ms-3 me-3 mt-3 mb-3" method="post" action="search" name="suche" object="{suche}">
+                  <div class="form-group">                      
+                      <div class="col-sm-12">
+                          <f:form.textfield  id="bezeichnung" class="form-control" property="bezeichnung" />
+                      </div>
+                  </div>
+                  <div class="form-group mt-2">
+                      <div class="col-sm-12">
+                          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Ort"><i class="fas fa-search me-2"></i>Suchen</button> 
+                      </div>
+                  </div>
+              </f:form>
+            </div>
+            <div class="card mt-5 mb-5">
+              <h5 class="card-header">Erweiterte Schulsuche</h5>
+              <div class="card-body text-center">       
+              	<div class="btn-group flex-wrap" role="group" aria-label="btn-schulsuche">
+                  	<f:link.page pageUid="{settings.schulsuche.ausbildungsrichtung}" class="btn btn-outline-primary" additionalAttributes="{role:'button'}">Suche nach Ausbildungsrichtungen</f:link.page>					
+                  	<f:link.page pageUid="{settings.schulsuche.sprache}" class="btn btn-outline-primary" additionalAttributes="{role:'button'}">Suche nach Wahlpflichtangebot 2. Fremdsprache</f:link.page>
+                  	<f:link.page pageUid="{settings.schulsuche.vorklasse}" class="btn btn-outline-primary" additionalAttributes="{role:'button'}">Suche nach Vorklasse/Vorkurs</f:link.page>
+                  	<f:link.page pageUid="{settings.schulsuche.umkreis}" class="btn btn-outline-primary" additionalAttributes="{role:'button'}">Umkreissuche</f:link.page>
+				</div>
+              </div>
+            </div> 
+      	</f:if>
+      	<f:if condition="{settings.art}==2">
+          <f:asset.script identifier="vanilla_search-schule-script">
+            document.getElementById('schulart').onchange = changeListener;
+            function changeListener(){
+              var value = this.value
+                if (value == "1"){
+                  var op = document.getElementById('ausbildungsrichtung').getElementsByTagName('option');
+                  for (var i = 0; i < op.length; i++) {                    
+                    if (op[i].value == "2") {
+                      op[i].hidden = false;
+                    }
+                  }
+                }else if (value == "2"){
+                  var op = document.getElementById('ausbildungsrichtung').getElementsByTagName('option');
+                  for (var i = 0; i < op.length; i++) {                    
+                    if (op[i].value == "2") {
+                      op[i].hidden = true;
+                    }
+                  }
+                }
+              }
+          </f:asset.script>        
+          <h1>nach Ausbildungsrichtungen</h1>
+          <div class="mt-5 mb-5">
+              <f:form class="powermail_form powermail_form_1 form-horizontal align-items-center" method="post" action="search" name="suche" object="{suche}">
+				<div class="row mb-4">		
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="schulart">Schulart</label>
+					<f:form.select id="schulart" class="form-control" property="schulart" value="" options="{auswahlschulart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+<f:comment>                
+      				<div class="form-group col-md-4 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="jahrgangsstufe">Jahrgangsstufe</label>
+						<f:form.select id="jahrgangsstufe" class="form-control" property="jahrgangsstufe" value="" options="{auswahljahrgangsstufe}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte zuerst Schulart auswählen...." prependOptionValue="" required="true"/>
+					</div>
+</f:comment>  
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="ausbildungsrichtung">Ausbildungsrichtung (Mehrfachauswahl möglich)</label>
+						<f:form.select id="ausbildungsrichtung" class="form-control" property="ausbildungsrichtung" value="" options="{auswahlausbildungsrichtung}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte zuerst Schulart auswählen...." prependOptionValue="" required="true" multiple="true"/>
+					</div>
+				</div>
+                <f:render partial="Institution/Searchform_Regierungsbezirke" arguments="{regierungsbezirke:regierungsbezirke}" />
+                <f:render partial="Institution/Searchform_Schulstatus" arguments="{stati:stati}" />
+                <div class="form-group mt-4">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Ausbildungsrichtung"><i class="fas fa-search me-2"></i>Suchen</button>                         
+                  </div>
+                </div>                
+              </f:form>
+          </div>          
+      </f:if>
+      	<f:if condition="{settings.art}==3">
+          <h1>nach Wahlpflichtangebot 2. Fremdsprache</h1>
+          <div class="mt-5 mb-5">
+              <f:form class="powermail_form powermail_form_1 form-horizontal" method="post" action="search" name="suche" object="{suche}">
+				<div class="row mb-6">		
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="sprache">Sprache</label>
+						<f:form.select id="sprache" class="form-control" property="sprache" value="" options="{auswahlsprache}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte Sprache auswählen...." prependOptionValue="" required="true"/>
+					</div>	
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="jahrgangsstufe">Jahrgangsstufe</label>
+						<f:form.select id="jahrgangsstufe" class="form-control" property="jahrgangsstufe" value="" options="{auswahljahrgangsstufe}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte Jahrgangsstufe auswählen...." prependOptionValue="" required="true"/>
+					</div>                  
+				</div>
+                <f:render partial="Institution/Searchform_Regierungsbezirke" arguments="{regierungsbezirke:regierungsbezirke}" />
+                <f:render partial="Institution/Searchform_Schulstatus" arguments="{stati:stati}" />
+                <div class="form-group mt-4">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Wahlpflichtangebot 2. Fremdsprache"><i class="fas fa-search me-2"></i>Suchen</button>         
+                  </div>
+                </div>                
+              </f:form>
+          </div>          
+      </f:if>
+      	<f:if condition="{settings.art}==4">
+          <h1>nach Vorklasse/Vorkurs</h1>
+          <div class="mt-5 mb-5">
+              <f:form class="powermail_form powermail_form_1 form-horizontal" method="post" action="search" name="suche" object="{suche}">
+				<div class="row mb-6">		
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="sprache">Schulart</label>
+						<f:form.select id="schulart" class="form-control" property="schulart" value="" options="{auswahlschulart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte die Schulart auswählen...." prependOptionValue="" required="true"/>
+					</div>	
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="vorart">Vorklasse/Vorkurs</label>
+						<f:form.select id="vorart" class="form-control" property="vorart" value="" options="{1:'Vorkurs',2:'Vorklasse'}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>                  
+				</div>
+                <f:render partial="Institution/Searchform_Regierungsbezirke" arguments="{regierungsbezirke:regierungsbezirke}" />
+                <f:render partial="Institution/Searchform_Schulstatus" arguments="{stati:stati}" />
+                <div class="form-group mt-4">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Wahlpflichtangebot 2. Fremdsprache"><i class="fas fa-search me-2"></i>Suchen</button>         
+                  </div>
+                </div>                
+              </f:form>
+          </div>          
+      </f:if>
+      	<f:if condition="{settings.art}==5">
+          <h1>im Umkreis</h1>
+          <div class="mt-5 mb-5">
+              <f:form class="powermail_form powermail_form_1 form-horizontal" method="post" action="search" name="suche" object="{suche}">
+                  <div class="form-group row">                      
+                      <div class="col-md-6">
+                        	<label for="plz">Bitte geben Sie Ihre Postleitzahl ein.</label>	
+                          	<f:form.textfield  id="plz" class="form-control" property="plz" required="true"/>
+                      </div>
+					<div class="col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="umkreis">Umkreis (in km)</label>
+						<f:form.select id="umkreis" class="form-control" property="umkreis" value="" options="{1:'10',2:'20',3:'30',4:'40',5:'50'}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>                    
+                  </div>
+                <div class="form-group mt-4">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche im Umkreis"><i class="fas fa-search me-2"></i>Suchen</button>      
+                  </div>
+                </div>                
+              </f:form>
+          </div>          
+      </f:if>      
+	</f:section>
+</html>

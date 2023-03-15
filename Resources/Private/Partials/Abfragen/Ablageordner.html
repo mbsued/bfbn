@@ -1,0 +1,236 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:if condition="{institution.mbbezirk.uid}==1">
+      <f:then>
+        <f:if condition="{art}==1">
+          <f:then>
+        	<f:form.hidden property="pid" value="{settings.ergaenzungspruefung.ordnernord}" />            
+          </f:then>
+          <f:else>
+            <f:if condition="{art}==2">
+              <f:then>
+                <f:form.hidden property="pid" value="{settings.schulfremde.ordnernord}" />            
+              </f:then>
+              <f:else>
+                <f:if condition="{art}==3">
+                  <f:then>
+                    <f:form.hidden property="pid" value="{settings.aufgabenauswahl.ordnernord}" />            
+                  </f:then>
+                  <f:else>
+                    <f:if condition="{art}==4">
+                      <f:then>
+                        <f:form.hidden property="pid" value="{settings.neubestellung.ordnernord}" />            
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{art}==5">
+                          <f:then>
+                            <f:form.hidden property="pid" value="{settings.maerz.ordnernord}" />            
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{art}==6">
+                              <f:then>
+                                <f:form.hidden property="pid" value="{settings.abschluss.ordnernord}" />            
+                              </f:then>
+                              <f:else>                                
+                              </f:else>
+                            </f:if>                            
+                          </f:else>
+                        </f:if>                        
+                      </f:else>
+                    </f:if>                    
+                  </f:else>
+                </f:if>                
+              </f:else>
+            </f:if>            
+          </f:else>
+        </f:if>
+      </f:then>
+      <f:else>
+        <f:if condition="{institution.mbbezirk.uid}==2">
+          <f:then>
+            <f:if condition="{art}==1">
+              <f:then>
+                <f:form.hidden property="pid" value="{settings.ergaenzungspruefung.ordnerost}" />            
+              </f:then>
+              <f:else>
+                <f:if condition="{art}==2">
+                  <f:then>
+                    <f:form.hidden property="pid" value="{settings.schulfremde.ordnerost}" />            
+                  </f:then>
+                  <f:else>
+                    <f:if condition="{art}==3">
+                      <f:then>
+                        <f:form.hidden property="pid" value="{settings.aufgabenauswahl.ordnerost}" />            
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{art}==4">
+                          <f:then>
+                            <f:form.hidden property="pid" value="{settings.neubestellung.ordnerost}" />            
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{art}==5">
+                              <f:then>
+                                <f:form.hidden property="pid" value="{settings.maerz.ordnerost}" />            
+                              </f:then>
+                              <f:else>
+                                <f:if condition="{art}==6">
+                                  <f:then>
+                                    <f:form.hidden property="pid" value="{settings.abschluss.ordnerost}" />            
+                                  </f:then>
+                                  <f:else>                               
+                                  </f:else>
+                                </f:if>                            
+                              </f:else>
+                            </f:if>                        
+                          </f:else>
+                        </f:if>                    
+                      </f:else>
+                    </f:if>                
+                  </f:else>
+                </f:if>            
+              </f:else>
+            </f:if>
+          </f:then>
+          <f:else>
+            <f:if condition="{institution.mbbezirk.uid}==3">
+              <f:then>
+                <f:if condition="{art}==1">
+                  <f:then>
+                    <f:form.hidden property="pid" value="{settings.ergaenzungspruefung.ordnersued}" />            
+                  </f:then>
+                  <f:else>
+                    <f:if condition="{art}==2">
+                      <f:then>
+                        <f:form.hidden property="pid" value="{settings.schulfremde.ordnersued}" />            
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{art}==3">
+                          <f:then>
+                            <f:form.hidden property="pid" value="{settings.aufgabenauswahl.ordnersued}" />            
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{art}==4">
+                              <f:then>
+                                <f:form.hidden property="pid" value="{settings.neubestellung.ordnersued}" />            
+                              </f:then>
+                              <f:else>
+                                <f:if condition="{art}==5">
+                                  <f:then>
+                                    <f:form.hidden property="pid" value="{settings.maerz.ordnersued}" />            
+                                  </f:then>
+                                  <f:else>
+                                    <f:if condition="{art}==6">
+                                      <f:then>
+                                        <f:form.hidden property="pid" value="{settings.abschluss.ordnersued}" />            
+                                      </f:then>
+                                      <f:else>
+                                      </f:else>
+                                    </f:if>                            
+                                  </f:else>
+                                </f:if>                        
+                              </f:else>
+                            </f:if>                    
+                          </f:else>
+                        </f:if>                
+                      </f:else>
+                    </f:if>            
+                  </f:else>
+                </f:if>
+              </f:then>
+              <f:else>
+                <f:if condition="{institution.mbbezirk.uid}==4">
+                  <f:then>
+                    <f:if condition="{art}==1">
+                      <f:then>
+                        <f:form.hidden property="pid" value="{settings.ergaenzungspruefung.ordnerwest}" />            
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{art}==2">
+                          <f:then>
+                            <f:form.hidden property="pid" value="{settings.schulfremde.ordnerwest}" />            
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{art}==3">
+                              <f:then>
+                                <f:form.hidden property="pid" value="{settings.aufgabenauswahl.ordnerwest}" />            
+                              </f:then>
+                              <f:else>
+                                <f:if condition="{art}==4">
+                                  <f:then>
+                                    <f:form.hidden property="pid" value="{settings.neubestellung.ordnerwest}" />            
+                                  </f:then>
+                                  <f:else>
+                                    <f:if condition="{art}==5">
+                                      <f:then>
+                                        <f:form.hidden property="pid" value="{settings.maerz.ordnerwest}" />            
+                                      </f:then>
+                                      <f:else>
+                                        <f:if condition="{art}==6">
+                                          <f:then>
+                                            <f:form.hidden property="pid" value="{settings.abschluss.ordnerwest}" />            
+                                          </f:then>
+                                          <f:else>                                          
+                                          </f:else>
+                                        </f:if>                            
+                                      </f:else>
+                                    </f:if>                        
+                                  </f:else>
+                                </f:if>                    
+                              </f:else>
+                            </f:if>                
+                          </f:else>
+                        </f:if>            
+                      </f:else>
+                    </f:if>
+                  </f:then>
+                  <f:else>
+                    <f:if condition="{art}==1">
+                      <f:then>
+                        <f:form.hidden property="pid" value="{settings.ergaenzungspruefung.ordnerstandard}" />            
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{art}==2">
+                          <f:then>
+                            <f:form.hidden property="pid" value="{settings.schulfremde.ordnerstandard}" />            
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{art}==3">
+                              <f:then>
+                                <f:form.hidden property="pid" value="{settings.aufgabenauswahl.ordnerstandard}" />            
+                              </f:then>
+                              <f:else>
+                                <f:if condition="{art}==4">
+                                  <f:then>
+                                    <f:form.hidden property="pid" value="{settings.neubestellung.ordnerstandard}" />            
+                                  </f:then>
+                                  <f:else>
+                                    <f:if condition="{art}==5">
+                                      <f:then>
+                                        <f:form.hidden property="pid" value="{settings.maerz.ordnerstandard}" />            
+                                      </f:then>
+                                      <f:else>
+                                        <f:if condition="{art}==6">
+                                          <f:then>
+                                            <f:form.hidden property="pid" value="{settings.abschluss.ordnerstandard}" />            
+                                          </f:then>
+                                          <f:else>                                             
+                                          </f:else>
+                                        </f:if>                            
+                                      </f:else>
+                                    </f:if>                        
+                                  </f:else>
+                                </f:if>                    
+                              </f:else>
+                            </f:if>                
+                          </f:else>
+                        </f:if>            
+                      </f:else>
+                    </f:if>
+                  </f:else>
+                </f:if>
+              </f:else>
+            </f:if>
+          </f:else>
+        </f:if>                    
+      </f:else>
+  </f:if>
+</html>

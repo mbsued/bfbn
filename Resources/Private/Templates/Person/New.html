@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>Neuer Ansprechpartner</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="create" name="person" object="{person}" arguments="{funktion : funktion}">
+	
+		<div class="card mt-3">
+			<div class="card-header">Neuer Ansprechpartner für {institution.kurzbezeichnung}
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="amtsbezeichnung">Amtsbezeichnung</label>
+						<f:form.textfield class="form-control" property="amtsbezeichnung" value="{person.amtsbezeichnung}" />
+					</div>
+					<div class="form-group col-md-2">
+						<label for="titel">Titel</label>
+						<f:form.textfield class="form-control" property="titel" value="{person.titel}" />
+					</div>					
+					<div class="form-group col-md-3">
+						<label for="vorname">Vorname</label>
+						<f:form.textfield class="form-control" property="vorname" value="{person.vorname}" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="vorname">Nachname</label>
+						<f:form.textfield class="form-control" property="nachname" value="{person.nachname}" />
+					</div>
+					<div class="form-group col-md-2">
+						<label for="geschlecht">Geschlecht</label>
+						<f:form.select class="form-control" property="geschlecht" value="{person.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>						
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+					<f:form.submit class="btn btn-primary"  value="Speichern" />
+					<f:form.hidden name="institution" value="{institution}" />
+					<f:form.hidden name="funktion" value="{funktion}" />
+					<f:form.hidden property="pid" value="57" />
+				</div>
+			</div>
+		</div>
+    </f:form>
+</f:section>
+</html>

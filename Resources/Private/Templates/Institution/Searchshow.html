@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+<f:form.validationResults>
+  <f:if condition="{validationResults.flattenedErrors}">
+    <ul class="errors">
+      <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+        <li>{propertyPath}
+          <ul>
+          <f:for each="{errors}" as="error">
+            <li>{error.code}: {error}</li>
+          </f:for>
+          </ul>
+        </li>
+      </f:for>
+    </ul>
+  </f:if>
+</f:form.validationResults>    
+    <f:flashMessages />	
+	<h1>{institution.bezeichnung}{f:if(condition: '{institution.status.uid}==4', then: '&nbsp(staatlich genehmigt)', else: '')}</h1>
+    <f:render partial="Institution/Detail_Kontakt" arguments="{institution:institution, settings:settings}" />
+    <f:render partial="Institution/Detail_Ansprechpartner" arguments="{institution:institution}" />	
+	<f:render partial="Institution/Detail_Ausbildungsrichtungen" arguments="{institution:institution}" />
+    <a class="btn btn-primary mb-3 mt-3" role="button" href="javascript:history.back();">Zurück zur Übersicht</a><br />
+
+</f:section>
+</html>

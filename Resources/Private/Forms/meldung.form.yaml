@@ -1,0 +1,156 @@
+
+renderingOptions:
+  templateVariant: version2
+  submitButtonLabel: Absenden
+type: Form
+identifier: meldung
+label: Meldung
+prototypeName: standard
+finishers:
+  -
+    options:
+      templateName: Meldung
+      subject: 'Meldung der Schule'
+      recipients: null
+      senderAddress: mail@bfbn.de
+      senderName: FOSBOS-Netz
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: Standard
+      useFluidEmail: true
+      title: 'FOSBOS-Netz Meldung'
+    identifier: EmailToReceiver
+  -
+    options:
+      message: ''
+      contentElementUid: '686'
+    identifier: Confirmation
+  -
+    options:
+      -
+        table: tx_bfbn_domain_model_meldung
+        mode: insert
+        elements:
+          datei:
+            mapOnDatabaseColumn: datei
+          meldungart:
+            mapOnDatabaseColumn: art
+          institution:
+            mapOnDatabaseColumn: institution
+        databaseColumnMappings:
+          pid:
+            value: 163
+          tstamp:
+            value: '{__currentTimestamp}'
+          crdate:
+            value: '{__currentTimestamp}'
+          hidden:
+            value: 0
+          deleted:
+            value: 0
+      -
+        table: sys_file_reference
+        mode: insert
+        elements:
+          datei:
+            mapOnDatabaseColumn: uid_local
+        databaseColumnMappings:
+          pid:
+            value: 163
+          table_local:
+            value: sys_file
+          tablenames:
+            value: tx_bfbn_domain_model_meldung
+          fieldname:
+            value: datei
+          tstamp:
+            value: '{__currentTimestamp}'
+          crdate:
+            value: '{__currentTimestamp}'
+          uid_foreign:
+            value: '{SaveToDatabase.insertedUids.0}'
+    identifier: SaveToDatabase
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Vorherige Seite'
+      nextButtonLabel: 'Nächster Schritt'
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        properties:
+          text: 'Bitte laden Sie hier die die Datei hoch.'
+        type: StaticText
+        identifier: statictext-1
+        label: ''
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Zeile'
+        renderables:
+          -
+            properties:
+              saveToFileMount: '2:/bayern/upload/'
+              allowedMimeTypes:
+                - application/octet-stream
+                - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                - text/xml
+              fluidAdditionalAttributes:
+                required: required
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  lg:
+                    numbersOfColumnsToUse: '12'
+            type: FileUpload
+            identifier: datei
+            label: 'Datei hochladen'
+            validators:
+              -
+                identifier: NotEmpty
+              -
+                options:
+                  minimum: 0B
+                  maximum: 10M
+                identifier: FileSize
+              -
+                options:
+                  teil1: tp
+                  teil2: nnnn
+                  teil3: maerzstatistik
+                  teil4: '2022'
+                  fileext: xlsx
+                identifier: Filename
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: bezirk
+        label: bezirk
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: schulnummer
+        label: schulnummer
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: schulbezeichnung
+        label: schulbezeichnung
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: meldungart
+        label: 'Art der Meldung'
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: institution
+        label: Institution

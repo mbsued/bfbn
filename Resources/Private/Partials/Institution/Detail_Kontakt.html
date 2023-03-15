@@ -1,0 +1,69 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:asset.script identifier="bfbn-karte" src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js" />
+<f:asset.css identifier="bfbn-karte" href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" />
+
+<f:asset.script identifier="vanilla_bfbn-karte-script">
+	mapboxgl.accessToken = 'pk.eyJ1IjoibWJzdWVkIiwiYSI6ImNrcG1nOXF5cDAwZGQydm1sYmRxMWlwcDMifQ.gCeXh6f7Hi9RKudCHdJe4Q';
+	let markercolor = '#005478'  
+  
+	var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v12',
+		center: [{institution.laengengrad},{institution.breitengrad}],
+		zoom: 15
+	});
+	var marker = new mapboxgl.Marker({color: markercolor})
+		.setLngLat([{institution.laengengrad},{institution.breitengrad}])
+		.setPopup(new mapboxgl.Popup({closeButton: false, maxWidth: '200px'}).setHTML("<h6>{institution.bezeichnung}</h6>")) // add popup
+		.addTo(map);
+  
+  	marker.togglePopup(); // toggle popup open or closed
+	map.addControl(new mapboxgl.NavigationControl());
+  
+</f:asset.script>    
+
+<div class="row">
+	<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+		<div class="card mt-3">
+		  <div class="card-header">
+			Kontaktdaten
+		  </div>
+		  <div class="card-body">	
+			<ul class="list-group list-group-flush eingerueckt">
+				<li class="list-group-item"><i class="fas fa-school fa-fw me-3"></i>{institution.bezeichnung}<br />{institution.strasse}<br />{institution.plz}&nbsp;{institution.ort}</li>
+				<li class="list-group-item"><i class="fas fa-phone fa-fw me-3"></i>{institution.telefon}</li>
+				<li class="list-group-item"><i class="fas fa-fax fa-fw me-3"></i>{institution.fax}</li>
+				<li class="list-group-item"><i class="fas fa-envelope fa-fw me-3"></i><f:link.email email="{institution.email}" title="E-Mail an {institution.kurzbezeichnung} schreiben.">{institution.email}</f:link.email></li>
+				<li class="list-group-item"><i class="fas fa-globe fa-fw me-3"></i><f:link.external uri="{institution.homepage}" target="_blank" title="Externer Link zur Schule ({institution.kurzbezeichnung})">{institution.homepage}</f:link.external></li>
+				<f:if condition="{institution.art.uid} > 1">
+                  <f:if condition="{institution.mbbezirk.uid} == 1">
+					<li class="list-group-item"><i class="fas fa-list-ul fa-fw me-3"></i><f:link.page pageUid="{settings.mblink.nordbayern}" title="Link zur Seite MB-Dienststelle Nordbayern">MB-Bezirk Nordbayern</f:link.page></li>
+                  </f:if> 
+                  <f:if condition="{institution.mbbezirk.uid} == 2">
+					<li class="list-group-item"><i class="fas fa-list-ul fa-fw me-3"></i><f:link.page pageUid="{settings.mblink.ostbayern}" title="Link zur Seite MB-Dienststelle Ostbayern">MB-Bezirk Ostbayern</f:link.page></li>
+                  </f:if>
+                  <f:if condition="{institution.mbbezirk.uid} == 3">
+					<li class="list-group-item"><i class="fas fa-list-ul fa-fw me-3"></i><f:link.page pageUid="{settings.mblink.suedbayern}" title="Link zur Seite MB-Dienststelle Südbayern">MB-Bezirk Südbayern</f:link.page></li>
+                  </f:if>
+                  <f:if condition="{institution.mbbezirk.uid} == 4">
+					<li class="list-group-item"><i class="fas fa-list-ul fa-fw me-3"></i><f:link.page pageUid="{settings.mblink.westbayern}" title="Link zur Seite MB-Dienststelle Westbayern">MB-Bezirk Westbayern</f:link.page></li>
+                  </f:if>                  
+				</f:if>	
+			</ul>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+		<div class="card mt-3">
+		  <div class="card-header">
+			Lage
+		  </div>
+		  <div class="card-body">
+			<div class="card-text" id="map" style="height: 300px; width: 100%;"></div>
+		  </div>
+		</div>
+	</div>
+</div>
+</html>

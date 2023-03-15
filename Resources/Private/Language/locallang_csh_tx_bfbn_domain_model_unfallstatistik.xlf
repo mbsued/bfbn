@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_csh" date="2022-09-27T14:51:00Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="schueler.description" resname="schueler.description">
+				<source>Schülerzahl</source>
+			</trans-unit>
+			<trans-unit id="unterricht.description" resname="unterricht.description">
+				<source>Unterricht</source>
+			</trans-unit>
+			<trans-unit id="sport.description" resname="sport.description">
+				<source>Sport</source>
+			</trans-unit>			
+			<trans-unit id="pause.description" resname="pause.description">
+				<source>Pause</source>
+			</trans-unit>
+			<trans-unit id="schulweg.description" resname="schulweg.description">
+				<source>Schulweg</source>
+			</trans-unit>
+			<trans-unit id="schulwegpolizei.description" resname="schulwegpolizei.description">
+				<source>polizeilich erfasst</source>
+			</trans-unit>			
+			<trans-unit id="sonstige.description" resname="sonstige.description">
+				<source>Sonstige</source>
+			</trans-unit>			
+			<trans-unit id="institution.description" resname="institution.description">
+				<source>Institution</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

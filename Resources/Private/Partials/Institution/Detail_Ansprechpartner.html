@@ -1,0 +1,94 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  {namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<div class="row">
+	<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+		<f:if condition="{institution.art.uid} == 1">
+          <f:then>
+            <div class="card mt-3 mb-3">
+          </f:then>
+          <f:else>
+            <div class="card mt-3">
+          </f:else>
+        </f:if>
+			
+		  <div class="card-header">
+			Ansprechpartner
+		  </div>
+		  <div class="card-body">
+			<div class="card-text">
+				<div class="row">
+				<f:if condition="{institution.art.uid} == 1">
+					<f:then>
+						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+							<f:render section="MB1" arguments="{institution: institution}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 6, ueberschrifttext: 'Mitarbeiterinnen und Mitarbeiter'}" />	
+						</div>
+						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+							<f:render section="MB2" arguments="{institution: institution, uid: 8, ueberschrifttext: 'Verwaltung'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 7, ueberschrifttext: 'Sekretariat'}" />
+						</div>
+					</f:then>
+					<f:else>
+						<div class="col-xl-6 col-lg-6 col-md-6 col-12">							
+							<f:render section="MB2" arguments="{institution: institution, uid: 1, ueberschrifttext: 'Schulleitung'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung'}" />							
+						</div>
+						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+							<f:render section="MB2" arguments="{institution: institution, uid: 3, ueberschrifttext: 'Sekretariat'}" />
+						</div>						
+					</f:else>
+				</f:if>
+				</div>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>
+</html>
+
+<f:section name="MB1">
+	<f:for each="{institution.personen}" as="person" iteration="personIteration">
+		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
+			<f:if condition="{funktion.uid} == 4">
+				<f:if condition="{person.geschlecht.uid} == 2">
+					<f:then>
+						<div class="mt-2"><i>Ministerialbeauftragte</i></div>
+					</f:then>
+					<f:else>
+						<div class="mt-2"><i>Ministerialbeauftragter</i></div>
+					</f:else>
+				</f:if>
+				<div><i class="fas fa-user fa-fw me-3"></i>{f:if(condition:'{person.amtsbezeichnung}', then:'{person.amtsbezeichnung}&nbsp;')}{f:if(condition:'{person.titel}', then:'{person.titel}&nbsp;')}{person.vorname}&nbsp;{person.nachname}</div>
+			</f:if>
+			<f:if condition="{funktion.uid} == 5">
+				<f:if condition="{person.geschlecht.uid} == 2">
+					<f:then>
+						<div class="mt-2"><i>Stellvertreterin</i></div>
+					</f:then>
+					<f:else>
+						<div class="mt-2"><i>Stellvertreter</i></div>
+					</f:else>
+				</f:if>
+				<div><i class="fas fa-user fa-fw me-3"></i>{f:if(condition:'{person.amtsbezeichnung}', then:'{person.amtsbezeichnung}&nbsp;')}{f:if(condition:'{person.titel}', then:'{person.titel}&nbsp;')}{person.vorname}&nbsp;{person.nachname}</div>
+			</f:if>			
+		</f:for>
+	</f:for>
+</f:section>
+
+<f:section name="MB2">
+	<f:variable name="ueberschrift" value="Nein" />
+	<f:for each="{institution.personen -> v:iterator.sort(sortBy: 'nachname')}" as="person" iteration="personIteration">
+		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
+			<f:if condition="{funktion.uid} == {uid}">
+				<f:if condition="{ueberschrift} == 'Nein'">
+					<f:then>
+						<div class="mt-2"><i>{ueberschrifttext}</i></div>
+						<f:variable name="ueberschrift" value="Ja" />	
+					</f:then>
+				</f:if>
+				<div><i class="fas fa-user fa-fw me-3"></i>{f:if(condition:'{person.amtsbezeichnung}', then:'{person.amtsbezeichnung}&nbsp;')}{f:if(condition:'{person.titel}', then:'{person.titel}&nbsp;')}{person.vorname}&nbsp;{person.nachname}</div>
+			</f:if>
+		</f:for>
+	</f:for>
+</f:section>

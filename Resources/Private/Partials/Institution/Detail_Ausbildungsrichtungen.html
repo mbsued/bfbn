@@ -1,0 +1,766 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:variable name="abufos11">0</f:variable>
+<f:variable name="abufos12">0</f:variable>
+<f:variable name="abufos13">0</f:variable>
+<f:variable name="abubos12">0</f:variable>
+<f:variable name="abubos13">0</f:variable>
+<f:variable name="gstfos11">0</f:variable>
+<f:variable name="gstfos12">0</f:variable>
+<f:variable name="gstfos13">0</f:variable>
+<f:variable name="gesfos11">0</f:variable>
+<f:variable name="gesfos12">0</f:variable>
+<f:variable name="gesfos13">0</f:variable>
+<f:variable name="gesbos12">0</f:variable>
+<f:variable name="gesbos13">0</f:variable>
+<f:variable name="iwifos11">0</f:variable>
+<f:variable name="iwifos12">0</f:variable>
+<f:variable name="iwifos13">0</f:variable>
+<f:variable name="iwibos12">0</f:variable>
+<f:variable name="iwibos13">0</f:variable>
+<f:variable name="sozfos11">0</f:variable>
+<f:variable name="sozfos12">0</f:variable>
+<f:variable name="sozfos13">0</f:variable>
+<f:variable name="sozbos12">0</f:variable>
+<f:variable name="sozbos13">0</f:variable>
+<f:variable name="tecfos11">0</f:variable>
+<f:variable name="tecfos12">0</f:variable>
+<f:variable name="tecfos13">0</f:variable>
+<f:variable name="tecbos12">0</f:variable>
+<f:variable name="tecbos13">0</f:variable>
+<f:variable name="wuvfos11">0</f:variable>
+<f:variable name="wuvfos12">0</f:variable>
+<f:variable name="wuvfos13">0</f:variable>
+<f:variable name="wuvbos12">0</f:variable>
+<f:variable name="wuvbos13">0</f:variable>
+
+<f:variable name="abufos11g">0</f:variable>
+<f:variable name="abufos12g">0</f:variable>
+<f:variable name="abufos13g">0</f:variable>
+<f:variable name="abubos12g">0</f:variable>
+<f:variable name="abubos13g">0</f:variable>
+<f:variable name="gstfos11g">0</f:variable>
+<f:variable name="gstfos12g">0</f:variable>
+<f:variable name="gstfos13g">0</f:variable>
+<f:variable name="gesfos11g">0</f:variable>
+<f:variable name="gesfos12g">0</f:variable>
+<f:variable name="gesfos13g">0</f:variable>
+<f:variable name="gesbos12g">0</f:variable>
+<f:variable name="gesbos13g">0</f:variable>
+<f:variable name="iwifos11g">0</f:variable>
+<f:variable name="iwifos12g">0</f:variable>
+<f:variable name="iwifos13g">0</f:variable>
+<f:variable name="iwibos12g">0</f:variable>
+<f:variable name="iwibos13g">0</f:variable>
+<f:variable name="sozfos11g">0</f:variable>
+<f:variable name="sozfos12g">0</f:variable>
+<f:variable name="sozfos13g">0</f:variable>
+<f:variable name="sozbos12g">0</f:variable>
+<f:variable name="sozbos13g">0</f:variable>
+<f:variable name="tecfos11g">0</f:variable>
+<f:variable name="tecfos12g">0</f:variable>
+<f:variable name="tecfos13g">0</f:variable>
+<f:variable name="tecbos12g">0</f:variable>
+<f:variable name="tecbos13g">0</f:variable>
+<f:variable name="wuvfos11g">0</f:variable>
+<f:variable name="wuvfos12g">0</f:variable>
+<f:variable name="wuvfos13g">0</f:variable>
+<f:variable name="wuvbos12g">0</f:variable>
+<f:variable name="wuvbos13g">0</f:variable>
+
+<f:variable name="bezausb">XXXXX</f:variable>
+<f:variable name="bezsprache">XXXXX</f:variable>
+<f:variable name="ausb">0</f:variable>
+
+<f:variable name="f12">0</f:variable>
+<f:variable name="f13">0</f:variable>
+<f:variable name="i12">0</f:variable>
+<f:variable name="i13">0</f:variable>
+<f:variable name="l12">0</f:variable>
+<f:variable name="l13">0</f:variable>
+<f:variable name="r12">0</f:variable>
+<f:variable name="r13">0</f:variable>
+<f:variable name="s12">0</f:variable>
+<f:variable name="s13">0</f:variable>
+<f:variable name="ff">0</f:variable>
+<f:variable name="sff">0</f:variable>
+  
+<f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
+	<f:if condition="{ausbildungsrichtung.uid} == 1">
+		<f:variable name="abufos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 2">
+		<f:variable name="abufos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 3">
+		<f:variable name="abufos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 4">
+		<f:variable name="abubos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 5">
+		<f:variable name="abubos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 6">
+		<f:variable name="gstfos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 7">
+		<f:variable name="gstfos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 8">
+		<f:variable name="gstfos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 9">
+		<f:variable name="gesfos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 10">
+		<f:variable name="gesfos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 11">
+		<f:variable name="gesfos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 12">
+		<f:variable name="gesbos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 13">
+		<f:variable name="gesbos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 14">
+		<f:variable name="iwifos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 15">
+		<f:variable name="iwifos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 16">
+		<f:variable name="iwifos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 17">
+		<f:variable name="iwibos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 18">
+		<f:variable name="iwibos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 19">
+		<f:variable name="sozfos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 20">
+		<f:variable name="sozfos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 21">
+		<f:variable name="sozfos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 22">
+		<f:variable name="sozbos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 23">
+		<f:variable name="sozbos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 24">
+		<f:variable name="tecfos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 25">
+		<f:variable name="tecfos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 26">
+		<f:variable name="tecfos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 27">
+		<f:variable name="tecbos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 28">
+		<f:variable name="tecbos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 29">
+		<f:variable name="wuvfos11">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 30">
+		<f:variable name="wuvfos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 31">
+		<f:variable name="wuvfos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 32">
+		<f:variable name="wuvbos12">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 33">
+		<f:variable name="wuvbos13">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 34">
+		<f:variable name="abufos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 35">
+		<f:variable name="abufos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 36">
+		<f:variable name="abufos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 37">
+		<f:variable name="abubos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 38">
+		<f:variable name="abubos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 39">
+		<f:variable name="gstfos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 40">
+		<f:variable name="gstfos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 41">
+		<f:variable name="gstfos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 42">
+		<f:variable name="gesfos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 43">
+		<f:variable name="gesfos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 44">
+		<f:variable name="gesfos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 45">
+		<f:variable name="gesbos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 46">
+		<f:variable name="gesbos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 47">
+		<f:variable name="iwifos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 48">
+		<f:variable name="iwifos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 49">
+		<f:variable name="iwifos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 50">
+		<f:variable name="iwibos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 51">
+		<f:variable name="iwibos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 52">
+		<f:variable name="sozfos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 53">
+		<f:variable name="sozfos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 54">
+		<f:variable name="sozfos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 55">
+		<f:variable name="sozbos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 56">
+		<f:variable name="sozbos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 57">
+		<f:variable name="tecfos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 58">
+		<f:variable name="tecfos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 59">
+		<f:variable name="tecfos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 60">
+		<f:variable name="tecbos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 61">
+		<f:variable name="tecbos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 62">
+		<f:variable name="wuvfos11g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 63">
+		<f:variable name="wuvfos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 64">
+		<f:variable name="wuvfos13g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 65">
+		<f:variable name="wuvbos12g">1</f:variable>
+	</f:if>
+	<f:if condition="{ausbildungsrichtung.uid} == 66">
+		<f:variable name="wuvbos13g">1</f:variable>
+	</f:if>			
+</f:for>
+
+<f:for each="{institution.sprachen}" as="sprache">
+	<f:if condition="{sprache.uid} == 1">
+		<f:variable name="f12">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 2">
+		<f:variable name="f13">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 3">
+		<f:variable name="i12">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 4">
+		<f:variable name="i13">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 5">
+		<f:variable name="l12">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 6">
+		<f:variable name="l13">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 7">
+		<f:variable name="r12">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 8">
+		<f:variable name="r13">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 9">
+		<f:variable name="s12">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 10">
+		<f:variable name="s13">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 11">
+		<f:variable name="ff">1</f:variable>
+	</f:if>
+	<f:if condition="{sprache.uid} == 12">
+		<f:variable name="sff">1</f:variable>
+	</f:if>	
+</f:for>
+
+<div class="row">
+	<f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 3">
+		<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+			<div class="card mt-3">
+			  <div class="card-header">
+				Ausbildungsrichtungen Fachoberschule
+			  </div>
+			  <div class="card-body">
+				<div class="card-text">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+							  <th scope="col"></th>
+							  <th class="text-center" scope="col">11</th>
+							  <th class="text-center" scope="col">12</th>
+							  <th class="text-center" scope="col">13</th>
+							</tr>
+						</thead>
+						<tbody>
+						<f:variable name="bezausb">Agrarwirtschaft</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: abufos11, fos12: abufos12, fos13: abufos13, fos11g: abufos11g, fos12g: abufos12g, fos13g: abufos13g, bezeichnung: bezausb, ausb: 1}" />
+						<f:variable name="bezausb">Gestaltung</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: gstfos11, fos12: gstfos12, fos13: gstfos13, fos11g: gstfos11g, fos12g: gstfos12g, fos13g: gstfos13g, bezeichnung: bezausb, ausb: 2}" />	
+						<f:variable name="bezausb">Gesundheit</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: gesfos11, fos12: gesfos12, fos13: gesfos13, fos11g: gesfos11g, fos12g: gesfos12g, fos13g: gesfos13g, bezeichnung: bezausb, ausb: 2}" />
+						<f:variable name="bezausb">Int. Wirtschaft</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: iwifos11, fos12: iwifos12, fos13: iwifos13, fos11g: iwifos11g, fos12g: iwifos12g, fos13g: iwifos13g, bezeichnung: bezausb, ausb: 4}" />
+						<f:variable name="bezausb">Sozialwesen</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: sozfos11, fos12: sozfos12, fos13: sozfos13, fos11g: sozfos11g, fos12g: sozfos12g, fos13g: sozfos13g, bezeichnung: bezausb, ausb: 5}" />
+						<f:variable name="bezausb">Technik</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: tecfos11, fos12: tecfos12, fos13: tecfos13, fos11g: tecfos11g, fos12g: tecfos12g, fos13g: tecfos13g, bezeichnung: bezausb, ausb: 6}" />
+						<f:variable name="bezausb">Wirtschaft</f:variable>
+						<f:render section="Ausbfos" arguments="{fos11: wuvfos11, fos12: wuvfos12, fos13: wuvfos13, fos11g: wuvfos11g, fos12g: wuvfos12g, fos13g: wuvfos13g, bezeichnung: bezausb, ausb: 7}" />
+					  </tbody>
+					</table>
+					<f:if condition="{iwifos11} == 1 || {iwifos12} == 1 || {iwifos13} == 1 || {iwifos11g} == 1 || {iwifos12g} == 1 || {iwifos13g} == 1" >
+						<f:then>
+							<table class="table"><tr>
+							<f:if condition="{institution.sprachenintw}">
+								<f:then>
+									*Sprachenangebot: 
+									<f:for each="{institution.sprachenintw}" as="spracheintw" iteration="zaehler">
+										&nbsp;{spracheintw.bezeichnung}{f:if(condition: zaehler.isLast, then: '', else: ',')}
+									</f:for>	
+								</f:then>
+								<f:else>
+									*Das Sprachenangebot kann an der Schule erfragt werden.
+								</f:else>
+							</f:if>
+							</tr></table>
+						</f:then>
+					</f:if>					
+					<f:if condition="{institution.vorkursfos}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Vorkurs</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>
+					</f:if>
+					<f:if condition="{institution.vorklassefos}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Vorklasse</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>					
+					</f:if>
+					<f:if condition="{institution.ivk}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Integrationsvorklasse</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>					
+					</f:if>                  
+					<f:if condition="{institution.dbfh}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">DBFH</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>					
+					</f:if>
+					<f:if condition="{institution.vorkursfos}">
+                      <f:then>
+						<f:render section="Vorkurs" arguments="{art: '{institution.vorkursartfos.uid}', tag: '{institution.vorkurstagfos.uid}'}" />                   
+                      </f:then>
+                      <f:else>
+                      </f:else>						
+					</f:if>
+				</div>			  
+			  </div>
+			</div>
+		</div>
+	</f:if>	
+	<f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 4">
+		<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+			<div class="card mt-3">
+			  <div class="card-header">
+				Ausbildungsrichtungen Berufsoberschule
+			  </div>
+			  <div class="card-body">
+				<div class="card-text">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+							  <th scope="col"></th>
+							  <th class="text-center" scope="col">12</th>
+							  <th class="text-center" scope="col">13</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:variable name="bezausb">Agrarwirtschaft</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: abubos12, bos13: abubos13, bos12g: abubos12g, bos13g: abubos13g, bezeichnung: bezausb, ausb: 1}" />	
+							<f:variable name="bezausb">Gesundheit</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: gesbos12, bos13: gesbos13, bos12g: gesbos12g, bos13g: gesbos13g, bezeichnung: bezausb, ausb: 3}" />
+							<f:variable name="bezausb">Int. Wirtschaft</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: iwibos12, bos13: iwibos13, bos12g: iwibos12g, bos13g: iwibos13g, bezeichnung: bezausb, ausb: 4}" />
+							<f:variable name="bezausb">Sozialwesen</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: sozbos12, bos13: sozbos13, bos12g: sozbos12g, bos13g: sozbos13g, bezeichnung: bezausb, ausb: 5}" />
+							<f:variable name="bezausb">Technik</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: tecbos12, bos13: tecbos13, bos12g: tecbos12g, bos13g: tecbos13g, bezeichnung: bezausb, ausb: 6}" />
+							<f:variable name="bezausb">Wirtschaft</f:variable>
+							<f:render section="Ausbbos" arguments="{bos12: wuvbos12, bos13: wuvbos13, bos12g: wuvbos12g, bos13g: wuvbos13g, bezeichnung: bezausb, ausb: 7}" />
+						</tbody>					  
+					</table>
+					<f:if condition="{iwibos12} == 1 || {iwibos13} == 1 || {iwibos12g} == 1 || {iwibos13g} == 1" >
+						<f:then>
+							<table class="table"><tr>
+							<f:if condition="{institution.sprachenintw}">
+								<f:then>
+									*Sprachenangebot: 
+									<f:for each="{institution.sprachenintw}" as="spracheintw" iteration="zaehler">
+										&nbsp;{spracheintw.bezeichnung}{f:if(condition: zaehler.isLast, then: '', else: ',')}
+									</f:for>	
+								</f:then>
+								<f:else>
+									*Das Sprachenangebot kann an der Schule erfragt werden.
+								</f:else>
+							</f:if>
+							</tr></table>
+						</f:then>
+					</f:if>
+					<f:if condition="{institution.vorkursbos}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Vorkurs</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>
+					</f:if>
+					<f:if condition="{institution.vorklassebos}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Vorklasse</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>					
+					</f:if>
+                    <f:if condition="{institution.art.uid} == 4">
+                      <f:if condition="{institution.ivk}">
+                          <table class="table table-bordered">
+                              <tr>
+                                  <th scope="row">Integrationsvorklasse</th>
+                                  <td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+                              </tr>
+                          </table>					
+                      </f:if>                      
+                  	</f:if>                      
+					<f:if condition="{institution.bosteilzeit}">
+						<table class="table table-bordered">
+							<tr>
+								<th scope="row">Teilzeit</th>
+								<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>	
+							</tr>
+						</table>					
+					</f:if>
+					<f:if condition="{institution.vorkursbos}">
+                      <f:then>
+						<f:render section="Vorkurs" arguments="{art: '{institution.vorkursartbos.uid}', tag: '{institution.vorkurstagbos.uid}'}" />                   
+                      </f:then>
+                      <f:else>
+                      </f:else>						
+					</f:if>				
+				</div>
+			  </div>
+			</div>
+		</div>
+	</f:if>
+	<f:if condition="{institution.art.uid} == 2">
+		</div>
+		<div class="row">
+	</f:if>
+	<f:if condition="{f12} == 1 || {f13} == 1 || {i12} == 1 || {i13} == 1 || {l12} == 1 || {l13} == 1 || {r12} == 1 || {r13} == 1 || {s12} == 1 || {s13} == 1 || {ff} == 1">
+		<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+			<div class="card mt-3">
+			  <div class="card-header">
+				Zweite Fremdsprache (Wahlpflichtfachangebot)
+			  </div>
+			  <div class="card-body">	
+				<div class="card-text">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+							  <th scope="col"></th>
+							  <th class="text-center" scope="col">12</th>
+							  <th class="text-center" scope="col">13</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:variable name="bezsprache">Französisch</f:variable>
+							<f:render section="Sprache" arguments="{s1: f12, s2: f13, bezeichnung: bezsprache}" />	
+							<f:variable name="bezsprache">Italienisch</f:variable>
+							<f:render section="Sprache" arguments="{s1: i12, s2: i13, bezeichnung: bezsprache}" />
+							<f:variable name="bezsprache">Latein</f:variable>
+							<f:render section="Sprache" arguments="{s1: l12, s2: l13, bezeichnung: bezsprache}" />
+							<f:variable name="bezsprache">Russisch</f:variable>
+							<f:render section="Sprache" arguments="{s1: r12, s2: r13, bezeichnung: bezsprache}" />
+							<f:variable name="bezsprache">Spanisch</f:variable>
+							<f:render section="Sprache" arguments="{s1: s12, s2: s13, bezeichnung: bezsprache}" />
+						</tbody>
+					</table>						
+					<f:if condition="{ff} == 1">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th scope="row">Französisch fortgeführt</th>
+									<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>									
+								<tr>
+							</tbody>
+						</table>
+					</f:if>
+					<f:if condition="{sff} == 1">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th scope="row">Spanisch fortgeführt</th>
+									<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>									
+								<tr>
+							</tbody>
+						</table>
+					</f:if>					
+					<div>Es besteht keine Gewähr, dass der Sprachunterricht im nächsten Schuljahr im gleichen Umfang angeboten werden kann.</div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</f:if>
+	<f:if condition="{institution.hinweis}">
+		<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+			<div class="card mt-3">
+				<div class="card-header">
+					Hinweistext
+				</div>
+				<div class="card-body">	
+					<div class="card-text">					
+						{institution.hinweis}
+					</div>
+				</div>
+			</div>
+		</div>
+	</f:if>	
+</div>	
+</html>
+
+<f:section name="Ausbfos">
+	<f:if condition="{fos11} == 1 || {fos12} == 1 || {fos13} == 1 || {fos11g} == 1 || {fos12g} == 1 || {fos13g} == 1" >
+		<tr>
+		<f:if condition="{ausb} == 4">
+			<f:then>
+				<th scope="row">{bezeichnung}*</th>
+			</f:then>
+			<f:else>
+				<th scope="row">{bezeichnung}</th>			
+			</f:else>
+		</f:if>
+		<f:if condition="{fos11} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<f:if condition="{fos11g} == 1">
+					<f:then>
+						<td class="text-center">P</td>
+					</f:then>
+					<f:else>
+						<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		<f:if condition="{fos12} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<f:if condition="{fos12g} == 1">
+					<f:then>
+						<td class="text-center">P></td>
+					</f:then>
+					<f:else>
+						<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		<f:if condition="{fos13} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<f:if condition="{fos13g} == 1">
+					<f:then>
+						<td class="text-center"><span class="text-secondary icon-p">P</span></td>
+					</f:then>
+					<f:else>
+						<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		</tr>
+	</f:if>
+</f:section>
+
+<f:section name="Ausbbos">
+	<f:if condition="{bos12} == 1 || {bos13} == 1 || {bos12g} == 1 || {bos13g} == 1" >
+		<tr>
+		<f:if condition="{ausb} == 4">
+			<f:then>
+				<th scope="row">{bezeichnung}*</th>
+			</f:then>
+			<f:else>
+				<th scope="row">{bezeichnung}</th>			
+			</f:else>
+		</f:if>
+		<f:if condition="{bos12} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<f:if condition="{bos12g} == 1">
+					<f:then>
+						<td class="text-center">P</td>
+					</f:then>
+					<f:else>
+						<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		<f:if condition="{bos13} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<f:if condition="{bos13g} == 1">
+					<f:then>
+						<td class="text-center">P</td>
+					</f:then>
+					<f:else>
+						<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		</tr>
+	</f:if>
+</f:section>
+
+<f:section name="Sprache">
+	<f:if condition="{s1} == 1 || {s2} == 1" >
+		<tr>
+			<th scope="row">{bezeichnung}</th>
+		<f:if condition="{s1} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+			</f:else>
+		</f:if>
+		<f:if condition="{s2} == 1">
+			<f:then>
+				<td class="text-center"><i class="fas fa-check fa-fw fa-lg mr-1"></i></td>
+			</f:then>
+			<f:else>
+				<td class="text-center"><i class="fas fa-minus fa-fw fa-lg mr-1"></i></td>
+			</f:else>
+		</f:if>
+		</tr>
+	</f:if>
+</f:section>
+<f:section name="Vorkurs">
+  <f:if condition="{art}==1 && {tag}==1">
+    <f:then>
+      Der Vorkurs findet ganzjährig wochentags statt.
+    </f:then>
+    <f:else>
+      <f:if condition="{art}==2 && {tag}==1">
+        <f:then>
+          Der Vorkurs findet halbjährig wochentags statt.
+        </f:then>
+        <f:else>
+          <f:if condition="{art}==3 && {tag}==1">
+            <f:then>
+              Der Vorkurs findet ganz- und halbjährig wochentags statt.
+            </f:then>
+            <f:else>
+              <f:if condition="{art}==1 && {tag}==2">
+                <f:then>
+                  Der Vorkurs findet ganzjährig samstags statt.
+                </f:then>
+                <f:else>
+                  <f:if condition="{art}==2 && {tag}==2">
+                    <f:then>
+                      Der Vorkurs findet halbjährig samstags statt.
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{art}==3 && {tag}==2">
+                        <f:then>
+                          Der Vorkurs findet ganz- und halbjährig samstags statt.
+                        </f:then>
+                        <f:else>
+                          Der Vorkurs findet statt.
+                        </f:else>
+                      </f:if>
+                    </f:else>
+                  </f:if>
+                </f:else>
+              </f:if>
+            </f:else>
+          </f:if>
+        </f:else>
+      </f:if>
+    </f:else>
+  </f:if> 
+</f:section>

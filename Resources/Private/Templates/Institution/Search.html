@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>Ergebnis der Schulsuche</h1>
+
+    <f:flashMessages />
+  	<f:if condition="{institutionen}">
+    	<f:then>  
+          <f:if condition="{settings.ansicht}==3">
+            <f:then>
+<!--              <div class="row">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+                  <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'searchshow'}" />  
+                </div>
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+                  <f:render partial="Institution/Search_Liste" arguments="{institutionen:institutionen, aktion:'searchshow'}" />  
+                </div>          
+              </div> -->
+              <div class="my-3">
+                <ul id="bfbn-karteliste" class="nav nav-tabs tabcontainer mb-3 nav-justified" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button id="tab-karte" class="nav-link active" data-bs-target="#tab-bfbn-karte" data-bs-toggle="tab" role="tab" aria-controls="tab-bfbn-karte" aria-selected="true">
+                  Kartenansicht
+					</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button id="tab-liste" class="nav-link" data-bs-target="#tab-bfbn-liste" data-bs-toggle="tab" role="tab" aria-controls="tab-bfbn-liste" aria-selected="false">
+                  Listenansicht
+					</button>                  
+                  </li>
+                </ul>
+                <div id="bfbn-karteliste-content" class=tab-content>
+                  <div id="tab-bfbn-karte" class="tab-pane active show" role="tabpanel" arai-labelledby="tab-karte">
+                    <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'searchshow'}" />                   
+                  </div>
+                  <div id="tab-bfbn-liste" class="tab-pane" role="tabpanel" arai-labelledby="tab-liste">
+                    <f:render partial="Institution/Search_Liste" arguments="{institutionen:institutionen, aktion:'searchshow'}" />                   
+                  </div>                  
+                </div>
+              </div>     
+            </f:then>
+            <f:else>
+              <f:if condition="{settings.ansicht}==2">
+                  <f:then>
+                      <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'searchshow'}" />			
+                  </f:then>
+                  <f:else>
+                      <f:if condition="{settings.ansicht}==1">
+                          <f:then>
+                              <f:render partial="Institution/Search_Liste" arguments="{institutionen:institutionen, aktion:'searchshow'}" />						
+                          </f:then>
+                          <f:else>
+                              <h4>keine Ansicht definiert</h4>
+                          </f:else>
+                      </f:if>	
+                  </f:else>
+              </f:if>
+            </f:else>
+          </f:if>  
+      </f:then>
+      <f:else>
+      		<h4>Es wurde keine Schule gefunden!</h4> 	 
+      </f:else>
+  </f:if>
+</f:section>
+</html>

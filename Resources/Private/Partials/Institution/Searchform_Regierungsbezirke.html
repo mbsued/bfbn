@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  <div class="card mt-3">
+    <h6 class="card-header">Filtern nach Regierungsbezirken (Mehrfachauswahl ist möglich)</h6>
+    <div class="card-body">                	
+      <div class="d-flex flex-lg-row flex-xl-row flex-xxl-row flex-column">
+        <f:for each="{regierungsbezirke}" as="regierungsbezirk">
+          <div class="me-5">
+            <f:form.checkbox class="form-check-input" value="{regierungsbezirk.uid}" property="regierungsbezirk" multiple="true" checked="false"/>
+            <label class="form-check-label ms-2" for="regierungsbezirk">{regierungsbezirk.bezeichnung}</label>
+          </div>  
+        </f:for>         
+      </div>  
+    </div>
+  </div>
+</html>

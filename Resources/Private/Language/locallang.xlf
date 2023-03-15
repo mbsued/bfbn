@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang" date="2021-05-07T12:46:49Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="tx_bfbn_domain_model_institution" resname="tx_bfbn_domain_model_institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.bezeichnung" resname="tx_bfbn_domain_model_institution.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.kurzbezeichnung" resname="tx_bfbn_domain_model_institution.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.nummer" resname="tx_bfbn_domain_model_institution.nummer">
+				<source>Nummer</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.strasse" resname="tx_bfbn_domain_model_institution.strasse">
+				<source>Strasse</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.plz" resname="tx_bfbn_domain_model_institution.plz">
+				<source>Plz</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.ort" resname="tx_bfbn_domain_model_institution.ort">
+				<source>Ort</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.bezeichnungfos" resname="tx_bfbn_domain_model_institution.bezeichnungfos">
+				<source>Bezeichnungfos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.kurzbezeichnungfos" resname="tx_bfbn_domain_model_institution.kurzbezeichnungfos">
+				<source>Kurzbezeichnungfos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.nummerfos" resname="tx_bfbn_domain_model_institution.nummerfos">
+				<source>Nummerfos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.bezeichnungbos" resname="tx_bfbn_domain_model_institution.bezeichnungbos">
+				<source>Bezeichnungbos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.kurzbezeichnungbos" resname="tx_bfbn_domain_model_institution.kurzbezeichnungbos">
+				<source>Kurzbezeichnungbos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.nummerbos" resname="tx_bfbn_domain_model_institution.nummerbos">
+				<source>Nummerbos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.telefon" resname="tx_bfbn_domain_model_institution.telefon">
+				<source>Telefon</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.fax" resname="tx_bfbn_domain_model_institution.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.email" resname="tx_bfbn_domain_model_institution.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.homepage" resname="tx_bfbn_domain_model_institution.homepage">
+				<source>Homepage</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.laengengrad" resname="tx_bfbn_domain_model_institution.laengengrad">
+				<source>Längengrad</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.breitengrad" resname="tx_bfbn_domain_model_institution.breitengrad">
+				<source>Breitengrad</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.vorklassefos" resname="tx_bfbn_domain_model_institution.vorklassefos">
+				<source>Vorklassefos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorklassebos" resname="tx_bfbn_domain_model_institution.vorklassebos">
+				<source>Vorklassebos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkursfos" resname="tx_bfbn_domain_model_institution.vorkursfos">
+				<source>Vorkursfos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkursbos" resname="tx_bfbn_domain_model_institution.vorkursbos">
+				<source>Vorkursbos</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.bosteilzeit" resname="tx_bfbn_domain_model_institution.bosteilzeit">
+				<source>BOS Teilzeit</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.dbfh" resname="tx_bfbn_domain_model_institution.dbfh">
+				<source>DBFH</source>
+			</trans-unit>	
+			<trans-unit id="tx_bfbn_domain_model_institution.profilinklusion" resname="tx_bfbn_domain_model_institution.profilinklusion">
+				<source>Profil Inklusion</source>	
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.ivk" resname="tx_bfbn_domain_model_institution.ivk">
+				<source>Integrationsvorklasse</source>	
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.hinweis" resname="tx_bfbn_domain_model_institution.hinweis">
+				<source>Hinweis</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.regierungsbezirk" resname="tx_bfbn_domain_model_institution.regierungsbezirk">
+				<source>Regierungsbezirk</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.mbbezirk" resname="tx_bfbn_domain_model_institution.mbbezirk">
+				<source>MB-Bezirk</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.mbbezirk2" resname="tx_bfbn_domain_model_institution.mbbezirk2">
+				<source>weiterer MB-Bezirk (FMA für mehrere Bezirke)</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.status" resname="tx_bfbn_domain_model_institution.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.art" resname="tx_bfbn_domain_model_institution.art">
+				<source>Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkursartbos" resname="tx_bfbn_domain_model_institution.vorkursartbos">
+				<source>Vorkursart (BOS)</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkurstagbos" resname="tx_bfbn_domain_model_institution.vorkurstagbos">
+				<source>Vorkurstag (BOS)</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkursartfos" resname="tx_bfbn_domain_model_institution.vorkursartfos">
+				<source>Vorkursart (FOS)</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.vorkurstagfos" resname="tx_bfbn_domain_model_institution.vorkurstagfos">
+				<source>Vorkurstag (FOS)</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.ausbildungsrichtungen" resname="tx_bfbn_domain_model_institution.ausbildungsrichtungen">
+				<source>Ausbildungsrichtungen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.sprachen" resname="tx_bfbn_domain_model_institution.sprachen">
+				<source>Sprachen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.sprachenintw" resname="tx_bfbn_domain_model_institution.sprachenintw">
+				<source>Sprachen Int. Wirtschaft</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institution.personen" resname="tx_bfbn_domain_model_institution.personen">
+				<source>Personen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institution.bearbeiter" resname="tx_bfbn_domain_model_institution.bearbeiter">
+				<source>Bearbeiter</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_person" resname="tx_bfbn_domain_model_person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.nachname" resname="tx_bfbn_domain_model_person.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.vorname" resname="tx_bfbn_domain_model_person.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.titel" resname="tx_bfbn_domain_model_person.titel">
+				<source>Titel</source>
+			</trans-unit>				
+			<trans-unit id="tx_bfbn_domain_model_person.amtsbezeichnung" resname="tx_bfbn_domain_model_person.amtsbezeichnung">
+				<source>Amtsbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.emailfach" resname="tx_bfbn_domain_model_person.emailfach">
+				<source>Fachbezeichnung für E-Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.arbeitetfuer" resname="tx_bfbn_domain_model_person.arbeitetfuer">
+				<source>arbeitet für MB-Bezirk (nur FMA)</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.arbeitetfuer2" resname="tx_bfbn_domain_model_person.arbeitetfuer2">
+				<source>arbeitet für weiteren MB-Bezirk (nur FMA)</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_person.geschlecht" resname="tx_bfbn_domain_model_person.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_person.funktionen" resname="tx_bfbn_domain_model_person.funktionen">
+				<source>Funktionen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.institutionen" resname="tx_bfbn_domain_model_person.institutionen">
+				<source>Institutionen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.faecher" resname="tx_bfbn_domain_model_person.faecher">
+				<source>Fächer</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_funktion" resname="tx_bfbn_domain_model_funktion">
+				<source>Funktion</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_funktion.bezeichnung" resname="tx_bfbn_domain_model_funktion.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_funktion.art" resname="tx_bfbn_domain_model_funktion.art">
+				<source>Art</source>
+			</trans-unit>	
+			<trans-unit id="tx_bfbn_domain_model_funktionart" resname="tx_bfbn_domain_model_funktionart">
+				<source>Funktionart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_funktionart.bezeichnung" resname="tx_bfbn_domain_model_funktionart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach" resname="tx_bfbn_domain_model_fach">
+				<source>Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach.bezeichnung" resname="tx_bfbn_domain_model_fach.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach.sorting" resname="tx_bfbn_domain_model_fach.sorting">
+				<source>Sortierung</source>				
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach.pageuidfach" resname="tx_bfbn_domain_model_fach.pageuidfach">
+				<source>Page Uid Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach.personen" resname="tx_bfbn_domain_model_fach.personen">
+				<source>Personen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fach.anzeigefachberatung" resname="tx_bfbn_domain_model_fach.anzeigefachberatung">
+				<source>Anzeige bei Fachberatung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_geschlecht" resname="tx_bfbn_domain_model_geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_geschlecht.bezeichnung" resname="tx_bfbn_domain_model_geschlecht.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_geschlecht.kurzbezeichnung" resname="tx_bfbn_domain_model_geschlecht.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_regierungsbezirk" resname="tx_bfbn_domain_model_regierungsbezirk">
+				<source>Regierungsbezirk</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_regierungsbezirk.bezeichnung" resname="tx_bfbn_domain_model_regierungsbezirk.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_regierungsbezirk.kurzbezeichnung" resname="tx_bfbn_domain_model_regierungsbezirk.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_mbbezirk" resname="tx_bfbn_domain_model_mbbezirk">
+				<source>M Bbezirk</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_mbbezirk.bezeichnung" resname="tx_bfbn_domain_model_mbbezirk.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_mbbezirk.kurzbezeichnung" resname="tx_bfbn_domain_model_mbbezirk.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_mbbezirk.email" resname="tx_bfbn_domain_model_mbbezirk.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionstatus" resname="tx_bfbn_domain_model_institutionstatus">
+				<source>Institutionstatus</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionstatus.bezeichnung" resname="tx_bfbn_domain_model_institutionstatus.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionstatus.langbezeichnung" resname="tx_bfbn_domain_model_institutionstatus.langbezeichnung">
+				<source>Bezeichnung-Frontendausgabe</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institutionart" resname="tx_bfbn_domain_model_institutionart">
+				<source>Institutionart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionart.bezeichnung" resname="tx_bfbn_domain_model_institutionart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_sprache" resname="tx_bfbn_domain_model_sprache">
+				<source>Sprache</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_sprache.bezeichnung" resname="tx_bfbn_domain_model_sprache.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_spracheintw" resname="tx_bfbn_domain_model_spracheintw">
+				<source>Sprache int. Wirtschaft</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_spracheintw.bezeichnung" resname="tx_bfbn_domain_model_spracheintw.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_jahrgangsstufe" resname="tx_bfbn_domain_model_jahrgangsstufe">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_jahrgangsstufe.bezeichnung" resname="tx_bfbn_domain_model_jahrgangsstufe.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_jahrgangsstufe.kurzbezeichnung" resname="tx_bfbn_domain_model_jahrgangsstufe.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ausbildungsrichtung" resname="tx_bfbn_domain_model_ausbildungsrichtung">
+				<source>Ausbildungsrichtung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ausbildungsrichtung.bezeichnung" resname="tx_bfbn_domain_model_ausbildungsrichtung.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ausbildungsrichtung.kurzbezeichnung" resname="tx_bfbn_domain_model_ausbildungsrichtung.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulart" resname="tx_bfbn_domain_model_schulart">
+				<source>Schulart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulart.bezeichnung" resname="tx_bfbn_domain_model_schulart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulart.kurzbezeichnung" resname="tx_bfbn_domain_model_schulart.kurzbezeichnung">
+				<source>Kurzbezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionsprache" resname="tx_bfbn_domain_model_institutionsprache">
+				<source>Institution Sprache</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_institutionsprache.bezeichnung" resname="tx_bfbn_domain_model_institutionsprache.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionsprache.sprache" resname="tx_bfbn_domain_model_institutionsprache.sprache">
+				<source>Sprache</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionsprache.jahrgangsstufe" resname="tx_bfbn_domain_model_institutionsprache.jahrgangsstufe">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionausbildungsrichtung" resname="tx_bfbn_domain_model_institutionausbildungsrichtung">
+				<source>Institution Ausbildungsrichtung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionausbildungsrichtung.bezeichnung" resname="tx_bfbn_domain_model_institutionausbildungsrichtung.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionausbildungsrichtung.ausbildungsrichtung" resname="tx_bfbn_domain_model_institutionausbildungsrichtung.ausbildungsrichtung">
+				<source>Ausbildungsrichtung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionausbildungsrichtung.schulart" resname="tx_bfbn_domain_model_institutionausbildungsrichtung.schulart">
+				<source>Schulart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_institutionausbildungsrichtung.jahrgangsstufe" resname="tx_bfbn_domain_model_institutionausbildungsrichtung.jahrgangsstufe">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_vorkursart" resname="tx_bfbn_domain_model_vorkursart">
+				<source>Vorkursart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_vorkursart.bezeichnung" resname="tx_bfbn_domain_model_vorkursart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_vorkurstag" resname="tx_bfbn_domain_model_vorkurstag">
+				<source>Vorkurstag</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_vorkurstag.bezeichnung" resname="tx_bfbn_domain_model_vorkurstag.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_abschluss" resname="tx_bfbn_domain_model_abschluss">
+				<source>Abschluss</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_abschluss.bezeichnung" resname="tx_bfbn_domain_model_abschluss.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fachkurz" resname="tx_bfbn_domain_model_fachkurz">
+				<source>Fach - kurz</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fachkurz.bezeichnung" resname="tx_bfbn_domain_model_fachkurz.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_auswahljanein" resname="tx_bfbn_domain_model_auswahljanein">
+				<source>Auswahltabelle Ja/Nein</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_auswahljanein.bezeichnung" resname="tx_bfbn_domain_model_auswahljanein.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung" resname="tx_bfbn_domain_model_ergaenzungspruefung">
+				<source>Ergänzungsprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung.nachname" resname="tx_bfbn_domain_model_ergaenzungspruefung.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung.vorname" resname="tx_bfbn_domain_model_ergaenzungspruefung.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung.geschlecht" resname="tx_bfbn_domain_model_ergaenzungspruefung.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung.sprache" resname="tx_bfbn_domain_model_ergaenzungspruefung.sprache">
+				<source>Sprache</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_ergaenzungspruefung.institution" resname="tx_bfbn_domain_model_ergaenzungspruefung.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer" resname="tx_bfbn_domain_model_schulfremdepruefer">
+				<source>Schulfremde Prüfer</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.nachname" resname="tx_bfbn_domain_model_schulfremdepruefer.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.vorname" resname="tx_bfbn_domain_model_schulfremdepruefer.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.titel" resname="tx_bfbn_domain_model_schulfremdepruefer.titel">
+				<source>Titel</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.geschlecht" resname="tx_bfbn_domain_model_schulfremdepruefer.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.schule" resname="tx_bfbn_domain_model_schulfremdepruefer.schule">
+				<source>Schule</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.lehrbefaehigung" resname="tx_bfbn_domain_model_schulfremdepruefer.lehrbefaehigung">
+				<source>Lehrbefähigung Oberstufe</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.abschluss" resname="tx_bfbn_domain_model_schulfremdepruefer.abschluss">
+				<source>Abschluss</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.fach1" resname="tx_bfbn_domain_model_schulfremdepruefer.fach1">
+				<source>Fach 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.fach2" resname="tx_bfbn_domain_model_schulfremdepruefer.fach2">
+				<source>Fach 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.fach3" resname="tx_bfbn_domain_model_schulfremdepruefer.fach3">
+				<source>Fach 3</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_schulfremdepruefer.institution" resname="tx_bfbn_domain_model_schulfremdepruefer.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl" resname="tx_bfbn_domain_model_aufgabenauswahl">
+				<source>Aufgabenauswahl</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch1a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch1a">
+				<source>Deutsch ABU Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch1l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch1l">
+				<source>Deutsch ABU Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch1e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch1e">
+				<source>Deutsch ABU Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch1d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch1d">
+				<source>Deutsch ABU Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch2a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch2a">
+				<source>Deutsch GST Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch2l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch2l">
+				<source>Deutsch GST Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch2e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch2e">
+				<source>Deutsch GST Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch2d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch2d">
+				<source>Deutsch GST Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch3a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch3a">
+				<source>Deutsch GSU Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch3l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch3l">
+				<source>Deutsch GSU Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch3e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch3e">
+				<source>Deutsch GSU Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch3d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch3d">
+				<source>Deutsch GSU Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch4a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch4a">
+				<source>Deutsch IWI Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch4l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch4l">
+				<source>Deutsch IWI Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch4e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch4e">
+				<source>Deutsch IWI Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch4d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch4d">
+				<source>Deutsch IWI Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch5a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch5a">
+				<source>Deutsch SOZ Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch5l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch5l">
+				<source>Deutsch SOZ Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch5e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch5e">
+				<source>Deutsch SOZ Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch5d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch5d">
+				<source>Deutsch SOZ Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch6a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch6a">
+				<source>Deutsch TEC Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch6l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch6l">
+				<source>Deutsch TEC Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch6e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch6e">
+				<source>Deutsch TEC Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch6d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch6d">
+				<source>Deutsch TEC Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch7a" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch7a">
+				<source>Deutsch WUV Argumentation</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch7l" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch7l">
+				<source>Deutsch WUV Lyrik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch7e" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch7e">
+				<source>Deutsch WUV Epik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.deutsch7d" resname="tx_bfbn_domain_model_aufgabenauswahl.deutsch7d">
+				<source>Deutsch WUV Dramatik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe1a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe1a1">
+				<source>Mathematik ABU Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe1a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe1a2">
+				<source>Mathematik ABU Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe1b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe1b1">
+				<source>Mathematik ABU Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe1b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe1b2">
+				<source>Mathematik ABU Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe2a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe2a1">
+				<source>Mathematik GST Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe2a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe2a2">
+				<source>Mathematik GST Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe2b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe2b1">
+				<source>Mathematik GST Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe2b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe2b2">
+				<source>Mathematik GST Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe3a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe3a1">
+				<source>Mathematik GSU Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe3a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe3a2">
+				<source>Mathematik GSU Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe3b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe3b1">
+				<source>Mathematik GSU Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe3b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe3b2">
+				<source>Mathematik GSU Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe4a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe4a1">
+				<source>Mathematik IWI Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe4a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe4a2">
+				<source>Mathematik IWI Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe4b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe4b1">
+				<source>Mathematik IWI Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe4b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe4b2">
+				<source>Mathematik IWI Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe5a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe5a1">
+				<source>Mathematik SOZ Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe5a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe5a2">
+				<source>Mathematik SOZ Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe5b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe5b1">
+				<source>Mathematik SOZ Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe5b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe5b2">
+				<source>Mathematik SOZ Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe6a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe6a1">
+				<source>Mathematik TEC Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe6a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe6a2">
+				<source>Mathematik TEC Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe6b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe6b1">
+				<source>Mathematik TEC Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe6b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe6b2">
+				<source>Mathematik TEC Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe7a1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe7a1">
+				<source>Mathematik WUV Analysis 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe7a2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe7a2">
+				<source>Mathematik WUV Analysis 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe7b1" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe7b1">
+				<source>Mathematik WUV Stochastik/Geometrie 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.mathe7b2" resname="tx_bfbn_domain_model_aufgabenauswahl.mathe7b2">
+				<source>Mathematik WUV Stochastik/Geometrie 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.physik1" resname="tx_bfbn_domain_model_aufgabenauswahl.physik1">
+				<source>Physik Wahlaufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.physik2" resname="tx_bfbn_domain_model_aufgabenauswahl.physik2">
+				<source>Physik Wahlaufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.physik3" resname="tx_bfbn_domain_model_aufgabenauswahl.physik3">
+				<source>Physik Wahlaufgabe 3</source>				
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.paepsy1" resname="tx_bfbn_domain_model_aufgabenauswahl.paepsy1">
+				<source>Pädagogik/Psychologie Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.paepsy2" resname="tx_bfbn_domain_model_aufgabenauswahl.paepsy2">
+				<source>Pädagogik/Psychologie Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.gesuwi1" resname="tx_bfbn_domain_model_aufgabenauswahl.gesuwi1">
+				<source>Gesundheitswissenschaften Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.gesuwi2" resname="tx_bfbn_domain_model_aufgabenauswahl.gesuwi2">
+				<source>Gesundheitswissenschaften Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.gest1" resname="tx_bfbn_domain_model_aufgabenauswahl.gest1">
+				<source>Gestaltung Aufgabe 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.gest2" resname="tx_bfbn_domain_model_aufgabenauswahl.gest2">
+				<source>Gestaltung Aufgabe 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.gest3" resname="tx_bfbn_domain_model_aufgabenauswahl.gest3">
+				<source>Gestaltung Aufgabe 3</source>				
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.schulart" resname="tx_bfbn_domain_model_aufgabenauswahl.schulart">
+				<source>Schulart</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.jahrgangsstufe" resname="tx_bfbn_domain_model_aufgabenauswahl.jahrgangsstufe">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_aufgabenauswahl.institution" resname="tx_bfbn_domain_model_aufgabenauswahl.institution">
+				<source>Institution</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elite" resname="tx_bfbn_domain_model_elite">
+				<source>Eliteprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.institution" resname="tx_bfbn_domain_model_elite.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.instname" resname="tx_bfbn_domain_model_elite.instname">
+				<source>Name der Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.schulnummer" resname="tx_bfbn_domain_model_elite.schulnummer">
+				<source>Schulnummer</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.inststrasse" resname="tx_bfbn_domain_model_elite.inststrasse">
+				<source>Straße</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.instplz" resname="tx_bfbn_domain_model_elite.instplz">
+				<source>Postleitzahl</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.instort" resname="tx_bfbn_domain_model_elite.instort">
+				<source>Ort</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.instperson" resname="tx_bfbn_domain_model_elite.instperson">
+				<source>Ansprechpartner</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.insttelefon" resname="tx_bfbn_domain_model_elite.insttelefon">
+				<source>Telefonnummer des Ansprechpartners</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.instemail" resname="tx_bfbn_domain_model_elite.instemail">
+				<source>E-Mail des Ansprechpartners</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.nachname" resname="tx_bfbn_domain_model_elite.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.vorname" resname="tx_bfbn_domain_model_elite.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.geschlecht" resname="tx_bfbn_domain_model_elite.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.gebdat" resname="tx_bfbn_domain_model_elite.gebdat">
+				<source>Geburtsdatum</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.gebort" resname="tx_bfbn_domain_model_elite.gebort">
+				<source>Geburtsort</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.strasse" resname="tx_bfbn_domain_model_elite.strasse">
+				<source>Straße</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.plz" resname="tx_bfbn_domain_model_elite.plz">
+				<source>Postleitzahl</source>				
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.ort" resname="tx_bfbn_domain_model_elite.ort">
+				<source>Ort</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.telefon" resname="tx_bfbn_domain_model_elite.telefon">
+				<source>Telefon</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elite.email" resname="tx_bfbn_domain_model_elite.email">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.ndhoch" resname="tx_bfbn_domain_model_elite.ndhoch">
+				<source>Notenschnitt Hochschulzugang</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.ndabprf" resname="tx_bfbn_domain_model_elite.ndaprf">
+				<source>Notenschnitt Abschlussprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.jgst" resname="tx_bfbn_domain_model_elite.jgst">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.ar" resname="tx_bfbn_domain_model_elite.ar">
+				<source>Ausbildungsrichtung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elite.fach3" resname="tx_bfbn_domain_model_elite.fach3">
+				<source>3. Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elite.fach4" resname="tx_bfbn_domain_model_elite.fach4">
+				<source>4. Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_pdftemplate" resname="tx_bfbn_domain_model_pdftemplate">
+				<source>PDF Template</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_pdftemplate.file" resname="tx_bfbn_domain_model_pdftemplate.file">
+				<source>Datei</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_htmltemplate" resname="tx_bfbn_domain_model_htmltemplate">
+				<source>HTML Template</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_htmltemplate.file" resname="tx_bfbn_domain_model_htmltemplate.file">
+				<source>Datei</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_meldungart" resname="tx_bfbn_domain_model_meldungart">
+				<source>Meldungart</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_meldungart.bezeichnung" resname="tx_bfbn_domain_model_meldungart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_meldung" resname="tx_bfbn_domain_model_meldung">
+				<source>Meldung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_meldung.datei" resname="tx_bfbn_domain_model_meldung.datei">
+				<source>Datei</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_meldung.art" resname="tx_bfbn_domain_model_meldung.art">
+				<source>Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellungart" resname="tx_bfbn_domain_model_neubestellungart">
+				<source>Neubestellung Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellungart.bezeichnung" resname="tx_bfbn_domain_model_neubestellungart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_meldung.institution" resname="tx_bfbn_domain_model_meldung.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung" resname="tx_bfbn_domain_model_neubestellung">
+				<source>Neubestellungen/Aktualisierungen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.nachname" resname="tx_bfbn_domain_model_neubestellung.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.vorname" resname="tx_bfbn_domain_model_neubestellung.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.titel" resname="tx_bfbn_domain_model_neubestellung.titel">
+				<source>Titel</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.geschlecht" resname="tx_bfbn_domain_model_neubestellung.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.erwerb" resname="tx_bfbn_domain_model_neubestellung.erwerb">
+				<source>Datum Erwerb</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.aktualisierung" resname="tx_bfbn_domain_model_neubestellung.aktualisierung">
+				<source>Datum letzte Aktualisierung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.art" resname="tx_bfbn_domain_model_neubestellung.art">
+				<source>Art</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_neubestellung.institution" resname="tx_bfbn_domain_model_neubestellung.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik" resname="tx_bfbn_domain_model_unfallstatistik">
+				<source>Unfallstatistik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.schueler" resname="tx_bfbn_domain_model_unfallstatistik.schueler">
+				<source>Schülerzahl</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.unterricht" resname="tx_bfbn_domain_model_unfallstatistik.unterricht">
+				<source>Unterricht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.sport" resname="tx_bfbn_domain_model_unfallstatistik.sport">
+				<source>Sport</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.pause" resname="tx_bfbn_domain_model_unfallstatistik.pause">
+				<source>Pause</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.schulweg" resname="tx_bfbn_domain_model_unfallstatistik.schulweg">
+				<source>Schulweg</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.schulwegpolizei" resname="tx_bfbn_domain_model_unfallstatistik.schulwegpolizei">
+				<source>polizeilich erfasst</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.sonstige" resname="tx_bfbn_domain_model_unfallstatistik.sonstige">
+				<source>Sonstige</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.institution" resname="tx_bfbn_domain_model_unfallstatistik.institution">
+				<source>Institution</source>
+			</trans-unit>			
+            <trans-unit id="bfbn.openPdfLink" xml:space="preserve">
+                <source>Klicken Sie hier zum Öffnen der PDF-Datei.</source>
+            </trans-unit>
+            <trans-unit id="validation.error.1642678564" resname="validation.error.1642678564" xml:space="preserve">
+                <source>Ungültiger Dateiname, "%s" ist nicht erlaubt.</source>
+            </trans-unit>			
+		</body>
+	</file>
+</xliff>

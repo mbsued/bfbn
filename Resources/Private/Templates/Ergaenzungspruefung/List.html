@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+						
+	<h1>Teilnehmer zur Ergänzungsprüfung</h1>		
+
+    <f:flashMessages />
+	<div class="mt-5 mb-5">
+	<f:if condition="{ergaenzungspruefungen}">
+		<f:then>
+			<table class="table table-striped table-bordered">
+			<f:for each="{ergaenzungspruefungen}" as="ergaenzungspruefung">
+				<tr class="row">
+					<td class="col-md-2">{ergaenzungspruefung.nachname}</td>
+					<td class="col-md-2">{ergaenzungspruefung.vorname}</td>
+					<td class="col-md-2">{ergaenzungspruefung.geschlecht.bezeichnung}</td>
+					<td class="col-md-2">{ergaenzungspruefung.sprache.bezeichnung}</td>
+					<td class="col-md-2"><f:link.action action="edit" class="btn btn-primary" arguments="{ergaenzungspruefung : ergaenzungspruefung}">Ändern</f:link.action></td>
+					<td class="col-md-2"><f:link.action action="delete" class="btn btn-primary" arguments="{ergaenzungspruefung : ergaenzungspruefung}">Löschen</f:link.action></td>
+				</tr>
+			</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p>Bisher wurden keine Teilnehmer vorgegeben.</p>
+		</f:else>
+	</f:if>
+	</div>						
+	<div class="mt-5 mb-5"><f:link.action class="btn btn-primary mt-5" action="new">Teilnehmer vorgeben</f:link.action></div>
+</f:section>
+</html>

@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>Neuer Teilnehmer an der Ergänzungsprüfung</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="create" name="ergaenzungspruefung" object="{ergaenzungspruefung}" >
+	
+		<div class="card mt-3">
+			<div class="card-header">Neuer Teilnehmer Ergänzungsprüfung an {institution.kurzbezeichnung} 
+			</div>
+			<div class="card-body">
+				<div class="row">					
+					<div class="form-group col-md-3">
+						<label for="vorname">Vorname</label>
+						<f:form.textfield class="form-control" property="vorname" value="{ergaenzungspruefung.vorname}" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="vorname">Nachname</label>
+						<f:form.textfield class="form-control" property="nachname" value="{ergaenzungspruefung.nachname}" />
+					</div>
+					<div class="form-group col-md-2">
+						<label for="geschlecht">Geschlecht</label>
+						<f:form.select class="form-control" property="geschlecht" value="{ergaenzungspruefung.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>	
+					<div class="form-group col-md-3">
+						<label for="sprache">Sprache</label>
+						<f:form.select class="form-control" property="sprache" value="{ergaenzungspruefung.sprache}" options="{auswahlsprache}" optionValueField="uid" optionLabelField="bezeichnung"/>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+					<f:form.submit class="btn btn-primary"  value="Speichern" />
+					<f:form.hidden property="institution" value="{institution}" />
+					<f:form.hidden property="pid" value="82" />
+				</div>
+			</div>
+		</div>
+    </f:form>
+</f:section>
+</html>

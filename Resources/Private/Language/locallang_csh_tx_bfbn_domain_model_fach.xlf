@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_csh" date="2021-05-07T12:46:49Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="bezeichnung.description" resname="bezeichnung.description">
+				<source>Bezeichnung</source>
+			</trans-unit>
+			<trans-unit id="sorting.description" resname="sorting.description">
+				<source>Sortierung</source>
+			</trans-unit>
+			<trans-unit id="pageuidfach.description" resname="pageuidfach.description">
+				<source>Uid der Fachseite</source>
+			</trans-unit>
+			<trans-unit id="personen.description" resname="personen.description">
+				<source>Personen</source>
+			</trans-unit>
+			<trans-unit id="anzeigefachberatung.description" resname="anzeigefachberatung.description">
+				<source>Anzeige bei Fachberatung</source>
+			</trans-unit>			
+		</body>
+	</file>
+</xliff>
