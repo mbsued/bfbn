@@ -170,7 +170,7 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_fach',
+                'foreign_table' => 'tx_bfbn_domain_model_fachkurz',
                 'default' => 1,
                 'minitems' => 1,
                 'maxitems' => 1,
@@ -182,7 +182,7 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_fach',
+                'foreign_table' => 'tx_bfbn_domain_model_fachkurz',
                 'default' => 1,
                 'minitems' => 1,
                 'maxitems' => 1,
@@ -194,7 +194,7 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_fach',
+                'foreign_table' => 'tx_bfbn_domain_model_fachkurz',
                 'default' => 1,
                 'minitems' => 1,
                 'maxitems' => 1,
