@@ -41,6 +41,18 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_institu
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'Bfbn',
+	'PersonList',
+	'Listansicht der Personen einer Institution',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_personlist'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_personlist'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_personlist', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_personlist.xml'	
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
 	'InstitutionSearch',
 	'Suche nach Institutionen',
 	'bfbnsvgicon'

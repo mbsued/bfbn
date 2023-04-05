@@ -155,6 +155,9 @@
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_person.geschlecht" resname="tx_bfbn_domain_model_person.geschlecht">
 				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.bestelltab" resname="tx_bfbn_domain_model_person.bestelltab">
+				<source>bestellt ab</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_person.funktionen" resname="tx_bfbn_domain_model_person.funktionen">
 				<source>Funktionen</source>
@@ -788,6 +791,12 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_institution_edit.description">
 				<source>Änderungsansicht der Institutionen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_person_list.name">
+				<source>BFBN Person Listansicht</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_person_list.description">
+				<source>Listansicht der Personen</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_institution_search.name">
 				<source>BFBN Institutionen (Suche)</source>

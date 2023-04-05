@@ -26,6 +26,9 @@
 			</trans-unit>			
 			<trans-unit id="geschlecht.description" resname="geschlecht.description">
 				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="bestelltab.description" resname="bestelltab.description">
+				<source>bestellt ab</source>
 			</trans-unit>			
 			<trans-unit id="funktionen.description" resname="funktionen.description">
 				<source>Funktionen</source>

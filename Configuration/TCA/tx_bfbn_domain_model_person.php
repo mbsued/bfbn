@@ -22,7 +22,7 @@ return [
     'interface' => [
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nachname, vorname, titel, amtsbezeichnung, emailfach, arbeitetfuer, arbeitetfuer2, geschlecht, funktionen, institutionen, faecher, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nachname, vorname, titel, amtsbezeichnung, emailfach, arbeitetfuer, arbeitetfuer2, geschlecht, bestelltab, funktionen, institutionen, faecher, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -188,6 +188,16 @@ return [
                 'minitems' => 1,
                 'maxitems' => 1,
             ],            
+        ],
+        'bestelltab' => [
+			'displayCond' => 'FIELD:funktionen:IN:56,57,58,59,60',		
+            'exclude' => true,
+            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.bestelltab',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime',
+            ]
         ],		
         'funktionen' => [
             'exclude' => true,

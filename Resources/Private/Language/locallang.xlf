@@ -155,6 +155,9 @@
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_person.geschlecht" resname="tx_bfbn_domain_model_person.geschlecht">
 				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.bestelltab" resname="tx_bfbn_domain_model_person.bestelltab">
+				<source>bestellt ab</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_person.funktionen" resname="tx_bfbn_domain_model_person.funktionen">
 				<source>Funktionen</source>

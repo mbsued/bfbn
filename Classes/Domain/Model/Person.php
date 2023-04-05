@@ -85,7 +85,13 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $geschlecht = null;
-	
+
+    /**
+	 * bestelltab
+	 *
+     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     */
+    protected $bestelltab;	
 
     /**
      * funktionen
@@ -302,6 +308,28 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setGeschlecht(\OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht)
     {
         $this->geschlecht = $geschlecht;
+    }
+	
+    /**
+     * Get bestelltab
+     *
+     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     */
+    public function getBestelltab()
+    {
+        return $this->bestelltab;
+    }
+
+    /**
+     * Set bestelltab
+     *
+     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $bestelltab
+     *
+     * @return void
+     */
+    public function setBestelltab($bestelltab)
+    {
+        $this->bestelltab = $bestelltab;
     }
 	
     /**
