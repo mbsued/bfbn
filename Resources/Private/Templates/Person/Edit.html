@@ -1,28 +1,53 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
-This template displays a EDIT form for the current domain object.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Person:
-          Edit.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="content">
-    <h1>Edit Person</h1>
 
     <f:flashMessages />
 
     <f:render partial="FormErrors" />
 
     <f:form action="update" name="person" object="{person}" >
-    <f:render partial="Person/FormFields" arguments="{person:person}" />
-    <f:form.submit value="Save" />
+	
+      <div class="card mt-3">
+        <div class="card-header">Ansprechpartner {funktion.bezeichnung} ändern
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-md-2">
+              <label for="titel">Akad. Titel</label>
+              <f:form.textfield class="form-control" property="titel" value="{person.titel}" />
+            </div>					
+            <div class="form-group col-md-3">
+              <label for="vorname">Vorname</label>
+              <f:form.textfield class="form-control" property="vorname" value="{person.vorname}" required="true" />
+            </div>
+            <div class="form-group col-md-3">
+              <label for="vorname">Nachname</label>
+              <f:form.textfield class="form-control" property="nachname" value="{person.nachname}" required="true" />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="geschlecht">Geschlecht</label>
+              <f:form.select class="form-control" property="geschlecht" value="{person.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung" required="true"/>
+            </div>
+            <f:if condition="{funktion.uid} > 55 && {funktion.uid} < 61">
+              <f:then>
+                <div class="form-group col-md-2">
+                  <label for="bestelltab">bestellt ab</label>
+                  <f:form.textfield type="date" class="form-control" property="bestelltab" value="{person.bestelltab-> f:format.date(format: 'Y-m-d')}" required="true" />
+                </div>	
+              </f:then>
+            </f:if>          
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 mb-3">
+        <div class="form-group col-md-12">
+          <div class="col-sm-10 col-sm-offset-2">
+            <f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Änderungen speichern</f:form.button>          
+          </div>
+        </div>
+      </div>
     </f:form>
 </f:section>
 </html>

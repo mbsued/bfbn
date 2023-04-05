@@ -1,0 +1,88 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+  
+  <f:variable name="varpid">319</f:variable>
+  <f:if condition="{institution.mbbezirk.uid} == 1">
+    <f:then>
+      <f:variable name="varpid">320</f:variable>
+    </f:then>
+    <f:else>
+      <f:if condition="{institution.mbbezirk.uid} == 2">
+        <f:then>
+          <f:variable name="varpid">321</f:variable>
+        </f:then>
+        <f:else>
+          <f:if condition="{institution.mbbezirk.uid} == 3">
+            <f:then>
+              <f:variable name="varpid">322</f:variable>	  
+            </f:then>
+            <f:else>
+              <f:if condition="{institution.mbbezirk.uid} == 4">
+                <f:then>
+                  <f:variable name="varpid">323</f:variable>	  
+                </f:then>
+                <f:else>
+                  <f:variable name="varpid">319</f:variable>
+                </f:else> 
+              </f:if>
+            </f:else>
+          </f:if>
+        </f:else>
+      </f:if>      
+    </f:else>
+  </f:if>
+  <h1>Neuer Ansprechpartner</h1>
+
+  <f:flashMessages />
+
+  <f:render partial="FormErrors" />
+
+  <f:form action="createft" name="person" object="{person}" arguments="{funktion : funktion}">
+
+    <div class="card mt-3">
+      <div class="card-header">Neuer Ansprechpartner für {institution.kurzbezeichnung}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-2">
+            <label for="titel">Akad. Titel</label>
+            <f:form.textfield class="form-control" property="titel" value="{person.titel}" />
+          </div>					
+          <div class="form-group col-md-3">
+            <label for="vorname">Vorname</label>
+            <f:form.textfield class="form-control" property="vorname" value="{person.vorname}" required="true" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="vorname">Nachname</label>
+            <f:form.textfield class="form-control" property="nachname" value="{person.nachname}" required="true" />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="geschlecht">Geschlecht</label>
+            <f:form.select class="form-control" property="geschlecht" value="{person.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung" required="true"/>
+          </div>
+          <f:if condition="{funktion.uid} > 55 && {funktion.uid} < 61">
+            <f:then>
+              <div class="form-group col-md-2">
+                <label for="bestelltab">bestellt ab</label>
+                <f:form.textfield type="date" class="form-control" property="bestelltab" value="{person.bestelltab}" required="true" />
+              </div>	
+            </f:then>
+          </f:if>          
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="form-group col-md-12">
+        <div class="col-sm-10 col-sm-offset-2">
+          <f:form.submit class="btn btn-primary"  value="Speichern" />
+          <f:form.hidden name="institution" value="{institution}" />
+          <f:form.hidden name="funktion" value="{funktion}" />
+          <f:form.hidden property="pid" value="{varpid}" />
+        </div>
+      </div>
+    </div>
+  </f:form>
+</f:section>
+</html>
