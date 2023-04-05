@@ -225,7 +225,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
 					$funktion = $this->FunktionRepository->findByUid($funktionuid);
-					$this->view->assign('person', $Person);
+					$this->view->assign('person', $Person ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('funktion', $funktion);
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
@@ -259,7 +259,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
 					$funktion = $this->FunktionRepository->findByUid($funktionuid);
-					$this->view->assign('person', $Person);
+					$this->view->assign('person', $Person ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('funktion', $funktion);
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
@@ -436,11 +436,11 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
-            $settings['startingpoint'],
-            $settings['recursive']
+            (string)($settings['startingpoint'] ?? ''),
+            (int)($settings['recursive'] ?? 0)
         ));
 		$demand->setFunktionen(GeneralUtility::trimExplode(',', $settings['funktionen'], true));
-		$demand->setInstitution($institution);		
+		$demand->setInstitution($institution ?? Null);		
         return $demand;
     }	
 }

@@ -171,7 +171,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 						$demand = $this -> createDemandObject($gesuchteinstitution);
 						$alleschulfremdenpruefer = $this->SchulfremdeprueferRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
-						$this->view->assign('termin', $whichtermin);						
+						$this->view->assign('termin', $whichtermin ?? 0);						
 						$this->view->assign('alleschulfremdenpruefer', $alleschulfremdenpruefer);
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -232,7 +232,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
 					$auswahlabschluss = $this->AbschlussRepository->findAll();					
 					$auswahlfach = $this->FachkurzRepository->findAll();
-					$this->view->assign('schulfremdepruefer', $schulfremdepruefer);
+					$this->view->assign('schulfremdepruefer', $schulfremdepruefer ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('auswahlfach', $auswahlfach);
 					$this->view->assign('auswahlabschluss', $auswahlabschluss);					
@@ -341,13 +341,15 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	{
 		if ($this->arguments->hasArgument('schulfremdepruefer')) {			
 
-			$postData = $this->request->getArgument('schulfremdepruefer');
-			/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($postData); */	
-			if(is_null($postData['schulfremdepruefer']['fach2'])) {
-				$this->arguments->getArgument('schulfremdepruefer')->getPropertyMappingConfiguration()->skipProperties('fach2');
-			}
-			if(is_null($postData['schulfremdepruefer']['fach3'])) {
-				$this->arguments->getArgument('schulfremdepruefer')->getPropertyMappingConfiguration()->skipProperties('fach3');
+			$postData = $this->request->getArgument('schulfremdepruefer') ;
+			/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($postData); */
+			if (isset($postData['schulfremdepruefer'])) {
+				if(is_null($postData['schulfremdepruefer']['fach2'])) {
+					$this->arguments->getArgument('schulfremdepruefer')->getPropertyMappingConfiguration()->skipProperties('fach2');
+				}
+				if(is_null($postData['schulfremdepruefer']['fach3'])) {
+					$this->arguments->getArgument('schulfremdepruefer')->getPropertyMappingConfiguration()->skipProperties('fach3');
+				}
 			}
 		}
 	}	

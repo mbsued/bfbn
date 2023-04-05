@@ -208,7 +208,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$schulart = $this->SchulartRepository->findByUid($schulartuid);
 					$jahrgangsstufe = $this->JahrgangsstufeRepository->findByUid($jahrgangsstufeuid);
-					$this->view->assign('aufgabenauswahl', $aufgabenauswahl);
+					$this->view->assign('aufgabenauswahl', $aufgabenauswahl ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('schulart',$schulart);
 					$this->view->assign('jahrgangsstufe',$jahrgangsstufe);
@@ -240,7 +240,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 					$this->addFlashMessage('Die Daten wurden gespeichert');
 	
 					$this->AufgabenauswahlRepository->add($aufgabenauswahl);
-					print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aufgabenauswahl);
+					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aufgabenauswahl); */
 					$this->redirect('list','Aufgabenauswahl',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');

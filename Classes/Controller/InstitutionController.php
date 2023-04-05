@@ -647,8 +647,8 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$demand->setArt($settings['art']);
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
-            $settings['startingpoint'],
-            $settings['recursive']
+			(string)($settings['startingpoint'] ?? ''),
+            (int)($settings['recursive'] ?? 0)
         ));
  				
         return $demand;

@@ -121,7 +121,7 @@ class MeldungController extends ActionController
      */
     public function listAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung=null)
 	{
-        if (is_null($meldung)) {
+        if (is_null($meldung ?? NULL)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());

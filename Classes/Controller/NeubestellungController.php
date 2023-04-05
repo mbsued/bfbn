@@ -152,7 +152,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 						$demand = $this -> createDemandObject($gesuchteinstitution);
 						$neubestellungen = $this->NeubestellungRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
-						$this->view->assign('termin', $whichtermin);						
+						$this->view->assign('termin', $whichtermin ?? 0);						
 						$this->view->assign('neubestellungen', $neubestellungen);
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -208,7 +208,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
 					$art = $this->NeubestellungartRepository->findByUid($artuid);
-					$this->view->assign('neubestellung', $neubestellung);
+					$this->view->assign('neubestellung', $neubestellung ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('art', $art);
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
@@ -239,7 +239,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());			
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$meldungerfolgreich='Die Person '.$neubestellung->getVorname.' '.$neubestellung->GetNachname.' wurde erfolgreich angelegt';
+					$meldungerfolgreich='Die Person '.($neubestellung->getVorname ?? '').' '.($neubestellung->getNachname ?? '').' wurde erfolgreich angelegt';
 					$this->addFlashMessage($meldungerfolgreich); 					 						
 					$this->NeubestellungRepository->add($neubestellung);
 					$this->redirect('list','Neubestellung',NULL);

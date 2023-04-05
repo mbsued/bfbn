@@ -153,7 +153,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 						$demand = $this -> createDemandObject($gesuchteinstitution);
 						$ergaenzungspruefungen = $this->ErgaenzungspruefungRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
-						$this->view->assign('termin', $whichtermin);
+						$this->view->assign('termin', $whichtermin ?? 0);
 						$this->view->assign('ergaenzungspruefungen', $ergaenzungspruefungen);
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -214,7 +214,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
 					$auswahlsprache = $this->SpracheRepository->findAll();
-					$this->view->assign('ergaenzungspruefung', $ergaenzungspruefung);
+					$this->view->assign('ergaenzungspruefung', $ergaenzungspruefung ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('auswahlsprache', $auswahlsprache);
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);

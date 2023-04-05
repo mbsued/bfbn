@@ -115,7 +115,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 						$demand = $this -> createDemandObject($gesuchteinstitution);
 						$unfallstatistiken = $this->UnfallstatistikRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
-						$this->view->assign('termin', $whichtermin);						
+						$this->view->assign('termin', $whichtermin ?? 0);						
 						$this->view->assign('unfallstatistiken', $unfallstatistiken);
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -166,7 +166,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->view->assign('unfallstatistik', $unfallstatistik);
+					$this->view->assign('unfallstatistik', $unfallstatistik ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
