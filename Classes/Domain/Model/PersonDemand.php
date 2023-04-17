@@ -32,7 +32,7 @@ class PersonDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $funktionen;
 
 	/**
-    * @var int 
+    * @var \OliverBauer\Bfbn\Domain\Model\Institution
     **/
     protected $institution;
 	
@@ -94,7 +94,7 @@ class PersonDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns die gesuchte institution
      * 
-     * @return int $institution
+     * @return  institution
      */
     public function getInstitution() {
 		return $this->institution;

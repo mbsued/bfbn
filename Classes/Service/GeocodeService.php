@@ -62,7 +62,7 @@ class GeocodeService implements SingletonInterface
         $response = GeneralUtility::getUrl($url);
  		
         $result = json_decode($response, true);
-        if ($result['status'] !== 'OVER_QUERY_LIMIT') {
+        if ($result['status'] ?? '' !== 'OVER_QUERY_LIMIT') {
             return $result;
         }
         return [];

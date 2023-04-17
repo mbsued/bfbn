@@ -158,8 +158,8 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
-					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-						$demand = $this -> createDemandObject($this->settings,$gesuchteinstitution);
+					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {												
+						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings,);
 						$personen = $this->PersonRepository->findDemanded($demand);
 						$this->view->assign('personen', $personen);
 						$this->view->assign('institution',$gesuchteinstitution);
@@ -431,16 +431,17 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         }	
     }
 	
-	protected function createDemandObject($settings,$instituion) {
+	protected function createDemandObject($institution,$settings) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
             (string)($settings['startingpoint'] ?? ''),
             (int)($settings['recursive'] ?? 0)
         ));
 		$demand->setFunktionen(GeneralUtility::trimExplode(',', $settings['funktionen'], true));
-		$demand->setInstitution($institution ?? Null);		
+		$demand->setInstitution($institution);
+		 		
         return $demand;
     }	
 }
