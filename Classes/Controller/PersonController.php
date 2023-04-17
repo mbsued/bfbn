@@ -159,7 +159,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {												
-						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings,);
+						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings);
 						$personen = $this->PersonRepository->findDemanded($demand);
 						$this->view->assign('personen', $personen);
 						$this->view->assign('institution',$gesuchteinstitution);
