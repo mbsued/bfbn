@@ -81,7 +81,7 @@ class FilenameValidator extends AbstractValidator
 		$fileext = $this->options['fileext'];
 
 		$givenFilename = $teil1.'_'.$teil2.'_'.$teil3.'_'.$teil4.'.'.$fileext;
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($givenFilename);	*/	
+		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($givenFilename);		*/
         if ($givenFilename != $fileName) {
             $this->addError(
                 $this->translateErrorMessage(
