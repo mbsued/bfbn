@@ -91,7 +91,14 @@ plugin.tx_bfbn {
 			ordnerost = 199
 			ordnerwest = 200
 			ordnersued = 201		
-		}			
+		}
+		lehrer {
+			ordnerstandard = 325		
+			ordnernord = 326
+			ordnerost = 327
+			ordnerwest = 329
+			ordnersued = 328		
+		}		
 	}
 }
 
