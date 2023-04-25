@@ -350,7 +350,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$whichAnsicht = $this->settings['ansicht'];
 		$whichBezirk = $this->settings['bezirke'];
 		$whichZoom = $this->settings['kartezoom'];
-		$whichUeberschrift = $this->settings['uberschrift'];
+		$whichUeberschrift = $this->settings['ueberschrift'];
 		$this->view->assign('ansicht', $whichAnsicht);
 		$this->view->assign('bezirke', $whichBezirk);
 		$this->view->assign('zoom', $whichZoom);
@@ -493,8 +493,8 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
-            $settings['startingpoint'],
-            $settings['recursive']
+			(string)($settings['startingpoint'] ?? ''),
+            (int)($settings['recursive'] ?? 0)
         ));
 		$demand->setBezirk(GeneralUtility::trimExplode(',', $settings['bezirke'], true));
 		$demand->setAusbildungsrichtungen(GeneralUtility::trimExplode(',', $settings['ausbildungsrichtungen'], true));
