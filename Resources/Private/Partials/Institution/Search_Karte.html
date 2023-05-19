@@ -85,6 +85,70 @@
     });    
     
   </f:asset.script>
-  <div class="card mt-3 mb-3" id="map" style="height: 700px; width: 100%;"></div>					
+  <f:if condition="{hoehe}==500">
+    <f:then>
+      <div class="card mt-3 mb-3" id="map" style="height: 500px; width: 100%;"></div>
+    </f:then>
+    <f:else>
+      <f:if condition="{hoehe}==550">
+        <f:then>
+          <div class="card mt-3 mb-3" id="map" style="height: 550px; width: 100%;"></div>
+        </f:then>
+        <f:else>
+          <f:if condition="{hoehe}==600">
+            <f:then>
+              <div class="card mt-3 mb-3" id="map" style="height: 600px; width: 100%;"></div>
+            </f:then>
+            <f:else>
+              <f:if condition="{hoehe}==650">
+                <f:then>
+                  <div class="card mt-3 mb-3" id="map" style="height: 650px; width: 100%;"></div>
+                </f:then>
+                <f:else>
+                  <f:if condition="{hoehe}==700">
+                    <f:then>
+                      <div class="card mt-3 mb-3" id="map" style="height: 700px; width: 100%;"></div>
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{hoehe}==750">
+                        <f:then>
+                          <div class="card mt-3 mb-3" id="map" style="height: 750px; width: 100%;"></div>
+                        </f:then>
+                        <f:else>
+                          <f:if condition="{hoehe}==800">
+                            <f:then>
+                              <div class="card mt-3 mb-3" id="map" style="height: 800px; width: 100%;"></div>
+                            </f:then>
+                            <f:else>
+                              <f:if condition="{hoehe}==850">
+                                <f:then>
+                                  <div class="card mt-3 mb-3" id="map" style="height: 850px; width: 100%;"></div>
+                                </f:then>
+                                <f:else>
+                                  <f:if condition="{hoehe}==900">
+                                    <f:then>
+                                      <div class="card mt-3 mb-3" id="map" style="height: 900px; width: 100%;"></div>
+                                    </f:then>
+                                    <f:else>
+                                      <div class="card mt-3 mb-3" id="map" style="height: 700px; width: 100%;"></div>
+                                    </f:else>
+                                  </f:if>
+                                </f:else>
+                              </f:if>
+                            </f:else>
+                          </f:if>
+                        </f:else>
+                      </f:if>
+                    </f:else>
+                  </f:if>
+                </f:else>
+              </f:if>
+            </f:else>
+          </f:if>
+        </f:else>
+      </f:if>      
+    </f:else>
+  </f:if>
+					
 
 </html>  

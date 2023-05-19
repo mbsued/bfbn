@@ -32,6 +32,26 @@
 							</config>
 						</TCEforms>
 					</settings.ansicht>
+					<settings.kartehoehe>
+						<TCEforms>
+							<exclude>1</exclude>						
+							<label>Höhe der Karte</label>							
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>trim,int</eval>
+								<range>
+									<lower>500</lower>
+									<upper>900</upper>
+								</range>
+								<slider>
+									<step>50</step>
+									<width>200</width>
+								</slider>
+								<default>700</default>
+							</config>
+						</TCEforms>
+					</settings.kartehoehe>					
 					<settings.kartezoom>
 						<TCEforms>
 							<exclude>1</exclude>						

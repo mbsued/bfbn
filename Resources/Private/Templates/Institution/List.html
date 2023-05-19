@@ -61,7 +61,7 @@
           </ul>
           <div id="bfbn-karteliste-content" class=tab-content>
             <div id="tab-bfbn-karte" class="tab-pane active show" role="tabpanel" arai-labelledby="tab-karte">
-              <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'show', zoom:settings.kartezoom}" />                   
+              <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'show', zoom:settings.kartezoom, hoehe:settings.kartehoehe}" />                   
             </div>
             <div id="tab-bfbn-liste" class="tab-pane" role="tabpanel" arai-labelledby="tab-liste">
               <f:render partial="Institution/Search_Liste" arguments="{institutionen:institutionen, aktion:'show'}" />                   
@@ -72,7 +72,7 @@
       <f:else>
         <f:if condition="{settings.ansicht}==2">
             <f:then>
-                <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'show', , zoom:settings.kartezoom}" />			
+                <f:render partial="Institution/Search_Karte" arguments="{institutionen:institutionen, aktion:'show', zoom:settings.kartezoom, hoehe:settings.kartehoehe}" />			
             </f:then>
             <f:else>
                 <f:if condition="{settings.ansicht}==1">
