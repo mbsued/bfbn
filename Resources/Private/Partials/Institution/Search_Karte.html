@@ -130,7 +130,21 @@
                                       <div class="card mt-3 mb-3" id="map" style="height: 900px; width: 100%;"></div>
                                     </f:then>
                                     <f:else>
-                                      <div class="card mt-3 mb-3" id="map" style="height: 700px; width: 100%;"></div>
+									  <f:if condition="{hoehe}==950">
+										<f:then>
+										  <div class="card mt-3 mb-3" id="map" style="height: 950px; width: 100%;"></div>
+										</f:then>
+										<f:else>
+										  <f:if condition="{hoehe}==1000">
+											<f:then>
+											  <div class="card mt-3 mb-3" id="map" style="height: 1000px; width: 100%;"></div>
+											</f:then>
+											<f:else>
+											  <div class="card mt-3 mb-3" id="map" style="height: 700px; width: 100%;"></div>
+											</f:else>
+										  </f:if>
+										</f:else>
+									  </f:if>
                                     </f:else>
                                   </f:if>
                                 </f:else>

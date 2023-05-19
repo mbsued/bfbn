@@ -42,7 +42,7 @@
 								<eval>trim,int</eval>
 								<range>
 									<lower>500</lower>
-									<upper>900</upper>
+									<upper>1000</upper>
 								</range>
 								<slider>
 									<step>50</step>
