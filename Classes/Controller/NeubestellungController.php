@@ -7,6 +7,7 @@ use OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository;
 use OliverBauer\Bfbn\Domain\Repository\NeubestellungartRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -131,9 +132,10 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      * @param \OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung): ResponseInterface
     {
         $this->view->assign('Neubestellung', $neubestellung);
+		return $this->htmlResponse($this->view->render());		
     }
 	
 	/**
@@ -141,7 +143,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung=null): ResponseInterface
 	{
         if (is_null($neubestellung)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -162,11 +164,12 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 				}
 			} else {
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
-			}		
+			}
+			return $this->htmlResponse();		
         }
     }	
 
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung): ResponseInterface
 	{
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -187,7 +190,8 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		} 		
+		}
+		return $this->htmlResponse(); 		
 	} 
 
     /**
@@ -199,7 +203,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	 *	
      * @return string
      */
-    public function newAction($artuid,\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung = NULL)
+    public function newAction($artuid,\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -221,7 +225,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();   
     }
 
     /**
@@ -231,7 +235,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung): ResponseInterface
     {
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -242,15 +246,18 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 					$meldungerfolgreich='Die Person '.($neubestellung->getVorname ?? '').' '.($neubestellung->getNachname ?? '').' wurde erfolgreich angelegt';
 					$this->addFlashMessage($meldungerfolgreich); 					 						
 					$this->NeubestellungRepository->add($neubestellung);
-					$this->redirect('list','Neubestellung',NULL);
+					return $this->redirect('list','Neubestellung',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();				
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();			
 		}  		
 
     }
@@ -261,7 +268,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      * @param \OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -269,15 +276,18 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->NeubestellungRepository->update($neubestellung);
-					$this->redirect('list','Neubestellung', NULL);
+					return $this->redirect('list','Neubestellung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();					
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();				
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();			
 		}        
     }
 
@@ -287,7 +297,7 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
      * @param \OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Neubestellung $neubestellung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -296,15 +306,18 @@ class NeubestellungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
 					$this->NeubestellungRepository->remove($neubestellung);
-					$this->redirect('list','Neubestellung', NULL);
+					return $this->redirect('list','Neubestellung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();					
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();				
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();			
 		} 	
     }
 	

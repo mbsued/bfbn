@@ -119,7 +119,7 @@ class MeldungController extends ActionController
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung=null): ResponseInterface
 	{
         if (is_null($meldung ?? NULL)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -143,6 +143,7 @@ class MeldungController extends ActionController
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
 			}		
         }
+		return $this->htmlResponse();
     }	
 
 	protected function createDemandObject($institution,$art) {

@@ -32,6 +32,7 @@ use OliverBauer\Bfbn\Domain\Repository\AuswahljaneinRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
 use OliverBauer\Bfbn\Service\GeocodeService;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
+use Psr\Http\Message\ResponseInterface;
  
 /**
  * InstitutionController
@@ -343,7 +344,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * 
      * @return void
      */
-    public function listAction()
+    public function listAction(): ResponseInterface
 	{
         $demand = $this -> createDemandObjectFromSettings($this->settings);
 		$institutionen = $this->InstitutionRepository->findDemanded($demand);
@@ -356,6 +357,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$this->view->assign('zoom', $whichZoom);
 		$this->view->assign('ueberschrift', $whichUeberschrift);	
         $this->view->assign('institutionen', $institutionen);
+		return $this->htmlResponse($this->view->render());
     }
 
     /**
@@ -364,15 +366,16 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @param \OliverBauer\Bfbn\Domain\Model\Institution|null $Institution
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution=null)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution=null): ResponseInterface
     {
         if (is_null($institution)) {
 			/**print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump( $this->settings['institution']); */
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($this->settings['institution']);
-			$this->view->assign('institution', $gesuchteinstitution);	
+			$this->view->assign('institution', $gesuchteinstitution);
         } else {  
 			$this->view->assign('institution', $institution);
 		}
+		return $this->htmlResponse($this->view->render());
     }
 	
     /**
@@ -381,7 +384,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @param \OliverBauer\Bfbn\Domain\Model\Institution|null $Institution
      * @return void
      */
-    public function showforeditAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution=null)
+    public function showforeditAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution=null): ResponseInterface
 	{
         if (is_null($institution)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -399,7 +402,8 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 			} else {
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
 			}		
-        }		
+        }
+		return $this->htmlResponse();
 	}	
 
 	/**
@@ -407,7 +411,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @return void
      */
 	
-	public function searchformAction()
+	public function searchformAction(): ResponseInterface
     {
 		$whichArt = $this->settings['art'];
 		$this->view->assign('art', $whichArt);
@@ -442,7 +446,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 			$this->view->assign('stati', $auswahlStatus);
 		}
 		
-		$this->view->render();
+		return $this->htmlResponse($this->view->render());
     }
 	
 	/**
@@ -451,7 +455,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @return void
      */
 	
-	public function searchAction(\OliverBauer\Bfbn\Domain\Model\InstitutionDemand $suche)
+	public function searchAction(\OliverBauer\Bfbn\Domain\Model\InstitutionDemand $suche): ResponseInterface
     {
 		$whichart = $this->settings['art'];
 		if ($whichart < 5) {
@@ -472,6 +476,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		}
 		$whichAnsicht = $this->settings['ansicht'];		
 		$this->view->assign('ansicht', $whichAnsicht);
+		return $this->htmlResponse($this->view->render());
     }
 
 
@@ -482,10 +487,11 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("Institution")
      * @return void
      */
-    public function searchshowAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function searchshowAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution): ResponseInterface
     {
 		$this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class)->clearState();	
-        $this->view->assign('institution', $institution);		
+        $this->view->assign('institution', $institution);
+		return $this->htmlResponse($this->view->render());	
     }
 		
 	protected function createDemandObjectFromSettings($settings) {
@@ -676,7 +682,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $institution
      * @return void
      */
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution): ResponseInterface	
 	{
 		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,1);
 		$ausbabufos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
@@ -749,6 +755,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$this->view->assign('auswahljanein', $auswahljanein);		
   		
         $this->view->assign('institution', $institution);
+		return $this->htmlResponse($this->view->render());		
     }
 	
     /**
@@ -757,7 +764,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Institution $institution): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -765,15 +772,18 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->InstitutionRepository->update($institution);
-					$this->redirect('showforedit');
+					return $this->redirect('showforedit');
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}        
     }
 

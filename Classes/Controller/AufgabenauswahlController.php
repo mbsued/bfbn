@@ -7,6 +7,7 @@ use OliverBauer\Bfbn\Domain\Repository\SchulartRepository;
 use OliverBauer\Bfbn\Domain\Repository\JahrgangsstufeRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -130,9 +131,10 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl): ResponseInterface
     {
         $this->view->assign('Aufgabenauswahl', $Aufgabenauswahl);
+		return $this->htmlResponse($this->view->render());	
     }
 	
 	/**
@@ -140,7 +142,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl=null): ResponseInterface
 	{
         if (is_null($aufgabenauswahl)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -162,6 +164,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
 			}		
         }
+		return $this->htmlResponse();
     }	
     /**
      * action edit
@@ -170,7 +173,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $aufgabenauswahl
      * @return void
      */
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -187,7 +190,8 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}		
+		}
+		return $this->htmlResponse();		
 	}	
     /**
      * action new
@@ -199,7 +203,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 *	
      * @return string
      */
-    public function newAction($schulartuid,$jahrgangsstufeuid,\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl = NULL)
+    public function newAction($schulartuid,$jahrgangsstufeuid,\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -220,7 +224,8 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}  
+		}
+		return $this->htmlResponse();		
 	}
 
     /**
@@ -230,7 +235,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -241,17 +246,19 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	
 					$this->AufgabenauswahlRepository->add($aufgabenauswahl);
 					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aufgabenauswahl); */
-					$this->redirect('list','Aufgabenauswahl',NULL);
+					return $this->redirect('list','Aufgabenauswahl',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}  		
-
     }
 
     /**
@@ -260,7 +267,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -268,15 +275,18 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->AufgabenauswahlRepository->update($aufgabenauswahl);
-					$this->redirect('list','Aufgabenauswahl', NULL);
+					return $this->redirect('list','Aufgabenauswahl', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}        
     }
 
@@ -286,7 +296,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -295,15 +305,18 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Aufgabenauswahl wurde gelöscht');
 					$this->AufgabenauswahlRepository->remove($aufgabenauswahl);
-					$this->redirect('list','Aufgabenauswahl', NULL);
+					return $this->redirect('list','Aufgabenauswahl', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();		
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		} 	
     }
 	

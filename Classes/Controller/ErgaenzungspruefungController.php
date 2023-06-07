@@ -7,6 +7,7 @@ use OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository;
 use OliverBauer\Bfbn\Domain\Repository\SpracheRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -132,9 +133,10 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung): ResponseInterface
     {
         $this->view->assign('Ergaenzungspruefung', $Ergaenzungspruefung);
+		return $this->htmlResponse($this->view->render());		
     }
 	
 	/**
@@ -142,7 +144,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung=null): ResponseInterface
 	{
         if (is_null($ergaenzungspruefung)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -154,7 +156,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 						$ergaenzungspruefungen = $this->ErgaenzungspruefungRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
 						$this->view->assign('termin', $whichtermin ?? 0);
-						$this->view->assign('ergaenzungspruefungen', $ergaenzungspruefungen);
+						$this->view->assign('ergaenzungspruefungen', $ergaenzungspruefungen);						
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					}
@@ -165,6 +167,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
 			}		
         }
+		return $this->htmlResponse();
     }	
     /**
      * action edit
@@ -173,7 +176,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $ergaenzungspruefung
      * @return void
      */
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -194,7 +197,8 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}		
+		}
+		return $this->htmlResponse();
 	}	
     /**
      * action new
@@ -205,7 +209,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 	 *	
      * @return string
      */
-    public function newAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung = NULL)
+    public function newAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -227,7 +231,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();   
     }
 
     /**
@@ -237,7 +241,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -246,15 +250,18 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					
 					$this->ErgaenzungspruefungRepository->add($ergaenzungspruefung);
-					$this->redirect('list','Ergaenzungspruefung',NULL);
+					return $this->redirect('list','Ergaenzungspruefung',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}  		
 
     }
@@ -265,7 +272,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -273,15 +280,18 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->ErgaenzungspruefungRepository->update($ergaenzungspruefung);
-					$this->redirect('list','Ergaenzungspruefung', NULL);
+					return $this->redirect('list','Ergaenzungspruefung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}        
     }
 
@@ -291,7 +301,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -300,15 +310,18 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
 					$this->ErgaenzungspruefungRepository->remove($ergaenzungspruefung);
-					$this->redirect('list','Ergaenzungspruefung', NULL);
+					return $this->redirect('list','Ergaenzungspruefung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();				
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();			
 		} 	
     }
 	

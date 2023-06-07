@@ -8,6 +8,7 @@ use OliverBauer\Bfbn\Domain\Repository\AbschlussRepository;
 use OliverBauer\Bfbn\Domain\Repository\FachkurzRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -150,9 +151,10 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
      * @param \OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer): ResponseInterface
     {
         $this->view->assign('Schulfremdepruefer', $schulfremdepruefer);
+		return $this->htmlResponse($this->view->render());
     }
 	
 	/**
@@ -160,7 +162,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer=null): ResponseInterface
 	{
         if (is_null($schulfremdepruefer)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -181,11 +183,12 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 				}
 			} else {
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
-			}		
+			}
+			return $this->htmlResponse();	
         }
     }
 	
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface	
 	{
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -210,7 +213,8 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		} 		
+		}
+		return $this->htmlResponse();	
 	} 
 	
     /**
@@ -222,7 +226,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	 *	
      * @return string
      */
-    public function newAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer = NULL)
+    public function newAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -246,7 +250,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();   
     }
 
     /**
@@ -256,7 +260,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer): ResponseInterface
     {
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -266,15 +270,18 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					 						
 					$this->SchulfremdeprueferRepository->add($schulfremdepruefer);
-					$this->redirect('list','Schulfremdepruefer',NULL);
+					return $this->redirect('list','Schulfremdepruefer',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}  		
 
     }
@@ -285,7 +292,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
      * @param \OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -293,15 +300,18 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->SchulfremdeprueferRepository->update($schulfremderpruefer);
-					$this->redirect('list','Schulfremdepruefer', NULL);
+					return $this->redirect('list','Schulfremdepruefer', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}        
     }
 
@@ -311,7 +321,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
      * @param \OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -320,15 +330,18 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
 					$this->SchulfremdeprueferRepository->remove($schulfremderpruefer);
-					$this->redirect('list','Schulfremdepruefer', NULL);
+					return $this->redirect('list','Schulfremdepruefer', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		} 	
     }
 	

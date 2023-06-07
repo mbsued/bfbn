@@ -22,7 +22,7 @@
                                 <f:variable name="mathecounter">{mathecounter+1}</f:variable>  
                             </f:then>
                             <f:else>
-                              <f:if condition="{funktion.uid} == 13">
+                              <f:if condition="{funktion.uid} == 26">
                                 <f:then>
                                     <f:variable name="wirtschaftcounter">{wirtschaftcounter+1}</f:variable>  
                                 </f:then>
@@ -300,9 +300,9 @@
               	<div class="row mt-2"> 
               </f:then>
             </f:if>
-            <f:if condition="{funktion30da} == 0 && {schulehatrussisch} == 1">
+            <f:if condition="{funktion31da} == 0 && {schulehatrussisch} == 1">
               <f:then>            
-                <f:render section="Linkaufbau" arguments="{funktionuid: '30', vartext1: 'neuen', vartext2: 'Neuer', fach: 'Russisch'}" />                  
+                <f:render section="Linkaufbau" arguments="{funktionuid: '31', vartext1: 'neuen', vartext2: 'Neuer', fach: 'Russisch'}" />                  
                 <f:variable name="counter">{counter+1}</f:variable>
               </f:then>
             </f:if>
@@ -313,9 +313,9 @@
               	<div class="row mt-2"> 
               </f:then>
             </f:if>
-            <f:if condition="{funktion31da} == 0 && {schulehatspanisch} == 1">
+            <f:if condition="{funktion30da} == 0 && {schulehatspanisch} == 1">
               <f:then>         
-                <f:render section="Linkaufbau" arguments="{funktionuid: '24', vartext1: 'neuen', vartext2: 'Neuer', fach: 'Spanisch'}" />                  
+                <f:render section="Linkaufbau" arguments="{funktionuid: '30', vartext1: 'neuen', vartext2: 'Neuer', fach: 'Spanisch'}" />                  
                 <f:variable name="counter">{counter+1}</f:variable>
               </f:then>
             </f:if>

@@ -5,6 +5,7 @@ use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
 use OliverBauer\Bfbn\Domain\Repository\UnfallstatistikRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -94,9 +95,10 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik): ResponseInterface
     {
         $this->view->assign('Unfallstatistik', $unfallstatistik);
+		return $this->htmlResponse($this->view->render());
     }
 	
 	/**
@@ -104,7 +106,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik=null): ResponseInterface
 	{
         if (is_null($unfallstatistik)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -125,11 +127,12 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				}
 			} else {
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
-			}		
+			}
+		return $this->htmlResponse();	
         }
     }	
 
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik)	
+    public function editAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik): ResponseInterface	
 	{
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -148,7 +151,8 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		} 		
+		}
+ 		return $this->htmlResponse();
 	} 
 
     /**
@@ -159,7 +163,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 *	
      * @return string
      */
-    public function newAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik = NULL)
+    public function newAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -177,7 +181,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();
     }
 
     /**
@@ -187,7 +191,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik): ResponseInterface
     {
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -198,15 +202,18 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 					$meldungerfolgreich='Die Unfallstatistik wurde erfolgreich angelegt';
 					$this->addFlashMessage($meldungerfolgreich); 					 						
 					$this->UnfallstatistikRepository->add($unfallstatistik);
-					$this->redirect('list','Unfallstatistik',NULL);
+					return $this->redirect('list','Unfallstatistik',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}  		
 
     }
@@ -217,7 +224,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -225,15 +232,18 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->UnfallstatistikRepository->update($unfallstatistik);
-					$this->redirect('list','Unfallstatistik', NULL);
+					return $this->redirect('list','Unfallstatistik', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		}        
     }
 
@@ -243,7 +253,7 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @param \OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Unfallstatistik $unfallstatistik): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -252,15 +262,18 @@ class UnfallstatistikController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Unfallstatistik wurde gelöscht');
 					$this->UnfallstatistikRepository->remove($unfallstatistik);
-					$this->redirect('list','Unfallstatistik', NULL);
+					return $this->redirect('list','Unfallstatistik', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			return $this->htmlResponse();
 		} 	
     }
 	

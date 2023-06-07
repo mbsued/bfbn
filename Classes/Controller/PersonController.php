@@ -10,6 +10,7 @@ use OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository;
 use OliverBauer\Bfbn\Domain\Repository\FunktionRepository;
 use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
 use OliverBauer\Bfbn\Service\AccessControlService;
+use Psr\Http\Message\ResponseInterface;
 
 /***
  *
@@ -141,7 +142,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @param \OliverBauer\Bfbn\Domain\Model\Person $Person
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Person $Person)
+    public function showAction(\OliverBauer\Bfbn\Domain\Model\Person $Person): ResponseInterface
     {
         $this->view->assign('Person', $Person);
     }
@@ -151,7 +152,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Person $person=null)
+    public function listAction(\OliverBauer\Bfbn\Domain\Model\Person $person=null): ResponseInterface
 	{
         if (is_null($person)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -171,7 +172,8 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				}
 			} else {
 				$this->addFlashMessage('Benutzer nicht eingeloggt.');
-			}		
+			}
+			return $this->htmlResponse();	
         }
     }
 
@@ -183,7 +185,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $person
      * @return void
      */
-    public function editAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person)	
+    public function editAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -204,7 +206,8 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}		
+		}
+		return $this->htmlResponse();
 	}	
 
     /**
@@ -216,7 +219,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 *	
      * @return string
      */
-    public function newAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL)
+    public function newAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -238,7 +241,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();   
     }
 	
     /**
@@ -250,7 +253,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 *	
      * @return string
      */
-    public function newftAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL)
+    public function newftAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -272,7 +275,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}        
-       
+		return $this->htmlResponse();       
     }
     /**
      * action create
@@ -281,7 +284,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktion
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion)
+    public function createAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -289,21 +292,23 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$person->addInstitutionen($gesuchteinstitution);
-					$person->addFunktionen($funktion);
-					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					
+					$person->addFunktionen($funktion);					
 					$this->PersonRepository->add($person);
 					$this->InstitutionRepository->update($gesuchteinstitution);
-					$this->redirect('edit','Institution',NULL, Array('institution' => $gesuchteinstitution));
+					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					
+					return $this->redirect('edit','Institution',NULL, Array('institution' => $gesuchteinstitution)); 
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}  		
-
+			return $this->htmlResponse();
+		}	
     }
 	
     /**
@@ -313,7 +318,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktion
      * @return void
      */
-    public function createftAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion)
+    public function createftAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -324,18 +329,20 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 					$person->addFunktionen($funktion);
 					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					
 					$this->PersonRepository->add($person);
-					$this->InstitutionRepository->update($gesuchteinstitution);
-					$this->redirect('list');
+					$this->InstitutionRepository->update($gesuchteinstitution);					
+					return $this->redirect('list'); 
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();		
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}  		
-
+			return $this->htmlResponse();
+		}
     }	
 
     /**
@@ -344,7 +351,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @param \OliverBauer\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Person $person)
+    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -352,18 +359,20 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
-					$this->PersonRepository->remove($person);
-					$this->redirect('edit','Institution', NULL, Array('institution'=> $gesuchteinstitution));
+					$this->PersonRepository->remove($person);					
+					return $this->redirect('edit','Institution', NULL, Array('institution'=> $gesuchteinstitution)); 
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse();
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse();
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}  		
-
+			return $this->htmlResponse();
+		}	
     }
 	
     /**
@@ -372,7 +381,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @param \OliverBauer\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function deleteftAction(\OliverBauer\Bfbn\Domain\Model\Person $person)
+    public function deleteftAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -380,17 +389,20 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
-					$this->PersonRepository->remove($person);
-					$this->redirect('list');
+					$this->PersonRepository->remove($person);					
+					return $this->redirect('list'); 
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+							return $this->htmlResponse(); 
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+						return $this->htmlResponse(); 	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}  		
+			return $this->htmlResponse(); 
+		}		
 	}
 	
     /**
@@ -399,24 +411,27 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @param \OliverBauer\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Person $person)
+    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->PersonRepository->update($person);
-					$this->redirect('list');
+					$this->PersonRepository->update($person);					
+					return $this->redirect('list'); 
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
+					return $this->htmlResponse(); 
 				}
 			} else {
-				$this->addFlashMessage('Schule nicht gefunden.');	
+				$this->addFlashMessage('Schule nicht gefunden.');
+				return $this->htmlResponse(); 	
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}        
+			return $this->htmlResponse(); 
+		}      
     }
 
 	public function initializeCreateftAction() {
