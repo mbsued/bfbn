@@ -2,70 +2,73 @@
 <f:layout name="Default" />
 
 <f:section name="content">
-    <h1>Schulfremde Prüfer - Ändern</h1>
-
+  
     <f:flashMessages />
 
     <f:render partial="FormErrors" />
 
-    <f:form action="update" name="schulfremderpruefer" object="{schulfremderpruefer}" >
+    <f:form action="update" name="unfallstatistik" object="{unfallstatistik}" >
 	
 		<div class="card mt-3">
-			<div class="card-header">Schulfremden Prüfer für {institution.kurzbezeichnung} ändern
-			</div>
+			<div class="card-header">Unfallstatistik für {institution.kurzbezeichnung} ändern</div> 
+	
 			<div class="card-body">
-				<div class="row">
-					<div class="form-group col-md-2">
-						<label for="titel">Titel</label>
-						<f:form.textfield class="form-control" property="titel" value="{schulfremderpruefer.titel}" />
-					</div>				
-					<div class="form-group col-md-3">
-						<label for="vorname">Vorname</label>
-						<f:form.textfield class="form-control" property="vorname" value="{schulfremderpruefer.vorname}" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="nachname">Nachname</label>
-						<f:form.textfield class="form-control" property="nachname" value="{schulfremderpruefer.nachname}" />
-					</div>
-					<div class="form-group col-md-2">
-						<label for="geschlecht">Geschlecht</label>
-						<f:form.select class="form-control" property="geschlecht" value="{schulfremderpruefer.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung"/>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-md-6">
-						<label for="schule">Schule der Lehrkraft</label>
-						<f:form.textfield class="form-control" property="schule" value="{schulfremderpruefer.schule}" />
-					</div>
-					<div class="form-group col-md-6">
-						<label for="lehrbefaehigung">Lehrbefähigung Oberstufe</label>
-						<f:form.textfield class="form-control" property="lehrbefaehigung" value="{schulfremderpruefer.lehrbefaehigung}" />
-					</div>					
-				</div>
-				<div class="row">
-					<div class="form-group col-md-3">
-						<label for="abschluss">Abschluss</label>
-						<f:form.select class="form-control" property="abschluss" value="{schulfremderpruefer.abschluss}" options="{auswahlabschluss}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="fach1">Fach 1</label>
-						<f:form.select class="form-control" property="fach1" value="{schulfremdepruefer.fach1}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="fach2">Fach 2</label>
-						<f:form.select class="form-control" property="fach2" value="{schulfremdepruefer.fach2}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="fach2">Fach 3</label>
-						<f:form.select class="form-control" property="fach3" value="{schulfremdepruefer.fach3}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row mt-3">
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="schueler" >Schülerzahl (am 20.10.)</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'schuelerhelper'}" class="form-control" property="schueler" value="{unfallstatistik.schueler}" required="true"/>                
+                  <div id="schuelerhelper" class="form-text">Bitte die Schülerzahl am 20.10. des Vorjahres eingeben.</div>
+                </div>
+              </div>
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="unterricht">Unfälle im Unterricht</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'unterrichthelper'}" class="form-control" property="unterricht" value="{unfallstatistik.unterricht}" required="true"/>
+                  <div id="unterrichthelper" class="form-text">Bitte die Zahl der Unfälle während des Unterrichts (außer Sport) eintragen.</div>
+                </div>
+              </div>
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="sport">Unfälle im Sportunterricht</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'sporthelper'}" class="form-control" property="sport" value="{unfallstatistik.sport}" required="true"/>
+                  <div id="sporthelper" class="form-text">Bitte die Zahl der Unfälle während des Sportunterrichts eintragen.</div>
+                </div>
+              </div>        
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="sport">Unfälle in den Pausen</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'pausehelper'}" class="form-control" property="pause" value="{unfallstatistik.pause}" required="true"/>
+                  <div id="pausehelper" class="form-text">Bitte die Zahl der Unfälle während der Pausen (Aufenthalt auf dem Schulgelände - Ohne Unterricht) eintragen.<br />
+              		(auch einschl. Kurzpausen, Stundenwechsel, Freistunden, Wartezeiten vor und nach dem Unterricht, Aufenthalt auf Fluren, Treppen, Toiletten usw.)
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="schulweg">Unfälle auf dem Schulweg</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'schulweghelper'}" class="form-control" property="schulweg" value="{unfallstatistik.schulweg}" required="true"/>
+                  <div id="schulweghelper" class="form-text">Bitte die Zahl der Unfälle auf dem Schulweg eintragen.</div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="schulwegpolizei">Polizeilich registrierte Verkehrsunfälle</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'schulwegpolizeihelper'}" class="form-control" property="schulwegpolizei" value="{unfallstatistik.schulwegpolizei}" required="true"/>
+                  <div id="schulwegpolizeihelper" class="form-text">Bitte die Zahl der polizeilich registrierten Verkehrsunfälle auf dem Schulweg eintragen.</div>
+                </div>                
+              </div>
+              <div class="row mb-3 g-3 align-items-center">
+                <div class="form-group col-md-6">
+                  <label for="sonstige">Sonstige Unfälle</label>
+                  <f:form.textfield type="number" additionalAttributes="{min:0, max:9999}" aria="{describedby:'sonstigehelper'}" class="form-control" property="sonstige" value="{unfallstatistik.sonstige}" required="true"/>
+                  <div id="sonstigehelper" class="form-text">Bitte die Zahl der sonstigen Unfälle (z.B. <strong>fachpraktische Ausbildung</strong>, Wanderungen, Fahrten, Schulfeiern) 								eintragen.			
+                  </div>
+                </div>
+              </div>              
+          	</div>
+      	</div>
+		<div class="row mt-3 mb-3">
 			<div class="form-group col-md-12">
 				<div class="col-sm-10 col-sm-offset-2">
-					<f:form.submit class="btn btn-primary"  value="Änderungen speichern" />
+					<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Änderungen speichern</f:form.button>
 				</div>
 			</div>
 		</div>

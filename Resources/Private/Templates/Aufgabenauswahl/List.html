@@ -31,7 +31,7 @@
   </f:if>
   <f:if condition="{institution.art.uid} == 3">
     <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
-      <f:if condition="{ausbildungsrichtung.uid} == 2 || {ausbildungsrichtung.uid} == 7 || {ausbildungsrichtung.uid} == 10 || {ausbildungsrichtung.uid} == 15 || {ausbildungsrichtung.uid} == 20 || {ausbildungsrichtung.uid} == 25 || ausbildungsrichtung.uid} == 30">
+      <f:if condition="{ausbildungsrichtung.uid} == 2 || {ausbildungsrichtung.uid} == 7 || {ausbildungsrichtung.uid} == 10 || {ausbildungsrichtung.uid} == 15 || {ausbildungsrichtung.uid} == 20 || {ausbildungsrichtung.uid} == 25 || {ausbildungsrichtung.uid} == 30">
         <f:variable name="schulehatfos12">1</f:variable>
       </f:if>
       <f:if condition="{ausbildungsrichtung.uid} == 3 || {ausbildungsrichtung.uid} == 8 || {ausbildungsrichtung.uid} == 11 || {ausbildungsrichtung.uid} == 16 || {ausbildungsrichtung.uid} == 21 || {ausbildungsrichtung.uid} == 26 || {ausbildungsrichtung.uid} == 31">
@@ -41,10 +41,10 @@
   </f:if>
   <f:if condition="{institution.art.uid} == 4">
     <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
-      <f:if condition="{ausbildungsrichtung.uid} == 4 || {ausbildungsrichtung.uid} == 12 || {ausbildungsrichtung.uid} == 17 || {ausbildungsrichtung.uid} == 22 || {ausbildungsrichtung.uid} == 27 || {ausbildungsrichtung.uid} == 32">
+      <f:if condition="{ausbildungsrichtung.uid} == 4 || {ausbildungsrichtung.uid} == 12 || {ausbildungsrichtung.uid} == 17 || {.ausbildungsrichtung.uid} == 22 || {ausbildungsrichtung.uid} == 27 || {ausbildungsrichtung.uid} == 32">
         <f:variable name="schulehatbos12">1</f:variable>
       </f:if>
-      <f:if condition="{ausbildungsrichtung.uid} == 5 || {ausbildungsrichtung.uid} == 13 || {ausbildungsrichtung.uid} == 18 || {ausbildungsrichtung.uid} == 23 || {ausbildungsrichtung.uid} == 28 || {ausbildungsrichtung.uid} == 33">
+      <f:if condition="{ausbildungsrichtung.uid} == 5 || ausbildungsrichtung.uid} == 13 || {ausbildungsrichtung.uid} == 18 || {ausbildungsrichtung.uid} == 23 || {ausbildungsrichtung.uid} == 28 || ausbildungsrichtung.uid} == 33">
         <f:variable name="schulehatbos13">1</f:variable>              
       </f:if>      
     </f:for>    

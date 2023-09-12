@@ -22,7 +22,12 @@
     <f:render partial="Institution/Detail_Kontakt" arguments="{institution:institution, settings:settings}" />
     <f:render partial="Institution/Detail_Ansprechpartner" arguments="{institution:institution}" />	
 	<f:render partial="Institution/Detail_Ausbildungsrichtungen" arguments="{institution:institution}" />
-    <a class="btn btn-primary mb-3 mt-3" role="button" href="javascript:history.back();">Zurück zur Übersicht</a><br />
+  	<f:asset.script identifier="vanilla_back-script">document.getElementById("zurueck_button").addEventListener('click', e => {
+        e.preventDefault();
+        history.back();
+    });</f:asset.script>
+    <button class="btn btn-primary mb-3 mt-3" id="zurueck_button">Zurück zur Übersicht</button><br />  
+  <f:comment><a class="btn btn-primary mb-3 mt-3" role="button" href="javascript:history.back();">Zurück zur Übersicht</a><br /></f:comment>
 
 </f:section>
 </html>

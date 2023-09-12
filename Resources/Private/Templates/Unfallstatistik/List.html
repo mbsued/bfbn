@@ -2,45 +2,56 @@
 <f:layout name="Default" />
 
 <f:section name="content">
-						
-	<h1>Neubestellungen (Datenschutz, Sicherheit, Inklusion) und Aktualisierungen (Strahlenkunde)</h1>		
-
-    <f:flashMessages />
-	<div class="mt-3 mb-3">
-	<f:if condition="{neubestellungen}">
+  
+  <h1>Unfallstatistik</h1>		
+  <div class="mt-3 mb-2">
+    <p><b>Termin: <f:format.date format="%A, %d. %B %Y">{settings.termin}</f:format.date></b>	</p>
+	<p>
+      Es sind die Unfallzahlen des letzten Schuljahres zu melden.
+    </p>   
+    
+  	<f:flashMessages />    
+	<f:if condition="{unfallstatistiken}">
 		<f:then>
 			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th scope="col">Titel</th>
-						<th scope="col">Nachname</th>
-						<th scope="col">Vorname</th>
-						<th scope="col">Geschlecht</th>
-						<th scope="col">Art der Meldung</th>
+						<th scope="col">Schüler (20.10)</th>
+						<th scope="col">Unterricht</th>
+						<th scope="col">Sport</th>
+						<th scope="col">Pause</th>
+						<th scope="col">Schulweg</th>
+                      	<th scope="col">davon Polizei</th>
+                      	<th scope="col">Sonstige</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
-				<f:for each="{neubestellungen}" as="neubestellung">
+                  <f:for each="{unfallstatistiken}" as="unfallstatistik">  
 					<tr>
-						<td>{neubestellung.titel}</td>
-						<td>{neubestellung.nachname}</td>
-						<td>{neubestellung.vorname}</td>
-						<td>{neubestellung.geschlecht.bezeichnung}</td>
-						<td>{neubestellung.art.bezeichnung}</td>
-						<td><f:link.action action="edit" class="btn btn-primary" arguments="{neubestellung : neubestellung}">Ändern</f:link.action></td>
-						<td><f:link.action action="delete" class="btn btn-primary" arguments="{neubestellung : neubestellung}">Löschen</f:link.action></td>
+						<td>{unfallstatistik.schueler}</td>
+						<td>{unfallstatistik.unterricht}</td>
+						<td>{unfallstatistik.sport}</td>
+						<td>{unfallstatistik.pause}</td>
+						<td>{unfallstatistik.schulweg}</td>
+						<td>{unfallstatistik.schulwegpolizei}</td>
+						<td>{unfallstatistik.sonstige}</td>                      
+						<td style="text-align:center"><f:link.action action="edit" class="btn btn-primary" arguments="{unfallstatistik : unfallstatistik}"><i class="fas fa-pen me-2"></i>Ändern</f:link.action></td>
+						<td style="text-align:center"><f:link.action action="delete" class="btn btn-primary" arguments="{unfallstatistik : unfallstatistik}"><i class="fas fa-trash-alt me-2"></i>Löschen</f:link.action></td>
 					</tr>
-				</f:for>
+                  </f:for>    
 				</tbody>
 			</table>
 		</f:then>
 		<f:else>
-			<p>Bisher wurden keine Neubestellungen(Datenschutz, Sicherheit oder Inklusion) bzw. Aktualisierungen der Strahlenkunde vorgegeben.</p>
+			<p>Bisher wurde keine Unfallstatistik vorgegeben.</p>
+		   	<div class="mb-3">
+       			<f:link.action class="btn btn-primary mt-5" action="new"  title="Meldung Unfallstatistik"><i class="far fa-plus-square me-2"></i>Unfallstatistik melden</f:link.action>
+  			</div>          
 		</f:else>
 	</f:if>
-	</div>						
-	<div class="mb-3"><f:link.action class="btn btn-primary mt-5" action="new">Neubestellung Datenschutz</f:link.action></div>
+	</div>
+
 </f:section>
 </html>

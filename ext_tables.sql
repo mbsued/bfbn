@@ -46,6 +46,7 @@ CREATE TABLE tx_bfbn_domain_model_institution (
 
 CREATE TABLE tx_bfbn_domain_model_person (
 
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	nachname varchar(255) DEFAULT '' NOT NULL,
 	vorname varchar(255) DEFAULT '' NOT NULL,
 	titel varchar(255) DEFAULT '' NOT NULL,

@@ -56,6 +56,44 @@ class FunktionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $query->execute();		
     }
 	
+    public function findDemanded($demand)
+	{
+        $query = $this -> createQuery();
+        $query -> getQuerySettings() -> setRespectStoragePage(false);
+        $query -> setOrderings($this -> createOrdering());
+        $constraints = $this -> createConstraintsFromDemand($query, $demand);
+        if (!empty($constraints)) 
+		{
+            $query -> matching(
+            $query -> logicalAnd($constraints)
+        );
+        }
+/**		$queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
+
+		\TYPO3\CMS\Core\Utility\DebugUtility::debug($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL()); **/	
+        return $query -> execute();
+    }        
+        
+    protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, $demand)
+	{
+        $constraints = array();
+
+        $arten = $demand -> getArt();
+        if ((!empty($arten))) 
+		{
+            $artConstraints = array();
+			if (!is_array($arten)) {
+				$arten = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $arten, TRUE);
+			}           
+            foreach ($arten as $art) 
+			{
+                $artConstraints[] = $query -> equals('art', $art);
+            }
+            $constraints[] = $query -> logicalOr($artConstraints);
+        }
+		
+        return $constraints;
+    }	
     protected function createOrdering() 
 	{
         $orderings = array('uid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);

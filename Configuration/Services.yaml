@@ -13,3 +13,8 @@ services:
     
   OliverBauer\Bfbn\Utility\FormHook:
     public: true
+    
+  OliverBauer\Bfbn\EventListener\LoginBeforeRedirectEvent:
+    tags:
+      - name: event.listener
+        identifier: 'myLoginBeforeRedirectEvent'    

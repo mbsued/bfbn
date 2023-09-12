@@ -91,8 +91,16 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	 *
      * @var \OliverBauer\Bfbn\Domain\Model\DateTime
      */
-    protected $bestelltab;	
-
+    protected $bestelltab;
+	
+    /**
+	 * tstamp
+	 *
+     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     */
+	 
+    protected $tstamp;
+	
     /**
      * funktionen
      * 
@@ -333,6 +341,28 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 	
     /**
+     * Get tstamp
+     *
+     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     */
+    public function getTstamp()
+    {
+        return $this->tstamp;
+    }
+
+    /**
+     * Set tstamp
+     *
+     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $tstamp
+     *
+     * @return void
+     */
+    public function setTstamp($tstamp)
+    {
+        $this->tstamp = $tstamp;
+    }
+	
+	/**
      * Adds a Funktion
      * 
      * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktionen

@@ -2,45 +2,404 @@
 <f:layout name="Default" />
 
 <f:section name="content">
-    <h1>Teilnehmer an der Ergänzungsprüfung - Ändern</h1>
+  
+  <f:variable name="schulehatabu">0</f:variable>
+  <f:variable name="schulehatgst">0</f:variable>
+  <f:variable name="schulehatgsu">0</f:variable>
+  <f:variable name="schulehatiwi">0</f:variable>
+  <f:variable name="schulehatsoz">0</f:variable>
+  <f:variable name="schulehattec">0</f:variable>
+  <f:variable name="schulehatwuv">0</f:variable>
 
-    <f:flashMessages />
+  <f:if condition="{aufgabenauswahl.schulart.uid} == 1">
+    <f:then>
+      <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 2">
+        <f:then>
+          <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
+              <f:if condition="{ausbildungsrichtung.uid} == 2 ">
+                  <f:variable name="schulehatabu">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 7">
+                  <f:variable name="schulehatgst">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 10">
+                  <f:variable name="schulehatgsu">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 15">
+                  <f:variable name="schulehatiwi">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 20">
+                  <f:variable name="schulehatsoz">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 25">
+                  <f:variable name="schulehattec">1</f:variable>
+              </f:if>
+              <f:if condition="{ausbildungsrichtung.uid} == 30">
+                  <f:variable name="schulehatwuv">1</f:variable>
+              </f:if>          
+          </f:for>
+        </f:then>
+        <f:else>
+          <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 3">
+            <f:then>
+              <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
+                  <f:if condition="{ausbildungsrichtung.uid} == 3 ">
+                      <f:variable name="schulehatabu">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 8">
+                      <f:variable name="schulehatgst">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 11">
+                      <f:variable name="schulehatgsu">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 16">
+                      <f:variable name="schulehatiwi">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 21">
+                      <f:variable name="schulehatsoz">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 26">
+                      <f:variable name="schulehattec">1</f:variable>
+                  </f:if>
+                  <f:if condition="{ausbildungsrichtung.uid} == 31">
+                      <f:variable name="schulehatwuv">1</f:variable>
+                  </f:if>          
+              </f:for>
+            </f:then>
+          </f:if>
+        </f:else>
+      </f:if>
+    </f:then>
+    <f:else>
+      <f:if condition="{aufgabenauswahl.schulart.uid} == 2">
+        <f:then>          
+          <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 2">
+            <f:then>             
+              <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung">          
+                <f:if condition="{ausbildungsrichtung.uid} == 4 ">
+                  <f:variable name="schulehatabu">1</f:variable>
+				</f:if>
+                <f:if condition="{ausbildungsrichtung.uid} == 12">
+                  <f:variable name="schulehatgsu">1</f:variable>
+                </f:if>
+                <f:if condition="{ausbildungsrichtung.uid} == 17">
+                  <f:variable name="schulehatiwi">1</f:variable>
+                </f:if>
+                <f:if condition="{ausbildungsrichtung.uid} == 22">
+                  <f:variable name="schulehatsoz">1</f:variable>
+                </f:if>
+                <f:if condition="{ausbildungsrichtung.uid} == 27">
+                  <f:variable name="schulehattec">1</f:variable>
+                </f:if>
+                <f:if condition="{ausbildungsrichtung.uid} == 32">
+                  <f:variable name="schulehatwuv">1</f:variable>
+                </f:if>          
+              </f:for>
+            </f:then>
+            <f:else>
+              <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 3">
+                <f:then>
+                  <f:for each="{institution.ausbildungsrichtungen}" as="ausbildungsrichtung"> 
+                    <f:if condition="{ausbildungsrichtung.uid} == 5 ">
+                      <f:variable name="schulehatabu">1</f:variable>
+                    </f:if>
+                    <f:if condition="{ausbildungsrichtung.uid} == 13">
+                      <f:variable name="schulehatgsu">1</f:variable>
+                    </f:if>
+                    <f:if condition="{ausbildungsrichtung.uid} == 18">
+                      <f:variable name="schulehatiwi">1</f:variable>
+                    </f:if>
+                    <f:if condition="{ausbildungsrichtung.uid} == 23">
+                      <f:variable name="schulehatsoz">1</f:variable>
+                    </f:if>
+                    <f:if condition="{ausbildungsrichtung.uid} == 28">
+                      <f:variable name="schulehattec">1</f:variable>
+                    </f:if>
+                    <f:if condition="{ausbildungsrichtung.uid} == 33">
+                      <f:variable name="schulehatwuv">1</f:variable>
+                    </f:if>          
+                  </f:for>
+                </f:then>
+              </f:if>
+            </f:else>
+          </f:if>
+        </f:then>
+      </f:if>
+    </f:else>
+  </f:if>
+
+  <f:flashMessages />
 
     <f:render partial="FormErrors" />
 
-    <f:form action="update" name="ergaenzungspruefung" object="{ergaenzungspruefung}" >
-	
+    <f:form action="update" name="aufgabenauswahl" object="{aufgabenauswahl}" >
+		<h1>
+          Aufgabenauswahl -Änderung
+      	</h1>
 		<div class="card mt-3">
-			<div class="card-header">Teilnehmer Ergänzungsprüfung an {institution.kurzbezeichnung} ändern
+			<div class="card-header">Aufgabenauswahl Deutsch {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
 			</div>
 			<div class="card-body">
-				<div class="row">					
-					<div class="form-group col-md-3">
-						<label for="vorname">Vorname</label>
-						<f:form.textfield class="form-control" property="vorname" value="{ergaenzungspruefung.vorname}" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="vorname">Nachname</label>
-						<f:form.textfield class="form-control" property="nachname" value="{ergaenzungspruefung.nachname}" />
-					</div>
-					<div class="form-group col-md-2">
-						<label for="geschlecht">Geschlecht</label>
-						<f:form.select class="form-control" property="geschlecht" value="{ergaenzungspruefung.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung"/>
-					</div>	
-					<div class="form-group col-md-3">
-						<label for="sprache">Sprache</label>
-						<f:form.select class="form-control" property="sprache" value="{ergaenzungspruefung.sprache}" options="{auswahlsprache}" optionValueField="uid" optionLabelField="bezeichnung"/>
-					</div>					
-				</div>
+              	<div class="row">
+                  <div class="form-group col-md-4"></div>
+                  <div class="form-group col-md-2">Argumentation</div>
+                  <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid}==3">
+                    <div class="form-group col-md-2">Lyrik</div>
+                  </f:if>
+                  <div class="form-group col-md-2">Epik</div>
+                  <div class="form-group col-md-2">Dramatik</div>
+              	</div>
+              	<f:if condition="{schulehatabu} == 1">
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Agrarwirtschaft, Bio- und Umwelttechnologie</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '1'}" />                  
+                  </div>
+                </f:if>
+              	<f:if condition="{schulehatgst} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Gestaltung</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '2'}" />	  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehatgsu} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Gesundheit</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '3'}" />                  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehatiwi} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Internationale Wirtschaft</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '4'}" />	  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehatsoz} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Sozialwesen</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '5'}" />                  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehattec} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Technik</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '6'}" />	  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehatwuv} == 1">              
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Wirtschaft und Verwaltung</f:variable>
+                    <f:render section="AusbDeutsch" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '7'}" />                  
+                  </div>
+              	</f:if>
 			</div>
 		</div>
-		<div class="row mt-3">
+		<div class="card mt-3">
+			<div class="card-header">Aufgabenauswahl Mathematik (NT) {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+			</div>
+			<div class="card-body">
+              	<div class="row">
+                  <div class="form-group col-md-4"></div>
+                  <div class="form-group col-md-2">Analysis I</div>
+                  <div class="form-group col-md-2">Analysis II</div>
+                  <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 2">
+                    <f:then>
+                      <div class="form-group col-md-2">Stochastik I</div>
+                      <div class="form-group col-md-2">Stochastik II</div>
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 3">
+                        <f:then>
+                          <div class="form-group col-md-2">Geometrie I</div>
+                          <div class="form-group col-md-2">Geometrie II</div>
+                        </f:then>
+                      </f:if>
+                    </f:else>
+                  </f:if>        
+              	</div>
+              	<f:if condition="{schulehatabu} == 1">
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Agrarwirtschaft, Bio- und Umwelttechnologie</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '1'}" />                  
+                  </div>
+              	</f:if>
+              	<f:if condition="{schulehatgst} == 1">
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Gestaltung</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '2'}" />	  
+                  </div>
+              	</f:if>
+                <f:if condition="{schulehatgsu} == 1">  
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Gesundheit</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '3'}" />                  
+                  </div>
+              	</f:if>
+                <f:if condition="{schulehatiwi} == 1">  
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Internationale Wirtschaft</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '4'}" />	  
+                  </div>
+              	</f:if>
+                <f:if condition="{schulehatsoz} == 1">  
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Sozialwesen</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '5'}" />                  
+                  </div>
+              	</f:if>
+                <f:if condition="{schulehatwuv} == 1">  
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Wirtschaft und Verwaltung</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '7'}" />                  
+                  </div>
+              	</f:if>
+			</div>
+		</div>
+      	<f:if condition="{schulehattec} == 1">
+          <div class="card mt-3">
+              <div class="card-header">Aufgabenauswahl Mathematik (T) {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-4"></div>
+                    <div class="form-group col-md-2">Analysis I</div>
+                    <div class="form-group col-md-2">Analysis II</div>
+                    <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 2">
+                      <f:then>
+                        <div class="form-group col-md-2">Geometrie I</div>
+                        <div class="form-group col-md-2">Geometrie II</div>
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{aufgabenauswahl.jahrgangsstufe.uid} == 3">
+                          <f:then>
+                            <div class="form-group col-md-2">Stochastik I</div>
+                            <div class="form-group col-md-2">Stochastik II</div>
+                          </f:then>
+                        </f:if>
+                      </f:else>
+                    </f:if>        
+                  </div>  
+                  <div class="row mb-2">
+                    <f:variable name="ausbildung">Technik</f:variable>
+                    <f:render section="AusbMathematik" arguments="{ausbildung: ausbildung, jahrgangsstufe: aufgabenauswahl.jahrgangsstufe, ausb_nr: '6'}" />                  
+                  </div>              
+              </div>
+          </div>
+          <div class="card mt-3">
+              <div class="card-header">Aufgabenauswahl Physik {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-2">Aufgabengruppe W1</div>
+                    <div class="form-group col-md-2">Aufgabengruppe W2</div>
+                    <div class="form-group col-md-2">Aufgabengruppe W3</div>
+                  </div>
+                  <div class="row mb-2">
+                    <f:render section="AuswahlRest" arguments="{kuerzel: 'physik'}" />                  
+                  </div>              
+              </div>
+          </div>
+      	</f:if>
+      	<f:if condition="{schulehatsoz} == 1">
+          <div class="card mt-3">
+              <div class="card-header">Aufgabenauswahl Pädagogik/Psychologie {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-2">Aufgabe 1</div>
+                    <div class="form-group col-md-2">Aufgabe 2</div>
+                  </div>
+                  <div class="row mb-2">
+                    <f:render section="AuswahlRest" arguments="{kuerzel: 'paepsy'}" />                  
+                  </div>              
+              </div>
+          </div>
+      	</f:if>
+      	<f:if condition="{schulehatgsu} == 1">
+          <div class="card mt-3">
+              <div class="card-header">Aufgabenauswahl Gesundheitswissenschaften {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-2">Aufgabe 1</div>
+                    <div class="form-group col-md-2">Aufgabe 2</div>
+                  </div>
+                  <div class="row mb-2">
+                    <f:render section="AuswahlRest" arguments="{kuerzel: 'gesuwi'}" />                  
+                  </div>              
+              </div>
+          </div>
+      	</f:if>
+      	<f:if condition="{schulehatgst} == 1">
+          <div class="card mt-3">
+              <div class="card-header">Aufgabenauswahl Gestaltung {f:if(condition: '{aufgabenauswahl.schulart.uid} == 1', then: 'FOS', else: 'BOS')} {f:if(condition: '{aufgabenauswahl.jahrgangsstufe.uid} == 2', then: '12', else: '13')}
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-2">Aufgabe 1</div>
+                    <div class="form-group col-md-2">Aufgabe 2</div>
+                    <div class="form-group col-md-2">Aufgabe 3</div>
+                  </div>
+                  <div class="row mb-2">
+                    <f:render section="AuswahlRest" arguments="{kuerzel: 'gest'}" />                  
+                  </div>              
+              </div>
+          </div>
+      	</f:if>
+		<div class="row mt-3 mb-3">
 			<div class="form-group col-md-12">
 				<div class="col-sm-10 col-sm-offset-2">
-					<f:form.submit class="btn btn-primary"  value="Änderungen speichern" />
+                  	<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Speichern</f:form.button>
 				</div>
 			</div>
 		</div>
     </f:form>
 </f:section>
 </html>
+
+<f:section name="AusbDeutsch">
+  <div class="form-group col-md-4">{ausbildung}</div>
+  <div class="form-group col-md-2">						
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="deutsch{ausb_nr}a" value="{aufgabenauswahl.deutsch{ausb_nr}a}"/>
+  </div>
+  <f:if condition="{jahrgangsstufe.uid}==3">
+    <div class="form-group col-md-2">						
+      <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="deutsch{ausb_nr}l" value="{aufgabenauswahl.deutsch{ausb_nr}l}"/>
+    </div>
+  </f:if>
+  <div class="form-group col-md-2">
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="deutsch{ausb_nr}e" value="{aufgabenauswahl.deutsch{ausb_nr}e}"/>
+  </div>	
+  <div class="form-group col-md-2">
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="deutsch{ausb_nr}d" value="{aufgabenauswahl.deutsch{ausb_nr}d}"/>
+  </div>  
+</f:section>
+
+<f:section name="AusbMathematik">
+  <div class="form-group col-md-4">{ausbildung}</div>
+  <div class="form-group col-md-2">						
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="mathe{ausb_nr}a1" value="{aufgabenauswahl.mathe{ausb_nr}a1}"/>
+  </div>
+  <div class="form-group col-md-2">						
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="mathe{ausb_nr}a2" value="{aufgabenauswahl.mathe{ausb_nr}a2}"/>
+  </div>
+  <div class="form-group col-md-2">
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="mathe{ausb_nr}b1" value="{aufgabenauswahl.mathe{ausb_nr}b1}"/>
+  </div>	
+  <div class="form-group col-md-2">
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="mathe{ausb_nr}b2" value="{aufgabenauswahl.mathe{ausb_nr}b2}"/>
+  </div>  
+</f:section>
+  
+<f:section name="AuswahlRest">
+   <div class="form-group col-md-2">						
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="{kuerzel}1" value="{aufgabenauswahl.{kuerzel}1}"/>
+  </div>
+   <div class="form-group col-md-2">						
+    <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="{kuerzel}2" value="{aufgabenauswahl.{kuerzel}2}"/>
+  </div>
+  <f:if condition="{kuerzel}=='physik' || {kuerzel}=='gest'">
+    <div class="form-group col-md-2">						
+      <f:form.textfield type="number" additionalAttributes="{min:0, max:999}" class="form-control" property="{kuerzel}3" value="{aufgabenauswahl.{kuerzel}3}"/>
+    </div>
+  </f:if>
+</f:section>

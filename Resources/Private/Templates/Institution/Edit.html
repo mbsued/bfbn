@@ -91,7 +91,8 @@
 				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 1, ueberschrifttext: 'Schulleitung'}" />
 				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung'}" />
 				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 3, ueberschrifttext: 'Sekretariat'}" />
-				<f:render section="Fachmitarbeiter" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 9}" />              
+				<f:render section="Fachmitarbeiter" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 9}" />
+				<f:render section="Funktionstraeger" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht}" />               
 				<div class="row mt-2">
 					<div class="form-group col-md-6">
 						<f:link.action class="btn btn-primary" controller="Person" action="new" arguments="{funktionuid: 2}" title="Einen neuen Ansprechpartner für die Stellvertretende Schulleitung anlegen" >Neuer Ansprechpartner (Stellv. Schulleitung)</f:link.action>
@@ -391,6 +392,23 @@
 	<f:for each="{institution.personen}" as="person" iteration="personIteration">
 		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
 			<f:if condition="{funktion.uid} == {uid}">
+              <f:then>
+				<div class="row">
+					<div class="form-group col-md-2">
+						<f:form.hidden class="form-control" property="personen.{personIteration.index}.geschlecht" value="{person.geschlecht}" />
+					</div>
+                </div>
+              </f:then>
+              <f:else>
+              </f:else>
+			</f:if>
+		</f:for>
+	</f:for>
+</f:section>
+<f:section name="Funktionstraeger">
+	<f:for each="{institution.personen}" as="person" iteration="personIteration">
+		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
+			<f:if condition="{funktion.uid} > 10">
               <f:then>
 				<div class="row">
 					<div class="form-group col-md-2">

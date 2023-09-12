@@ -1,0 +1,58 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+	<f:section name="content">
+		<f:flashMessages />		
+      	<f:if condition="{settings.art}==1">
+          <div class="card mt-5 mb-5">
+            <h5 class="card-header">Suche Funktionsträger einer Schule</h5>
+              <f:form class="form-horizontal ms-3 me-3 mt-3 mb-3" method="post" action="search" name="suche" object="{suche}">
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="institution">Schule</label>
+					<f:form.select id="institution" class="form-control" property="institution" value="" options="{auswahlinstitution}" optionValueField="uid" optionLabelField="kurzbezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+                  <div class="form-group mt-2">
+                      <div class="col-sm-12">
+                          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Funktionsträger in ausgewählter Schule"><i class="fas fa-search me-2"></i>Suchen</button> 
+                      </div>
+                  </div>
+              </f:form>
+            </div>
+      </f:if>
+      	<f:if condition="{settings.art}==2">
+          <div class="card mt-5 mb-5">
+            <h5 class="card-header">Suche Funktionsträger nach Funktionen</h5>
+              <f:form class="form-horizontal ms-3 me-3 mt-3 mb-3" method="post" action="search" name="suche" object="{suche}">
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="funktionen">Funktionen</label>
+					<f:form.select id="funktionen" class="form-control" property="funktionen" value="" options="{auswahlfunktionen}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true" multiple="true"/>
+					</div>
+                  <div class="form-group mt-2">
+                      <div class="col-sm-12">
+                          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Funktionsträger mit ausgewählten Funktionen"><i class="fas fa-search me-2"></i>Suchen</button> 
+                      </div>
+                  </div>
+              </f:form>
+            </div>
+      </f:if>
+      	<f:if condition="{settings.art}==3">
+          <div class="card mt-5 mb-5">
+            <h5 class="card-header">Suche Funktionsträger einer Schule nach Funktionen</h5>
+              <f:form class="form-horizontal ms-3 me-3 mt-3 mb-3" method="post" action="search" name="suche" object="{suche}">
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="institution">Schule</label>
+					<f:form.select id="institution" class="form-control" property="institution" value="" options="{auswahlinstitution}" optionValueField="uid" optionLabelField="kurzbezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>                
+					<div class="form-group col-md-6 pb-2 pb-sm-0 pb-md-0 pb-lg-0 pb-xl-0 pb-xxl-0">
+						<label for="funktionen">Funktionen</label>
+					<f:form.select id="funktionen" class="form-control" property="funktionen" value="" options="{auswahlfunktionen}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true" multiple="true"/>
+					</div>
+                  <div class="form-group mt-2">
+                      <div class="col-sm-12">
+                          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Suche nach Funktionsträger mit ausgewählten Funktionen"><i class="fas fa-search me-2"></i>Suchen</button> 
+                      </div>
+                  </div>
+              </f:form>
+            </div>
+      </f:if>      
+	</f:section>
+</html>

@@ -34,6 +34,12 @@ call_user_func(
             'PersonList',
 			[\OliverBauer\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft'],
 			[\OliverBauer\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft']			
+        );
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Bfbn',
+            'PersonSearch',
+			[\OliverBauer\Bfbn\Controller\PersonController::class => 'searchform,search,searchshow,export'],
+			[\OliverBauer\Bfbn\Controller\PersonController::class => 'searchform,search']			
         );		
 		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
@@ -107,6 +113,15 @@ call_user_func(
 							tt_content_defValues {
 								CType = list
 								list_type = bfbn_personlist
+							}
+						}
+						personsearch {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_search.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_search.description
+							tt_content_defValues {
+								CType = list
+								list_type = bfbn_personsearch
 							}
 						}						
 						institutionsearch {

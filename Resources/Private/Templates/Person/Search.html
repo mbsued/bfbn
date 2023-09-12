@@ -1,0 +1,104 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+  <f:if condition="{art} == 1">
+    <f:then>
+      <h1>Ergebnis der Suche von Funktionsträgern ({institution.kurzbezeichnung})</h1>
+    </f:then>
+    <f:else>
+      <f:if condition="{art} == 2">
+        <f:then>
+          <h1>Ergebnis der Suche von Funktionsträgern</h1>
+          <h5>(gesuchte Funktionen:             
+                    <f:for each="{gesuchtefunktionen}" as="funktion" iteration="funktionIteration">                    
+                      &nbsp;{funktion.bezeichnung}
+                    </f:for>
+            )
+          </h5>
+        </f:then>
+        <f:else>
+          <f:if condition="{art} == 3">
+            <f:then>
+              <h1>Ergebnis der Suche von Funktionsträgern ({institution.kurzbezeichnung})</h1>
+              <h5>(gesuchte Funktionen:             
+                        <f:for each="{gesuchtefunktionen}" as="funktion" iteration="funktionIteration">                    
+                          &nbsp;{funktion.bezeichnung}
+                        </f:for>
+                )
+              </h5>
+            </f:then>
+            <f:else>
+                <h1>Ergebnis der Suche von Funktionsträgern</h1> 
+            </f:else>
+          </f:if>
+        </f:else>
+      </f:if>
+    </f:else>
+  </f:if>   
+
+    <f:flashMessages />
+  	<f:if condition="{personen}">
+      <f:then>
+        <div class="table-responsive-sm">         
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Akad. Titel</th>
+                <th scope="col">Nachname</th>
+                <th scope="col">Vorname</th>
+                <th scope="col">Geschlecht</th>
+                <th scope="col">Funktion</th>
+                <th scope="col">Institution</th>
+                <th scope="col">bestellt ab</th>
+                <th scope="col">letzte Änderung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <f:for each="{personen}" as="person" iteration="personIteration">                          
+                <tr>
+                  <td>{person.titel}</td>
+                  <td>{person.nachname}</td>
+                  <td>{person.vorname}</td>
+                  <f:if condition="{person.geschlecht.uid} == 1">
+                    <f:then>
+                      <td>männlich</td>  
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{person.geschlecht.uid} == 2">
+                        <f:then>
+                          <td>weiblich</td> 
+                        </f:then>
+                        <f:else>
+                          <f:if condition="{person.geschlecht.uid} == 3">
+                            <f:then>
+                              <td>divers</td>
+                            </f:then>
+                            <f:else>
+                            </f:else>
+                          </f:if>
+                        </f:else>
+                      </f:if>
+                    </f:else>
+                  </f:if>
+                  <f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">                    
+                    <td>{funktion.bezeichnung}</td>
+                  </f:for>
+                  <f:for each="{person.institutionen}" as="institution" iteration="institutionIteration">                    
+                    <td>{institution.kurzbezeichnung}</td>
+                  </f:for>                 
+                  <td>{person.bestelltab-> f:format.date(format: 'd.m.Y')}</td>
+                  <td>{person.tstamp-> f:format.date(format: 'd.m.Y')}</td>
+                </tr>                
+              </f:for>             
+            </tbody>
+          </table>
+        </div>
+        <f:link.action action="export" class="btn btn-primary" arguments="{personen:  personen, settings: settings}"><i class="fas fa-pen me-2"></i>Export</f:link.action>
+      </f:then>
+      <f:else>
+      		<h4>Es wurde keine Funktionsträger gefunden!</h4> 	 
+      </f:else>
+  </f:if>
+</f:section>
+</html>

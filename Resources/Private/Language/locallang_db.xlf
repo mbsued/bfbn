@@ -797,6 +797,12 @@
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_person_list.description">
 				<source>Listansicht der Personen</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_person_search.name">
+				<source>BFBN Person (Suche)</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_person_search.description">
+				<source>Suchansicht der Personen</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_institution_search.name">
 				<source>BFBN Institutionen (Suche)</source>
