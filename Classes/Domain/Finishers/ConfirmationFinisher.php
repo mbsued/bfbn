@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Domain\Finishers;
+namespace MbFosbos\Bfbn\Domain\Finishers;
 
-use OliverBauer\Bfbn\Service\PdfService;
+use MbFosbos\Bfbn\Service\PdfService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;

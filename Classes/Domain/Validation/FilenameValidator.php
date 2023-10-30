@@ -15,7 +15,7 @@ declare(strict_types=1);
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace OliverBauer\Bfbn\Domain\Validation;
+namespace MbFosbos\Bfbn\Domain\Validation;
 
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;

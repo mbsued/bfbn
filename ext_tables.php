@@ -90,13 +90,7 @@ call_user_func(
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_meldungart', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_meldungart.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_meldungart');
-
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_neubestellung', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_neubestellung.xlf');
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_neubestellung');
-
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_neubestellungart', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_neubestellungart.xlf');
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_neubestellungart');
-
+ 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_unfallstatistik', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_unfallstatistik.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_unfallstatistik');		
     }

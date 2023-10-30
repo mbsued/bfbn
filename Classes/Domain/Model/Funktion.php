@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -28,7 +28,7 @@ class Funktion extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * art
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Funktionart
+     * @var \MbFosbos\Bfbn\Domain\Model\Funktionart
      */
     protected $art = null;	
 
@@ -56,7 +56,7 @@ class Funktion extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the art
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Funktionart $art
+     * @return \MbFosbos\Bfbn\Domain\Model\Funktionart $art
      */
     public function getArt()
     {
@@ -66,10 +66,10 @@ class Funktion extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the art
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Funktionart $art
+     * @param \MbFosbos\Bfbn\Domain\Model\Funktionart $art
      * @return void
      */
-    public function setArt(\OliverBauer\Bfbn\Domain\Model\Funktionart $art)
+    public function setArt(\MbFosbos\Bfbn\Domain\Model\Funktionart $art)
     {
         $this->art = $art;
     }

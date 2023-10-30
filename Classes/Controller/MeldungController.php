@@ -1,10 +1,10 @@
 <?php
-namespace OliverBauer\Bfbn\Controller;
+namespace MbFosbos\Bfbn\Controller;
 
-use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
-use OliverBauer\Bfbn\Domain\Repository\MeldungRepository;
-use OliverBauer\Bfbn\Service\AccessControlService;
-use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
+use MbFosbos\Bfbn\Domain\Repository\MeldungRepository;
+use MbFosbos\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
 
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -29,33 +29,33 @@ class MeldungController extends ActionController
     /**
      * InstitutionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository
      */
     private $InstitutionRepository = null;
 	
     /**
      * MeldungRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\MeldungRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\MeldungRepository
      */
     private $MeldungRepository = null;
 	
 	/**
      * UserRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      */
     private $FrontendUserRepository = null;	
 	
 	/**
-	 * @var \OliverBauer\Bfbn\Service\AccessControlService
+	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	private $accessControlService;
 
     /**
      * Inject the Institution repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
      */
     public function injectInstitutionRepository(InstitutionRepository $InstitutionRepository)
     {
@@ -65,7 +65,7 @@ class MeldungController extends ActionController
     /**
      * Inject the meldung repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\MeldungRepository $MeldungRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\MeldungRepository $MeldungRepository
      */
     public function injectMeldungRepository(MeldungRepository $MeldungRepository)
     {
@@ -75,7 +75,7 @@ class MeldungController extends ActionController
     /**
      * Inject the frontenduser repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
      */
     public function injectFrontendUserRepository(FrontendUserRepository $FrontendUserRepository)
     {
@@ -85,7 +85,7 @@ class MeldungController extends ActionController
     /**
      * Inject the access service
      *
-     * @param \OliverBauer\Bfbn\Service\AccessControlService $AccessControlService
+     * @param \MbFosbos\Bfbn\Service\AccessControlService $AccessControlService
      */
     public function injectAccessControlService(AccessControlService $AccessControlService)
     {
@@ -95,10 +95,10 @@ class MeldungController extends ActionController
     /**
      * action show
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Meldung $Meldung
+     * @param \MbFosbos\Bfbn\Domain\Model\Meldung $Meldung
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung)
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Meldung $Meldung)
     {
         $this->view->assign('Meldung', $Meldung);
     }
@@ -109,7 +109,7 @@ class MeldungController extends ActionController
      * 
      * @return void
      */
-    public function performAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung=null): ResponseInterface
+    public function performAction(\MbFosbos\Bfbn\Domain\Model\Meldung $Meldung=null): ResponseInterface
     {
         return new ForwardResponse('list');
     }
@@ -119,7 +119,7 @@ class MeldungController extends ActionController
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Meldung $Meldung=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Meldung $Meldung=null): ResponseInterface
 	{
         if (is_null($meldung ?? NULL)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -127,10 +127,8 @@ class MeldungController extends ActionController
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-						$whichArt = $this->settings['art'];
 						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings['art']);
 						$meldungen = $this->MeldungRepository->findDemanded($demand);
-						$this->view->assign('art', $whichArt);
 						$this->view->assign('meldungen', $meldungen);
 						$this->view->assign('institution', $gesuchteinstitution);
 					} else {
@@ -148,7 +146,7 @@ class MeldungController extends ActionController
 
 	protected function createDemandObject($institution,$art) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\MeldungDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\MeldungDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
 		$demand->setInstitution($institution);
 		$demand->setArt($art);
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); 	*/	

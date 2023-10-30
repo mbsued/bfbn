@@ -710,41 +710,8 @@
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_meldung.art" resname="tx_bfbn_domain_model_meldung.art">
 				<source>Art</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellungart" resname="tx_bfbn_domain_model_neubestellungart">
-				<source>Neubestellung Art</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellungart.bezeichnung" resname="tx_bfbn_domain_model_neubestellungart.bezeichnung">
-				<source>Bezeichnung</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_meldung.institution" resname="tx_bfbn_domain_model_meldung.institution">
-				<source>Institution</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung" resname="tx_bfbn_domain_model_neubestellung">
-				<source>Neubestellungen/Aktualisierungen</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.nachname" resname="tx_bfbn_domain_model_neubestellung.nachname">
-				<source>Nachname</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.vorname" resname="tx_bfbn_domain_model_neubestellung.vorname">
-				<source>Vorname</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.titel" resname="tx_bfbn_domain_model_neubestellung.titel">
-				<source>Titel</source>
-			</trans-unit>			
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.geschlecht" resname="tx_bfbn_domain_model_neubestellung.geschlecht">
-				<source>Geschlecht</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.erwerb" resname="tx_bfbn_domain_model_neubestellung.erwerb">
-				<source>Datum Erwerb</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.aktualisierung" resname="tx_bfbn_domain_model_neubestellung.aktualisierung">
-				<source>Datum letzte Aktualisierung</source>
-			</trans-unit>
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.art" resname="tx_bfbn_domain_model_neubestellung.art">
-				<source>Art</source>
-			</trans-unit>			
-			<trans-unit id="tx_bfbn_domain_model_neubestellung.institution" resname="tx_bfbn_domain_model_neubestellung.institution">
 				<source>Institution</source>
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_unfallstatistik" resname="tx_bfbn_domain_model_unfallstatistik">

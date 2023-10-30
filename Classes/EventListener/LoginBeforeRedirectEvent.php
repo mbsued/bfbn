@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\EventListener;
+namespace MbFosbos\Bfbn\EventListener;
 
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\FrontendLogin\Event\BeforeRedirectEvent;

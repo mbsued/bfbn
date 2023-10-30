@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\Utility;
+namespace MbFosbos\Bfbn\Utility;
 
 /**
  * This file is part of the "bfbn" Extension for TYPO3 CMS.

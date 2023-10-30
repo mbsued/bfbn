@@ -1,17 +1,17 @@
 <?php
-namespace OliverBauer\Bfbn\Controller;
+namespace MbFosbos\Bfbn\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use OliverBauer\Bfbn\Utility\Page;
-use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
-use OliverBauer\Bfbn\Domain\Repository\PersonRepository;
-use OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository;
-use OliverBauer\Bfbn\Domain\Repository\FunktionRepository;
-use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
-use OliverBauer\Bfbn\Service\AccessControlService;
-use OliverBauer\Bfbn\Service\CsvService;
+use MbFosbos\Bfbn\Utility\Page;
+use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
+use MbFosbos\Bfbn\Domain\Repository\PersonRepository;
+use MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository;
+use MbFosbos\Bfbn\Domain\Repository\FunktionRepository;
+use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Service\CsvService;
 use Psr\Http\Message\ResponseInterface;
 
 /***
@@ -33,7 +33,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * InstitutionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $InstitutionRepository = null;
@@ -41,7 +41,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * PersonRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\PersonRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\PersonRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $PersonRepository = null;
@@ -49,7 +49,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
      * UserRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $FrontendUserRepository = null;
@@ -57,7 +57,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * GeschlechtRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     
@@ -66,14 +66,14 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	/**
      * FunktionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FunktionRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FunktionRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $FunktionRepository = null;	
 	
 	
 	/**
-	 * @var \OliverBauer\Bfbn\Service\AccessControlService
+	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $AccessControlService;
@@ -81,7 +81,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the Institution repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
      */
     public function injectInstitutionRepository(InstitutionRepository $InstitutionRepository)
     {
@@ -91,7 +91,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the person repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\PersonRepository $PersonRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\PersonRepository $PersonRepository
      */
     public function injectPersonRepository(PersonRepository $PersonRepository)
     {
@@ -101,7 +101,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the geschlecht repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository $GeschlechtRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository $GeschlechtRepository
      */
     public function injectGeschlechtRepository(GeschlechtRepository $GeschlechtRepository)
     {
@@ -111,7 +111,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the funktion repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\FunktionRepository $FunktionRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FunktionRepository $FunktionRepository
      */
     public function injectFunktionRepository(FunktionRepository $FunktionRepository)
     {
@@ -121,7 +121,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the frontenduser repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
      */
     public function injectFrontendUserRepository(FrontendUserRepository $FrontendUserRepository)
     {
@@ -131,7 +131,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the access service
      *
-     * @param \OliverBauer\Bfbn\Service\AccessControlService $AccessControlService
+     * @param \MbFosbos\Bfbn\Service\AccessControlService $AccessControlService
      */
     public function injectAccessControlService(AccessControlService $AccessControlService)
     {
@@ -141,7 +141,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * Inject the csv service
      *
-     * @param \OliverBauer\Bfbn\Service\CsvService $CsvService
+     * @param \MbFosbos\Bfbn\Service\CsvService $CsvService
      */
     public function injectCsvService(CsvService $CsvService)
     {
@@ -151,10 +151,10 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action show
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $Person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $Person
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Person $Person): ResponseInterface
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Person $Person): ResponseInterface
     {
         $this->view->assign('Person', $Person);
     }
@@ -164,7 +164,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Person $person=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Person $person=null): ResponseInterface
 	{
         if (is_null($person)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -193,11 +193,11 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * action edit
      * 
 	 * @param int $funktionuid	 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $person
      * @return void
      */
-    public function editAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface	
+    public function editAction($funktionuid,\MbFosbos\Bfbn\Domain\Model\Person $person): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -226,12 +226,12 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * action new
 	 *
 	 * @param int $funktionuid		 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
  	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $person
 	 *	
      * @return string
      */
-    public function newAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
+    public function newAction($funktionuid,\MbFosbos\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -260,12 +260,12 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * action newft
 	 *
 	 * @param int $funktionuid		 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
  	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $person
 	 *	
      * @return string
      */
-    public function newftAction($funktionuid,\OliverBauer\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
+    public function newftAction($funktionuid,\MbFosbos\Bfbn\Domain\Model\Person $person = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -292,11 +292,11 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action create
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
-	 * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktion
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
+	 * @param \MbFosbos\Bfbn\Domain\Model\Funktion $funktion
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
+    public function createAction(\MbFosbos\Bfbn\Domain\Model\Person $person, \MbFosbos\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -326,11 +326,11 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action createft
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
-	 * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktion
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
+	 * @param \MbFosbos\Bfbn\Domain\Model\Funktion $funktion
      * @return void
      */
-    public function createftAction(\OliverBauer\Bfbn\Domain\Model\Person $person, \OliverBauer\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
+    public function createftAction(\MbFosbos\Bfbn\Domain\Model\Person $person, \MbFosbos\Bfbn\Domain\Model\Funktion $funktion): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -360,10 +360,10 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action delete
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
+    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -390,10 +390,10 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action deleteft
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function deleteftAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
+    public function deleteftAction(\MbFosbos\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -420,10 +420,10 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action update
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $person
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $person
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Person $person): ResponseInterface
+    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Person $person): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -482,7 +482,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @return void
      */
 	
-	public function searchAction(\OliverBauer\Bfbn\Domain\Model\PersonDemand $suche): ResponseInterface
+	public function searchAction(\MbFosbos\Bfbn\Domain\Model\PersonDemand $suche): ResponseInterface
     {
 		$whichart = $this->settings['art'];
 		$demand = $this -> createDemandObjectFromSearch($suche,$this->settings);
@@ -534,6 +534,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			$fieldsstack[] = 'Geschlecht';
 			$fieldsstack[] = 'Funktion';
 			$fieldsstack[] = 'Schule';
+			$fieldsstack[] = 'Schulnummer';			
 			$fieldsstack[] = 'bestellt ab';
 			$fieldsstack[] = 'letzte Änderung';			
 			$recordsstack[] = $fieldsstack;			
@@ -549,6 +550,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				foreach ($personinstitutionen as $personinstitution)
 				{
 					$institution = $personinstitution->getKurzbezeichnung();
+					$nummer = $personinstitution->getNummer();
 				}
 				$fieldsstack=[];
 				$fieldsstack[] = $personzubearbeiten->getTitel();
@@ -557,6 +559,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				$fieldsstack[] = $personzubearbeiten->getGeschlecht()->getBezeichnung();
 				$fieldsstack[] = $funktion;
 				$fieldsstack[] = $institution;
+				$fieldsstack[] = $nummer;
 				if (!is_null($personzubearbeiten->getBestelltab())) {
 					$fieldsstack[] = $personzubearbeiten->getBestelltab()->format("d.m.Y");
 				} else
@@ -591,7 +594,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	
 	protected function createDemandObject($institution,$settings) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
             (string)($settings['startingpoint'] ?? ''),
@@ -605,7 +608,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 
 	protected function createDemandObjectFromSearch($suche,$settings) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
         $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
 		$demand->setStartingpoint(Page::extendPidListByChildren(
             (string)($settings['startingpoint'] ?? ''),
@@ -633,7 +636,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     }
 	
 	protected function createDemandObjectForInstitution($settings) {
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
 		$demand->setStartingpoint(Page::extendPidListByChildren(
 			(string)($settings['schulen'] ?? ''),
             (int)($settings['recursive'] ?? 0)
@@ -644,7 +647,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     }
 	
 	protected function createDemandObjectForFunktionen($settings) {
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\FunktionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\FunktionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
         $demand->setArt($settings['funktionart']);
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); */	
         return $demand;

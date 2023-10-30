@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***

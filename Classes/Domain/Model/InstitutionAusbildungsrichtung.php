@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -30,21 +30,21 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * ausbildungsrichtung
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Ausbildungsrichtung
+     * @var \MbFosbos\Bfbn\Domain\Model\Ausbildungsrichtung
      */
     protected $ausbildungsrichtung = null;
 
     /**
      * schulart
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Schulart
+     * @var \MbFosbos\Bfbn\Domain\Model\Schulart
      */
     protected $schulart = null;
 
     /**
      * jahrgangsstufe
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe
+     * @var \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe
      */
     protected $jahrgangsstufe = null;
 
@@ -72,7 +72,7 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Returns the ausbildungsrichtung
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung
+     * @return \MbFosbos\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung
      */
     public function getAusbildungsrichtung()
     {
@@ -82,10 +82,10 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Sets the ausbildungsrichtung
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung
      * @return void
      */
-    public function setAusbildungsrichtung(\OliverBauer\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung)
+    public function setAusbildungsrichtung(\MbFosbos\Bfbn\Domain\Model\Ausbildungsrichtung $ausbildungsrichtung)
     {
         $this->ausbildungsrichtung = $ausbildungsrichtung;
     }
@@ -93,7 +93,7 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Returns the schulart
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Schulart $schulart
+     * @return \MbFosbos\Bfbn\Domain\Model\Schulart $schulart
      */
     public function getSchulart()
     {
@@ -103,10 +103,10 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Sets the schulart
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Schulart $schulart
+     * @param \MbFosbos\Bfbn\Domain\Model\Schulart $schulart
      * @return void
      */
-    public function setSchulart(\OliverBauer\Bfbn\Domain\Model\Schulart $schulart)
+    public function setSchulart(\MbFosbos\Bfbn\Domain\Model\Schulart $schulart)
     {
         $this->schulart = $schulart;
     }
@@ -114,7 +114,7 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Returns the jahrgangsstufe
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @return \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      */
     public function getJahrgangsstufe()
     {
@@ -124,10 +124,10 @@ class InstitutionAusbildungsrichtung extends \TYPO3\CMS\Extbase\DomainObject\Abs
     /**
      * Sets the jahrgangsstufe
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @param \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      * @return void
      */
-    public function setJahrgangsstufe(\OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
+    public function setJahrgangsstufe(\MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
     {
         $this->jahrgangsstufe = $jahrgangsstufe;
     }

@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Repository;
+namespace MbFosbos\Bfbn\Domain\Repository;
 
 
 /***
@@ -30,9 +30,9 @@ class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $query -> logicalAnd($constraints)
         );
         }
-/**		$queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
+		/** $queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
 
-		\TYPO3\CMS\Core\Utility\DebugUtility::debug($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL()); **/	
+		\TYPO3\CMS\Core\Utility\DebugUtility::debug($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL()); */	
         return $query -> execute();
     }
         

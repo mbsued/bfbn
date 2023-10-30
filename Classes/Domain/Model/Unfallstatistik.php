@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -78,7 +78,7 @@ class Unfallstatistik extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * institution
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institution
+     * @var \MbFosbos\Bfbn\Domain\Model\Institution
      */
     protected $institution = null;
 	
@@ -235,7 +235,7 @@ class Unfallstatistik extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institution
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Institution $institution
      */
     public function getInstitution()
     {
@@ -245,10 +245,10 @@ class Unfallstatistik extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function setInstitution(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function setInstitution(\MbFosbos\Bfbn\Domain\Model\Institution $institution)
     {
         $this->institution = $institution;
     }	

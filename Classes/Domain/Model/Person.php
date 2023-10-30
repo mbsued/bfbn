@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -64,7 +64,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * arbeitetfuer
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\MBbezirk
+     * @var \MbFosbos\Bfbn\Domain\Model\MBbezirk
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $arbeitetfuer = null;
@@ -72,7 +72,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * arbeitetfuer2
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\MBbezirk
+     * @var \MbFosbos\Bfbn\Domain\Model\MBbezirk
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $arbeitetfuer2 = null;
@@ -81,7 +81,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
      * geschlecht
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Geschlecht
+     * @var \MbFosbos\Bfbn\Domain\Model\Geschlecht
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $geschlecht = null;
@@ -89,14 +89,14 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
 	 * bestelltab
 	 *
-     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @var \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     protected $bestelltab;
 	
     /**
 	 * tstamp
 	 *
-     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @var \MbFosbos\Bfbn\Domain\Model\DateTime
      */
 	 
     protected $tstamp;
@@ -104,7 +104,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * funktionen
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Funktion>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Funktion>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $funktionen = null;
@@ -112,7 +112,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * institutionen
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Institution>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Institution>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $institutionen = null;
@@ -120,7 +120,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * faecher
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Fach>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Fach>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $faecher = null;	
@@ -258,7 +258,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the arbeitetfuer
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer
+     * @return \MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer
      */
     public function getArbeitetfuer()
     {
@@ -268,10 +268,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the arbeitetfuer
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer
+     * @param \MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer
      * @return void
      */
-    public function setArbeitetfuer(\OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer)
+    public function setArbeitetfuer(\MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer)
     {
         $this->arbeitetfuer = $arbeitetfuer;
     }
@@ -279,7 +279,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the arbeitetfuer2
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2
+     * @return \MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2
      */
     public function getArbeitetfuer2()
     {
@@ -289,10 +289,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the arbeitetfuer2
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2
+     * @param \MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2
      * @return void
      */
-    public function setArbeitetfuer2(\OliverBauer\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2)
+    public function setArbeitetfuer2(\MbFosbos\Bfbn\Domain\Model\MBbezirk $arbeitetfuer2)
     {
         $this->arbeitetfuer2 = $arbeitetfuer2;
     }
@@ -300,7 +300,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the geschlecht
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @return \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      */
     public function getGeschlecht()
     {
@@ -310,10 +310,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the geschlecht
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @param \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      * @return void
      */
-    public function setGeschlecht(\OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht)
+    public function setGeschlecht(\MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht)
     {
         $this->geschlecht = $geschlecht;
     }
@@ -321,7 +321,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get bestelltab
      *
-     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @return \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     public function getBestelltab()
     {
@@ -331,7 +331,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set bestelltab
      *
-     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $bestelltab
+     * @param \MbFosbos\Bfbn\Domain\Model\DateTime $bestelltab
      *
      * @return void
      */
@@ -343,7 +343,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get tstamp
      *
-     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @return \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     public function getTstamp()
     {
@@ -353,7 +353,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set tstamp
      *
-     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $tstamp
+     * @param \MbFosbos\Bfbn\Domain\Model\DateTime $tstamp
      *
      * @return void
      */
@@ -365,10 +365,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
      * Adds a Funktion
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktionen
+     * @param \MbFosbos\Bfbn\Domain\Model\Funktion $funktionen
      * @return void
      */
-    public function addFunktionen(\OliverBauer\Bfbn\Domain\Model\Funktion $funktionen)
+    public function addFunktionen(\MbFosbos\Bfbn\Domain\Model\Funktion $funktionen)
     {
         $this->funktionen->attach($funktionen);
     }
@@ -376,10 +376,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Funktion
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Funktion $funktionenToRemove The Funktion to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Funktion $funktionenToRemove The Funktion to be removed
      * @return void
      */
-    public function removeFunktionen(\OliverBauer\Bfbn\Domain\Model\Funktion $funktionenToRemove)
+    public function removeFunktionen(\MbFosbos\Bfbn\Domain\Model\Funktion $funktionenToRemove)
     {
         $this->funktionen->detach($funktionenToRemove);
     }
@@ -387,7 +387,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the funktionen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Funktion> funktionen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Funktion> funktionen
      */
     public function getFunktionen()
     {
@@ -397,7 +397,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the funktionen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Funktion> $funktionen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Funktion> $funktionen
      * @return void
      */
     public function setFunktionen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $funktionen)
@@ -408,10 +408,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institutionen
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institutionen
      * @return void
      */
-    public function addInstitutionen(\OliverBauer\Bfbn\Domain\Model\Institution $institutionen)
+    public function addInstitutionen(\MbFosbos\Bfbn\Domain\Model\Institution $institutionen)
     {
         $this->institutionen->attach($institutionen);
     }
@@ -419,10 +419,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institutionenToRemove The Institution to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institutionenToRemove The Institution to be removed
      * @return void
      */
-    public function removeInstitutionen(\OliverBauer\Bfbn\Domain\Model\Institution $institutionenToRemove)
+    public function removeInstitutionen(\MbFosbos\Bfbn\Domain\Model\Institution $institutionenToRemove)
     {
         $this->institutionen->detach($institutionenToRemove);
     }
@@ -430,7 +430,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institutionen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Institution> institutionen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Institution> institutionen
      */
     public function getInstitutionen()
     {
@@ -440,7 +440,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institutionen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Institution> $institutionen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Institution> $institutionen
      * @return void
      */
     public function setInstitutionen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $institutionen)
@@ -451,10 +451,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Fach
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Fach $faecher
+     * @param \MbFosbos\Bfbn\Domain\Model\Fach $faecher
      * @return void
      */
-    public function addFaecher(\OliverBauer\Bfbn\Domain\Model\Fach $faecher)
+    public function addFaecher(\MbFosbos\Bfbn\Domain\Model\Fach $faecher)
     {
         $this->faecher->attach($faecher);
     }
@@ -462,10 +462,10 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Fach
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Fach $faecherToRemove The Fach to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Fach $faecherToRemove The Fach to be removed
      * @return void
      */
-    public function removeFaecher(\OliverBauer\Bfbn\Domain\Model\Person $faecherToRemove)
+    public function removeFaecher(\MbFosbos\Bfbn\Domain\Model\Person $faecherToRemove)
     {
         $this->faecher->detach($faecherToRemove);
     }
@@ -473,7 +473,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the faecher
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Fach> faecher
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Fach> faecher
      */
     public function getFaecher()
     {
@@ -483,7 +483,7 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the faecher
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\fach> $faecher
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\fach> $faecher
      * @return void
      */
     public function setFaecher(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $faecher)

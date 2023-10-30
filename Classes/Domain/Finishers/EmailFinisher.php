@@ -1,8 +1,8 @@
 <?php
 
-namespace OliverBauer\Bfbn\Domain\Finishers;
+namespace MbFosbos\Bfbn\Domain\Finishers;
 
-use OliverBauer\Bfbn\Service\PdfService;
+use MbFosbos\Bfbn\Service\PdfService;
 use Symfony\Component\Mime\Address;
 use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\Mailer;

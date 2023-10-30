@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -548,21 +548,21 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      /**
      * schulart
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Schulart
+     * @var \MbFosbos\Bfbn\Domain\Model\Schulart
      */
     protected $schulart = null;
 
     /**
      * jahrgangsstufe
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe
+     * @var \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe
      */
     protected $jahrgangsstufe = null;
 
     /**
      * institution
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institution
+     * @var \MbFosbos\Bfbn\Domain\Model\Institution
      */
     protected $institution = null;
 
@@ -1956,7 +1956,7 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the schulart
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Schulart $schulart
+     * @return \MbFosbos\Bfbn\Domain\Model\Schulart $schulart
      */
     public function getSchulart()
     {
@@ -1966,10 +1966,10 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the schulart
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Schulart $schulart
+     * @param \MbFosbos\Bfbn\Domain\Model\Schulart $schulart
      * @return void
      */
-    public function setSchulart(\OliverBauer\Bfbn\Domain\Model\Schulart $schulart)
+    public function setSchulart(\MbFosbos\Bfbn\Domain\Model\Schulart $schulart)
     {
         $this->schulart = $schulart;
     }
@@ -1977,7 +1977,7 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the jahrgangsstufe
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @return \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      */
     public function getJahrgangsstufe()
     {
@@ -1987,10 +1987,10 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the jahrgangsstufe
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @param \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      * @return void
      */
-    public function setJahrgangsstufe(\OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
+    public function setJahrgangsstufe(\MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
     {
         $this->jahrgangsstufe = $jahrgangsstufe;
     }
@@ -1998,7 +1998,7 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institution
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Institution $institution
      */
     public function getInstitution()
     {
@@ -2008,10 +2008,10 @@ class Aufgabenauswahl extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function setInstitution(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function setInstitution(\MbFosbos\Bfbn\Domain\Model\Institution $institution)
     {
         $this->institution = $institution;
     }	

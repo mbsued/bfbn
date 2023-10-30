@@ -14,74 +14,68 @@ call_user_func(
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'InstitutionList',
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'list,show'],
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'list,show']			
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'list,show'],
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'list,show']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'InstitutionDetail',
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'show'],
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'show']			
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'show'],
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'show']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'InstitutionEdit',
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \OliverBauer\Bfbn\Controller\PersonController::class => 'new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \OliverBauer\Bfbn\Controller\PersonController::class => 'new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \MbFosbos\Bfbn\Controller\PersonController::class => 'new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \MbFosbos\Bfbn\Controller\PersonController::class => 'new,create,delete']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'PersonList',
-			[\OliverBauer\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft'],
-			[\OliverBauer\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft']			
+			[\MbFosbos\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft'],
+			[\MbFosbos\Bfbn\Controller\PersonController::class => 'list,show,edit,update,newft,createft,deleteft']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'PersonSearch',
-			[\OliverBauer\Bfbn\Controller\PersonController::class => 'searchform,search,searchshow,export'],
-			[\OliverBauer\Bfbn\Controller\PersonController::class => 'searchform,search']			
+			[\MbFosbos\Bfbn\Controller\PersonController::class => 'searchform,search,searchshow,export'],
+			[\MbFosbos\Bfbn\Controller\PersonController::class => 'searchform,search']			
         );		
 		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'InstitutionSearch',
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'searchform,search,searchshow'],
-			[\OliverBauer\Bfbn\Controller\InstitutionController::class => 'searchform,search']
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'searchform,search,searchshow'],
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'searchform,search']
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'ErgaenzungspruefungList',
-			[\OliverBauer\Bfbn\Controller\ErgaenzungspruefungController::class => 'list,show,edit,update,new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\ErgaenzungspruefungController::class => 'list,show,edit,update,new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\ErgaenzungspruefungController::class => 'list,show,edit,update,new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\ErgaenzungspruefungController::class => 'list,show,edit,update,new,create,delete']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'SchulfremdeprueferList',
-			[\OliverBauer\Bfbn\Controller\SchulfremdeprueferController::class => 'list,show,edit,update,new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\SchulfremdeprueferController::class => 'list,show,edit,update,new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\SchulfremdeprueferController::class => 'list,show,edit,update,new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\SchulfremdeprueferController::class => 'list,show,edit,update,new,create,delete']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'AufgabenauswahlList',
-			[\OliverBauer\Bfbn\Controller\AufgabenauswahlController::class => 'list,show,edit,update,new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\AufgabenauswahlController::class => 'list,show,edit,update,new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\AufgabenauswahlController::class => 'list,show,edit,update,new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\AufgabenauswahlController::class => 'list,show,edit,update,new,create,delete']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'MeldungList',
-			[\OliverBauer\Bfbn\Controller\MeldungController::class => 'list,show,perform'],
-			[\OliverBauer\Bfbn\Controller\MeldungController::class => 'list,show,perform']			
-        );
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Bfbn',
-            'NeubestellungList',
-			[\OliverBauer\Bfbn\Controller\NeubestellungController::class => 'list,show,edit,update,new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\NeubestellungController::class => 'list,show,edit,update,new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\MeldungController::class => 'list,show,perform'],
+			[\MbFosbos\Bfbn\Controller\MeldungController::class => 'list,show,perform']			
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
             'UnfallstatistikList',
-			[\OliverBauer\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete'],
-			[\OliverBauer\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete']			
+			[\MbFosbos\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete']			
         );
 		// wizards
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
@@ -160,15 +154,6 @@ call_user_func(
 								list_type = bfbn_aufgabenauswahllist
 							}
 						}
-						neubestellunglist {
-							iconIdentifier = bfbnsvgicon
-							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_neubestellung_list.name
-							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_neubestellung_list.description
-							tt_content_defValues {
-								CType = list
-								list_type = bfbn_neubestellunglist
-							}
-						}
 						unfallstatistiklist {
 							iconIdentifier = bfbnsvgicon
 							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_unfallstatistik_list.name
@@ -197,8 +182,8 @@ call_user_func(
 
 $boot = function () {
 
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['bfbn'] = \OliverBauer\Bfbn\Ajax\PdfResponse::class . '::processRequest';
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['afterBuildingFinished'][1676311200] = \OliverBauer\Bfbn\Utility\FormHook::class;
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['bfbn'] = \MbFosbos\Bfbn\Ajax\PdfResponse::class . '::processRequest';
+	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['afterBuildingFinished'][1676311200] = \MbFosbos\Bfbn\Utility\FormHook::class;
 	
 };
 

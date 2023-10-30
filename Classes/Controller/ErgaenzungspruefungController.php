@@ -1,12 +1,12 @@
 <?php
-namespace OliverBauer\Bfbn\Controller;
+namespace MbFosbos\Bfbn\Controller;
 
-use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
-use OliverBauer\Bfbn\Domain\Repository\ErgaenzungspruefungRepository;
-use OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository;
-use OliverBauer\Bfbn\Domain\Repository\SpracheRepository;
-use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
-use OliverBauer\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
+use MbFosbos\Bfbn\Domain\Repository\ErgaenzungspruefungRepository;
+use MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository;
+use MbFosbos\Bfbn\Domain\Repository\SpracheRepository;
+use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Service\AccessControlService;
 use Psr\Http\Message\ResponseInterface;
 
 /***
@@ -28,14 +28,14 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * InstitutionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository
      */
     private $InstitutionRepository = null;
 	
     /**
      * PersonRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\ErgaenzungspruefungRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\ErgaenzungspruefungRepository
      */
     private $ErgaenzungspruefungRepository = null;
 
@@ -43,33 +43,33 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * GeschlechtRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository
      */    
 	private $GeschlechtRepository = null;
 	
 	/**
      * SpracheRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\SpracheRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\SpracheRepository
      */
     private $SpracheRepository = null;	
 
 	/**
      * UserRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      */
     private $FrontendUserRepository = null;	
 	
 	/**
-	 * @var \OliverBauer\Bfbn\Service\AccessControlService
+	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	protected $AccessControlService;
 
     /**
      * Inject the Institution repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
      */
     public function injectInstitutionRepository(InstitutionRepository $InstitutionRepository)
     {
@@ -79,7 +79,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * Inject the Ergaenzungspruefung repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\ErgaenzungspruefungRepository $ErgaenzungspruefungRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\ErgaenzungspruefungRepository $ErgaenzungspruefungRepository
      */
     public function injectErgaenzungspruefungRepository(ErgaenzungspruefungRepository $ErgaenzungspruefungRepository)
     {
@@ -89,7 +89,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * Inject the geschlecht repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\GeschlechtRepository $GeschlechtRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository $GeschlechtRepository
      */
     public function injectGeschlechtRepository(GeschlechtRepository $GeschlechtRepository)
     {
@@ -99,7 +99,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * Inject the sprache repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\SpracheRepository $SpracheRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\SpracheRepository $SpracheRepository
      */
     public function injectSpracheRepository(SpracheRepository $SpracheRepository)
     {
@@ -109,7 +109,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * Inject the frontenduser repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
      */
     public function injectFrontendUserRepository(FrontendUserRepository $FrontendUserRepository)
     {
@@ -119,7 +119,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * Inject the access service
      *
-     * @param \OliverBauer\Bfbn\Service\AccessControlService $AccessControlService
+     * @param \MbFosbos\Bfbn\Service\AccessControlService $AccessControlService
      */
     public function injectAccessControlService(AccessControlService $AccessControlService)
     {
@@ -130,10 +130,10 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * action show
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung): ResponseInterface
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $Ergaenzungspruefung): ResponseInterface
     {
         $this->view->assign('Ergaenzungspruefung', $Ergaenzungspruefung);
 		return $this->htmlResponse($this->view->render());		
@@ -144,7 +144,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung=null): ResponseInterface
 	{
         if (is_null($ergaenzungspruefung)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -172,11 +172,12 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * action edit
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("ergaenzungspruefung")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")	 
      * @return void
      */
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface	
+    public function editAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -204,12 +205,13 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
      * action new
 	 *
 	 * @param int $funktionuid		 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
- 	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("ergaenzungspruefung")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
 	 *	
      * @return string
      */
-    public function newAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung = NULL): ResponseInterface
+    public function newAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -237,11 +239,13 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * action create
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("ergaenzungspruefung")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")	 
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
+    public function createAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -269,10 +273,10 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * action update
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
+    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -298,10 +302,13 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
     /**
      * action delete
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @param \MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("ergaenzungspruefung")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
+	 *
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
+    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Ergaenzungspruefung $ergaenzungspruefung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -327,7 +334,7 @@ class ErgaenzungspruefungController extends \TYPO3\CMS\Extbase\Mvc\Controller\Ac
 	
 	protected function createDemandObject($institution) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\AbfrageDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\AbfrageDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
 		$demand->setInstitution($institution);
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); 	*/	
         return $demand;

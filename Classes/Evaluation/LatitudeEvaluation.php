@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\Evaluation;
+namespace MbFosbos\Bfbn\Evaluation;
 
 /**
  * This file is part of the "bfbn" Extension for TYPO3 CMS.
@@ -8,7 +8,7 @@ namespace OliverBauer\Bfbn\Evaluation;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
-use OliverBauer\Bfbn\Utility\EvalcoordinatesUtility;
+use MbFosbos\Bfbn\Utility\EvalcoordinatesUtility;
 
 /**
  * Class for validation/evaluation of longitude to be used in 'eval' of TCA

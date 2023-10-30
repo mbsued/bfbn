@@ -263,7 +263,7 @@ return [
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.breitengrad',
             'config' => [
                 'type' => 'input',
-                'eval' => \OliverBauer\Bfbn\Evaluation\LatitudeEvaluation::class,
+                'eval' => \MbFosbos\Bfbn\Evaluation\LatitudeEvaluation::class,
                 'default' => null,
             ],
         ],
@@ -272,7 +272,7 @@ return [
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.laengengrad',
             'config' => [
                 'type' => 'input',
-                'eval' => \OliverBauer\Bfbn\Evaluation\LatitudeEvaluation::class,
+                'eval' => \MbFosbos\Bfbn\Evaluation\LatitudeEvaluation::class,
                 'default' => null,
             ],
         ],

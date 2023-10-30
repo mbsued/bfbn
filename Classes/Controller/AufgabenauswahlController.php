@@ -1,12 +1,12 @@
 <?php
-namespace OliverBauer\Bfbn\Controller;
+namespace MbFosbos\Bfbn\Controller;
 
-use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
-use OliverBauer\Bfbn\Domain\Repository\AufgabenauswahlRepository;
-use OliverBauer\Bfbn\Domain\Repository\SchulartRepository;
-use OliverBauer\Bfbn\Domain\Repository\JahrgangsstufeRepository;
-use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
-use OliverBauer\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
+use MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository;
+use MbFosbos\Bfbn\Domain\Repository\SchulartRepository;
+use MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository;
+use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Service\AccessControlService;
 use Psr\Http\Message\ResponseInterface;
 
 /***
@@ -28,47 +28,47 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * InstitutionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository
      */
     private $InstitutionRepository = null;
 	
     /**
      * AufgabenauswahlRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\AufgabenauswahlRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository
      */
     private $AufgabenauswahlRepository = null;
 	
     /**
      * SchulartRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\SchulartRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\SchulartRepository
      */
 	private $SchulartRepository = null;
 	
 	/**
      * JahrgangsstufeRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\JahrgangsstufeRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository
      */
     private $JahrgangsstufeRepository = null;	
 
 	/**
      * UserRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      */
     private $FrontendUserRepository = null;	
 	
 	/**
-	 * @var \OliverBauer\Bfbn\Service\AccessControlService
+	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	private $AccessControlService;
 
     /**
      * Inject the Institution repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
      */
     public function injectInstitutionRepository(InstitutionRepository $InstitutionRepository)
     {
@@ -78,7 +78,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * Inject the Aufgabenauswahl repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\AufgabenauswahlRepository $AufgabenauswahlRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository $AufgabenauswahlRepository
      */
     public function injectAufgabenauswahlRepository(AufgabenauswahlRepository $AufgabenauswahlRepository)
     {
@@ -88,7 +88,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * Inject the schulart repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\SchulartRepository $SchulartRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\SchulartRepository $SchulartRepository
      */
     public function injectSchulartRepository(SchulartRepository $SchulartRepository)
     {
@@ -98,7 +98,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * Inject the jahrgangsstufe repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\JahrgangsstufeRepository $JahrgangsstufeRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository $JahrgangsstufeRepository
      */
     public function injectJahrgangsstufeRepository(JahrgangsstufeRepository $JahrgangsstufeRepository)
     {
@@ -108,7 +108,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * Inject the frontenduser repository
      *
-     * @param \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
      */
     public function injectFrontendUserRepository(FrontendUserRepository $FrontendUserRepository)
     {
@@ -118,7 +118,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * Inject the access service
      *
-     * @param \OliverBauer\Bfbn\Service\AccessControlService $AccessControlService
+     * @param \MbFosbos\Bfbn\Service\AccessControlService $AccessControlService
      */
     public function injectAccessControlService(AccessControlService $AccessControlService)
     {
@@ -128,10 +128,10 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action show
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl
      * @return void
      */
-    public function showAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl): ResponseInterface
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl): ResponseInterface
     {
         $this->view->assign('Aufgabenauswahl', $Aufgabenauswahl);
 		return $this->htmlResponse($this->view->render());	
@@ -142,7 +142,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * 
      * @return void
      */
-    public function listAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl=null): ResponseInterface
 	{
         if (is_null($aufgabenauswahl)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -169,11 +169,12 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action edit
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")	 
      * @return void
      */
-    public function editAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface	
+    public function editAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -198,12 +199,13 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 *
 	 * @param int $schulartuid
 	 * @param int $jahrgangsstufeuid	
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
 	 *	
      * @return string
      */
-    public function newAction($schulartuid,$jahrgangsstufeuid,\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl = NULL): ResponseInterface
+    public function newAction($schulartuid,$jahrgangsstufeuid,\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -231,11 +233,13 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action create
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
 	 * 
      * @return void
      */
-    public function createAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function createAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -264,10 +268,10 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action update
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
      * @return void
      */
-    public function updateAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -293,10 +297,13 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action delete
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
+	 *	
      * @return void
      */
-    public function deleteAction(\OliverBauer\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -322,7 +329,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	
 	protected function createDemandObject($institution) {
 
-        $demand = $this->objectManager->get('OliverBauer\\Bfbn\\Domain\\Model\\AbfrageDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
+        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\AbfrageDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
 		$demand->setInstitution($institution);
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); 	*/	
         return $demand;

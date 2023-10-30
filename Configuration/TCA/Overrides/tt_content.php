@@ -126,18 +126,6 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_meldung
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'Bfbn',
-	'NeubestellungList',
-	'Neubestellung',
-	'bfbnsvgicon'
-);
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_neubestellunglist'] = 'layout,recursive,select_key,pages';
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_neubestellunglist'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-	'bfbn_neubestellunglist', 
-	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_neubestellunglist.xml'
-);
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Bfbn',
 	'UnfallstatistikList',
 	'Unfallstatistik',
 	'bfbnsvgicon'

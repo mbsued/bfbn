@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Repository;
+namespace MbFosbos\Bfbn\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -23,14 +23,14 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
  */
 class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-	
+
     /**
      * Override default findByUid function to enable also the option to turn of
      * the enableField setting
      *
      * @param int $uid id of record
      * @param bool $respectEnableFields if set to false, hidden records are shown
-     * @return \GeorgRinger\News\Domain\Model\News
+     * @return \MbFosbos\Bfbn\Domain\Model\Institution
      */
     public function findByUid($uid, $respectEnableFields = true)
     {
@@ -63,7 +63,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		
 		$distance = intval($distance)*10;
 		$queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)
-			->getQueryBuilderForTable('tx_bfbn_domain_model_institution');
+			->getQueryBuilderForTable('tx_bfbn_domain_model_institution'); 
 
 		$queryBuilder->from('tx_bfbn_domain_model_institution', 'a');
 		$queryBuilder->selectLiteral(

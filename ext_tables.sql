@@ -205,12 +205,6 @@ CREATE TABLE tx_bfbn_domain_model_meldungart (
 
 );
 
-CREATE TABLE tx_bfbn_domain_model_neubestellungart (
-
-	bezeichnung varchar(255) DEFAULT '' NOT NULL
-
-);
-
 CREATE TABLE tx_bfbn_domain_model_ergaenzungspruefung (
 
 	nachname varchar(255) DEFAULT '' NOT NULL,
@@ -317,19 +311,6 @@ CREATE TABLE tx_bfbn_domain_model_meldung (
 	crdate int(11) DEFAULT '0' NOT NULL,
 	datei int(11) unsigned DEFAULT '0' NOT NULL,
 	art int(11) unsigned DEFAULT '0' NOT NULL,
-	institution int(11) unsigned DEFAULT '0' NOT NULL,	
-
-);
-
-CREATE TABLE tx_bfbn_domain_model_neubestellung (
-
-	nachname varchar(255) DEFAULT '' NOT NULL,
-	vorname varchar(255) DEFAULT '' NOT NULL,
-	titel varchar(255) DEFAULT '' NOT NULL,	
-	geschlecht int(11) unsigned DEFAULT '0' NOT NULL,
-	erwerb int(11) DEFAULT '0' NOT NULL,
-	aktualisierung int(11) DEFAULT '0' NOT NULL,	
-    art int(11) unsigned DEFAULT '0' NOT NULL,	
 	institution int(11) unsigned DEFAULT '0' NOT NULL,	
 
 );

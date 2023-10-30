@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -42,7 +42,7 @@ class Fach extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * personen
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person>
      */
     protected $personen = null;
 
@@ -143,10 +143,10 @@ class Fach extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Person
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $personen
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $personen
      * @return void
      */
-    public function addPersonen(\OliverBauer\Bfbn\Domain\Model\Person $personen)
+    public function addPersonen(\MbFosbos\Bfbn\Domain\Model\Person $personen)
     {
         $this->personen->attach($personen);
     }
@@ -154,10 +154,10 @@ class Fach extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Person
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $personenToRemove The Person to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $personenToRemove The Person to be removed
      * @return void
      */
-    public function removePersonen(\OliverBauer\Bfbn\Domain\Model\Person $personenToRemove)
+    public function removePersonen(\MbFosbos\Bfbn\Domain\Model\Person $personenToRemove)
     {
         $this->personen->detach($personenToRemove);
     }
@@ -165,7 +165,7 @@ class Fach extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the personen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person> personen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person> personen
      */
     public function getPersonen()
     {
@@ -175,7 +175,7 @@ class Fach extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the personen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person> $personen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person> $personen
      * @return void
      */
     public function setPersonen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $personen)

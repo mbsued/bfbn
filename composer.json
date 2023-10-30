@@ -1,5 +1,5 @@
 {
-    "name": "oliverbauer/bfbn",
+    "name": "mbfosbos/bfbn",
     "type": "typo3-cms-extension",
     "description": "Extension für BFBN",
 	"license": "GPL-2.0-or-later",	
@@ -14,11 +14,11 @@
     },
     "autoload": {
         "psr-4": {
-            "OliverBauer\\Bfbn\\": "Classes"
+            "MbFosbos\\Bfbn\\": "Classes"
         }
     },
     "replace": {
-        "oliverbauer/bfbn": "self.version",
+        "MbFosbos/bfbn": "self.version",
         "typo3-ter/bfbn": "self.version"
     },
     "extra": {

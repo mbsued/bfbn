@@ -1,8 +1,8 @@
 <?php
 
-namespace OliverBauer\Bfbn\Ajax;
+namespace MbFosbos\Bfbn\Ajax;
 
-use OliverBauer\Bfbn\Service\PdfService;
+use MbFosbos\Bfbn\Service\PdfService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Core\Environment;

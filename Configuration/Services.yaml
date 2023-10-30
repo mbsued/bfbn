@@ -7,14 +7,14 @@ services:
     autoconfigure: true
     public: false
 
-  OliverBauer\Bfbn\:
+  MbFosbos\Bfbn\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'
     
-  OliverBauer\Bfbn\Utility\FormHook:
+  MbFosbos\Bfbn\Utility\FormHook:
     public: true
     
-  OliverBauer\Bfbn\EventListener\LoginBeforeRedirectEvent:
+  MbFosbos\Bfbn\EventListener\LoginBeforeRedirectEvent:
     tags:
       - name: event.listener
         identifier: 'myLoginBeforeRedirectEvent'    

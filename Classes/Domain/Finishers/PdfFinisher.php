@@ -1,12 +1,12 @@
 <?php
 
-namespace OliverBauer\Bfbn\Domain\Finishers;
+namespace MbFosbos\Bfbn\Domain\Finishers;
 
-use OliverBauer\Bfbn\Domain\Model\HtmlTemplate;
-use OliverBauer\Bfbn\Domain\Model\PdfTemplate;
-use OliverBauer\Bfbn\Domain\Repository\HtmlTemplateRepository;
-use OliverBauer\Bfbn\Domain\Repository\PdfTemplateRepository;
-use OliverBauer\Bfbn\Service\PdfService;
+use MbFosbos\Bfbn\Domain\Model\HtmlTemplate;
+use MbFosbos\Bfbn\Domain\Model\PdfTemplate;
+use MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository;
+use MbFosbos\Bfbn\Domain\Repository\PdfTemplateRepository;
+use MbFosbos\Bfbn\Service\PdfService;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\FormElementInterface;
@@ -31,12 +31,12 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
     /**
      * Pdf Service
      *
-     * @var \OliverBauer\Bfbn\Service\PdfService
+     * @var \MbFosbos\Bfbn\Service\PdfService
      */
     private $pdfService;
 
     /**
-     * @param \OliverBauer\Bfbn\Domain\Repository\HtmlTemplateRepository $htmlTemplateRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository $htmlTemplateRepository
      */
     public function injectHtmlTemplateRepository(HtmlTemplateRepository $htmlTemplateRepository)
     {
@@ -44,7 +44,7 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
     }
 
     /**
-     * @param \OliverBauer\Bfbn\Domain\Repository\PdfTemplateRepository $pdfTemplateRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\PdfTemplateRepository $pdfTemplateRepository
      */
     public function injectPdfTemplateRepository(PdfTemplateRepository $pdfTemplateRepository)
     {

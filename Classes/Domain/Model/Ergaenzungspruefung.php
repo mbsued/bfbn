@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -38,7 +38,7 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      /**
      * geschlecht
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Geschlecht
+     * @var \MbFosbos\Bfbn\Domain\Model\Geschlecht
      */
     protected $geschlecht = null;
 	
@@ -46,14 +46,14 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * sprache
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Sprache
+     * @var \MbFosbos\Bfbn\Domain\Model\Sprache
      */
     protected $sprache = null;
 
     /**
      * institution
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institution
+     * @var \MbFosbos\Bfbn\Domain\Model\Institution
      */
     protected $institution = null;
 	
@@ -103,7 +103,7 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the geschlecht
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @return \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      */
     public function getGeschlecht()
     {
@@ -113,10 +113,10 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the geschlecht
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @param \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      * @return void
      */
-    public function setGeschlecht(\OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht)
+    public function setGeschlecht(\MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht)
     {
         $this->geschlecht = $geschlecht;
     }
@@ -124,7 +124,7 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the sprache
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Sprache $sprache
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Sprache $sprache
      */
     public function getSprache()
     {
@@ -134,10 +134,10 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the sprache
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Sprache $sprache
+     * @param \MbFosbos\Bfbn\Domain\Model\Sprache $sprache
      * @return void
      */
-    public function setSprache(\OliverBauer\Bfbn\Domain\Model\Sprache $sprache)
+    public function setSprache(\MbFosbos\Bfbn\Domain\Model\Sprache $sprache)
     {
         $this->sprache = $sprache;
     }
@@ -145,7 +145,7 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institution
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Institution $institution
      */
     public function getInstitution()
     {
@@ -155,10 +155,10 @@ class Ergaenzungspruefung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function setInstitution(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function setInstitution(\MbFosbos\Bfbn\Domain\Model\Institution $institution)
     {
         $this->institution = $institution;
     }	

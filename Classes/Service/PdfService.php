@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\Service;
+namespace MbFosbos\Bfbn\Service;
 
 use \Mpdf\Mpdf;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

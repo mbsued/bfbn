@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -45,7 +45,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      /**
      * geschlecht
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Geschlecht
+     * @var \MbFosbos\Bfbn\Domain\Model\Geschlecht
      */
     protected $geschlecht = null;
 
@@ -68,35 +68,35 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * abschluss
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Abschluss
+     * @var \MbFosbos\Bfbn\Domain\Model\Abschluss
      */
     protected $abschluss = null;
 
     /**
      * fach1
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Fachkurz
+     * @var \MbFosbos\Bfbn\Domain\Model\Fachkurz
      */
     protected $fach1 = null;
 	
     /**
      * fach2
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Fachkurz
+     * @var \MbFosbos\Bfbn\Domain\Model\Fachkurz
      */
     protected $fach2 = null;
 
     /**
      * fach3
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Fachkurz
+     * @var \MbFosbos\Bfbn\Domain\Model\Fachkurz
      */
     protected $fach3 = null;	
 
     /**
      * institution
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institution
+     * @var \MbFosbos\Bfbn\Domain\Model\Institution
      */
     protected $institution = null;
 	
@@ -167,7 +167,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the geschlecht
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @return \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      */
     public function getGeschlecht()
     {
@@ -177,10 +177,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the geschlecht
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht
+     * @param \MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht
      * @return void
      */
-    public function setGeschlecht(\OliverBauer\Bfbn\Domain\Model\Geschlecht $geschlecht)
+    public function setGeschlecht(\MbFosbos\Bfbn\Domain\Model\Geschlecht $geschlecht)
     {
         $this->geschlecht = $geschlecht;
     }
@@ -231,7 +231,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the abschluss
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Abschluss $abschluss
+     * @return \MbFosbos\Bfbn\Domain\Model\Abschluss $abschluss
      */
     public function getAbschluss()
     {
@@ -241,10 +241,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the abschluss
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Abschluss $abschluss
+     * @param \MbFosbos\Bfbn\Domain\Model\Abschluss $abschluss
      * @return void
      */
-    public function setAbschluss(\OliverBauer\Bfbn\Domain\Model\Abschluss $abschluss)
+    public function setAbschluss(\MbFosbos\Bfbn\Domain\Model\Abschluss $abschluss)
     {
         $this->abschluss = $abschluss;
     }
@@ -252,7 +252,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the fach1
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach1
+     * @return \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach1
      */
     public function getFach1()
     {
@@ -262,10 +262,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the fach1
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach1
+     * @param \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach1
      * @return void
      */
-    public function setFach1(\OliverBauer\Bfbn\Domain\Model\Fachkurz $fach1)
+    public function setFach1(\MbFosbos\Bfbn\Domain\Model\Fachkurz $fach1)
     {
         $this->fach1 = $fach1;
     }
@@ -273,7 +273,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the fach2
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach2
+     * @return \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach2
      */
     public function getFach2()
     {
@@ -283,10 +283,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the fach2
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach2
+     * @param \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach2
      * @return void
      */
-    public function setFach2(\OliverBauer\Bfbn\Domain\Model\Fachkurz $fach2 = NULL)
+    public function setFach2(\MbFosbos\Bfbn\Domain\Model\Fachkurz $fach2 = NULL)
     {
         $this->fach2 = $fach2;
     }
@@ -294,7 +294,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the fach3
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach3
+     * @return \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach3
      */
     public function getFach3()
     {
@@ -304,10 +304,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the fach3
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Fachkurz $fach3
+     * @param \MbFosbos\Bfbn\Domain\Model\Fachkurz $fach3
      * @return void
      */
-    public function setFach3(\OliverBauer\Bfbn\Domain\Model\Fachkurz $fach3 = NULL)
+    public function setFach3(\MbFosbos\Bfbn\Domain\Model\Fachkurz $fach3 = NULL)
     {
         $this->fach3 = $fach3;
     }
@@ -315,7 +315,7 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institution
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Institution $institution
      */
     public function getInstitution()
     {
@@ -325,10 +325,10 @@ class Schulfremdepruefer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function setInstitution(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function setInstitution(\MbFosbos\Bfbn\Domain\Model\Institution $institution)
     {
         $this->institution = $institution;
     }	

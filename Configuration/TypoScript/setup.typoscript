@@ -64,13 +64,6 @@ plugin.tx_bfbn {
 			ordnerwest = 160
 			ordnersued = 173		
 		}
-		neubestellung {
-			ordnerstandard = 167		
-			ordnernord = 168
-			ordnerost = 169
-			ordnerwest = 170
-			ordnersued = 174		
-		}
 		unfallstatistik {
 			ordnerstandard = 262		
 			ordnernord = 263

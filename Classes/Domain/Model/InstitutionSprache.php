@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -30,7 +30,7 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * sprache
      * 
-     *  @var \OliverBauer\Bfbn\Domain\Model\Sparche
+     *  @var \MbFosbos\Bfbn\Domain\Model\Sparche
      * 
      */
     protected $sprache = null;
@@ -38,7 +38,7 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * jahrgangsstufe
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe
+     * @var \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe
      * 
      */
     protected $jahrgangsstufe = null;
@@ -68,7 +68,7 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the sprache
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Sprache $sprache
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Sprache $sprache
      */
     public function getSprache()
     {
@@ -78,10 +78,10 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the sprache
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Sprache $sprache
+     * @param \MbFosbos\Bfbn\Domain\Model\Sprache $sprache
      * @return void
      */
-    public function setSprache(\OliverBauer\Bfbn\Domain\Model\Sprache $sprache)
+    public function setSprache(\MbFosbos\Bfbn\Domain\Model\Sprache $sprache)
     {
         $this->sprache = $sprache;
     }
@@ -90,7 +90,7 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the jahrgangsstufe
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @return \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      */
     public function getJahrgangsstufe()
     {
@@ -100,10 +100,10 @@ class InstitutionSprache extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the jahrgangsstufe
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
+     * @param \MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe
      * @return void
      */
-    public function setJahrgangsstufe(\OliverBauer\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
+    public function setJahrgangsstufe(\MbFosbos\Bfbn\Domain\Model\Jahrgangsstufe $jahrgangsstufe)
     {
         $this->jahrgangsstufe = $jahrgangsstufe;
     }

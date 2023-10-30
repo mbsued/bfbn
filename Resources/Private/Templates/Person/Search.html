@@ -2,6 +2,33 @@
 <f:layout name="Default" />
 
 <f:section name="content">
+  <f:asset.script identifier="bfbn-person-funktion" src="EXT:bfbn/Resources/Public/JS/jstable.min.js" />
+  <f:asset.css identifier="bfbn-person-funktion" href="EXT:bfbn/Resources/Public/CSS/jstable.css" />
+
+  <f:asset.script identifier="vanilla_bfbn-person-funktion">
+  let myTable = new JSTable("#personfunktion", {
+    sortable: true,
+    searchable: false,
+    columns: [
+    	{
+        select: 5,
+        sortable: true,
+        sort: "asc"
+    	}
+    ],
+    perPage: 10,
+    perPageSelect: [10,20,30,40,50],
+    labels: {
+        placeholder: "Suchen...",
+        perPage: "{select} Zeilen pro Seite",
+        noRows: "Nichts gefunden",
+        info: "Zeige {start} bis {end} von {rows} Einträgen",
+        loading: "Laden...",
+        infoFiltered: "Zeige {start} bis {end} von {rows} Einträgen (gefiltert von {rowsTotal} Einträgen)"
+    }    
+  });
+
+  </f:asset.script>   
   <f:if condition="{art} == 1">
     <f:then>
       <h1>Ergebnis der Suche von Funktionsträgern ({institution.kurzbezeichnung})</h1>
@@ -41,13 +68,13 @@
   	<f:if condition="{personen}">
       <f:then>
         <div class="table-responsive-sm">         
-          <table class="table table-striped table-bordered">
+          <table id="personfunktion" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">Akad. Titel</th>
+                <th data-sortable="false" scope="col">Akad. Titel</th>
                 <th scope="col">Nachname</th>
-                <th scope="col">Vorname</th>
-                <th scope="col">Geschlecht</th>
+                <th data-sortable="false" scope="col">Vorname</th>
+                <th data-sortable="false" scope="col">Geschlecht</th>
                 <th scope="col">Funktion</th>
                 <th scope="col">Institution</th>
                 <th scope="col">bestellt ab</th>
@@ -94,7 +121,7 @@
             </tbody>
           </table>
         </div>
-        <f:link.action action="export" class="btn btn-primary" arguments="{personen:  personen, settings: settings}"><i class="fas fa-pen me-2"></i>Export</f:link.action>
+        <f:link.action action="export" class="btn btn-primary" arguments="{personen:  personen, settings: settings}"><i class="fas fa-download me-2"></i>Export</f:link.action>
       </f:then>
       <f:else>
       		<h4>Es wurde keine Funktionsträger gefunden!</h4> 	 

@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Repository;
+namespace MbFosbos\Bfbn\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 

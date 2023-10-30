@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 /**
  * HtmlTemplate

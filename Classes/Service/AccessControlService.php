@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Service;
+namespace MbFosbos\Bfbn\Service;
 
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Service;
+namespace MbFosbos\Bfbn\Service;
 
 /**
  * This file is part of the "bfbn" Extension for TYPO3 CMS.

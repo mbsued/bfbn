@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\ViewHelpers;
+namespace MbFosbos\Bfbn\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;

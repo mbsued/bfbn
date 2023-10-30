@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 /***
  *
@@ -29,24 +29,24 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * art
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Meldungart
+     * @var \MbFosbos\Bfbn\Domain\Model\Meldungart
      */
     protected $art = null;
 
     /**
      * institution
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institution
+     * @var \MbFosbos\Bfbn\Domain\Model\Institution
      */
     protected $institution = null;
 
     /**
-     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @var \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     protected $tstamp;
 
     /**
-     * @var \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @var \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     protected $crdate;
 	
@@ -98,7 +98,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the art
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Meldungart $art
+     * @return \MbFosbos\Bfbn\Domain\Model\Meldungart $art
      */
     public function getArt()
     {
@@ -108,10 +108,10 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the art
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Meldungart $art
+     * @param \MbFosbos\Bfbn\Domain\Model\Meldungart $art
      * @return void
      */
-    public function setArt(\OliverBauer\Bfbn\Domain\Model\Meldungart $art)
+    public function setArt(\MbFosbos\Bfbn\Domain\Model\Meldungart $art)
     {
         $this->art = $art;
     }
@@ -119,7 +119,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the institution
      * 
-     * @return @return \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @return @return \MbFosbos\Bfbn\Domain\Model\Institution $institution
      */
     public function getInstitution()
     {
@@ -129,10 +129,10 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the institution
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institution $institution
+     * @param \MbFosbos\Bfbn\Domain\Model\Institution $institution
      * @return void
      */
-    public function setInstitution(\OliverBauer\Bfbn\Domain\Model\Institution $institution)
+    public function setInstitution(\MbFosbos\Bfbn\Domain\Model\Institution $institution)
     {
         $this->institution = $institution;
     }
@@ -140,7 +140,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get timestamp
      *
-     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @return \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     public function getTstamp()
     {
@@ -150,7 +150,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set timestamp
      *
-     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $tstamp 
+     * @param \MbFosbos\Bfbn\Domain\Model\DateTime $tstamp 
      *
      * @return void
      */
@@ -162,7 +162,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get crdate
      *
-     * @return \OliverBauer\Bfbn\Domain\Model\DateTime
+     * @return \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     public function getCrdate()
     {
@@ -172,7 +172,7 @@ class meldung extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set crdate
      *
-     * @param \OliverBauer\Bfbn\Domain\Model\DateTime $crdate 
+     * @param \MbFosbos\Bfbn\Domain\Model\DateTime $crdate 
      *
      * @return void
      */

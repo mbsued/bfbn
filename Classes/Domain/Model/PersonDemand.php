@@ -1,5 +1,5 @@
 <?php
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -32,7 +32,7 @@ class PersonDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $funktionen;
 
 	/**
-    * @var \OliverBauer\Bfbn\Domain\Model\Institution
+    * @var \MbFosbos\Bfbn\Domain\Model\Institution
     **/
     protected $institution;
 	
@@ -85,6 +85,7 @@ class PersonDemand extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets die gesuchte institution
      * 
      * @param int $institution
+	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("institution")	 
      * @return void
      */
     public function setInstitution($institution) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OliverBauer\Bfbn\Utility;
+namespace MbFosbos\Bfbn\Utility;
 
 /**
  * This file is part of the "bfbn" Extension for TYPO3 CMS.
@@ -10,36 +10,36 @@ namespace OliverBauer\Bfbn\Utility;
  */
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use OliverBauer\Bfbn\Service\AccessControlService;
-use OliverBauer\Bfbn\Domain\Repository\InstitutionRepository;
-use OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
+use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
  
  class FormHook
 {
     /**
      * InstitutionRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository 	 
+     * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository 	 
      */	 
     private $InstitutionRepository = null;
 	
 	/**
      * UserRepository
      * 
-     * @var \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      */
     private $FrontendUserRepository = null;	
 	
 	/**
-	 * @var \OliverBauer\Bfbn\Service\AccessControlService
+	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */	
 	private $AccessControlService;
 
 	/**
      * 
-     * @param \OliverBauer\Bfbn\Service\AccessControlService $AccessControlService
-     * @param \OliverBauer\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
-     * @param \OliverBauer\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
+     * @param \MbFosbos\Bfbn\Service\AccessControlService $AccessControlService
+     * @param \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository $FrontendUserRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository $InstitutionRepository
      */	 
     public function __construct(AccessControlService $AccessControlService, FrontendUserRepository $FrontendUserRepository, InstitutionRepository $InstitutionRepository)
     {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace OliverBauer\Bfbn\Domain\Model;
+namespace MbFosbos\Bfbn\Domain\Model;
 
 
 /***
@@ -150,14 +150,14 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
  /**
      * regierungsbezirk
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Regierungsbezirk
+     * @var \MbFosbos\Bfbn\Domain\Model\Regierungsbezirk
      */
     protected $regierungsbezirk = null;
 
     /**
      * mbbezirk
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\MBbezirk
+     * @var \MbFosbos\Bfbn\Domain\Model\MBbezirk
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $mbbezirk = null;
@@ -165,7 +165,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * mbbezirk2
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\MBbezirk
+     * @var \MbFosbos\Bfbn\Domain\Model\MBbezirk
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $mbbezirk2 = null;
@@ -174,7 +174,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * status
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institutionstatus
+     * @var \MbFosbos\Bfbn\Domain\Model\Institutionstatus
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $status = null;
@@ -182,7 +182,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * art
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Institutionart
+     * @var \MbFosbos\Bfbn\Domain\Model\Institutionart
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $art = null;
@@ -190,7 +190,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorklassefos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $vorklassefos = null;
@@ -198,7 +198,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorklassebos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $vorklassebos = false;
@@ -206,7 +206,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorkursfos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $vorkursfos = false;
@@ -214,7 +214,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorkursbos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy		 
      */
     protected $vorkursbos = false;
@@ -222,7 +222,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorkursartbos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Vorkursart
+     * @var \MbFosbos\Bfbn\Domain\Model\Vorkursart
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $vorkursartbos = null;
@@ -230,7 +230,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorkurstagbos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Vorkurstag
+     * @var \MbFosbos\Bfbn\Domain\Model\Vorkurstag
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $vorkurstagbos = null;
@@ -239,7 +239,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * vorkursartfos
 	 *
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Vorkursart
+     * @var \MbFosbos\Bfbn\Domain\Model\Vorkursart
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $vorkursartfos = null;
@@ -247,7 +247,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorkurstagfos
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Vorkurstag
+     * @var \MbFosbos\Bfbn\Domain\Model\Vorkurstag
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $vorkurstagfos = null;
@@ -255,7 +255,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * bosteilzeit
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $bosteilzeit = false;
@@ -263,7 +263,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * dbfh
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $dbfh = false;
@@ -271,7 +271,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * profilinklusion
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */	 
     protected $profilinklusion = false;
@@ -279,7 +279,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * ivk
      * 
-     * @var \OliverBauer\Bfbn\Domain\Model\Auswahljanein
+     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $ivk = false;
@@ -294,7 +294,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
      * ausbildungsrichtungen
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
     protected $ausbildungsrichtungen = null;
@@ -302,7 +302,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * sprachen
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionSprache>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionSprache>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
 	 
@@ -311,7 +311,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * sprachen int w
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Spracheintw>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Spracheintw>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $sprachenintw = null;
@@ -319,7 +319,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	* personen
 	*
-	* @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person>
+	* @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person>
     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	*/
 	protected $personen = null;	
@@ -327,7 +327,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	* bearbeiter
 	*
-	* @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Bearbeiter>
+	* @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Bearbeiter>
     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	
 	*/
 	protected $bearbeiter = null;	
@@ -755,7 +755,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the regierungsbezirk
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk
+     * @return \MbFosbos\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk
      */
     public function getRegierungsbezirk()
     {
@@ -765,10 +765,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the regierungsbezirk
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk
+     * @param \MbFosbos\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk
      * @return void
      */
-    public function setRegierungsbezirk(\OliverBauer\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk)
+    public function setRegierungsbezirk(\MbFosbos\Bfbn\Domain\Model\Regierungsbezirk $regierungsbezirk)
     {
         $this->regierungsbezirk = $regierungsbezirk;
     }
@@ -776,7 +776,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the mbbezirk
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk
+     * @return \MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk
      */
     public function getMbbezirk()
     {
@@ -786,10 +786,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the mbbezirk
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk
+     * @param \MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk
      * @return void
      */
-    public function setMbbezirk(\OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk)
+    public function setMbbezirk(\MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk)
     {
         $this->mbbezirk = $mbbezirk;
     }
@@ -797,7 +797,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the mbbezirk2
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk2
+     * @return \MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk2
      */
     public function getMbbezirk2()
     {
@@ -807,10 +807,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the mbbezirk2
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk2
+     * @param \MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk2
      * @return void
      */
-    public function setMbbezirk2(\OliverBauer\Bfbn\Domain\Model\MBbezirk $mbbezirk2)
+    public function setMbbezirk2(\MbFosbos\Bfbn\Domain\Model\MBbezirk $mbbezirk2)
     {
         $this->mbbezirk2 = $mbbezirk2;
     }
@@ -818,7 +818,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the status
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Institutionstatus $status
+     * @return \MbFosbos\Bfbn\Domain\Model\Institutionstatus $status
      */
     public function getStatus()
     {
@@ -828,10 +828,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the status
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institutionstatus $status
+     * @param \MbFosbos\Bfbn\Domain\Model\Institutionstatus $status
      * @return void
      */
-    public function setStatus(\OliverBauer\Bfbn\Domain\Model\Institutionstatus $status)
+    public function setStatus(\MbFosbos\Bfbn\Domain\Model\Institutionstatus $status)
     {
         $this->status = $status;
     }
@@ -839,7 +839,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the art
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Institutionart $art
+     * @return \MbFosbos\Bfbn\Domain\Model\Institutionart $art
      */
     public function getArt()
     {
@@ -849,10 +849,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the art
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Institutionart $art
+     * @param \MbFosbos\Bfbn\Domain\Model\Institutionart $art
      * @return void
      */
-    public function setArt(\OliverBauer\Bfbn\Domain\Model\Institutionart $art)
+    public function setArt(\MbFosbos\Bfbn\Domain\Model\Institutionart $art)
     {
         $this->art = $art;
     }
@@ -860,7 +860,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorklassefos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorklassefos
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassefos
      */
     public function getVorklassefos()
     {
@@ -870,7 +870,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorklassefos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorklassefos
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassefos
      * @return void
      */
     public function setVorklassefos($vorklassefos)
@@ -881,7 +881,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorklassebos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorklassebos
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassebos
      */
     public function getVorklassebos()
     {
@@ -891,7 +891,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorklassebos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorklassebos
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassebos
      * @return void
      */
     public function setVorklassebos($vorklassebos)
@@ -902,7 +902,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursfos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorkursfos
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursfos
      */
     public function getVorkursfos()
     {
@@ -912,7 +912,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursfos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorkursfos
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursfos
      * @return void
      */
     public function setVorkursfos($vorkursfos)
@@ -923,7 +923,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursbos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorkursbos
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursbos
      */
     public function getVorkursbos()
     {
@@ -933,7 +933,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursbos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $vorkursbos
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursbos
      * @return void
      */
     public function setVorkursbos($vorkursbos)
@@ -944,7 +944,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursartbos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartbos
+     * @return \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos
      */
     public function getVorkursartbos()
     {
@@ -954,10 +954,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursartbos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartbos
+     * @param \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos
      * @return void
      */
-    public function setVorkursartbos(\OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartbos)
+    public function setVorkursartbos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos)
     {
         $this->vorkursartbos = $vorkursartbos;
     }
@@ -965,7 +965,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkurstagbos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos
+     * @return \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos
      */
     public function getVorkurstagbos()
     {
@@ -975,10 +975,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkurstagbos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos
+     * @param \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos
      * @return void
      */
-    public function setVorkurstagbos(\OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos)
+    public function setVorkurstagbos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos)
     {
         $this->vorkurstagbos = $vorkurstagbos;
     }
@@ -986,7 +986,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursartfos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartfos
+     * @return \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos
      */
     public function getVorkursartfos()
     {
@@ -996,10 +996,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursartfos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartfos
+     * @param \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos
      * @return void
      */
-    public function setVorkursartfos(\OliverBauer\Bfbn\Domain\Model\Vorkursart $vorkursartfos)
+    public function setVorkursartfos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos)
     {
         $this->vorkursartfos = $vorkursartfos;
     }
@@ -1007,7 +1007,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkurstagfos
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos
+     * @return \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos
      */
     public function getVorkurstagfos()
     {
@@ -1017,10 +1017,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkurstagfos
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos
+     * @param \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos
      * @return void
      */
-    public function setVorkurstagfos(\OliverBauer\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos)
+    public function setVorkurstagfos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos)
     {
         $this->vorkurstagfos = $vorkurstagfos;
     }
@@ -1028,7 +1028,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the bosteilzeit
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
      */
     public function getBosteilzeit()
     {
@@ -1038,7 +1038,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the bosteilzeit
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
      * @return void
      */
     public function setBosteilzeit($bosteilzeit)
@@ -1049,7 +1049,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the dbfh
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $dbfh
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $dbfh
      */
     public function getDbfh()
     {
@@ -1059,7 +1059,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the dbfh
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $dbfh
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $dbfh
      * @return void
      */
     public function setDbfh($dbfh)
@@ -1070,7 +1070,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the profilinklusion
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $profilinklusion
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $profilinklusion
      */
     public function getProfilinklusion()
     {
@@ -1080,7 +1080,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the profilinklusion
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $profilinklusion
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $profilinklusion
      * @return void
      */
     public function setProfilinklusion($profilinklusion)
@@ -1091,7 +1091,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the ivk
      * 
-     * @return \OliverBauer\Bfbn\Domain\Model\Auswahljanein $ivk
+     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $ivk
      */
     public function getIvk()
     {
@@ -1101,7 +1101,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the ivk
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Auswahljanein $ivk
+     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $ivk
      * @return void
      */
     public function setIvk($ivk)
@@ -1133,10 +1133,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a InstitutionAusbildungsrichtung
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungen
+     * @param \MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungen
      * @return void
      */
-    public function addAusbildungsrichtungen(\OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungen)
+    public function addAusbildungsrichtungen(\MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungen)
     {
         $this->ausbildungsrichtungen->attach($ausbildungsrichtungen);
     }
@@ -1144,10 +1144,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a InstitutionAusbildungsrichtung
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungenToRemove The InstitutionAusbildungsrichtung to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungenToRemove The InstitutionAusbildungsrichtung to be removed
      * @return void
      */
-    public function removeAusbildungsrichtungen(\OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungenToRemove)
+    public function removeAusbildungsrichtungen(\MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung $ausbildungsrichtungenToRemove)
     {
         $this->ausbildungsrichtungen->detach($ausbildungsrichtungenToRemove);
     }
@@ -1155,7 +1155,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the ausbildungsrichtungen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung> $ausbildungsrichtungen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung> $ausbildungsrichtungen
      */
     public function getAusbildungsrichtungen()
     {
@@ -1165,7 +1165,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the ausbildungsrichtungen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionAusbildungsrichtung> $ausbildungsrichtungen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionAusbildungsrichtung> $ausbildungsrichtungen
      * @return void
      */
     public function setAusbildungsrichtungen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $ausbildungsrichtungen)
@@ -1176,10 +1176,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a InstitutionSprache
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\InstitutionSprache $sprachen
+     * @param \MbFosbos\Bfbn\Domain\Model\InstitutionSprache $sprachen
      * @return void
      */
-    public function addSprachen(\OliverBauer\Bfbn\Domain\Model\InstitutionSprache $sprachen)
+    public function addSprachen(\MbFosbos\Bfbn\Domain\Model\InstitutionSprache $sprachen)
     {
         $this->sprachen->attach($sprachen);
     }
@@ -1187,10 +1187,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a InstitutionSprache
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\InstitutionSprache $sprachenToRemove The InstitutionSprache to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\InstitutionSprache $sprachenToRemove The InstitutionSprache to be removed
      * @return void
      */
-    public function removeSprachen(\OliverBauer\Bfbn\Domain\Model\InstitutionSprache $sprachenToRemove)
+    public function removeSprachen(\MbFosbos\Bfbn\Domain\Model\InstitutionSprache $sprachenToRemove)
     {
         $this->sprachen->detach($sprachenToRemove);
     }
@@ -1198,7 +1198,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the sprachen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionSprache> $sprachen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionSprache> $sprachen
      */
     public function getSprachen()
     {
@@ -1208,7 +1208,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the sprachen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\InstitutionSprache> $sprachen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\InstitutionSprache> $sprachen
      * @return void
      */
     public function setSprachen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $sprachen)
@@ -1219,10 +1219,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Spracheintw
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Spracheintw $sprachenintw
+     * @param \MbFosbos\Bfbn\Domain\Model\Spracheintw $sprachenintw
      * @return void
      */
-    public function addSprachenintw(\OliverBauer\Bfbn\Domain\Model\Spracheintw $sprachenintw)
+    public function addSprachenintw(\MbFosbos\Bfbn\Domain\Model\Spracheintw $sprachenintw)
     {
         $this->sprachenintw->attach($sprachenintw);
     }
@@ -1230,10 +1230,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Spracheintw
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Spracheintw $sprachenintwToRemove The Spracheintw to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Spracheintw $sprachenintwToRemove The Spracheintw to be removed
      * @return void
      */
-    public function removeSprachenintw(\OliverBauer\Bfbn\Domain\Model\Spracheintw $sprachenintwToRemove)
+    public function removeSprachenintw(\MbFosbos\Bfbn\Domain\Model\Spracheintw $sprachenintwToRemove)
     {
         $this->sprachenintw->detach($sprachenintwToRemove);
     }
@@ -1241,7 +1241,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the sprachenintw
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Spracheintw> $sprachenintw
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Spracheintw> $sprachenintw
      */
     public function getSprachenintw()
     {
@@ -1251,7 +1251,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the sprachenintw
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Spracheintw> $sprachenintw
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Spracheintw> $sprachenintw
      * @return void
      */
     public function setSprachenintw(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $sprachenintw)
@@ -1262,10 +1262,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Person
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $personen
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $personen
      * @return void
      */
-    public function addPersonen(\OliverBauer\Bfbn\Domain\Model\Person $personen)
+    public function addPersonen(\MbFosbos\Bfbn\Domain\Model\Person $personen)
     {
         $this->personen->attach($personen);
     }
@@ -1273,10 +1273,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Person
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Person $personenToRemove The Person to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Person $personenToRemove The Person to be removed
      * @return void
      */
-    public function removePersonen(\OliverBauer\Bfbn\Domain\Model\Person $personenToRemove)
+    public function removePersonen(\MbFosbos\Bfbn\Domain\Model\Person $personenToRemove)
     {
         $this->personen->detach($personenToRemove);
     }
@@ -1284,7 +1284,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the Personen
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person> $personen
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person> $personen
      */
     public function getPersonen()
     {
@@ -1294,7 +1294,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the personen
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Person> $personen
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Person> $personen
      * @return void
      */
     public function setPersonen(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $personen)
@@ -1305,10 +1305,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a Bearbeiter
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Bearbeiter $bearbeiter
+     * @param \MbFosbos\Bfbn\Domain\Model\Bearbeiter $bearbeiter
      * @return void
      */
-    public function addBearbeiter(\OliverBauer\Bfbn\Domain\Model\Bearbeiter $bearbeiter)
+    public function addBearbeiter(\MbFosbos\Bfbn\Domain\Model\Bearbeiter $bearbeiter)
     {
         $this->bearbeiter->attach($bearbeiter);
     }
@@ -1316,10 +1316,10 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Removes a Bearbeiter
      * 
-     * @param \OliverBauer\Bfbn\Domain\Model\Bearbeiter $bearbeiterToRemove The Bearbeiter to be removed
+     * @param \MbFosbos\Bfbn\Domain\Model\Bearbeiter $bearbeiterToRemove The Bearbeiter to be removed
      * @return void
      */
-    public function removeBearbeiter(\OliverBauer\Bfbn\Domain\Model\Bearbeiter $bearbeiterToRemove)
+    public function removeBearbeiter(\MbFosbos\Bfbn\Domain\Model\Bearbeiter $bearbeiterToRemove)
     {
         $this->bearbeiter->detach($bearbeiterToRemove);
     }
@@ -1327,7 +1327,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the Bearbeiter
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Bearbeiter> $bearbeiter
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Bearbeiter> $bearbeiter
      */
     public function getBearbeiter()
     {
@@ -1337,7 +1337,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the Bearbeiter
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverBauer\Bfbn\Domain\Model\Bearbeiter> $bearbeiter
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Bearbeiter> $bearbeiter
      * @return void
      */
     public function setBearbeiter(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $bearbeiter)
