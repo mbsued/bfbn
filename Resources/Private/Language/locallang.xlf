@@ -740,6 +740,27 @@
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_unfallstatistik.institution" resname="tx_bfbn_domain_model_unfallstatistik.institution">
 				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachricht" resname="tx_bfbn_domain_model_nachricht">
+				<source>E-Mail Nachricht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachricht.sender_email" resname="tx_bfbn_domain_model_nachricht.sender_email">
+				<source>Absender E-Mail</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_nachricht.sender_name" resname="tx_bfbn_domain_model_nachricht.sender_name">
+				<source>Absender Name</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_nachricht.empfaenger_email" resname="tx_bfbn_domain_model_nachricht.empfaenger_email">
+				<source>Empfänger E-Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachricht.betreff" resname="tx_bfbn_domain_model_nachricht.betreff">
+				<source>Betreff</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_nachricht.mailtext" resname="tx_bfbn_domain_model_nachricht.mailtext">
+				<source>E-Mail Text</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachricht.tstamp" resname="tx_bfbn_domain_model_nachricht.tstamp">
+				<source>gesendet am</source>
 			</trans-unit>			
             <trans-unit id="bfbn.openPdfLink" xml:space="preserve">
                 <source>Klicken Sie hier zum Öffnen der PDF-Datei.</source>

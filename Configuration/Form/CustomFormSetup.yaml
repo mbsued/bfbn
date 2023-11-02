@@ -12,3 +12,9 @@ TYPO3:
                   20: 'EXT:bfbn/Resources/Private/Partials/Form/Frontend/'
                 layoutRootPaths:
                   20: 'EXT:bfbn/Resources/Private/Layouts/Form/Frontend/'
+            Hidden:
+              variants:
+                -
+                  identifier: hide-1
+                  renderingOptions:
+                    enabled: true           

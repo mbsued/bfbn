@@ -30,22 +30,21 @@ class EmailFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
             $this->options['addHtmlPart'] = false;
         }
 
-        $subject = $this->parseOption('subject');
-        $recipients = $this->getRecipients('recipients', 'recipientAddress', 'recipientName');
+        $subject = (string)$this->parseOption('subject');
+        $recipients = $this->getRecipients('recipients');
         $senderAddress = $this->parseOption('senderAddress');
         $senderAddress = is_string($senderAddress) ? $senderAddress : '';
         $senderName = $this->parseOption('senderName');
         $senderName = is_string($senderName) ? $senderName : '';
-        $replyToRecipients = $this->getRecipients('replyToRecipients', 'replyToAddress');
-        $carbonCopyRecipients = $this->getRecipients('carbonCopyRecipients', 'carbonCopyAddress');
-        $blindCarbonCopyRecipients = $this->getRecipients('blindCarbonCopyRecipients', 'blindCarbonCopyAddress');
+        $replyToRecipients = $this->getRecipients('replyToRecipients');
+        $carbonCopyRecipients = $this->getRecipients('carbonCopyRecipients');
+        $blindCarbonCopyRecipients = $this->getRecipients('blindCarbonCopyRecipients');
         $addHtmlPart = $this->parseOption('addHtmlPart') ? true : false;
         $attachUploads = $this->parseOption('attachUploads');
         $useFluidEmail = $this->parseOption('useFluidEmail');
-        $title = $this->parseOption('title');
-        $title = is_string($title) && $title !== '' ? $title : $subject;
+        $title = (string)$this->parseOption('title') ?: $subject;
 
-        if (empty($subject)) {
+        if ($subject === '') {
             throw new FinisherException('The option "subject" must be set for the EmailFinisher.', 1327060320);
         }
         if (empty($recipients)) {
@@ -118,10 +117,8 @@ class EmailFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
             $translationService->setLanguage($languageBackup);
         }
 
-        $elements = $formRuntime->getFormDefinition()->getRenderablesRecursively();
-
         if ($attachUploads) {
-            foreach ($elements as $element) {
+            foreach ($formRuntime->getFormDefinition()->getRenderablesRecursively() as $element) {
                 if (!$element instanceof FileUpload) {
                     continue;
                 }
@@ -130,11 +127,26 @@ class EmailFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
                     if ($file instanceof FileReference) {
                         $file = $file->getOriginalResource();
                     }
-
                     $mail->attach($file->getContents(), $file->getName(), $file->getMimeType());
                 }
             }
         }
+		//beim Nachrichtensenden die Dateien anhängen, wenn Sie da sind
+			foreach ($formRuntime->getFormDefinition()->getRenderablesRecursively() as $element) {
+				if ($element->getIdentifier() === 'dateien') {
+					$filesValue =  $formRuntime[$element->getIdentifier()];
+					if (!empty($filesValue)) {
+						$files = GeneralUtility::trimExplode(',', $filesValue, true);
+						foreach ($files as $file) {
+							$fileAbsolute = GeneralUtility::getFileAbsFileName($file);
+							if (file_exists($fileAbsolute)) {
+								$mail->attachFromPath($fileAbsolute);
+							} 
+						}
+					}					
+				}
+            }		
+		
 
         //Extended
         if ($this->finisherContext->getFinisherVariableProvider()->offsetExists('Pdf')) {

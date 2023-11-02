@@ -328,6 +328,18 @@ CREATE TABLE tx_bfbn_domain_model_unfallstatistik (
 
 );
 
+CREATE TABLE tx_bfbn_domain_model_nachricht (
+
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	sender_email varchar(255)  DEFAULT '' NOT NULL,
+	sender_name varchar(255) DEFAULT '' NOT NULL,
+	empfaenger_email varchar(255) DEFAULT '' NOT NULL,	
+	betreff varchar(255) DEFAULT '' NOT NULL,
+	mailtext text  NOT NULL,	
+
+);
+
 CREATE TABLE tx_bfbn_institution_institutionausbildungsrichtung_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,

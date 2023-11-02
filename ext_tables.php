@@ -92,6 +92,9 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_meldungart');
  
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_unfallstatistik', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_unfallstatistik.xlf');
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_unfallstatistik');		
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_unfallstatistik');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bfbn_domain_model_nachricht', 'EXT:bfbn/Resources/Private/Language/locallang_csh_tx_bfbn_domain_model_nachricht.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_nachricht');		
     }
 );

@@ -1,0 +1,66 @@
+<f:layout name="Nachricht" />
+<f:section name="Nachricht">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'nachrichtentext'">
+					<f:then> 
+						<div><f:format.html>{formValue.processedValue}</f:format.html></div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Kategorie">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'kategorie'">
+					<f:then> 
+						<h3><strong>Kategorie:</strong> {formValue.processedValue}</h3>
+					</f:then>
+				</f:if>
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>					
+</f:section>
+<f:section name="Termin">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'termin'">
+					<f:then> 
+						<h3><strong>Termin:</strong> {formValue.processedValue}</h3>
+					</f:then>
+				</f:if>
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Links">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'links'">
+					<f:then> 
+						<div><f:format.html>{formValue.processedValue}</f:format.html></div>
+					</f:then>
+				</f:if>						
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Zusatztext">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'zusatztext'">
+					<f:then> 
+						<div>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>						
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
