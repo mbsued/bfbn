@@ -17,7 +17,47 @@
 							<eval>datetime</eval>							
 						  </config>
 						</TCEforms>  
-					</settings.termin>				
+					</settings.termin>
+					<settings.emailn>
+						<TCEforms>
+                          <exclude>1</exclude>					
+						  <label>Empfänger E-Mail (Nordbayern)</label>
+						  <config>
+							<type>input</type>							
+							<eval>email</eval>							
+						  </config>
+						</TCEforms>  
+					</settings.emailn>
+					<settings.emailo>
+						<TCEforms>
+                          <exclude>1</exclude>					
+						  <label>Empfänger E-Mail (Ostbayern)</label>
+						  <config>
+							<type>input</type>							
+							<eval>email</eval>							
+						  </config>
+						</TCEforms>  
+					</settings.emailo>
+					<settings.emails>
+						<TCEforms>
+                          <exclude>1</exclude>					
+						  <label>Empfänger E-Mail (Südbayern)</label>
+						  <config>
+							<type>input</type>							
+							<eval>email</eval>							
+						  </config>
+						</TCEforms>  
+					</settings.emails>
+					<settings.emailw>
+						<TCEforms>
+                          <exclude>1</exclude>					
+						  <label>Empfänger E-Mail (Westbayern)</label>
+						  <config>
+							<type>input</type>							
+							<eval>email</eval>							
+						  </config>
+						</TCEforms>  
+					</settings.emailw>					
 					<settings.art>
                         <TCEforms>
                           <exclude>1</exclude>

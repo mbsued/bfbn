@@ -11,7 +11,8 @@ finishers:
     options:
       templateName: Meldung
       subject: 'Meldung der Schule'
-      recipients: null
+      recipients: 
+         '{email-empfaenger}': '{email-empfaenger-name}'     
       senderAddress: mail@bfbn.de
       senderName: FOSBOS-Netz
       addHtmlPart: true
@@ -154,3 +155,13 @@ renderables:
         type: Hidden
         identifier: institution
         label: Institution
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: email-empfaenger
+        label: 'E-Mail Empfänger'
+      -
+        defaultValue: ''
+        type: Hidden
+        identifier: email-empfaenger-name
+        label: 'E-Mail Empfänger Name'        

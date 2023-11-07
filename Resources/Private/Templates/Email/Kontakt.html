@@ -1,48 +1,66 @@
 <f:layout name="Kontakt" />
-<f:section name="Title">{headline}</f:section>
-<f:section name="Main">
-    <table>
-        <formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
-            <tr>
-                <f:if condition="{formValue.isSection}">
-                    <f:then>
-						<f:if condition="{formValue.element.type} != 'Hidden'">
-							<td colspan="2"><b>{formvh:translateElementProperty(element: formValue.element, property: 'label')}:</b></td>
-						</f:if>
-                    </f:then>
-                    <f:else>
-						<f:if condition="{formValue.element.type} != 'Hidden'">
-							<td valign="top" align="left">{formvh:translateElementProperty(element: formValue.element, property: 'label')}:</td>
-							<td valign="top" align="left">
-						</f:if>
-                            <f:if condition="{formValue.value}">
-                                <f:then>
-                                    <f:if condition="{formValue.isMultiValue}">
-                                        <f:then>
-                                            <table cellspacing="0" border="0">
-                                                <f:for each="{formValue.processedValue}" as="value">
-                                                    <tr>
-                                                        <td>{value}</td>
-                                                    </tr>
-                                                </f:for>
-                                            </table>
-                                        </f:then>
-                                        <f:else>
-											<f:if condition="{formValue.element.type} != 'Hidden'">
-												<table cellspacing="0" border="0">
-													<tr>
-														<td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
-													</tr>
-												</table>
-											</f:if>
-                                        </f:else>
-                                    </f:if>
-                                </f:then>
-                            </f:if>
-                        </td>
-                    </f:else>
-                </f:if>
-            </tr>
-        </formvh:renderAllFormValues>
-    </table>
+<f:section name="Vorname">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'vorname'">
+					<f:then> 
+						<div><strong>Vorname: </strong>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Nachname">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'nachname'">
+					<f:then> 
+						<div><strong>Nachname: </strong>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="E-Mail">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'email'">
+					<f:then> 
+						<div><strong>E-Mail: </strong>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Schule">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'schule'">
+					<f:then> 
+						<div><strong>Schule: </strong>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
+</f:section>
+<f:section name="Anfrage">
+	<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+		<f:if condition="{formValue.value}">
+			<f:then>
+				<f:if condition="{formValue.element.identifier} == 'anfrage'">
+					<f:then> 
+						<div><strong>Anfrage: </strong>{formValue.processedValue}</div>
+					</f:then>
+				</f:if>					
+			</f:then>	
+		</f:if>
+	</formvh:renderAllFormValues>
 </f:section>

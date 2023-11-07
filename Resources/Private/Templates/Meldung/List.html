@@ -9,11 +9,44 @@
           <f:variable name="art">Märzstatistik</f:variable>
           <f:variable name="artl">maerzstatistik</f:variable>
           <f:variable name="datei">maerzstatistik</f:variable>
+          <f:variable name="fileext">xlsx</f:variable>          
           <f:variable name="antwort">686</f:variable>
-          <f:variable name="nord">{settings.maerz.ordnernord}</f:variable>
-          <f:variable name="ost">{settings.maerz.ordnerost}</f:variable>
-          <f:variable name="sued">{settings.maerz.ordnersued}</f:variable>
-          <f:variable name="west">{settings.maerz.ordnerwest}</f:variable>          
+          <f:if condition="{institution.mbbezirk.uid}==1">
+            <f:then>
+          		<f:variable name="pid">{settings.maerz.ordnernord}</f:variable>
+              	<f:variable name="email_empf">{settings.emailn}</f:variable>
+				<f:variable name="email_empf_name">MB-Dienststelle Nordbayern</f:variable>
+            </f:then>
+            <f:else>
+              <f:if condition="{institution.mbbezirk.uid}==2">
+                <f:then>
+                    <f:variable name="pid">{settings.maerz.ordnerost}</f:variable>
+              		<f:variable name="email_empf">{settings.emailo}</f:variable>                  
+                    <f:variable name="email_empf_name">MB-Dienststelle Ostbayern</f:variable>
+                </f:then>
+                <f:else>
+                  <f:if condition="{institution.mbbezirk.uid}==3">
+                    <f:then>
+                        <f:variable name="pid">{settings.maerz.ordnersued}</f:variable>
+              			<f:variable name="email_empf">{settings.emails}</f:variable>                      
+                        <f:variable name="email_empf_name">MB-Dienststelle Südbayern</f:variable>
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{institution.mbbezirk.uid}==4">
+                        <f:then>
+                            <f:variable name="pid">{settings.maerz.ordnerwest}</f:variable>
+              				<f:variable name="email_empf">{settings.emailw}</f:variable>                          
+                            <f:variable name="email_empf_name">MB-Dienststelle Westbayern</f:variable>
+                        </f:then>
+                        <f:else>
+                        </f:else>
+                      </f:if>                      
+                    </f:else>
+                  </f:if>                  
+                </f:else>
+              </f:if>              
+            </f:else>
+          </f:if>
 		</f:then>
 		<f:else>
         <f:if condition="{settings.art}==2">
@@ -23,11 +56,44 @@
               <f:variable name="art">Abschlussprüfungsstatistik</f:variable>
               <f:variable name="artl">abschlusspruefungsstatistik</f:variable>
               <f:variable name="datei">apstatistik</f:variable>
+              <f:variable name="fileext">xml</f:variable>               
               <f:variable name="antwort">1228</f:variable>
-              <f:variable name="nord">{settings.abschluss.ordnernord}</f:variable>
-              <f:variable name="ost">{settings.abschluss.ordnerost}</f:variable>
-              <f:variable name="sued">{settings.abschluss.ordnersued}</f:variable>
-              <f:variable name="west">{settings.abschluss.ordnerwest}</f:variable>               
+              <f:if condition="{institution.mbbezirk.uid}==1">
+                <f:then>
+                    <f:variable name="pid">{settings.abschluss.ordnernord}</f:variable>
+                    <f:variable name="email_empf">{settings.emailn}</f:variable>
+                    <f:variable name="email_empf_name">MB-Dienststelle Nordbayern</f:variable>
+                </f:then>
+                <f:else>
+                  <f:if condition="{institution.mbbezirk.uid}==2">
+                    <f:then>
+                        <f:variable name="pid">{settings.abschluss.ordnerost}</f:variable>
+                        <f:variable name="email_empf">{settings.emailo}</f:variable>                  
+                        <f:variable name="email_empf_name">MB-Dienststelle Ostbayern</f:variable>
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{institution.mbbezirk.uid}==3">
+                        <f:then>
+                            <f:variable name="pid">{settings.abschluss.ordnersued}</f:variable>
+                            <f:variable name="email_empf">{settings.emails}</f:variable>                      
+                            <f:variable name="email_empf_name">MB-Dienststelle Südbayern</f:variable>
+                        </f:then>
+                        <f:else>
+                          <f:if condition="{institution.mbbezirk.uid}==4">
+                            <f:then>
+                                <f:variable name="pid">{settings.abschluss.ordnerwest}</f:variable>
+                                <f:variable name="email_empf">{settings.emailw}</f:variable>                          
+                                <f:variable name="email_empf_name">MB-Dienststelle Westbayern</f:variable>
+                            </f:then>
+                            <f:else>
+                            </f:else>
+                          </f:if>                      
+                        </f:else>
+                      </f:if>                  
+                    </f:else>
+                  </f:if>              
+                </f:else>
+              </f:if>
             </f:then>
             <f:else>
               <f:if condition="{settings.art}==3">
@@ -37,11 +103,44 @@
                     <f:variable name="art">Lehrerliste</f:variable>
                     <f:variable name="artl">lehrerliste</f:variable>
                     <f:variable name="datei">lehrerliste</f:variable>
+					<f:variable name="fileext">xlsx</f:variable>                     
                     <f:variable name="antwort">4723</f:variable>
-                    <f:variable name="nord">{settings.lehrer.ordnernord}</f:variable>
-                    <f:variable name="ost">{settings.lehrer.ordnerost}</f:variable>
-                    <f:variable name="sued">{settings.lehrer.ordnersued}</f:variable>
-                    <f:variable name="west">{settings.lehrer.ordnerwest}</f:variable>
+                    <f:if condition="{institution.mbbezirk.uid}==1">
+                      <f:then>
+                          <f:variable name="pid">{settings.lehrer.ordnernord}</f:variable>
+                          <f:variable name="email_empf">{settings.emailn}</f:variable>
+                          <f:variable name="email_empf_name">MB-Dienststelle Nordbayern</f:variable>
+                      </f:then>
+                      <f:else>
+                        <f:if condition="{institution.mbbezirk.uid}==2">
+                          <f:then>
+                              <f:variable name="pid">{settings.lehrer.ordnerost}</f:variable>
+                              <f:variable name="email_empf">{settings.emailo}</f:variable>                  
+                              <f:variable name="email_empf_name">MB-Dienststelle Ostbayern</f:variable>
+                          </f:then>
+                          <f:else>
+                            <f:if condition="{institution.mbbezirk.uid}==3">
+                              <f:then>
+                                  <f:variable name="pid">{settings.lehrer.ordnersued}</f:variable>
+                                  <f:variable name="email_empf">{settings.emails}</f:variable>                      
+                                  <f:variable name="email_empf_name">MB-Dienststelle Südbayern</f:variable>
+                              </f:then>
+                              <f:else>
+                                <f:if condition="{institution.mbbezirk.uid}==4">
+                                  <f:then>
+                                      <f:variable name="pid">{settings.lehrer.ordnerwest}</f:variable>
+                                      <f:variable name="email_empf">{settings.emailw}</f:variable>                          
+                                      <f:variable name="email_empf_name">MB-Dienststelle Westbayern</f:variable>
+                                  </f:then>
+                                  <f:else>
+                                  </f:else>
+                                </f:if>                      
+                              </f:else>
+                            </f:if>                  
+                          </f:else>
+                        </f:if>              
+                      </f:else>
+                    </f:if>
                   </f:then>
                   <f:else>
                       <h1>Meldung</h1>
@@ -79,8 +178,7 @@
       </f:else>
 	</f:if>     
       
-	<f:render partial="Meldung/List" arguments="{institution:institution, art:art, artl:artl, datei: datei, settings: settings, text1:text1, antwort: antwort, nord: nord, ost: ost, sued: sued, west: west}" />
-	
+	<f:render partial="Meldung/List" arguments="{institution:institution, art:art, artl:artl, datei: datei, fileext: fileext, settings: settings, text1:text1, antwort: antwort, pid: pid, email_empf: email_empf, email_empf_name: email_empf_name}" />	
 	</div>	
 </f:section>
 </html>
