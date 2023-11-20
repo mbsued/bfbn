@@ -142,7 +142,7 @@ return [
             ],
         ],
         'arbeitetfuer' => [
-			'displayCond' => 'FIELD:pid:IN:37,69',
+			'displayCond' => 'FIELD:pid:IN:37,69,369',
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.arbeitetfuer',
             'config' => [
