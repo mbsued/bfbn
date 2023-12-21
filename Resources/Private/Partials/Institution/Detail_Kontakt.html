@@ -1,7 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:asset.script identifier="bfbn-karte" src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js" />
-<f:asset.css identifier="bfbn-karte" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" />
+<f:asset.script identifier="bfbn-karte" src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js" />
+<f:asset.css identifier="bfbn-karte" href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" />
 
 <f:asset.script identifier="vanilla_bfbn-karte-script">
 	mapboxgl.accessToken = 'pk.eyJ1IjoibWJzdWVkIiwiYSI6ImNrcG1nOXF5cDAwZGQydm1sYmRxMWlwcDMifQ.gCeXh6f7Hi9RKudCHdJe4Q';
@@ -9,7 +9,7 @@
   
 	var map = new mapboxgl.Map({
 		container: 'map',
-		style: 'mapbox://styles/mapbox/streets-v12',
+		style: 'mapbox://styles/mbsued/clq263gti01u501p93lbp0gyu',
 		center: [{institution.laengengrad},{institution.breitengrad}],
 		zoom: 15
 	});
@@ -21,11 +21,21 @@
   	marker.togglePopup(); // toggle popup open or closed
 	map.addControl(new mapboxgl.NavigationControl());
   
+    const layerList = document.getElementById('mapmenu');
+    const inputs = layerList.getElementsByTagName('input');
+
+    for (const input of inputs) {
+    	input.onclick = (layer) => {
+    		const layerId = layer.target.id;
+    		map.setStyle('mapbox://styles/mbsued/' + layerId);
+    	};
+    }  
+   
 </f:asset.script>    
 
-<div class="row">
-	<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-		<div class="card mt-3">
+<div class="row card-deck row-cols-1 row-cols-md-2">
+	<div class="col d-flex align-items-stretch">
+		<div class="card mt-3 w-100">
 		  <div class="card-header">
 			Kontaktdaten
 		  </div>
@@ -55,15 +65,29 @@
 		</div>
 	</div>
 	
-	<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-		<div class="card mt-3">
+	<div class="col d-flex align-items-stretch">
+		<div class="card mt-3 w-100 bg-light">
 		  <div class="card-header">
 			Lage
 		  </div>
 		  <div class="card-body">
-			<div class="card-text" id="map" style="height: 300px; width: 100%;"></div>
+			<div class="card-text" id="map" style="height: 270px;"></div>              
+            <div class="card-text mt-3" id="mapmenu">
+              <div class="form-check form-check-inline ms-2">
+                <input class="form-check-input" id="clq263gti01u501p93lbp0gyu" type="radio" name="rtoggle" value="streets" checked="checked">
+                <label class="form-check-label" for="clq263gti01u501p93lbp0gyu">Karte</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" id="clq27cthz01s301o9hfj1b89q" type="radio" name="rtoggle" value="satellite" >
+                <label class="form-check-label" for="clq27cthz01s301o9hfj1b89q">Satellit</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" id="clq27g2e6009s01qw8f6s6r61" type="radio" name="rtoggle" value="outdoors">
+                <label class="form-check-label" for="clq27g2e6009s01qw8f6s6r61">Outdoor</label>                
+              </div>
+            </div>          
 		  </div>
-		</div>
+		</div>  
 	</div>
 </div>
 </html>
