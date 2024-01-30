@@ -282,16 +282,29 @@
           <f:variable name="counter">{counter+1}</f:variable>
         </f:then>
       </f:if>
-    <f:if condition="{counter} == 3">
-      <f:then>
-        </div> 
-        <f:variable name="counter">0</f:variable>
-        <div class="row mt-2"> 
-      </f:then>
-    <f:else>
-      </div>
-    </f:else>	
-    </f:if>      
+      <f:if condition="{counter} == 3">
+        <f:then>
+          </div> 
+          <f:variable name="counter">0</f:variable>
+        	<div class="row mt-2">
+        </f:then>
+      </f:if>
+      <f:if condition="{funktion65da} == 0">
+        <f:then>
+          <f:render section="Linkaufbau" arguments="{funktionuid: '65', vartext1: '', vartext2: '', fach: 'Schulpsychologe'}" />          
+          <f:variable name="counter">{counter+1}</f:variable>
+        </f:then>
+      </f:if>      
+      <f:if condition="{counter} == 3">
+        <f:then>
+          </div> 
+          <f:variable name="counter">0</f:variable>
+          <div class="row mt-2"> 
+        </f:then>
+      <f:else>
+        </div>
+      </f:else>	
+      </f:if>      
 	</div>
 </div>
 

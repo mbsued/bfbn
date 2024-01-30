@@ -32,6 +32,7 @@ use MbFosbos\Bfbn\Domain\Repository\AuswahljaneinRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
 use MbFosbos\Bfbn\Service\GeocodeService;
 use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Domain\Repository\DatenbankRepository;
 use Psr\Http\Message\ResponseInterface;
  
 /**
@@ -157,11 +158,18 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
 	 
     private $FrontendUserRepository = null;	
+
+    /**
+     * DatenbankRepository
+     * 
+     * @var \MbFosbos\Bfbn\Domain\Repository\DatenbankRepository 	 
+     */
+	 
+    private $DatenbankRepository = null;
 	
 	/**
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
-	 */
-	
+	 */	
 	private $AccessControlService;
 	
 	/**
@@ -319,7 +327,17 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     {
         $this->FrontendUserRepository = $FrontendUserRepository;
     }
-
+	
+    /**
+     * Inject the Datenbank repository
+     *
+     * @param \MbFosbos\Bfbn\Domain\Repository\DatenbankRepository $DatenbankRepository
+     */
+    public function injectDatenbankRepository(DatenbankRepository $DatenbankRepository)
+    {
+        $this->DatenbankRepository = $DatenbankRepository;
+    }
+	
     /**
      * Inject the access service
      *
@@ -466,7 +484,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		} else {
 			$coords = $this->GeocodeService->getCoordinatesForAddress(NULL, $suche->getPlz(), NULL, 'DE');
 			if ($coords) {
-				$institutionen = $this->InstitutionRepository->findByRadius($coords['latitude'],$coords['longitude'],$suche->getUmkreis(),$this->settings['startingpoint']);
+				$institutionen = $this->DatenbankRepository->findByRadius($coords['latitude'],$coords['longitude'],$suche->getUmkreis(),$this->settings['startingpoint']);
 				$institutionenkomplett = array();
 				foreach ($institutionen as $institution) {
 					$institutioneinzel = $this->InstitutionRepository->findByUid($institution['uid']);
