@@ -27,7 +27,7 @@ class UnfallstatistikRepository extends \TYPO3\CMS\Extbase\Persistence\Repositor
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 /**		$queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);

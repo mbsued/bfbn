@@ -27,7 +27,7 @@ class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 		/** $queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
@@ -59,7 +59,7 @@ class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $categoryConstraints[] = $query -> contains('categories', $category);
             }
-            $constraints[] = $query -> logicalOr($categoryConstraints);
+            $constraints[] = $query -> logicalOr(...$categoryConstraints);
         }
 		
         $funktionen = $demand -> getFunktionen();
@@ -73,7 +73,7 @@ class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $funktionConstraints[] = $query -> contains('funktionen', $funktion);
             }
-            $constraints[] = $query -> logicalOr($funktionConstraints);
+            $constraints[] = $query -> logicalOr(...$funktionConstraints);
         }
 		
 		$institution = $demand -> getInstitution();

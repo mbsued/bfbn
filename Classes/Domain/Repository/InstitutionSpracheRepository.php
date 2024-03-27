@@ -38,7 +38,7 @@ class InstitutionSpracheRepository extends \TYPO3\CMS\Extbase\Persistence\Reposi
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 		

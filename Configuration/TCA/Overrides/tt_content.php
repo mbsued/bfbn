@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 /***************
  * Plugins
  */
@@ -135,4 +135,16 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_unfalls
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 	'bfbn_unfallstatistiklist', 
 	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_unfallstatistiklist.xml'
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
+	'FortbildungList',
+	'Fortbildung',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_fortbildunglist'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_fortbildunglist'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_fortbildunglist', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_fortbildunglist.xml'
 );

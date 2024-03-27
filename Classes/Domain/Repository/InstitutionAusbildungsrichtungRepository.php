@@ -38,7 +38,7 @@ class InstitutionAusbildungsrichtungRepository extends \TYPO3\CMS\Extbase\Persis
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 		

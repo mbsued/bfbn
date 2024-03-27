@@ -1,5 +1,4 @@
 <?php
-
 namespace MbFosbos\Bfbn\Ajax;
 
 use MbFosbos\Bfbn\Service\PdfService;

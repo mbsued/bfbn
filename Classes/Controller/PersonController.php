@@ -5,6 +5,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use MbFosbos\Bfbn\Utility\Page;
+use MbFosbos\Bfbn\Factory\PersonDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\PersonRepository;
 use MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository;
@@ -29,12 +30,17 @@ use Psr\Http\Message\ResponseInterface;
  */
 class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+	/**
+     * PersonDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\PersonDemandFactory 	 
+     */
+    private $PersonDemandFactory = null;
 
     /**
      * InstitutionRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $InstitutionRepository = null;
 	
@@ -42,7 +48,6 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * PersonRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\PersonRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $PersonRepository = null;
 
@@ -50,7 +55,6 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * UserRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $FrontendUserRepository = null;
 	
@@ -58,7 +62,6 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * GeschlechtRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     
 	protected $GeschlechtRepository = null;
@@ -67,16 +70,24 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * FunktionRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\FunktionRepository
-     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $FunktionRepository = null;	
 	
 	
 	/**
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
-	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $AccessControlService;
+
+    /**
+     * Inject the Person Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\PersonDemandFactory $PersonDemandFactory
+     */
+    public function injectPersonDemandFactory(PersonDemandFactory $PersonDemandFactory)
+    {
+        $this->PersonDemandFactory = $PersonDemandFactory;
+    }
 
     /**
      * Inject the Institution repository
@@ -172,7 +183,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {												
-						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings);
+						$demand = $this->PersonDemandFactory->createDemandObject($gesuchteinstitution,$this->settings);
 						$personen = $this->PersonRepository->findDemanded($demand);
 						$this->view->assign('personen', $personen);
 						$this->view->assign('institution',$gesuchteinstitution);
@@ -456,20 +467,20 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		$whichArt = $this->settings['art'];
 		$this->view->assign('art', $whichArt);
 		if ($whichArt == 1) {
-			$demand = $this -> createDemandObjectForInstitution($this->settings);
+			$demand = $this->PersonDemandFactory->createDemandObjectForInstitution($this->settings);
 			$auswahlinstitution = $this->InstitutionRepository->findDemanded($demand);		
 			$this->view->assign('auswahlinstitution', $auswahlinstitution);	
 		}
 		if ($whichArt == 2) {
-			$demand = $this -> createDemandObjectForFunktionen($this->settings);
+			$demand = $this->PersonDemandFactory->createDemandObjectForFunktionen($this->settings);
 			$auswahlfunktionen = $this->FunktionRepository->findDemanded($demand);		
 			$this->view->assign('auswahlfunktionen', $auswahlfunktionen);
 		}
 		if ($whichArt == 3) {
-			$demand = $this -> createDemandObjectForInstitution($this->settings);
+			$demand = $this->PersonDemandFactory->createDemandObjectForInstitution($this->settings);
 			$auswahlinstitution = $this->InstitutionRepository->findDemanded($demand);		
 			$this->view->assign('auswahlinstitution', $auswahlinstitution);			
-			$demand = $this -> createDemandObjectForFunktionen($this->settings);
+			$demand = $this->PersonDemandFactory->createDemandObjectForFunktionen($this->settings);
 			$auswahlfunktionen = $this->FunktionRepository->findDemanded($demand);		
 			$this->view->assign('auswahlfunktionen', $auswahlfunktionen);
 		}		
@@ -482,10 +493,11 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @return void
      */
 	
-	public function searchAction(\MbFosbos\Bfbn\Domain\Model\PersonDemand $suche): ResponseInterface
+	public function searchAction(\MbFosbos\Bfbn\DataTransferObject\PersonDemand $suche): ResponseInterface
     {
+
 		$whichart = $this->settings['art'];
-		$demand = $this -> createDemandObjectFromSearch($suche,$this->settings);
+		$demand = $this->PersonDemandFactory->createDemandObjectFromSearch($suche,$this->settings);
 		$personen = $this->PersonRepository->findDemanded($demand);		
 		$this->view->assign('personen', $personen);
 		if ($whichart == 1) {
@@ -591,66 +603,4 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
             $this->arguments->getArgument('person')->getPropertyMappingConfiguration()->forProperty('bestelltab')->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\DateTimeConverter',\TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT,'Y-m-d');
         }	
     }
-	
-	protected function createDemandObject($institution,$settings) {
-
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
-        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
-		$demand->setStartingpoint(Page::extendPidListByChildren(
-            (string)($settings['startingpoint'] ?? ''),
-            (int)($settings['recursive'] ?? 0)
-        ));
-		$demand->setFunktionen(GeneralUtility::trimExplode(',', $settings['funktionen'], true));
-		$demand->setInstitution($institution);
-		 		
-        return $demand;
-    }
-
-	protected function createDemandObjectFromSearch($suche,$settings) {
-
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model 
-        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
-		$demand->setStartingpoint(Page::extendPidListByChildren(
-            (string)($settings['startingpoint'] ?? ''),
-            (int)($settings['recursive'] ?? 0)
-        ));
-        if ($settings['art']==1) {
-			$demand->setInstitution($suche->getInstitution());
-		}
-        if ($settings['art']==2) {
-			$funktionen = $suche->getFunktionen();
-			if (!is_array($funktionen)) {
-				$funktionen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $funktionen, TRUE);
-			}						
-			$demand->setFunktionen($funktionen);
-		}
-        if ($settings['art']==3) {
-			$demand->setInstitution($suche->getInstitution());			
-			$funktionen = $suche->getFunktionen();
-			if (!is_array($funktionen)) {
-				$funktionen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $funktionen, TRUE);
-			}						
-			$demand->setFunktionen($funktionen);
-		}		 		
-        return $demand;
-    }
-	
-	protected function createDemandObjectForInstitution($settings) {
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-		$demand->setStartingpoint(Page::extendPidListByChildren(
-			(string)($settings['schulen'] ?? ''),
-            (int)($settings['recursive'] ?? 0)
-        ));		
-		$demand->setBezirk(GeneralUtility::trimExplode(',', $settings['bezirke'], true));
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); */	
-        return $demand;
-    }
-	
-	protected function createDemandObjectForFunktionen($settings) {
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\FunktionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-        $demand->setArt($settings['funktionart']);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); */	
-        return $demand;
-    }	
-	
 }

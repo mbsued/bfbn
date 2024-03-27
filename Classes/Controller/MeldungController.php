@@ -1,6 +1,7 @@
 <?php
 namespace MbFosbos\Bfbn\Controller;
 
+use MbFosbos\Bfbn\Factory\MeldungDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\MeldungRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
@@ -17,7 +18,7 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2022 
+ *  (c) 2024 
  *
  ***/
 /**
@@ -25,6 +26,13 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
  */
 class MeldungController extends ActionController
 {
+
+	/**
+     * MeldungDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\MeldungDemandFactory 	 
+     */
+    private $MeldungDemandFactory = null;
 
     /**
      * InstitutionRepository
@@ -51,6 +59,16 @@ class MeldungController extends ActionController
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	private $accessControlService;
+
+    /**
+     * Inject the Meldung Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\MeldungDemandFactory $MeldungDemandFactory
+     */
+    public function injectMeldungDemandFactory(MeldungDemandFactory $MeldungDemandFactory)
+    {
+        $this->MeldungDemandFactory = $MeldungDemandFactory;
+    }
 
     /**
      * Inject the Institution repository
@@ -127,7 +145,7 @@ class MeldungController extends ActionController
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-						$demand = $this -> createDemandObject($gesuchteinstitution,$this->settings['art']);
+						$demand = $this->MeldungDemandFactory->createDemandObject($gesuchteinstitution,$this->settings['art']);
 						$meldungen = $this->MeldungRepository->findDemanded($demand);
 						$this->view->assign('meldungen', $meldungen);
 						$this->view->assign('institution', $gesuchteinstitution);
@@ -142,14 +160,5 @@ class MeldungController extends ActionController
 			}		
         }
 		return $this->htmlResponse();
-    }	
-
-	protected function createDemandObject($institution,$art) {
-
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\MeldungDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-		$demand->setInstitution($institution);
-		$demand->setArt($art);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); 	*/	
-        return $demand;
     }	
 }

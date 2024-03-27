@@ -56,7 +56,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 		/** $queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
@@ -88,7 +88,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $categoryConstraints[] = $query -> contains('categories', $category);
             }
-            $constraints[] = $query -> logicalOr($categoryConstraints);
+            $constraints[] = $query -> logicalOr(...$categoryConstraints);
         }
 		
         $ausbildungsrichtungen = $demand -> getAusbildungsrichtungen();
@@ -102,7 +102,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $ausbildungsrichtungConstraints[] = $query -> contains('ausbildungsrichtungen', $ausbildungsrichtung);
             }
-            $constraints[] = $query -> logicalOr($ausbildungsrichtungConstraints);
+            $constraints[] = $query -> logicalOr(...$ausbildungsrichtungConstraints);
         }
 		
         $sprachen = $demand -> getSprachen();
@@ -116,7 +116,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $spracheConstraints[] = $query -> contains('sprachen', $sprache);
             }
-            $constraints[] = $query -> logicalOr($spracheConstraints);
+            $constraints[] = $query -> logicalOr(...$spracheConstraints);
         }
 		
 		if ($demand -> isProfilinklusion()) {

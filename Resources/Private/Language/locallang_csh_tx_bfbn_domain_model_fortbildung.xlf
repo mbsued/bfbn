@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_csh" date="2024-02-21T12:00:00Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="art.description" resname="art.description">
+				<source>Art</source>
+			</trans-unit>
+			<trans-unit id="thema.description" resname="thema.description">
+				<source>Thema</source>
+			</trans-unit>
+			<trans-unit id="fach.description" resname="fach.description">
+				<source>Fach</source>
+			</trans-unit>
+			<trans-unit id="zielgruppe.description" resname="zielgruppe.description">
+				<source>Zielgruppe</source>
+			</trans-unit>
+			<trans-unit id="inhalt.description" resname="inhalt.description">
+				<source>Inhalt</source>
+			</trans-unit>
+			<trans-unit id="referent.description" resname="referent.description">
+				<source>Referent</source>
+			</trans-unit>			
+			<trans-unit id="institution.description" resname="institution.description">
+				<source>Institution</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

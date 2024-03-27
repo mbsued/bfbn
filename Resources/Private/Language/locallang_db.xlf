@@ -720,6 +720,36 @@
 			<trans-unit id="tx_bfbn_domain_model_meldung.institution" resname="tx_bfbn_domain_model_meldung.institution">
 				<source>Institution</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildungart" resname="tx_bfbn_domain_model_fortbildungart">
+				<source>Fortbildung Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildungart.bezeichnung" resname="tx_bfbn_domain_model_fortbildungart.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_fortbildung" resname="tx_bfbn_domain_model_fortbildung">
+				<source>Fortbildung</source>
+			</trans-unit>		
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.art" resname="tx_bfbn_domain_model_fortbildung.art">
+				<source>Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.thema" resname="tx_bfbn_domain_model_fortbildung.thema">
+				<source>Thema</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.fach" resname="tx_bfbn_domain_model_fortbildung.fach">
+				<source>Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.zielgruppe" resname="tx_bfbn_domain_model_fortbildung.zielgruppe">
+				<source>Zielgruppe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.inhalt" resname="tx_bfbn_domain_model_fortbildung.inhalt">
+				<source>Inhalt</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.referent" resname="tx_bfbn_domain_model_fortbildung.referent">
+				<source>Referent</source>
+			</trans-unit>				
+			<trans-unit id="tx_bfbn_domain_model_fortbildung.institution" resname="tx_bfbn_domain_model_fortbildung.institution">
+				<source>Institution</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_unfallstatistik" resname="tx_bfbn_domain_model_unfallstatistik">
 				<source>Unfallstatistik</source>
 			</trans-unit>
@@ -833,6 +863,12 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_meldung_list.description">
 				<source>Online-Abfrage Meldung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_fortbildung_list.name">
+				<source>BFBN Abfrage Fortbildung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_fortbildung_list.description">
+				<source>Online-Abfrage Fortbildung</source>
 			</trans-unit>			
 		</body>
 	</file>

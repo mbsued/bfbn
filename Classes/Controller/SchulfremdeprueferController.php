@@ -1,6 +1,7 @@
 <?php
 namespace MbFosbos\Bfbn\Controller;
 
+use MbFosbos\Bfbn\Factory\AbfrageDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\SchulfremdeprueferRepository;
 use MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository;
@@ -17,7 +18,7 @@ use Psr\Http\Message\ResponseInterface;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024 
  *
  ***/
 /**
@@ -25,6 +26,13 @@ use Psr\Http\Message\ResponseInterface;
  */
 class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+	/**
+     * AbfrageDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\AbfrageDemandFactory 	 
+     */
+    private $AbfrageDemandFactory = null;
 
     /**
      * InstitutionRepository
@@ -73,6 +81,16 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	protected $AccessControlService;
+
+    /**
+     * Inject the Abfrage Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\AbfrageDemandFactory $AbfrageDemandFactory
+     */
+    public function injectAbfrageDemandFactory(AbfrageDemandFactory $AbfrageDemandFactory)
+    {
+        $this->AbfrageDemandFactory = $AbfrageDemandFactory;
+    }
 
     /**
      * Inject the Institution repository
@@ -170,7 +188,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-						$demand = $this -> createDemandObject($gesuchteinstitution);
+						$demand = $this->AbfrageDemandFactory->createDemandObject($gesuchteinstitution);
 						$alleschulfremdenpruefer = $this->SchulfremdeprueferRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
 						$this->view->assign('termin', $whichtermin ?? 0);						
@@ -366,12 +384,4 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			}
 		}
 	}	
-	
-	protected function createDemandObject($institution) {
-
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\AbfrageDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-		$demand->setInstitution($institution);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); 	*/	
-        return $demand;
-    }	
 }

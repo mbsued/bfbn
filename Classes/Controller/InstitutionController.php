@@ -14,6 +14,10 @@ namespace MbFosbos\Bfbn\Controller;
  
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use MbFosbos\Bfbn\Factory\InstitutionDemandFactory;
+use MbFosbos\Bfbn\Factory\InstitutionAusbildungsrichtungDemandFactory;
+use MbFosbos\Bfbn\Factory\InstitutionSpracheDemandFactory;
 use MbFosbos\Bfbn\Utility\Page;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionAusbildungsrichtungRepository;
@@ -40,8 +44,34 @@ use Psr\Http\Message\ResponseInterface;
  */
 class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+	/**
+     * PersistenceManager
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager 	 
+     */	
+	private $PersistenceManager = null;
+	/**
+     * InstitutionDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\InstitutionDemandFactory 	 
+     */
+    private $InstitutionDemandFactory = null;
 
-    /**
+	/**
+     * InstitutionAusbildungsrichtungDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\InstitutionAusbildungsrichtungDemandFactory 	 
+     */
+    private $InstitutionAusbildungsrichtungDemandFactory = null;
+
+	/**
+     * InstitutionSpracheDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\InstitutionSpracheDemandFactory 	 
+     */
+    private $InstitutionSpracheDemandFactory = null;
+			
+	/**
      * InstitutionRepository
      * 
      * @var \MbFosbos\Bfbn\Domain\Repository\InstitutionRepository 	 
@@ -177,6 +207,46 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 	 */
 	 
 	private $GeocodeService;
+
+    /**
+     * Inject the Persistence Manager
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $PersistenceManager
+     */
+    public function injectPersistenceMananger(PersistenceManager $PersistenceManager)
+    {
+        $this->PersistenceManager = $PersistenceManager;
+    }
+
+    /**
+     * Inject the Institution Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\InstitutionDemandFactory $InstitutionDemandFactory
+     */
+    public function injectInstitutionDemandFactory(InstitutionDemandFactory $InstitutionDemandFactory)
+    {
+        $this->InstitutionDemandFactory = $InstitutionDemandFactory;
+    }
+
+    /**
+     * Inject the Institution Ausbildungsrichtung Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\InstitutionAusbildungsrichtungDemandFactory $InstitutionAusbildungsrichtungDemandFactory
+     */
+    public function injectInstitutionAusbildungsrichtungDemandFactory(InstitutionAusbildungsrichtungDemandFactory $InstitutionAusbildungsrichtungDemandFactory)
+    {
+        $this->InstitutionAusbildungsrichtungDemandFactory = $InstitutionAusbildungsrichtungDemandFactory;
+    }
+
+    /**
+     * Inject the Institution Sprache Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\InstitutionSpracheDemandFactory $InstitutionSpracheDemandFactory
+     */
+    public function injectInstitutionSpracheDemandFactory(InstitutionSpracheDemandFactory $InstitutionSpracheDemandFactory)
+    {
+        $this->InstitutionSpracheDemandFactory = $InstitutionSpracheDemandFactory;
+    }
 
     /**
      * Inject the Institution repository
@@ -364,7 +434,7 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function listAction(): ResponseInterface
 	{
-        $demand = $this -> createDemandObjectFromSettings($this->settings);
+        $demand = $this->InstitutionDemandFactory->createDemandObjectFromSettings($this->settings);
 		$institutionen = $this->InstitutionRepository->findDemanded($demand);
 		$whichAnsicht = $this->settings['ansicht'];
 		$whichBezirk = $this->settings['bezirke'];
@@ -474,11 +544,11 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @return void
      */
 	
-	public function searchAction(\MbFosbos\Bfbn\Domain\Model\InstitutionDemand $suche): ResponseInterface
+	public function searchAction(\MbFosbos\Bfbn\DataTransferObject\InstitutionDemand $suche): ResponseInterface
     {
 		$whichart = $this->settings['art'];
 		if ($whichart < 5) {
-			$demand = $this -> createDemandObjectFromSearch($suche,$this->settings);
+			$demand = $this->InstitutionDemandFactory->createDemandObjectFromSearch($suche,$this->settings);
 			$institutionen = $this->InstitutionRepository->findDemanded($demand);		
 			$this->view->assign('institutionen', $institutionen);
 		} else {
@@ -498,7 +568,6 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		return $this->htmlResponse($this->view->render());
     }
 
-
     /**
      * action searchshow
      * 
@@ -508,191 +577,10 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function searchshowAction(\MbFosbos\Bfbn\Domain\Model\Institution $institution): ResponseInterface
     {
-		$this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager::class)->clearState();	
+		$this->PersistenceManager->clearState();	
         $this->view->assign('institution', $institution);
 		return $this->htmlResponse($this->view->render());	
     }
-		
-	protected function createDemandObjectFromSettings($settings) {
-
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
-		$demand->setStartingpoint(Page::extendPidListByChildren(
-			(string)($settings['startingpoint'] ?? ''),
-            (int)($settings['recursive'] ?? 0)
-        ));
-		$demand->setBezirk(GeneralUtility::trimExplode(',', $settings['bezirke'], true));
-		$demand->setAusbildungsrichtungen(GeneralUtility::trimExplode(',', $settings['ausbildungsrichtungen'], true));
-		$demand->setSprachen(GeneralUtility::trimExplode(',', $settings['sprachen'], true));
-		$demand->setProfilinklusion($settings['inklusion']);
-		$demand->setIvk($settings['ivk']);		
-        return $demand;
-    }
-	
-	protected function createDemandObjectFromSearch($suche,$settings) {
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-        if ($settings['art']==1) {
-			$demand->setBezeichnung($suche->getBezeichnung());
-		}
-		if ($settings['art']==2) {
-			$ausbildungsrichtungenarray = array();			
-			$demand->setSchulart($suche->getSchulart());
-			$demand->setJahrgangsstufe($suche->getJahrgangsstufe());
-			$demand->setAusbildungsrichtung($suche->getAusbildungsrichtung());
-			$demand->setRegierungsbezirk($suche->getRegierungsbezirk());
-			$demand->setStatus($suche->getStatus());
-			$ausbildungsrichtungen = $suche->getAusbildungsrichtung();
-			if (!is_array($ausbildungsrichtungen)) {
-				$ausbildungsrichtungen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $ausbildungsrichtungen, TRUE);
-			}			
-			foreach ($ausbildungsrichtungen as $ausb)
-			{
-				if ($suche->getSchulart() == 1) {
-					switch ($ausb)
-					{
-						case 1:
-							$ausbildungsrichtungenarray[] = (1);
-							$ausbildungsrichtungenarray[] = (2);
-							$ausbildungsrichtungenarray[] = (3);
-							break;
-						case 2:
-							$ausbildungsrichtungenarray[] = (6);
-							$ausbildungsrichtungenarray[] = (7);
-							$ausbildungsrichtungenarray[] = (8);
-							break;						
-						case 3:
-							$ausbildungsrichtungenarray[] = (9);
-							$ausbildungsrichtungenarray[] = (10);
-							$ausbildungsrichtungenarray[] = (11);
-							break;					
-						case 4:
-							$ausbildungsrichtungenarray[] = (14);
-							$ausbildungsrichtungenarray[] = (15);
-							$ausbildungsrichtungenarray[] = (16);
-							break;						
-						case 5:
-							$ausbildungsrichtungenarray[] = (19);
-							$ausbildungsrichtungenarray[] = (20);
-							$ausbildungsrichtungenarray[] = (21);
-							break;						
-						case 6:
-							$ausbildungsrichtungenarray[] = (24);
-							$ausbildungsrichtungenarray[] = (25);
-							$ausbildungsrichtungenarray[] = (26);
-							break;							
-						case 7:
-							$ausbildungsrichtungenarray[] = (29);
-							$ausbildungsrichtungenarray[] = (30);
-							$ausbildungsrichtungenarray[] = (31);
-							break;						
-					}
-				} else {
-					
-					switch ($ausb)
-					{
-						case 1:
-							$ausbildungsrichtungenarray[] = (4);
-							$ausbildungsrichtungenarray[] = (5);
-							break;
-						case 3:
-							$ausbildungsrichtungenarray[] = (12);
-							$ausbildungsrichtungenarray[] = (13);
-							break;					
-						case 4:
-							$ausbildungsrichtungenarray[] = (17);
-							$ausbildungsrichtungenarray[] = (18);
-							break;						
-						case 5:
-							$ausbildungsrichtungenarray[] = (22);
-							$ausbildungsrichtungenarray[] = (23);
-							break;						
-						case 6:
-							$ausbildungsrichtungenarray[] = (27);
-							$ausbildungsrichtungenarray[] = (28);
-							break;							
-						case 7:
-							$ausbildungsrichtungenarray[] = (32);
-							$ausbildungsrichtungenarray[] = (33);
-							break;							
-					}					
-				}
-			}
-			$demand->setAusbildungsrichtungen($ausbildungsrichtungenarray);
-			
-		}
-		if ($settings['art']==3) {	
-			$demand->setSprache($suche->getSprache());
-			$demand->setJahrgangsstufe($suche->getJahrgangsstufe());			
-			$demand->setRegierungsbezirk($suche->getRegierungsbezirk());
-			$demand->setStatus($suche->getStatus());			
-			$switchsuche = $suche->getSprache().$suche->getJahrgangsstufe();
-					
-			switch ($switchsuche)
-			{
-			case 12:
-				$demand->setSprachen(1);
-				break;
-			case 13:
-				$demand->setSprachen(2);
-				break;				
-			case 22:
-				$demand->setSprachen(3);
-				break;
-			case 23:
-				$demand->setSprachen(4);
-				break;				
-			case 32:
-				$demand->setSprachen(5);
-				break;
-			case 33:
-				$demand->setSprachen(6);
-				break;				
-			case 42:
-				$demand->setSprachen(7);
-				break;
-			case 43:
-				$demand->setSprachen(8);
-				break;				
-			case 52:
-				$demand->setSprachen(9);
-				break;
-			case 53:
-				$demand->setSprachen(10);
-				break;				
-			}
-		}
-		
-		if ($settings['art']==4) {			
-			$demand->setSchulart($suche->getSchulart());
-			$demand->setVorart($suche->getVorart());
-			$demand->setRegierungsbezirk($suche->getRegierungsbezirk());
-			$demand->setStatus($suche->getStatus());
-		}
-		
-		$demand->setArt($settings['art']);
-        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
-		$demand->setStartingpoint(Page::extendPidListByChildren(
-			(string)($settings['startingpoint'] ?? ''),
-            (int)($settings['recursive'] ?? 0)
-        ));
- 				
-        return $demand;
-    }
-
-	protected function createDemandObjectForAusbildungsrichtung($schulart,$ausbildungsrichtung) {
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionAusbildungsrichtungDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-        $demand->setSchulart($schulart);
-        $demand->setAusbildungsrichtung($ausbildungsrichtung);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); */	
-        return $demand;
-    }
-	
-	protected function createDemandObjectForSprache($sprache) {
-        $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionSpracheDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model
-        $demand->setSprache($sprache);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($demand); */	
-        return $demand;
-    }	
 
     /**
      * action edit
@@ -703,42 +591,42 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function editAction(\MbFosbos\Bfbn\Domain\Model\Institution $institution): ResponseInterface	
 	{
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,1);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,1);
 		$ausbabufos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,2);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,2);
 		$ausbgstfos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,3);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,3);
 		$ausbgesfos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,4);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,4);
 		$ausbiwifos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,5);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,5);
 		$ausbsozfos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,6);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,6);
 		$ausbtecfos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(1,7);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(1,7);
 		$ausbwuvfos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,1);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,1);
 		$ausbabubos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,3);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,3);
 		$ausbgesbos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,4);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,4);
 		$ausbiwibos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,5);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,5);
 		$ausbsozbos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,6);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,6);
 		$ausbtecbos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForAusbildungsrichtung(2,7);
+		$demand = $this->InstitutionAusbildungsrichtungDemandFactory -> createDemandObjectForAusbildungsrichtung(2,7);
 		$ausbwuvbos = $this->InstitutionausbildungsrichtungRepository->findDemanded($demand);
 
-		$demand = $this -> createDemandObjectForSprache(1);
+		$demand = $this->InstitutionSpracheDemandFactory -> createDemandObjectForSprache(1);
 		$franzoesisch = $this->InstitutionspracheRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForSprache(2);
+		$demand = $this->InstitutionSpracheDemandFactory -> createDemandObjectForSprache(2);
 		$italienisch = $this->InstitutionspracheRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForSprache(3);
+		$demand = $this->InstitutionSpracheDemandFactory -> createDemandObjectForSprache(3);
 		$latein = $this->InstitutionspracheRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForSprache(4);
+		$demand = $this->InstitutionSpracheDemandFactory -> createDemandObjectForSprache(4);
 		$russisch = $this->InstitutionspracheRepository->findDemanded($demand);
-		$demand = $this -> createDemandObjectForSprache(5);
+		$demand = $this->InstitutionSpracheDemandFactory -> createDemandObjectForSprache(5);
 		$spanisch = $this->InstitutionspracheRepository->findDemanded($demand);
 		
 		$auswahlgeschlecht = $this->GeschlechtRepository->findAll();

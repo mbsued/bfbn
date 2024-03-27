@@ -81,7 +81,6 @@ return [
                     'foreign_match_fields' => [
                         'fieldname' => 'file',
                         'tablenames' => 'tx_bfbn_domain_model_pdftemplate',
-                        'table_local' => 'sys_file',
                     ],
                     'maxitems' => 1
                 ]

@@ -9,13 +9,13 @@ namespace MbFosbos\Bfbn\Domain\Repository;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021
+ *  (c) 2024
  *
  ***/
 /**
- * The repository for Ergaenzungspruefung
+ * The repository for Fortbildung
  */
-class ErgaenzungspruefungRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class FortbildungRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 	
     public function findDemanded($demand)
@@ -51,7 +51,7 @@ class ErgaenzungspruefungRepository extends \TYPO3\CMS\Extbase\Persistence\Repos
         
     protected function createOrdering() 
 	{
-        $orderings = array('nachname' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,'vorname' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
+        $orderings = array('fach' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,'thema' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
         return $orderings;
     }	
 }

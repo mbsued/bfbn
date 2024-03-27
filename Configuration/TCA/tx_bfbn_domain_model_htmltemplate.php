@@ -80,7 +80,6 @@ return [
                     'foreign_match_fields' => [
                         'fieldname' => 'file',
                         'tablenames' => 'tx_bfbn_domain_model_htmltemplate',
-                        'table_local' => 'sys_file',
                     ],
                     'maxitems' => 1
                 ]

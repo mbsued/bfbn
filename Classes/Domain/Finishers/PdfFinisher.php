@@ -66,7 +66,11 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
         /** @var PdfTemplate $pdfTemplate */
         $pdfTemplate = $this->pdfTemplateRepository->findByUid($pdfTemplateUid);		
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pdfTemplate->getFile()->getOriginalResource()->getPublicUrl()); */
-        if ($pdfTemplate && $pdfTemplate->getUid() && \nn\t3::File()->exists($pdfTemplate->getFile()->getOriginalResource()->getPublicUrl())) {						
+		$filename = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
+		if (strpos($filename,"/") == 0) {
+			$filename = mb_substr($filename,1);
+		}  
+        if ($pdfTemplate && $pdfTemplate->getUid() && \nn\t3::File()->exists($filename)) {						
             $pdfTemplateFile = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
             $pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName();
         } else {
@@ -77,12 +81,16 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
         $htmlTemplateUid = (int)$this->parseOption('htmlTemplate');
         /** @var HtmlTemplate $pdfTemplate */
         $htmlTemplate = $this->htmlTemplateRepository->findByUid($htmlTemplateUid);
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($htmlTemplate);	*/	
+		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($htmlTemplate);	*/
+		$filename = $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl();
+		if (strpos($filename,"/") == 0) {
+			$filename = mb_substr($filename,1);
+		}  		
         $htmlTemplateFile =
-            $htmlTemplate && $htmlTemplate->getUid() && \nn\t3::File()->exists($htmlTemplate->getFile()->getOriginalResource()->getPublicUrl())
+            $htmlTemplate && $htmlTemplate->getUid() && \nn\t3::File()->exists($filename)
                 ? $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl()
                 : null;
-
+		
         $mpdf = $this->pdfService->generate($pdfTemplateFile, $htmlTemplateFile, $this->parseForm());
 
         $this->finisherContext->getFinisherVariableProvider()->add(
@@ -132,7 +140,7 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
                 }
             }
         }
-
+		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($formValues); */
         return $formValues;
     }
 }

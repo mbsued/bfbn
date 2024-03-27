@@ -65,7 +65,7 @@ class FunktionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if (!empty($constraints)) 
 		{
             $query -> matching(
-            $query -> logicalAnd($constraints)
+            $query -> logicalAnd(...$constraints)
         );
         }
 /**		$queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
@@ -89,7 +89,7 @@ class FunktionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			{
                 $artConstraints[] = $query -> equals('art', $art);
             }
-            $constraints[] = $query -> logicalOr($artConstraints);
+            $constraints[] = $query -> logicalOr(...$artConstraints);
         }
 		
         return $constraints;

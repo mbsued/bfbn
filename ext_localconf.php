@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 if(!class_exists('\Mpdf\Mpdf')){
     $composerAutoloadFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('bfbn')
@@ -77,6 +77,12 @@ call_user_func(
 			[\MbFosbos\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete'],
 			[\MbFosbos\Bfbn\Controller\UnfallstatistikController::class => 'list,show,edit,update,new,create,delete']			
         );
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Bfbn',
+            'FortbildungList',
+			[\MbFosbos\Bfbn\Controller\FortbildungController::class => 'list,show,edit,update,new,create,delete'],
+			[\MbFosbos\Bfbn\Controller\FortbildungController::class => 'list,show,edit,update,new,create,delete']			
+        );		
 		// wizards
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
 			'mod {
@@ -170,6 +176,15 @@ call_user_func(
 							tt_content_defValues {
 								CType = list
 								list_type = bfbn_meldunglist
+							}
+						}
+						fortbildunglist {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_list.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_list.description
+							tt_content_defValues {
+								CType = list
+								list_type = bfbn_fortbildunglist
 							}
 						}						
 					}

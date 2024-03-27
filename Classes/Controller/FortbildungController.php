@@ -3,9 +3,8 @@ namespace MbFosbos\Bfbn\Controller;
 
 use MbFosbos\Bfbn\Factory\AbfrageDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
-use MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository;
-use MbFosbos\Bfbn\Domain\Repository\SchulartRepository;
-use MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository;
+use MbFosbos\Bfbn\Domain\Repository\FortbildungRepository;
+use MbFosbos\Bfbn\Domain\Repository\FortbildungartRepository;
 use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
 use Psr\Http\Message\ResponseInterface;
@@ -21,9 +20,9 @@ use Psr\Http\Message\ResponseInterface;
  *
  ***/
 /**
- * AufgabenauswahlController
+ * FortbildungController
  */
-class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
 	/**
@@ -32,7 +31,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * @var \MbFosbos\Bfbn\Factory\AbfrageDemandFactory 	 
      */
     private $AbfrageDemandFactory = null;
-	
+
     /**
      * InstitutionRepository
      * 
@@ -41,25 +40,19 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     private $InstitutionRepository = null;
 	
     /**
-     * AufgabenauswahlRepository
+     * FortbildungRepository
      * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FortbildungRepository
      */
-    private $AufgabenauswahlRepository = null;
+    private $FortbildungRepository = null;
+
 	
     /**
-     * SchulartRepository
+     * FortbildungartRepository
      * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\SchulartRepository
-     */
-	private $SchulartRepository = null;
-	
-	/**
-     * JahrgangsstufeRepository
-     * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository
-     */
-    private $JahrgangsstufeRepository = null;	
+     * @var \MbFosbos\Bfbn\Domain\Repository\FortbildungartRepository
+     */    
+	private $FortbildungartRepository = null;
 
 	/**
      * UserRepository
@@ -71,7 +64,7 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	/**
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
-	private $AccessControlService;
+	protected $AccessControlService;
 
     /**
      * Inject the Abfrage Demand Factory
@@ -94,33 +87,23 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     }
 	
     /**
-     * Inject the Aufgabenauswahl repository
+     * Inject the Fortbildung repository
      *
-     * @param \MbFosbos\Bfbn\Domain\Repository\AufgabenauswahlRepository $AufgabenauswahlRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FortbildungRepository $FortbildungRepository
      */
-    public function injectAufgabenauswahlRepository(AufgabenauswahlRepository $AufgabenauswahlRepository)
+    public function injectFortbildungRepository(FortbildungRepository $FortbildungRepository)
     {
-        $this->AufgabenauswahlRepository = $AufgabenauswahlRepository;
+        $this->FortbildungRepository = $FortbildungRepository;
     }	
 
     /**
-     * Inject the schulart repository
+     * Inject the Fortbildungart repository
      *
-     * @param \MbFosbos\Bfbn\Domain\Repository\SchulartRepository $SchulartRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FortbildungartRepository $FortbildungartRepository
      */
-    public function injectSchulartRepository(SchulartRepository $SchulartRepository)
+    public function injectFortbildungartRepository(FortbildungartRepository $FortbildungartRepository)
     {
-        $this->SchulartRepository = $SchulartRepository;
-    }
-	
-    /**
-     * Inject the jahrgangsstufe repository
-     *
-     * @param \MbFosbos\Bfbn\Domain\Repository\JahrgangsstufeRepository $JahrgangsstufeRepository
-     */
-    public function injectJahrgangsstufeRepository(JahrgangsstufeRepository $JahrgangsstufeRepository)
-    {
-        $this->JahrgangsstufeRepository = $JahrgangsstufeRepository;
+        $this->FortbildungartRepository = $FortbildungartRepository;
     }
 
     /**
@@ -142,17 +125,18 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     {
         $this->AccessControlService = $AccessControlService;
     }
-	
+
+
     /**
      * action show
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $Fortbildung
      * @return void
      */
-    public function showAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $Aufgabenauswahl): ResponseInterface
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $Fortbildung): ResponseInterface
     {
-        $this->view->assign('Aufgabenauswahl', $Aufgabenauswahl);
-		return $this->htmlResponse($this->view->render());	
+        $this->view->assign('Fortbildungg', $Fortbildung);
+		return $this->htmlResponse($this->view->render());		
     }
 	
 	/**
@@ -160,18 +144,17 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
      * 
      * @return void
      */
-    public function listAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung=null): ResponseInterface
 	{
-        if (is_null($aufgabenauswahl)) {
+        if (is_null($fortbildung)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 						$demand = $this->AbfrageDemandFactory->createDemandObject($gesuchteinstitution);
-						$aufgabenauswahlen = $this->AufgabenauswahlRepository->findDemanded($demand);
-						$this->view->assign('institution',$gesuchteinstitution);
-						$this->view->assign('aufgabenauswahlen', $aufgabenauswahlen);
+						$fortbildungen = $this->FortbildungRepository->findDemanded($demand);
+						$this->view->assign('fortbildungen', $fortbildungen);						
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					}
@@ -187,20 +170,22 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action edit
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("fortbildung")
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")	 
      * @return void
      */
-    public function editAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface	
+    public function editAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->view->assign('aufgabenauswahl', $aufgabenauswahl);
+					$auswahlart = $this->FortbildungartRepository->findAll();
+					$this->view->assign('fortbildung', $fortbildung);
 					$this->view->assign('institution', $gesuchteinstitution);
+					$this->view->assign('auswahlart', $auswahlart);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 				}
@@ -210,32 +195,28 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 		}
-		return $this->htmlResponse();		
+		return $this->htmlResponse();
 	}	
     /**
      * action new
 	 *
-	 * @param int $schulartuid
-	 * @param int $jahrgangsstufeuid	
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("fortbildung")
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
 	 *	
      * @return string
      */
-    public function newAction($schulartuid,$jahrgangsstufeuid,\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl = NULL): ResponseInterface
+    public function newAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$schulart = $this->SchulartRepository->findByUid($schulartuid);
-					$jahrgangsstufe = $this->JahrgangsstufeRepository->findByUid($jahrgangsstufeuid);
-					$this->view->assign('aufgabenauswahl', $aufgabenauswahl ?? NULL);
+					$auswahlart = $this->FortbildungartRepository->findAll();
+					$this->view->assign('fortbildung', $fortbildung ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
-					$this->view->assign('schulart',$schulart);
-					$this->view->assign('jahrgangsstufe',$jahrgangsstufe);
+					$this->view->assign('auswahlart', $auswahlart);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 				}
@@ -244,31 +225,29 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-		}
-		return $this->htmlResponse();		
-	}
+		}        
+		return $this->htmlResponse();   
+    }
 
     /**
      * action create
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("fortbildung")
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")	 
 	 * 
      * @return void
      */
-    public function createAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function createAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->addFlashMessage('Die Daten wurden gespeichert');
-	
-					$this->AufgabenauswahlRepository->add($aufgabenauswahl);
-					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aufgabenauswahl); */
-					return $this->redirect('list','Aufgabenauswahl',NULL);
+					$this->addFlashMessage('Der Fortbildungsvorschlag wurde erfolgreich angelegt'); 					
+					$this->FortbildungRepository->add($fortbildung);
+					return $this->redirect('list','Fortbildung',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
@@ -281,23 +260,24 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
 			return $this->htmlResponse();
 		}  		
+
     }
 
     /**
      * action update
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung
      * @return void
      */
-    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->AufgabenauswahlRepository->update($aufgabenauswahl);
-					return $this->redirect('list','Aufgabenauswahl', NULL);
+					$this->FortbildungRepository->update($fortbildung);
+					return $this->redirect('list','Fortbildung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
@@ -315,33 +295,33 @@ class AufgabenauswahlController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
     /**
      * action delete
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl
-     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("aufgabenauswahl")
+     * @param \MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("fortbildung")
      * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation ("gesuchteinstitution")
-	 *	
+	 *
      * @return void
      */
-    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Aufgabenauswahl $aufgabenauswahl): ResponseInterface
+    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->addFlashMessage('Die Aufgabenauswahl wurde gelöscht');
-					$this->AufgabenauswahlRepository->remove($aufgabenauswahl);
-					return $this->redirect('list','Aufgabenauswahl', NULL);
+					$this->addFlashMessage('Der Fortbildungsvorschlag wurde gelöscht');
+					$this->FortbildungRepository->remove($fortbildung);
+					return $this->redirect('list','Fortbildung', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
 				}
 			} else {
 				$this->addFlashMessage('Schule nicht gefunden.');
-				return $this->htmlResponse();		
+				return $this->htmlResponse();				
 			}
 		} else {
 			$this->addFlashMessage('Benutzer nicht eingeloggt.');
-			return $this->htmlResponse();
+			return $this->htmlResponse();			
 		} 	
     }
 }

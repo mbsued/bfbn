@@ -49,7 +49,7 @@ class FilenameValidator extends AbstractValidator
      *
      * @param FileReference|File|PseudoFile $resource The resource that should be validated
      */
-    public function isValid($resource)
+    public function isValid(mixed $resource): void
     {
         $this->validateOptions();
 
