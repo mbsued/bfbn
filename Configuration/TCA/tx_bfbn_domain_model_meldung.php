@@ -116,7 +116,6 @@ return [
                     'foreign_match_fields' => [
                         'fieldname' => 'datei',
                         'tablenames' => 'tx_bfbn_domain_model_meldung',
-                        'table_local' => 'sys_file',
                     ],
                 ]
             )
