@@ -11,7 +11,7 @@ namespace MbFosbos\Bfbn\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024 
  *
  ***/
 /**
@@ -190,32 +190,28 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * vorklassefos
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */
-    protected $vorklassefos = null;
+    protected $vorklassefos = false;
 
     /**
      * vorklassebos
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */
     protected $vorklassebos = false;
 
     /**
      * vorkursfos
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
+     * @var integer 
      */
     protected $vorkursfos = false;
 
     /**
      * vorkursbos
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy		 
+     * @var integer 
      */
     protected $vorkursbos = false;
 
@@ -255,32 +251,28 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * bosteilzeit
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */
     protected $bosteilzeit = false;
 
     /**
      * dbfh
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */
     protected $dbfh = false;
 
     /**
      * profilinklusion
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */	 
     protected $profilinklusion = false;
 	
     /**
      * ivk
      * 
-     * @var \MbFosbos\Bfbn\Domain\Model\Auswahljanein
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     * @var integer
      */
     protected $ivk = false;
 	
@@ -860,7 +852,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorklassefos
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassefos
+     * @return integer $vorklassefos
      */
     public function getVorklassefos()
     {
@@ -870,7 +862,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorklassefos
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassefos
+     * @param integer $vorklassefos
      * @return void
      */
     public function setVorklassefos($vorklassefos)
@@ -881,7 +873,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorklassebos
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassebos
+     * @return integer $vorklassebos
      */
     public function getVorklassebos()
     {
@@ -891,7 +883,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorklassebos
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorklassebos
+     * @param integer $vorklassebos
      * @return void
      */
     public function setVorklassebos($vorklassebos)
@@ -902,7 +894,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursfos
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursfos
+     * @return integer $vorkursfos
      */
     public function getVorkursfos()
     {
@@ -912,7 +904,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursfos
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursfos
+     * @param integer $vorkursfos
      * @return void
      */
     public function setVorkursfos($vorkursfos)
@@ -923,7 +915,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the vorkursbos
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursbos
+     * @return integer $vorkursbos
      */
     public function getVorkursbos()
     {
@@ -933,7 +925,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the vorkursbos
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $vorkursbos
+     * @param integer $vorkursbos
      * @return void
      */
     public function setVorkursbos($vorkursbos)
@@ -957,7 +949,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos
      * @return void
      */
-    public function setVorkursartbos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos)
+    public function setVorkursartbos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartbos = NULL)
     {
         $this->vorkursartbos = $vorkursartbos;
     }
@@ -978,7 +970,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos
      * @return void
      */
-    public function setVorkurstagbos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos)
+    public function setVorkurstagbos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagbos = NULL)
     {
         $this->vorkurstagbos = $vorkurstagbos;
     }
@@ -999,7 +991,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos
      * @return void
      */
-    public function setVorkursartfos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos)
+    public function setVorkursartfos(\MbFosbos\Bfbn\Domain\Model\Vorkursart $vorkursartfos = NULL)
     {
         $this->vorkursartfos = $vorkursartfos;
     }
@@ -1020,7 +1012,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos
      * @return void
      */
-    public function setVorkurstagfos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos)
+    public function setVorkurstagfos(\MbFosbos\Bfbn\Domain\Model\Vorkurstag $vorkurstagfos = NULL)
     {
         $this->vorkurstagfos = $vorkurstagfos;
     }
@@ -1028,7 +1020,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the bosteilzeit
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
+     * @return integer $bosteilzeit
      */
     public function getBosteilzeit()
     {
@@ -1038,7 +1030,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the bosteilzeit
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $bosteilzeit
+     * @param integer $bosteilzeit
      * @return void
      */
     public function setBosteilzeit($bosteilzeit)
@@ -1049,7 +1041,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the dbfh
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $dbfh
+     * @return integer $dbfh
      */
     public function getDbfh()
     {
@@ -1059,7 +1051,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the dbfh
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $dbfh
+     * @param integer $dbfh
      * @return void
      */
     public function setDbfh($dbfh)
@@ -1070,7 +1062,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the profilinklusion
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $profilinklusion
+     * @return integer $profilinklusion
      */
     public function getProfilinklusion()
     {
@@ -1080,7 +1072,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the profilinklusion
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $profilinklusion
+     * @param integer $profilinklusion
      * @return void
      */
     public function setProfilinklusion($profilinklusion)
@@ -1091,7 +1083,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the ivk
      * 
-     * @return \MbFosbos\Bfbn\Domain\Model\Auswahljanein $ivk
+     * @return integer $ivk
      */
     public function getIvk()
     {
@@ -1101,7 +1093,7 @@ class Institution extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the ivk
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Auswahljanein $ivk
+     * @param integer $ivk
      * @return void
      */
     public function setIvk($ivk)

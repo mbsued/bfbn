@@ -2,32 +2,45 @@
 
 <f:layout name="Default" />
 <f:section name="content">
-  <f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 3">
+  <f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 3">      
 	<f:asset.script identifier="vanilla_custom-script1">
-	document.getElementById('vorkursfos').onchange = changeListenerFos;
-    function changeListenerFos(){
-      var value = this.value
-        if (value == "1"){
-          document.getElementById('vorkursfosartundtag').style.visibility = 'visible';
-        }else if (value == "0"){
-          document.getElementById('vorkursfosartundtag').style.visibility = 'hidden';
-        }
-      }  
+	document.getElementById('vorkursfos1').onclick = clickListenerFos1;
+    function clickListenerFos1(){
+      document.getElementById('vorkursfosartundtag').style.visibility = 'visible';
+	  document.getElementById('vorkursartfos').setAttribute("required","");
+	  document.getElementById('vorkurstagfos').setAttribute("required","");	  
+	  
+    }
+    document.getElementById('vorkursfos0').onclick = clickListenerFos0;
+    function clickListenerFos0(){
+      document.getElementById('vorkursfosartundtag').style.visibility = 'hidden';
+	  document.getElementById('vorkursartfos').removeAttribute("required");
+	  document.getElementById('vorkurstagfos').removeAttribute("required");
+	  document.getElementById('vorkursartfos').value="";
+	  document.getElementById('vorkurstagfos').value="";	  
+    }  
 	</f:asset.script>
   </f:if>
   <f:if condition="{institution.art.uid} == 2 || {institution.art.uid} == 4">
 	<f:asset.script identifier="vanilla_custom-script2">
 
-	document.getElementById('vorkursbos').onchange = changeListenerBos;
-    function changeListenerBos(){
-      var value = this.value
-        if (value == "1"){
-          document.getElementById('vorkursbosartundtag').style.visibility = 'visible';
-        }else if (value == "0"){
-          document.getElementById('vorkursbosartundtag').style.visibility = 'hidden';
-        }
-      }
+	document.getElementById('vorkursbos1').onclick = clickListenerBos1;
+    function clickListenerBos1(){
+      document.getElementById('vorkursbosartundtag').style.visibility = 'visible';
+	  document.getElementById('vorkursartbos').setAttribute("required","");
+	  document.getElementById('vorkurstagbos').setAttribute("required","");
+    }
+    document.getElementById('vorkursbos0').onclick = clickListenerBos0;
+    function clickListenerBos0(){
+      document.getElementById('vorkursbosartundtag').style.visibility = 'hidden';
+	  document.getElementById('vorkursartbos').removeAttribute("required");
+	  document.getElementById('vorkurstagbos').removeAttribute("required");
+	  document.getElementById('vorkursartbos').value="";
+	  document.getElementById('vorkurstagbos').value="";		  
+    }
+
 	</f:asset.script>
+     
   </f:if>
     <h1>Änderung der Schuldaten</h1>
 
@@ -92,7 +105,7 @@
 				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung'}" />
 				<f:render section="Ansprechpartner" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 3, ueberschrifttext: 'Sekretariat'}" />
 				<f:render section="Fachmitarbeiter" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht, uid: 9}" />
-				<f:render section="Funktionstraeger" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht}" />               
+				<f:render section="Funktionstraeger" arguments="{institution: institution, auswahlgeschlecht: auswahlgeschlecht}" />              
 				<div class="row mt-2">
 					<div class="form-group col-md-6">
 						<f:link.action class="btn btn-primary" controller="Person" action="new" arguments="{funktionuid: 2}" title="Einen neuen Ansprechpartner für die Stellvertretende Schulleitung anlegen" >Neuer Ansprechpartner (Stellv. Schulleitung)</f:link.action>
@@ -151,31 +164,71 @@
 					<div class="row mt-3">
 						<div class="col-md-3">
 							<label for="vorklassefos">Vorklasse</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorklassefos" id="vorklassefos" value="{institution.vorklassefos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassefos" id="vorklassefos1" value="1"/>
+                              <label class="form-check-label" for="vorklassefos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassefos" id="vorklassefos0" value="0"/>
+                              <label class="form-check-label" for="vorklassefos0">Nein</label>  
+                            </div>                   
 						</div>
 						<div class="col-md-3">
 							<label for="ivk">Integrationsvorklasse</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="ivk" id="ivk" value="{institution.ivk}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="ivk" id="ivk1" value="1"/>
+                              <label class="form-check-label" for="ivk1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="ivk" id="ivk0" value="0"/>
+                              <label class="form-check-label" for="ivk0">Nein</label>  
+                            </div>                  
 						</div>
 						<div class="col-md-3">
 							<label for="vorkursfos">Vorkurs</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkursfos" id="vorkursfos" value="{institution.vorkursfos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursfos" id="vorkursfos1" value="1"/>
+                              <label class="form-check-label" for="vorkursfos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursfos" id="vorkursfos0" value="0"/>
+                              <label class="form-check-label" for="vorkursfos0">Nein</label>  
+                            </div>                          
 						</div> 
 						<div class="col-md-3">
 							<label for="dbfh">DBFH</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="dbfh" id="dbfh" value="{institution.dbfh}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="dbfh" id="dbfh1" value="1"/>
+                              <label class="form-check-label" for="dbfh1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="dbfh" id="dbfh0" value="0"/>
+                              <label class="form-check-label" for="dbfh0">Nein</label>  
+                            </div>                          
 						</div>                       
 					</div>
-					<div class="row mt-3" id="vorkursfosartundtag">
+					<div class="row mt-3" id="vorkursfosartundtag" {f:if(condition:'{institution.vorkursfos} == 1', then:'style="visibility: visible;"', else:'style="visibility: hidden;"' )}>
 						<div class="form-group col-md-4">
 							<label for="vorkursartfos">Art des Vorkurses</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkursartfos" value="{institution.vorkursartfos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung"/>
-		
+							<f:if condition="{institution.vorkursfos} == 1">
+								<f:then>
+									<f:form.select id="vorkursartfos" class="form-control" additionalAttributes="{required:'required'}" multiple="false" size="1" property="vorkursartfos" value="{institution.vorkursartfos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:then>
+								<f:else>
+									<f:form.select id="vorkursartfos" class="form-control" multiple="false" size="1" property="vorkursartfos" value="{institution.vorkursartfos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:else>
+							</f:if>		
 						</div>
 						<div class="form-group col-md-4">
 							<label for="vorkurstagfos">Tag des Vorkurses</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkurstagfos" value="{institution.vorkurstagfos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung"/>
-							
+							<f:if condition="{institution.vorkursfos} == 1">
+								<f:then>
+									<f:form.select id="vorkurstagfos" class="form-control" additionalAttributes="{required:'required'}" multiple="false" size="1" property="vorkurstagfos" value="{institution.vorkurstagfos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:then>
+								<f:else>
+									<f:form.select id="vorkurstagfos" class="form-control" multiple="false" size="1" property="vorkurstagfos" value="{institution.vorkurstagfos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:else>
+							</f:if>							
 						</div>					
 					</div>				
 				</div>
@@ -222,44 +275,107 @@
                       <f:if condition="{institution.art.uid} == 2">                      
 						<div class="col-md-4">
 							<label for="vorklassebos">Vorklasse</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorklassebos" id="vorklassebos" value="{institution.vorklassebos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassebos" id="vorklassebos1" value="1"/>
+                              <label class="form-check-label" for="vorklassebos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassebos" id="vorklassebos0" value="0"/>
+                              <label class="form-check-label" for="vorklassebos0">Nein</label>  
+                            </div>
 						</div>
-						<div class="col-md-4">
+                        <div class="col-md-4">
 							<label for="vorkursbos">Vorkurs</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkursbos" id="vorkursbos" value="{institution.vorkursbos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursbos" id="vorkursbos1" value="1"/>
+                              <label class="form-check-label" for="vorkursbos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursbos" id="vorkursbos0" value="0"/>
+                              <label class="form-check-label" for="vorkursbos0">Nein</label>  
+                            </div>
 						</div>
 						<div class="col-md-4">
 							<label for="bosteilzeit">Teilzeit</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="bosteilzeit" id="bosteilzeit" value="{institution.bosteilzeit}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="bosteilzeit" id="bosteilzeit1" value="1"/>
+                              <label class="form-check-label" for="bosteilzeit1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="bosteilzeit" id="bosteilzeit0" value="0"/>
+                              <label class="form-check-label" for="bosteilzeit0">Nein</label>  
+                            </div>
 						</div>                  
                       </f:if>
                       <f:if condition="{institution.art.uid} == 4">                      
 						<div class="col-md-3">
 							<label for="vorklassebos">Vorklasse</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorklassebos" id="vorklassebos" value="{institution.vorklassebos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassebos" id="vorklassebos1" value="1"/>
+                              <label class="form-check-label" for="vorklassebos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorklassebos" id="vorklassebos0" value="0"/>
+                              <label class="form-check-label" for="vorklassebos0">Nein</label>  
+                            </div>                           
 						</div>
 						<div class="col-md-3">
 							<label for="ivk">Integrationsvorklasse</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="ivk" id="ivk" value="{institution.ivk}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>                    
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="ivk" id="ivk1" value="1"/>
+                              <label class="form-check-label" for="ivk1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="ivk" id="ivk0" value="0"/>
+                              <label class="form-check-label" for="ivk0">Nein</label>  
+                            </div>                           
 						</div>                       
 						<div class="col-md-3">
 							<label for="vorkursbos">Vorkurs</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkursbos" id="vorkursbos" value="{institution.vorkursbos}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursbos" id="vorkursbos1" value="1"/>
+                              <label class="form-check-label" for="vorkursbos1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="vorkursbos" id="vorkursbos0" value="0"/>
+                              <label class="form-check-label" for="vorkursbos0">Nein</label>  
+                            </div>                          
 						</div>
 						<div class="col-md-3">
 							<label for="bosteilzeit">Teilzeit</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="bosteilzeit" id="bosteilzeit" value="{institution.bosteilzeit}" options="{auswahljanein}" optionValueField="uid" optionLabelField="bezeichnung"/>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="bosteilzeit" id="bosteilzeit1" value="1"/>
+                              <label class="form-check-label" for="bosteilzeit1">Ja</label>
+                            </div>
+                            <div class="form-check">
+                              <f:form.radio class="form-check-input" property="bosteilzeit" id="bosteilzeit0" value="0"/>
+                              <label class="form-check-label" for="bosteilzeit0">Nein</label>  
+                            </div>                           
 						</div>
                       </f:if>                      
 					</div>
-					<div class="row mt-3" id="vorkursbosartundtag">
+					<div class="row mt-3" id="vorkursbosartundtag" {f:if(condition:'{institution.vorkursbos} == 1', then:'style="visibility: visible;"', else:'style="visibility: hidden;"' )}>
 						<div class="form-group col-md-4">
 							<label for="vorkursartbos">Art des Vorkurses</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkursartbos" value="{institution.vorkursartbos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							<f:if condition="{institution.vorkursbos} == 1">
+								<f:then>
+									<f:form.select id="vorkursartbos" class="form-control" additionalAttributes="{required:'required'}" multiple="false" size="1" property="vorkursartbos" value="{institution.vorkursartbos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:then>
+								<f:else>
+									<f:form.select id="vorkursartbos" class="form-control" multiple="false" size="1" property="vorkursartbos" value="{institution.vorkursartbos}" options="{auswahlvorkursart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:else>
+							</f:if>
 						</div>
 						<div class="form-group col-md-4">
 							<label for="vorkurstagbos">Tag des Vorkurses</label>
-							<f:form.select class="form-control " multiple="false" size="1" property="vorkurstagbos" value="{institution.vorkurstagbos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung"/>
+							<f:if condition="{institution.vorkursbos} == 1">
+								<f:then>
+									<f:form.select id="vorkurstagbos" class="form-control" additionalAttributes="{required:'required'}" multiple="false" size="1" property="vorkurstagbos" value="{institution.vorkurstagbos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:then>
+								<f:else>
+									<f:form.select id="vorkurstagbos" class="form-control" multiple="false" size="1" property="vorkurstagbos" value="{institution.vorkurstagbos}" options="{auswahlvorkurstag}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+								</f:else>
+							</f:if>
 						</div>					
 					</div>				
 				</div>	

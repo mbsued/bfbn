@@ -16,7 +16,7 @@ $boot = static function (): void {
 		// CSH - context sensitive help
         foreach (['institution', 'person', 'funktion', 'funktionart', 'fach','regierungsbezirk', 'mbbezirk', 'institutionstatus', 'institutionart', 'sprache', 'jahrgangsstufe', 'ausbildungsrichtung', 'schulart', 'institutionsprache', 
 					'institutionausbildungsrichtung', 'vorkursart', 'abschluss', 'auswahljanein', 'ergaenzungspruefung', 'schulfremdepruefer', 'aufgabenauswahl', 'elitepruefung', 'pdftemplate', 'htmltemplate',
-					'fachkurz', 'meldung', 'meldungart', 'unfallstatistik', 'nachricht','fortbildung'] as $table) {
+					'fachkurz', 'meldung', 'meldungart', 'unfallstatistik', 'nachricht','fortbildung','fachelite','elitepruefer'] as $table) {
             // @extensionScannerIgnoreLine
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bfbn_domain_model_' . $table);
 

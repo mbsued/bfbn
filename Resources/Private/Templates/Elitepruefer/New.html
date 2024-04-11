@@ -1,0 +1,77 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>Prüferin bzw. Prüfer für Eliteprüfung - Neu</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="create" name="elitepruefer" object="{elitepruefer}" >
+	
+		<div class="card mt-3">
+			<div class="card-header">Neue Prüferin bzw. neuer Prüfer für Eliteprüfung für {institution.kurzbezeichnung} 
+			</div>
+			<div class="card-body">
+				<div class="row mb-3">
+					<div class="form-group col-md-2">
+						<label for="amtsbezeichnung">Amtsbezeichnung</label>
+						<f:form.textfield class="form-control" property="amtsbezeichnung" value="{elitepruefer.amtsbezeichnung}"/>
+					</div>	                  
+					<div class="form-group col-md-2">
+						<label for="titel">Titel</label>
+						<f:form.textfield class="form-control" property="titel" value="{elitepruefer.titel}"/>
+					</div>				
+					<div class="form-group col-md-3">
+						<label for="vorname">Vorname</label>
+						<f:form.textfield class="form-control" property="vorname" value="{elitepruefer.vorname}" required="true"/>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="nachname">Nachname</label>
+						<f:form.textfield class="form-control" property="nachname" value="{elitepruefer.nachname}" required="true"/>
+					</div>
+					<div class="form-group col-md-2">
+						<label for="geschlecht">Geschlecht</label>
+						<f:form.select class="form-control" property="geschlecht" value="{elitepruefer.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+				</div>
+				<div class="row mb-3">				
+					<div class="form-group col-md-4">
+						<label for="fach1">Fach 1</label>
+						<f:form.select class="form-control" property="fach1" value="{elitepruefer.fach1}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="fach2">Fach 2</label>
+						<f:form.select class="form-control" property="fach2" value="{elitepruefer.fach2}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="fach3">Fach 3</label>
+						<f:form.select class="form-control" property="fach3" value="{elitepruefer.fach3}" options="{auswahlfach}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+					</div>					
+				</div>
+				<div class="row mb-3">
+					<div class="form-group col-md-4">
+						<label for="email">Dienstliche E-Mail</label>
+						<f:form.textfield class="form-control" type="email" property="email" value="{elitepruefer.email}" required="true" />
+					</div>
+					<div class="form-group col-md-8">
+						<label for="bemerkung">Bemerkung</label>
+						<f:form.textfield class="form-control" aria="{describedby:'bemerkunghelper'}" property="bemerkung" value="{elitepruefer.bemerkung}"/>
+						<div id="bemerkunghelper" class="form-text">Hier bitte Besonderheiten vermerken, z.B. wenn nur eine bestimmte Jahrgangsstufe oder nur Mathematik(NT) geprüft werden kann.</div>
+					</div>					
+				</div>              
+			</div>
+		</div>
+		<div class="row mt-3 mb-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+                  	<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Speichern</f:form.button>
+					<f:form.hidden property="institution" value="{institution}" />
+                    <f:form.hidden property="pid" value="{settings.elitepruefer.ordnerstandard}" />                  
+				</div>
+			</div>
+		</div>
+    </f:form>
+</f:section>
+</html>

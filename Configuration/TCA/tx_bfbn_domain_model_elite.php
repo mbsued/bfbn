@@ -5,7 +5,6 @@ return [
         'label' => 'instname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -42,7 +41,10 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    ['', 0],
+                    0 => [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_bfbn_domain_model_elite',
                 'foreign_table_where' => 'AND {#tx_bfbn_domain_model_elite}.{#pid}=###CURRENT_PID### AND {#tx_bfbn_domain_model_elite}.{#sys_language_uid} IN (-1,0)',
@@ -61,8 +63,7 @@ return [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true
                     ]
                 ],
@@ -72,9 +73,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime', 
+                'format' => 'datetime',
                 'default' => 0,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
@@ -85,9 +85,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
+                'format' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -106,22 +105,21 @@ return [
                 'size' => 5,
                 'maxitems' => 20,
                 'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
-                        -1,
+                    0 => [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
+                        'value' => -1,
                     ],
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
-                        -2,
+                    1 => [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
+                        'value' => -2,
                     ],
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
-                        '--div--',
+                    2 => [
+                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
+                        'value' => '--div--',
                     ],
                 ],
                 'exclusiveKeys' => '-1,-2',
                 'foreign_table' => 'fe_groups',
-                'foreign_table_where' => 'ORDER BY fe_groups.title',
             ],
         ],
         'institution' => [
@@ -131,7 +129,8 @@ return [
                 'type' => 'input',
                 'size' => 30,
 				'max' => 255,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'
             ],
         ],
         'instname' => [
@@ -141,7 +140,8 @@ return [
                 'type' => 'input',
                 'size' => 30,
 				'max' => 255,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'schulnummer' => [
@@ -161,7 +161,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'instplz' => [
@@ -172,7 +173,8 @@ return [
                 'size' => 5,
 				'max' => 5,
 				'min' => 5,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'instort' => [
@@ -181,7 +183,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'instperson' => [
@@ -190,7 +193,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'insttelefon' => [
@@ -199,7 +203,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'instemail' => [
@@ -208,7 +213,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'nachname' => [
@@ -217,7 +223,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'vorname' => [
@@ -226,7 +233,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'geschlecht' => [
@@ -235,7 +243,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 10,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'gebdat' => [
@@ -244,7 +253,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'gebort' => [
@@ -253,7 +263,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'strasse' => [
@@ -262,7 +273,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'plz' => [
@@ -271,7 +283,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 5,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
 		'ort' => [
@@ -280,7 +293,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'telefon' => [
@@ -289,7 +303,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'email' => [
@@ -298,7 +313,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'ndhoch' => [
@@ -307,7 +323,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 4,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'ndabprf' => [
@@ -316,7 +333,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 4,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],
         ],
         'jgst' => [
@@ -343,7 +361,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'			
             ],
         ],		
         'fach4' => [
@@ -352,7 +371,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
-                'eval' => 'required,trim',
+                'eval' => 'trim',
+				'required' => 'true'				
             ],            
         ],
     ],

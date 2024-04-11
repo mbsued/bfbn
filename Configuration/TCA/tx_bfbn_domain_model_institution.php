@@ -10,7 +10,6 @@ return [
         'label' => 'nummer',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -49,7 +48,10 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    ['', 0],
+                    0 => [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_bfbn_domain_model_institution',
                 'foreign_table_where' => 'AND {#tx_bfbn_domain_model_institution}.{#pid}=###CURRENT_PID### AND {#tx_bfbn_domain_model_institution}.{#sys_language_uid} IN (-1,0)',
@@ -68,8 +70,7 @@ return [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true
                     ]
                 ],
@@ -79,9 +80,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime', 
+                'format' => 'datetime',
                 'default' => 0,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
@@ -92,9 +92,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
+                'format' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -103,7 +102,7 @@ return [
                     'allowLanguageSynchronization' => true
                 ]
             ],
-        ],		
+        ],
         'bezeichnung' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bezeichnung',
@@ -111,7 +110,8 @@ return [
                 'type' => 'input',
                 'size' => 30,
 				'max' => 255,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'kurzbezeichnung' => [
@@ -121,7 +121,8 @@ return [
                 'type' => 'input',
                 'size' => 30,
 				'max' => 255,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'nummer' => [
@@ -132,7 +133,8 @@ return [
                 'size' => 4,
 				'min' => 4,
 				'max' => 4,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'strasse' => [
@@ -141,7 +143,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'plz' => [
@@ -152,7 +155,8 @@ return [
                 'size' => 5,
 				'max' => 5,
 				'min' => 5,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'ort' => [
@@ -161,7 +165,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required,trim'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'bezeichnungfos' => [
@@ -228,7 +233,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'fax' => [
@@ -237,16 +243,17 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
         'email' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.email',
             'config' => [
-                'type' => 'input',
+                'type' => 'email',
                 'size' => 30,
-                'eval' => 'required'
+				'required' => 'true',
             ],
         ],
         'homepage' => [
@@ -255,7 +262,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'required'
+                'eval' => 'trim',
+				'required' => 'true',
             ],
         ],
 		'breitengrad' => [
@@ -407,8 +415,9 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [
-                        'kein Eintrag','0'
+                    0 => [
+                        'label' => 'kein Eintrag',
+                        'value' => 0,
                     ],
                 ],				
                 'foreign_table' => 'tx_bfbn_domain_model_mbbezirk',

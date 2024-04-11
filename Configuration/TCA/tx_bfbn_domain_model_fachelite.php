@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_jahrgangsstufe',
+        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fachelite',
         'label' => 'bezeichnung',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -15,13 +15,13 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'bezeichnung,kurzbezeichnung',
+        'searchFields' => 'bezeichnung',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_datensatz.svg'
     ],
     'interface' => [        
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, kurzbezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -44,8 +44,8 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_bfbn_domain_model_jahrgangsstufe',
-                'foreign_table_where' => 'AND {#tx_bfbn_domain_model_jahrgangsstufe}.{#pid}=###CURRENT_PID### AND {#tx_bfbn_domain_model_jahrgangsstufe}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_bfbn_domain_model_fachelite',
+                'foreign_table_where' => 'AND {#tx_bfbn_domain_model_fachelite}.{#pid}=###CURRENT_PID### AND {#tx_bfbn_domain_model_fachelite}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -94,18 +94,10 @@ return [
                 ]
             ],
         ],
+
         'bezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_jahrgangsstufe.bezeichnung',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ],
-        ],
-        'kurzbezeichnung' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_jahrgangsstufe.kurzbezeichnung',
+            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fachelite.bezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

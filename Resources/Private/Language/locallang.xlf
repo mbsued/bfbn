@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang" date="2021-05-07T12:46:49Z" product-name="bfbn">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang" date="2024-03-27T12:46:49Z" product-name="bfbn">
 		<header/>
 		<body>
 			<trans-unit id="tx_bfbn_domain_model_institution" resname="tx_bfbn_domain_model_institution">
@@ -336,6 +336,12 @@
 			<trans-unit id="tx_bfbn_domain_model_fachkurz.bezeichnung" resname="tx_bfbn_domain_model_fachkurz.bezeichnung">
 				<source>Bezeichnung</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fachelite" resname="tx_bfbn_domain_model_fachelite">
+				<source>Fach - Eliteprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_fachelite.bezeichnung" resname="tx_bfbn_domain_model_fachelite.bezeichnung">
+				<source>Bezeichnung</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_auswahljanein" resname="tx_bfbn_domain_model_auswahljanein">
 				<source>Auswahltabelle Ja/Nein</source>
 			</trans-unit>
@@ -684,6 +690,42 @@
 			<trans-unit id="tx_bfbn_domain_model_elite.fach4" resname="tx_bfbn_domain_model_elite.fach4">
 				<source>4. Fach</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer" resname="tx_bfbn_domain_model_elitepruefer">
+				<source>Prüfer für Eliteprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.nachname" resname="tx_bfbn_domain_model_elitepruefer.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.vorname" resname="tx_bfbn_domain_model_elitepruefer.vorname">
+				<source>Vorname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.titel" resname="tx_bfbn_domain_model_elitepruefer.titel">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.amtsbezeichnung" resname="tx_bfbn_domain_model_elitepruefer.amtsbezeichnung">
+				<source>Amtsbezeichnung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.geschlecht" resname="tx_bfbn_domain_model_elitepruefer.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.email" resname="tx_bfbn_domain_model_elitepruefer.email">
+				<source>Dienstliche E-Mail</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.fach1" resname="tx_bfbn_domain_model_elitepruefer.fach1">
+				<source>Fach 1</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.fach2" resname="tx_bfbn_domain_model_elitepruefer.fach2">
+				<source>Fach 2</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.fach3" resname="tx_bfbn_domain_model_elitepruefer.fach3">
+				<source>Fach 3</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.bemerkung" resname="tx_bfbn_domain_model_elitepruefer.bemerkung">
+				<source>Bemerkung</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_elitepruefer.institution" resname="tx_bfbn_domain_model_elitepruefer.institution">
+				<source>Institution</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_pdftemplate" resname="tx_bfbn_domain_model_pdftemplate">
 				<source>PDF Template</source>
 			</trans-unit>

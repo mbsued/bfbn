@@ -91,6 +91,11 @@ CREATE TABLE tx_bfbn_domain_model_fachkurz (
 	
 );
 
+CREATE TABLE tx_bfbn_domain_model_fachelite (
+
+	bezeichnung varchar(255) DEFAULT '' NOT NULL,
+	
+);
 
 CREATE TABLE tx_bfbn_domain_model_geschlecht (
 
@@ -480,4 +485,20 @@ CREATE TABLE tx_bfbn_domain_model_htmltemplate (
 	  name varchar(255) DEFAULT '' NOT NULL,
     PRIMARY KEY (uid),
     KEY parent (pid)
+);
+
+CREATE TABLE tx_bfbn_domain_model_elitepruefer (
+
+	nachname varchar(255) DEFAULT '' NOT NULL,
+	vorname varchar(255) DEFAULT '' NOT NULL,
+	titel varchar(255) DEFAULT '' NOT NULL,
+	amtsbezeichnung varchar(255) DEFAULT '' NOT NULL,	
+	geschlecht int(11) unsigned DEFAULT '0' NOT NULL,
+	email varchar(255) DEFAULT '' NOT NULL,	
+	fach1 int(11) unsigned DEFAULT '0' NOT NULL,
+	fach2 int(11) unsigned DEFAULT '0' NOT NULL,
+	fach3 int(11) unsigned DEFAULT '0' NOT NULL,
+	bemerkung varchar(255) DEFAULT '' NOT NULL,		
+	institution int(11) unsigned DEFAULT '0' NOT NULL,	
+
 );

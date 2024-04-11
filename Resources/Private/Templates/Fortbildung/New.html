@@ -1,0 +1,68 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>Neuer Fortbildungsvorschlag</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="create" name="fortbildung" object="{fortbildung}" >
+	
+		<div class="card mt-3">
+			<div class="card-header">Neuer Fortbildungsvorschlag von {institution.kurzbezeichnung} 
+			</div>
+			<div class="card-body">
+				<div class="row">					
+					<div class="form-group col-md-12 mb-2">
+						<label for="art">Vorschlag für</label>
+						<f:form.select class="form-control" property="art" value="{fortbildung.art}" options="{auswahlart}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+                </div>
+                <div class="row">
+					<div class="form-group col-md-12 mb-2">
+						<label for="thema">Thema</label>
+						<f:form.textfield class="form-control" property="thema" value="{fortbildung.thema}" required="true"/>
+					</div>
+                </div>
+                <div class="row">
+					<div class="form-group col-md-12 mb-2">
+						<label for="fach">Fach/Fächer oder fachübergreifend</label>
+						<f:form.textfield class="form-control" property="fach" value="{fortbildung.fach}" required="true"/>
+					</div>				
+				</div>
+                <div class="row">
+					<div class="form-group col-md-12 mb-2">
+						<label for="fach">Zielgruppe</label>
+						<f:form.textfield class="form-control" property="zielgruppe" value="{fortbildung.zielgruppe}" required="true"/>
+					</div>				
+				</div>
+                <div class="row">
+					<div class="form-group col-md-12 mb-2">
+						<label for="fach">Inhalt/Zweck der Fortbildung</label>
+						<f:form.textarea class="form-control" property="inhalt" value="{fortbildung.inhalt}" rows="5" required="true"/>
+					</div>				
+				</div>
+                <div class="row">
+					<div class="form-group col-md-12">
+						<label for="fach">Vorschlag für Referent/Referenten (optional)</label>
+						<f:form.textfield class="form-control" property="referent" value="{fortbildung.referent}"/>
+					</div>				
+				</div>               
+			</div>
+		</div>
+		<div class="row mt-3 mb-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+                  	<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Speichern</f:form.button>
+					
+					<f:form.hidden property="institution" value="{institution}" />                  
+                  	<f:form.hidden property="pid" value="{settings.fortbildung.ordnerwest}" />
+                  
+				</div>
+			</div>
+		</div>
+    </f:form>
+</f:section>
+</html>

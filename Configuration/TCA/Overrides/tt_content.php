@@ -148,3 +148,15 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_fortbil
 	'bfbn_fortbildunglist', 
 	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_fortbildunglist.xml'
 );
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
+	'EliteprueferList',
+	'Elitepruefer',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_eliteprueferlist'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_eliteprueferlist'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_eliteprueferlist', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_eliteprueferlist.xml'	
+);

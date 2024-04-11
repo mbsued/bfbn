@@ -3,10 +3,9 @@ namespace MbFosbos\Bfbn\Controller;
 
 use MbFosbos\Bfbn\Factory\AbfrageDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
-use MbFosbos\Bfbn\Domain\Repository\SchulfremdeprueferRepository;
+use MbFosbos\Bfbn\Domain\Repository\EliteprueferRepository;
 use MbFosbos\Bfbn\Domain\Repository\GeschlechtRepository;
-use MbFosbos\Bfbn\Domain\Repository\AbschlussRepository;
-use MbFosbos\Bfbn\Domain\Repository\FachkurzRepository;
+use MbFosbos\Bfbn\Domain\Repository\FacheliteRepository;
 use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
 use Psr\Http\Message\ResponseInterface;
@@ -22,9 +21,9 @@ use Psr\Http\Message\ResponseInterface;
  *
  ***/
 /**
- * SchulfremdeprueferController
+ * EliteprueferController
  */
-class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class EliteprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
 	/**
@@ -42,12 +41,11 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     private $InstitutionRepository = null;
 	
     /**
-     * SchulfremdeprueferRepository
+     * EliteprueferRepository
      * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\SchulfremdeprueferRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\EliteprueferRepository
      */
-    private $SchulfremdeprueferRepository = null;
-
+    private $EliteprueferRepository = null;
 	
     /**
      * GeschlechtRepository
@@ -57,18 +55,11 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	private $GeschlechtRepository = null;
 
 	/**
-     * AbschlussRepository
+     * FacheliteRepository
      * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\AbschlussRepository
+     * @var \MbFosbos\Bfbn\Domain\Repository\FacheliteRepository
      */
-    private $AbschlussRepository = null;
-	
-	/**
-     * FachkurzRepository
-     * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\FachkurzRepository
-     */
-    private $FachkurzRepository = null;	
+    private $FacheliteRepository = null;	
 
 	/**
      * UserRepository
@@ -103,13 +94,13 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     }
 	
     /**
-     * Inject the schulfremdepruefer repository
+     * Inject the Elitepruefer repository
      *
-     * @param \MbFosbos\Bfbn\Domain\Repository\SchulfremdeprueferRepository $SchulfremdeprueferRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\EliteprueferRepository $EliteprueferRepository
      */
-    public function injectSchulfremdeprueferRepository(SchulfremdeprueferRepository $SchulfremdeprueferRepository)
+    public function injectEliteprueferRepository(EliteprueferRepository $EliteprueferRepository)
     {
-        $this->SchulfremdeprueferRepository = $SchulfremdeprueferRepository;
+        $this->EliteprueferRepository = $EliteprueferRepository;
     }	
 
     /**
@@ -123,23 +114,13 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     }
 
     /**
-     * Inject the abschluss repository
+     * Inject the fachelite repository
      *
-     * @param \MbFosbos\Bfbn\Domain\Repository\AbschlussRepository $AbschlussRepository
+     * @param \MbFosbos\Bfbn\Domain\Repository\FacheliteRepository $FacheliteRepository
      */
-    public function injectAbschlussRepository(AbschlussRepository $AbschlussRepository)
+    public function injectFacheliteRepository(FacheliteRepository $FacheliteRepository)
     {
-        $this->AbschlussRepository = $AbschlussRepository;
-    }	
-
-    /**
-     * Inject the fachkurz repository
-     *
-     * @param \MbFosbos\Bfbn\Domain\Repository\FachkurzRepository $FachkurzRepository
-     */
-    public function injectFachkurzRepository(FachkurzRepository $FachkurzRepository)
-    {
-        $this->FachkurzRepository = $FachkurzRepository;
+        $this->FacheliteRepository = $FacheliteRepository;
     }	
 
     /**
@@ -161,17 +142,16 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     {
         $this->AccessControlService = $AccessControlService;
     }
-
 	
     /**
      * action show
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer
+     * @param \MbFosbos\Bfbn\Domain\Model\Elitepruefer $Elitepruefer
      * @return void
      */
-    public function showAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer): ResponseInterface
+    public function showAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer): ResponseInterface
     {
-        $this->view->assign('Schulfremdepruefer', $schulfremdepruefer);
+        $this->view->assign('Elitepruefer', $elitepruefer);
 		return $this->htmlResponse($this->view->render());
     }
 	
@@ -180,19 +160,20 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
      * 
      * @return void
      */
-    public function listAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremdepruefer=null): ResponseInterface
+    public function listAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer=null): ResponseInterface
 	{
-        if (is_null($schulfremdepruefer)) {
+        if (is_null($elitepruefer)) {
 			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 				$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 				if (!is_null($gesuchteinstitution)) {					
 					if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
+
 						$demand = $this->AbfrageDemandFactory->createDemandObject($gesuchteinstitution);
-						$alleschulfremdenpruefer = $this->SchulfremdeprueferRepository->findDemanded($demand);
+						$alleelitepruefer = $this->EliteprueferRepository->findDemanded($demand);
 						$whichTermin = $this->settings['termin'];
 						$this->view->assign('termin', $whichtermin ?? 0);						
-						$this->view->assign('alleschulfremdenpruefer', $alleschulfremdenpruefer);
+						$this->view->assign('alleelitepruefer', $alleelitepruefer);
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					}
@@ -206,7 +187,7 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
         }
     }
 	
-    public function editAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface	
+    public function editAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer): ResponseInterface	
 	{
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -216,12 +197,10 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
-					$auswahlabschluss = $this->AbschlussRepository->findAll();
-					$auswahlfach = $this->FachkurzRepository->findAll();
-					$this->view->assign('schulfremderpruefer', $schulfremderpruefer);
+					$auswahlfach = $this->FacheliteRepository->findAll();
+					$this->view->assign('elitepruefer', $elitepruefer);
 					$this->view->assign('institution', $gesuchteinstitution);
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
-					$this->view->assign('auswahlabschluss', $auswahlabschluss);
 					$this->view->assign('auswahlfach', $auswahlfach);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -237,26 +216,24 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	
     /**
      * action new
-	 *	 
-     * @param \MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
- 	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $schulfremderpruefer
+	 *
+     * @param \MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer
+ 	 * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation $elitepruefer
 	 *	
      * @return string
      */
-    public function newAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer = NULL): ResponseInterface
+    public function newAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer = NULL): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
-					$auswahlabschluss = $this->AbschlussRepository->findAll();					
-					$auswahlfach = $this->FachkurzRepository->findAll();
-					$this->view->assign('schulfremderpruefer', $schulfremderpruefer ?? NULL);
+					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();				
+					$auswahlfach = $this->FacheliteRepository->findAll();
+					$this->view->assign('elitepruefer', $elitepruefer ?? NULL);
 					$this->view->assign('institution', $gesuchteinstitution);
-					$this->view->assign('auswahlfach', $auswahlfach);
-					$this->view->assign('auswahlabschluss', $auswahlabschluss);					
+					$this->view->assign('auswahlfach', $auswahlfach);				
 					$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
@@ -273,11 +250,11 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     /**
      * action create
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
+     * @param \MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer
 	 * 
      * @return void
      */
-    public function createAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface
+    public function createAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer): ResponseInterface
     {
 		
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
@@ -286,8 +263,8 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde erfolgreich angelegt'); 					 						
-					$this->SchulfremdeprueferRepository->add($schulfremderpruefer);
-					return $this->redirect('list','Schulfremdepruefer',NULL);
+					$this->EliteprueferRepository->add($elitepruefer);
+					return $this->redirect('list','Elitepruefer',NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
@@ -306,18 +283,18 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     /**
      * action update
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
+     * @param \MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer
      * @return void
      */
-    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface
+    public function updateAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
-				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
-					$this->SchulfremdeprueferRepository->update($schulfremderpruefer);
-					return $this->redirect('list','Schulfremdepruefer', NULL);
+				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) { 					
+					$this->EliteprueferRepository->update($elitepruefer);
+					return $this->redirect('list','Elitepruefer', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
@@ -335,10 +312,10 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
     /**
      * action delete
      * 
-     * @param \MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer
+     * @param \MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer
      * @return void
      */
-    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Schulfremdepruefer $schulfremderpruefer): ResponseInterface
+    public function deleteAction(\MbFosbos\Bfbn\Domain\Model\Elitepruefer $elitepruefer): ResponseInterface
     {
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
 			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
@@ -346,8 +323,8 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$this->addFlashMessage('Die Person wurde gelöscht');
-					$this->SchulfremdeprueferRepository->remove($schulfremderpruefer);
-					return $this->redirect('list','Schulfremdepruefer', NULL);
+					$this->EliteprueferRepository->remove($elitepruefer);
+					return $this->redirect('list','Elitepruefer', NULL);
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					return $this->htmlResponse();
@@ -369,18 +346,19 @@ class SchulfremdeprueferController extends \TYPO3\CMS\Extbase\Mvc\Controller\Act
 	*/
 	public function initializeCreateAction() 
 	{
-		if ($this->arguments->hasArgument('schulfremderpruefer')) {			
+		if ($this->arguments->hasArgument('elitepruefer')) {			
 
-			$postData = $this->request->getArgument('schulfremderpruefer') ;
-			/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($postData); */
-			if (isset($postData['schulfremderpruefer'])) {
-				if(is_null($postData['schulfremderpruefer']['fach2'])) {
-					$this->arguments->getArgument('schulfremderpruefer')->getPropertyMappingConfiguration()->skipProperties('fach2');
+			$postData = $this->request->getArgument('elitepruefer') ;
+
+			if (isset($postData['elitepruefer'])) {
+				if(is_null($postData['elitepruefer']['fach2'])) {
+					$this->arguments->getArgument('elitepruefer')->getPropertyMappingConfiguration()->skipProperties('fach2');
 				}
-				if(is_null($postData['schulfremderpruefer']['fach3'])) {
-					$this->arguments->getArgument('schulfremderpruefer')->getPropertyMappingConfiguration()->skipProperties('fach3');
+				if(is_null($postData['elitepruefer']['fach3'])) {
+					$this->arguments->getArgument('elitepruefer')->getPropertyMappingConfiguration()->skipProperties('fach3');
 				}
 			}
 		}
-	}	
+	}
+	
 }

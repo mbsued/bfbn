@@ -40,7 +40,10 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    ['', 0],
+                    0 => [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
                 'foreign_table_where' => 'AND {#tx_bfbn_domain_model_auswahljanein}.{#pid}=###CURRENT_PID### AND {#tx_bfbn_domain_model_auswahljanein}.{#sys_language_uid} IN (-1,0)',

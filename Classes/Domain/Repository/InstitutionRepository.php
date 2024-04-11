@@ -110,7 +110,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		{
             $sprachenConstraints = array();
 			if (!is_array($sprachen)) {
-				$sprachen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $sprachen, TRUE);
+				$sprachen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', (string)$sprachen, TRUE);
 			}           
             foreach ($sprachen as $sprache) 
 			{

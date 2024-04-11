@@ -8,7 +8,7 @@ namespace MbFosbos\Bfbn\Controller;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024
  *
  ***/
  
@@ -32,7 +32,6 @@ use MbFosbos\Bfbn\Domain\Repository\SpracheRepository;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionstatusRepository;
 use MbFosbos\Bfbn\Domain\Repository\VorkursartRepository;
 use MbFosbos\Bfbn\Domain\Repository\VorkurstagRepository;
-use MbFosbos\Bfbn\Domain\Repository\AuswahljaneinRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
 use MbFosbos\Bfbn\Service\GeocodeService;
 use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
@@ -172,14 +171,6 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     
 		private $VorkurstagRepository = null;
-	
-    /**
-     * AuswahljaneinRepository
-     * 
-     * @var \MbFosbos\Bfbn\Domain\Repository\AuswahljaneinRepository
-     */
-    
-	private $AuswahljaneinRepository = null;	
 	
 	/**
      * UserRepository
@@ -377,16 +368,6 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     {
         $this->VorkurstagRepository = $VorkurstagRepository;
     }	
-
-    /**
-     * Inject the auswahljanein repository
-     *
-     * @param \MbFosbos\Bfbn\Domain\Repository\AuswahljaneinRepository $AuswahljaneinRepository
-     */
-    public function injectAuswahljaneinRepository(AuswahljaneinRepository $AuswahljaneinRepository)
-    {
-        $this->AuswahljaneinRepository = $AuswahljaneinRepository;
-    }
 
     /**
      * Inject the frontenduser repository
@@ -633,7 +614,6 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$auswahlvorkursart = $this->VorkursartRepository->findAll();
 		$auswahlvorkurstag = $this->VorkurstagRepository->findAll();
 		$auswahlsprachenintw = $this->SpracheintwRepository->findAll();
-		$auswahljanein = $this->AuswahljaneinRepository->findAll();
 		
         $this->view->assign('ausbabufos', $ausbabufos); 
         $this->view->assign('ausbgstfos', $ausbgstfos);
@@ -659,7 +639,6 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$this->view->assign('auswahlgeschlecht', $auswahlgeschlecht);
 		$this->view->assign('auswahlvorkursart', $auswahlvorkursart);
 		$this->view->assign('auswahlvorkurstag', $auswahlvorkurstag);
-		$this->view->assign('auswahljanein', $auswahljanein);		
   		
         $this->view->assign('institution', $institution);
 		return $this->htmlResponse($this->view->render());		
@@ -693,5 +672,31 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 			return $this->htmlResponse();
 		}        
     }
+	/**
+	* initializeCreateAction
+	* 
+	* @return void
+	*/
+	public function initializeCreateAction() 
+	{
+		if ($this->arguments->hasArgument('institution')) {			
 
+			$postData = $this->request->getArgument('institution') ;
+
+			if (isset($postData['institution'])) {
+				if(is_null($postData['institution']['vorkursartfos'])) {
+					$this->arguments->getArgument('institution')->getPropertyMappingConfiguration()->skipProperties('vorkursartfos');
+				}
+				if(is_null($postData['institution']['vorkurstagfos'])) {
+					$this->arguments->getArgument('institution')->getPropertyMappingConfiguration()->skipProperties('vorkurstagfos');
+				}
+				if(is_null($postData['institution']['vorkursartbos'])) {
+					$this->arguments->getArgument('institution')->getPropertyMappingConfiguration()->skipProperties('vorkursartbos');
+				}
+				if(is_null($postData['institution']['vorkurstagbos'])) {
+					$this->arguments->getArgument('institution')->getPropertyMappingConfiguration()->skipProperties('vorkurstagbos');
+				}				
+			}
+		}
+	}	
 }
