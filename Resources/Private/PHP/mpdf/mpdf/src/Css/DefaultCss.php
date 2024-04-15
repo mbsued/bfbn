@@ -163,8 +163,8 @@ class DefaultCss
 		],
 		'TABLE' => [
 			'MARGIN' => '0',
-			'BORDER-COLLAPSE' => 'collapse',
-			'BORDER-SPACING' => '0',
+			'BORDER-COLLAPSE' => 'separate',
+			'BORDER-SPACING' => '2px',
 			'EMPTY-CELLS' => 'show',
 			'LINE-HEIGHT' => '1.2',
 			'VERTICAL-ALIGN' => 'middle',

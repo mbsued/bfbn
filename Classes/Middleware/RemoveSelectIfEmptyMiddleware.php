@@ -63,38 +63,43 @@ class RemoveSelectIfEmptyMiddleware implements MiddlewareInterface
 			}			
         }
 		if (!is_null($requestBody) && array_key_exists('tx_bfbn_institutionedit',$requestBody)) {
-			if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos'])) {
-				if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos']['__identity'] === '') {
-					$requestBody = $request->getParsedBody();
-					unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos']);
-					$requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos'] ='';	
-					$request = $request->withParsedBody($requestBody);
+			/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($requestBody['tx_bfbn_institutionedit']['institution']); */
+			 if ($requestBody['tx_bfbn_institutionedit']['institution']['art']['__identity'] === '2' || $requestBody['tx_bfbn_institutionedit']['institution']['art']['__identity'] === '3') { 
+				if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos'])) {
+					if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos']['__identity'] === '') {
+						$requestBody = $request->getParsedBody();
+						unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos']);
+						$requestBody['tx_bfbn_institutionedit']['institution']['vorkursartfos'] ='';	
+						$request = $request->withParsedBody($requestBody);
+					}
 				}
-			}
-			if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos'])) {
-				if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos']['__identity'] === '') {
-					$requestBody = $request->getParsedBody();
-					unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos']);
-					$requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos'] ='';	
-					$request = $request->withParsedBody($requestBody);
+				if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos'])) {
+					if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos']['__identity'] === '') {
+						$requestBody = $request->getParsedBody();
+						unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos']);
+						$requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagfos'] ='';	
+						$request = $request->withParsedBody($requestBody);
+					}
 				}
-			}
-			if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos'])) {
-				if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos']['__identity'] === '') {
-					$requestBody = $request->getParsedBody();
-					unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos']);
-					$requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos'] ='';	
-					$request = $request->withParsedBody($requestBody);
+			} 
+			if ($requestBody['tx_bfbn_institutionedit']['institution']['art']['__identity'] === '2' || $requestBody['tx_bfbn_institutionedit']['institution']['art']['__identity'] === '4') { 
+				if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos'])) { 
+					if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos']['__identity'] === '') {
+						$requestBody = $request->getParsedBody();
+						unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos']);
+						$requestBody['tx_bfbn_institutionedit']['institution']['vorkursartbos'] ='';	
+						$request = $request->withParsedBody($requestBody);
+					}
 				}
-			}
-			if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos'])) {
-				if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos']['__identity'] === '') {
-					$requestBody = $request->getParsedBody();
-					unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos']);
-					$requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos'] ='';	
-					$request = $request->withParsedBody($requestBody);
+				if (!is_string($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos'])) {
+					if ($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos']['__identity'] === '') {
+						$requestBody = $request->getParsedBody();
+						unset($requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos']);
+						$requestBody['tx_bfbn_institutionedit']['institution']['vorkurstagbos'] ='';	
+						$request = $request->withParsedBody($requestBody);
+					}
 				}
-			}			
+			}  	
         }
         return $handler->handle($request);
     }

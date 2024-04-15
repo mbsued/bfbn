@@ -92,7 +92,9 @@ call_user_func(
 		// wizards
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
 			'mod {
-				wizards.newContentElement.wizardItems.plugins {
+				wizards.newContentElement.wizardItems.bfbn {
+					header = BFBN
+					after = common
 					elements {
 						institutionlist {
 							iconIdentifier = bfbnsvgicon
