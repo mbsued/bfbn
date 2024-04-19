@@ -4,7 +4,6 @@ namespace MbFosbos\Bfbn\Controller;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
-use MbFosbos\Bfbn\Utility\Page;
 use MbFosbos\Bfbn\Factory\PersonDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\PersonRepository;

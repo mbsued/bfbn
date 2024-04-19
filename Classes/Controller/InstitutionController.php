@@ -18,7 +18,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use MbFosbos\Bfbn\Factory\InstitutionDemandFactory;
 use MbFosbos\Bfbn\Factory\InstitutionAusbildungsrichtungDemandFactory;
 use MbFosbos\Bfbn\Factory\InstitutionSpracheDemandFactory;
-use MbFosbos\Bfbn\Utility\Page;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionAusbildungsrichtungRepository;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionSpracheRepository;

@@ -160,3 +160,15 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_elitepr
 	'bfbn_eliteprueferlist', 
 	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_eliteprueferlist.xml'	
 );
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
+	'NachterminList',
+	'Nachtermin',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_nachterminlist'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_nachterminlist'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_nachterminlist', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_nachterminlist.xml'	
+);

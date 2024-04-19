@@ -1,0 +1,175 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+  <f:asset.script identifier="vanilla_custom-script3">
+	document.getElementById('ergaenzungspruefung1').onclick = clickListenerErg1;
+    function clickListenerErg1(){
+      document.getElementById('ergsprache').style.visibility = 'visible';
+	  document.getElementById('sprache').setAttribute("required","");	  
+    }
+    document.getElementById('ergaenzungspruefung0').onclick = clickListenerErg0;
+    function clickListenerErg0(){
+      document.getElementById('ergsprache').style.visibility = 'hidden';
+	  document.getElementById('sprache').removeAttribute("required");
+	  document.getElementById('sprache').value="";  
+    }
+
+    var checkbox = document.getElementById('check_nachweis');
+
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+        document.getElementById('nachweis').value="1";
+      } else {
+        document.getElementById('nachweis').value="0";
+      }
+    }); 
+    document.getElementById('jahrgangsstufe').onchange = changeListener;
+    function changeListener() {
+      var value = this.value
+        if (value == "2") {
+          document.getElementById('ergcheck').style.visibility = 'hidden';
+          document.getElementById('erganzungspruefung0').setAttribute("checked","");
+        } else if (value == "3") {
+          document.getElementById('ergcheck').style.visibility = 'visible';
+          }
+      }    
+  </f:asset.script>
+  
+    <h1>Teilnehmerin bzw. Teilnehmer für Nachtermin - Neu</h1>
+
+    <f:flashMessages />
+
+    <f:render partial="FormErrors" />
+
+    <f:form action="create" name="nachtermin" object="{nachtermin}" >
+	
+		<div class="card mt-3">
+			<div class="card-header">Neue Teilnehmerin bzw. neuer Teilnehmer für Nachtermin für {institution.kurzbezeichnung} 
+			</div>
+			<div class="card-body">
+				<div class="row mb-3">				
+					<div class="form-group col-md-3">
+						<label for="vorname">Vorname</label>
+						<f:form.textfield class="form-control" property="vorname" value="{nachtermin.vorname}" required="true"/>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="nachname">Nachname</label>
+						<f:form.textfield class="form-control" property="nachname" value="{nachtermin.nachname}" required="true"/>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="geschlecht">Geschlecht</label>
+						<f:form.select class="form-control" property="geschlecht" value="{nachtermin.geschlecht}" options="{auswahlgeschlecht}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="geburtsdatum">Geburtsdatum</label>
+						<f:form.textfield class="form-control" type="date" property="geburtsdatum" value="{nachtermin.geburtsdatum}" required="true"/>
+					</div>                  
+				</div>
+				<div class="row mb-3">				
+					<div class="form-group col-md-6">
+						<label for="jahrgangsstufe">Jahrgangsstufe</label>
+						<f:form.select class="form-control" id="jahrgangsstufe" property="jahrgangsstufe" value="{nachtermin.jahrgangsstufe}" options="{auswahljahrgangsstufe}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="ausbildungsrichtung">Ausbildungsrichtung</label>
+						<f:form.select class="form-control" property="ausbildungsrichtung" value="{nachtermin.ausbildungsrichtung}" options="{auswahlausbildungsrichtung}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+					</div>					
+				</div>
+				<div class="row mb-3">
+                  <div class="col-md-3">
+                      <label for="deutsch">Deutsch</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="deutsch" id="deutsch1" value="1"/>
+                        <label class="form-check-label" for="deutsch1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="deutsch" id="deutsch0" value="0" checked="checked" />
+                        <label class="form-check-label" for="deutsch0">Nein</label>  
+                      </div>                   
+                  </div>
+                  <div class="col-md-3">
+                      <label for="englisch">Englisch</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="englisch" id="englisch1" value="1"/>
+                        <label class="form-check-label" for="englisch1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="englisch" id="englisch0" value="0" checked="checked" />
+                        <label class="form-check-label" for="englisch0">Nein</label>  
+                      </div>                  
+                  </div>
+                  <div class="col-md-3">
+                      <label for="mathematik">Mathematik</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="mathematik" id="mathematik1" value="1"/>
+                        <label class="form-check-label" for="mathematik1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="mathematik" id="mathematik0" value="0" checked="checked" />
+                        <label class="form-check-label" for="mathematik0">Nein</label>  
+                      </div>                          
+                  </div> 
+                  <div class="col-md-3">
+                      <label for="fach4">4. Fach</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="fach4" id="fach41" value="1"/>
+                        <label class="form-check-label" for="fach41">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="fach4" id="fach40" value="0" checked="checked" />
+                        <label class="form-check-label" for="fach40">Nein</label>  
+                      </div>                          
+                  </div>    					
+				</div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                      <label for="gruppenpruefung">Gruppenprüfung Englisch</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="gruppenpruefung" id="gruppenpruefung1" value="1"/>
+                        <label class="form-check-label" for="gruppenpruefung1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="gruppenpruefung" id="gruppenpruefung0" value="0" checked="checked" />
+                        <label class="form-check-label" for="gruppenpruefung0">Nein</label>  
+                      </div>                   
+                  </div>
+                  <div class="col-md-3" id="ergcheck">
+                      <label for="ergaenzungspruefung">Ergänzungsprüfung</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="ergaenzungspruefung" id="ergaenzungspruefung1" value="1"/>
+                        <label class="form-check-label" for="ergaenzungspruefung1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="ergaenzungspruefung" id="ergaenzungspruefung0" value="0" checked="checked" />
+                        <label class="form-check-label" for="ergaenzungspruefung0">Nein</label>  
+                      </div>                  
+                  </div>
+                  <div class="form-group col-md-3 id="ergsprache" style="visibility: hidden;">
+                      <label for="sprache">Sprache</label>
+                      <f:form.select class="form-control" id="sprache" property="sprache" value="{nachtermin.sprache}" options="{auswahlsprache}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue=""/>
+                  </div>                  
+                </div>
+                <div class="row mb-3">
+                  <div class=col-md-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="check_nachweis" required="true"/>
+                      <label class="form-check-label" for="check_nachweis">Nachweis für den Hinderungsgrund gem. § 36 FOBOSO i. V. m § 20 Abs. 2 BaySchO (i.d.R. ein schulärztliches Zeugnis) liegt vor.</label>
+                    </div>                 
+                  </div>
+                </div>
+			</div>
+		</div>
+		<div class="row mt-3 mb-3">
+			<div class="form-group col-md-12">
+				<div class="col-sm-10 col-sm-offset-2">
+                  	<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Speichern</f:form.button>
+					<f:form.hidden property="institution" value="{institution}" />
+                    <f:form.hidden id="nachweis" property="nachweis" value="0" />  
+                    <f:render partial="Abfragen/Ablageordner8" arguments="{institution:institution, settings:settings}" />                  
+				</div>
+			</div>
+		</div>
+    </f:form>
+</f:section>
+</html>

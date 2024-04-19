@@ -101,6 +101,16 @@ class RemoveSelectIfEmptyMiddleware implements MiddlewareInterface
 				}
 			}  	
         }
+        if (!is_null($requestBody) && array_key_exists('tx_bfbn_nachterminlist',$requestBody)) {
+			if (!is_string($requestBody['tx_bfbn_nachterminlist']['nachtermin']['sprache'])) {
+				if ($requestBody['tx_bfbn_nachterminlist']['nachtermin']['sprache']['__identity'] === '') {
+					$requestBody = $request->getParsedBody();
+					unset($requestBody['tx_bfbn_nachterminlist']['nachtermin']['sprache']);
+					$requestBody['tx_bfbn_nachterminlist']['nachtermin']['sprache'] ='';	
+					$request = $request->withParsedBody($requestBody);
+				}
+			}			
+        }		
         return $handler->handle($request);
     }
 }

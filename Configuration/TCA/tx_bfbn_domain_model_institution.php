@@ -287,100 +287,116 @@ return [
         'vorklassefos' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorklassefos',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+			'config' => [
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'vorklassebos' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorklassebos',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'vorkursfos' => [
             'exclude' => true,
 			'onChange' => 'reload',			
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursfos',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'vorkursbos' => [
             'exclude' => true,
 			'onChange' => 'reload',
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursbos',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'bosteilzeit' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bosteilzeit',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],		
         'dbfh' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.dbfh',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'profilinklusion' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.profilinklusion',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],
         'ivk' => [
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.ivk',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_bfbn_domain_model_auswahljanein',
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
                 'default' => 0,
-                'minitems' => 1,
-                'maxitems' => 1,
-            ]
+            ],
         ],		
         'regierungsbezirk' => [
             'exclude' => true,

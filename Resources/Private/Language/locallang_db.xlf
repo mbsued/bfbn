@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_db" date="2024-04-27T12:46:49Z" product-name="bfbn">
+	<file source-language="en" datatype="plaintext" original="EXT:bfbn/Resources/Private/Language/locallang_db" date="2024-04-15T14:00:00Z" product-name="bfbn">
 		<header/>
 		<body>
 			<trans-unit id="tx_bfbn_domain_model_institution" resname="tx_bfbn_domain_model_institution">
@@ -791,6 +791,66 @@
 			</trans-unit>				
 			<trans-unit id="tx_bfbn_domain_model_fortbildung.institution" resname="tx_bfbn_domain_model_fortbildung.institution">
 				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_statusnachtermin" resname="tx_bfbn_domain_model_statusnachtermin">
+				<source>Status der Nachterminmeldung</source>
+			</trans-unit>		
+			<trans-unit id="tx_bfbn_domain_model_statusnachtermin.fehlanzeige" resname="tx_bfbn_domain_model_statusnachtermin.fehlanzeige">
+				<source>Fehlanzeige</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_statusnachtermin.meldung" resname="tx_bfbn_domain_model_statusnachtermin.meldung">
+				<source>Meldung</source>
+			</trans-unit>		
+			<trans-unit id="tx_bfbn_domain_model_statusnachtermin.institution" resname="tx_bfbn_domain_model_statusnachtermin.institution">
+				<source>Institution</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin" resname="tx_bfbn_domain_model_nachtermin">
+				<source>Teilnehmer für Nachtermin</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.nachname" resname="tx_bfbn_domain_model_nachtermin.nachname">
+				<source>Nachname</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.vorname" resname="tx_bfbn_domain_model_nachtermin.vorname">
+				<source>Vorname</source>
+			</trans-unit>		
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.geschlecht" resname="tx_bfbn_domain_model_nachtermin.geschlecht">
+				<source>Geschlecht</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.geburtsdatum" resname="tx_bfbn_domain_model_nachtermin.geburtsdatum">
+				<source>Geburtsdatum</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.jahrgangsstufe" resname="tx_bfbn_domain_model_nachtermin.jahrgangsstufe">
+				<source>Jahrgangsstufe</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.ausbildungsrichtung" resname="tx_bfbn_domain_model_nachtermin.ausbildungsrichtung">
+				<source>Ausbildungsrichtung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.deutsch" resname="tx_bfbn_domain_model_nachtermin.deutsch">
+				<source>Deutsch</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.englisch" resname="tx_bfbn_domain_model_nachtermin.englisch">
+				<source>Englisch</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.mathematik" resname="tx_bfbn_domain_model_nachtermin.mathematik">
+				<source>Mathematik</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.fach4" resname="tx_bfbn_domain_model_nachtermin.fach4">
+				<source>4.Fach</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.gruppenpruefung" resname="tx_bfbn_domain_model_nachtermin.gruppenpruefung">
+				<source>Englische Gruppenprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.ergaenzungspruefung" resname="tx_bfbn_domain_model_nachtermin.ergaenzungspruefung">
+				<source>Ergänzungsprüfung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.sprache" resname="tx_bfbn_domain_model_nachtermin.sprache">
+				<source>Ergänzungsprüfung Sprache</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.nachweis" resname="tx_bfbn_domain_model_nachtermin.nachweis">
+				<source>Nachweise liegen vor</source>
+			</trans-unit>			
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.institution" resname="tx_bfbn_domain_model_nachtermin.institution">
+				<source>Institution</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_unfallstatistik" resname="tx_bfbn_domain_model_unfallstatistik">
 				<source>Unfallstatistik</source>
@@ -917,6 +977,12 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_elitepruefer_list.description">
 				<source>Online-Abfrage Eliteprüfer</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_nachtermin_list.name">
+				<source>BFBN Abfrage Nachtermin</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_nachtermin_list.description">
+				<source>Online-Abfrage Teilnehmer Nachtermin</source>
 			</trans-unit>			
 		</body>
 	</file>

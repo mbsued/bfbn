@@ -180,6 +180,9 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			if ($vorart == 2 && $demand->getSchulart() == 2){
 				$constraints[] = $query -> equals('vorklassebos','1');
 			}
+			if ($vorart == 3 && $demand->getSchulart() == 1){
+				$constraints[] = $query -> equals('ivk','1');
+			}			
         }
 		
 		$institution = $demand -> getInstitution();

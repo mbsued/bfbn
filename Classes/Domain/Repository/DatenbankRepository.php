@@ -62,4 +62,41 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$result =  $queryBuilder->execute()->fetchAll();
 		return $result;
     }
+
+    /**
+     * @param int $fehlanzeige
+     * @param int $meldung
+     * @param int $institution
+	 */	
+	public function updateStatusNachtermin(int $institution, int $fehlanzeige, int $meldung)
+	{
+		$timestamp = time();
+		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_statusnachtermin');
+		$queryBuilder	
+			->update('tx_bfbn_domain_model_statusnachtermin','t')
+			->where($queryBuilder->expr()->eq('t.institution', $queryBuilder->createNamedParameter($institution, \PDO::PARAM_INT)))
+			->set('t.fehlanzeige', $fehlanzeige)
+			->set('t.meldung', $meldung)
+			->set('t.tstamp', $timestamp)
+			->executeStatement();
+	}
+	
+    /**
+     * @param int $institution
+	 */		
+	
+	public function countNachtermin(int $institution)
+	{
+		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_nachtermin');
+		$count = $queryBuilder
+			->count('uid')
+			->from('tx_bfbn_domain_model_nachtermin')
+			->where(
+				$queryBuilder->expr()->eq('institution', $queryBuilder->createNamedParameter($institution, \PDO::PARAM_INT))
+				)
+			->executeQuery()
+			->fetchOne();
+					
+		return $count;
+	}	
 }

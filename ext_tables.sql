@@ -198,11 +198,6 @@ CREATE TABLE tx_bfbn_domain_model_abschluss (
 	bezeichnung varchar(255) DEFAULT '' NOT NULL
 
 );
-CREATE TABLE tx_bfbn_domain_model_auswahljanein (
-
-	bezeichnung varchar(255) DEFAULT '' NOT NULL
-
-);
 
 CREATE TABLE tx_bfbn_domain_model_meldungart (
 
@@ -361,6 +356,36 @@ CREATE TABLE tx_bfbn_domain_model_fortbildung (
 	zielgruppe varchar(255)  DEFAULT '' NOT NULL,	
     inhalt text  NOT NULL,
     referent varchar(255)  DEFAULT '' NOT NULL,	
+	institution int(11) unsigned DEFAULT '0' NOT NULL,	
+
+);
+
+CREATE TABLE tx_bfbn_domain_model_statusnachtermin (
+
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	fehlanzeige smallint(5) unsigned DEFAULT '0' NOT NULL,
+	meldung smallint(5) unsigned DEFAULT '0' NOT NULL,	
+	institution int(11) unsigned DEFAULT '0' NOT NULL,	
+
+);
+
+CREATE TABLE tx_bfbn_domain_model_nachtermin (
+
+	nachname varchar(255) DEFAULT '' NOT NULL,
+	vorname varchar(255) DEFAULT '' NOT NULL,
+	geschlecht int(11) unsigned DEFAULT '0' NOT NULL,
+	geburtdatum int(11) DEFAULT '0' NOT NULL,
+	jahrgangsstufe int(11) unsigned DEFAULT '0' NOT NULL,
+	ausbildungsrichtung int(11) unsigned DEFAULT '0' NOT NULL,
+	deutsch smallint(5) unsigned DEFAULT '0' NOT NULL,
+	englisch smallint(5) unsigned DEFAULT '0' NOT NULL,
+	mathematik smallint(5) unsigned DEFAULT '0' NOT NULL,
+	fach4 smallint(5) unsigned DEFAULT '0' NOT NULL,
+	gruppenpruefung smallint(5) unsigned DEFAULT '0' NOT NULL,
+	ergaenzungspruefung smallint(5) unsigned DEFAULT '0' NOT NULL,	
+	sprache int(11) unsigned DEFAULT '0' NOT NULL,
+	nachweis smallint(5) unsigned DEFAULT '0' NOT NULL,	
 	institution int(11) unsigned DEFAULT '0' NOT NULL,	
 
 );
