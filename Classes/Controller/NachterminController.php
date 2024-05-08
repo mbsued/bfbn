@@ -320,7 +320,7 @@ class NachterminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();
-					$auswahljahrgangsstufe = $this->JahrgangsstufeRepository->findSprachensuche();
+					$auswahljahrgangsstufe = $this->JahrgangsstufeRepository->findNachtermin();
 					$auswahlausbildungsrichtung = $this->AusbildungsrichtungRepository->findAll();
 					$auswahlsprache = $this->SpracheRepository->findAll();
 					$this->view->assign('nachtermin', $nachtermin);
@@ -357,7 +357,7 @@ class NachterminController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionContr
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
 					$auswahlgeschlecht = $this->GeschlechtRepository->findAll();				
-					$auswahljahrgangsstufe = $this->JahrgangsstufeRepository->findSprachensuche();
+					$auswahljahrgangsstufe = $this->JahrgangsstufeRepository->findNachtermin();
 					$auswahlausbildungsrichtung = $this->AusbildungsrichtungRepository->findAll();
 					$auswahlsprache = $this->SpracheRepository->findAll();
 					$this->view->assign('nachtermin', $nachtermin ?? NULL);

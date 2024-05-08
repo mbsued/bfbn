@@ -82,6 +82,13 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var integer
      */
     protected $mathematik = false;
+	
+    /**
+     * cas
+     * 
+     * @var integer
+     */
+    protected $cas = false;
 
     /**
      * fach4
@@ -314,6 +321,27 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setMathematik(int $mathematik)
     {
         $this->mathematik = $mathematik;
+    }
+
+    /**
+     * Returns cas
+     * 
+     * @return integer $cas
+     */
+    public function getCas()
+    {
+        return $this->cas;
+    }
+
+    /**
+     * Sets cas
+     * 
+     * @param integer $cas
+     * @return void
+     */
+    public function setCas(int $cas)
+    {
+        $this->cas = $cas;
     }
 
     /**

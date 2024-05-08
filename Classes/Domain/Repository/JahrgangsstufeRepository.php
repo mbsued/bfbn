@@ -66,5 +66,21 @@ class JahrgangsstufeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		\TYPO3\CMS\Core\Utility\DebugUtility::debug($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL()); **/	
         
 		return $query->execute();		
+    }
+	
+	public function findNachtermin()
+    {
+		$uidlist = array(2,3,4);
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		$query -> matching(
+			$query -> in('uid',$uidlist)
+        );
+
+		/** $queryParser = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser::class);
+
+		\TYPO3\CMS\Core\Utility\DebugUtility::debug($queryParser->convertQueryToDoctrineQueryBuilder($query)->getSQL()); **/	
+        
+		return $query->execute();		
     }	
 }

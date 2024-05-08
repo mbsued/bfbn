@@ -381,6 +381,7 @@ CREATE TABLE tx_bfbn_domain_model_nachtermin (
 	deutsch smallint(5) unsigned DEFAULT '0' NOT NULL,
 	englisch smallint(5) unsigned DEFAULT '0' NOT NULL,
 	mathematik smallint(5) unsigned DEFAULT '0' NOT NULL,
+	cas smallint(5) unsigned DEFAULT '0' NOT NULL,
 	fach4 smallint(5) unsigned DEFAULT '0' NOT NULL,
 	gruppenpruefung smallint(5) unsigned DEFAULT '0' NOT NULL,
 	ergaenzungspruefung smallint(5) unsigned DEFAULT '0' NOT NULL,	

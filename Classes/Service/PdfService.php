@@ -41,7 +41,9 @@ class PdfService
         }
 
         $mpdf = new \Mpdf\Mpdf(['fontDir' => ExtensionManagementUtility::extPath('bfbn') . 'Resources/Public/Fonts',]);
-		$mpdf->SetDocTemplate(\nn\t3::File()->absPath($pdfFile),true);	
+		 
+		$template = \nn\t3::File()->absPath(ltrim($pdfFile,'/'));
+		$mpdf->SetDocTemplate($template,true);	
 		$htmlParsed = $this->parse($htmlFile, $values);
 		$mpdf->WriteHTML($htmlParsed);
         return $mpdf;

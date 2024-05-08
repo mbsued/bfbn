@@ -486,12 +486,10 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 		$this->view->assign('art', $whichArt);
 		if ($whichArt == 2) {
 			$auswahlSchulart = $this->SchulartRepository->findAll();
-			$auswahlJahrgangsstufe = $this->JahrgangsstufeRepository->findAll();
 			$auswahlAusbildungsrichtung = $this->AusbildungsrichtungRepository->findAll();
 			$auswahlRegierungsbezirk = $this->RegierungsbezirkRepository->findAll();
 			$auswahlStatus = $this->InstitutionstatusRepository->findAll();
 			$this->view->assign('auswahlschulart', $auswahlSchulart); 
-			$this->view->assign('auswahljahrgangsstufe', $auswahlJahrgangsstufe);
 			$this->view->assign('auswahlausbildungsrichtung', $auswahlAusbildungsrichtung);
 			$this->view->assign('regierungsbezirke', $auswahlRegierungsbezirk);
 			$this->view->assign('stati', $auswahlStatus);

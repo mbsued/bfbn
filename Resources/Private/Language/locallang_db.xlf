@@ -834,6 +834,9 @@
 			<trans-unit id="tx_bfbn_domain_model_nachtermin.mathematik" resname="tx_bfbn_domain_model_nachtermin.mathematik">
 				<source>Mathematik</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.cas" resname="tx_bfbn_domain_model_nachtermin.cas">
+				<source>CAS</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_nachtermin.fach4" resname="tx_bfbn_domain_model_nachtermin.fach4">
 				<source>4.Fach</source>
 			</trans-unit>

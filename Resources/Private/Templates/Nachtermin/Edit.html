@@ -23,11 +23,71 @@
         if (value == "2") {
           document.getElementById('ergcheck').style.visibility = 'hidden';
           document.getElementById('ergaenzungspruefung0').setAttribute("checked","");
+          document.getElementById('ausbildungsrichtung').value=""
+          var value = this.value
+            if (value == "2") {
+              var op = document.getElementById('ausbildungsrichtung').getElementsByTagName('option');
+              for (var i = 0; i < op.length; i++) {                    
+                op[i].hidden = false;
+              }
+            }    
         } else if (value == "3") {
           document.getElementById('ergcheck').style.visibility = 'visible';
-          document.getElementById('ergaenzungspruefung0').setAttribute("checked","");    
-          }
+          document.getElementById('ausbildungsrichtung').value=""
+          var value = this.value
+            if (value == "3") {
+              var op = document.getElementById('ausbildungsrichtung').getElementsByTagName('option');
+              for (var i = 0; i < op.length; i++) {                    
+                op[i].hidden = false;
+              }
+            }                 
+          } else if (value =="4") {
+            document.getElementById('ergcheck').style.visibility = 'hidden';
+            document.getElementById('ergaenzungspruefung0').setAttribute("checked","");
+            document.getElementById('ausbildungsrichtung').value=""
+            var value = this.value
+              if (value == "4") {
+                var op = document.getElementById('ausbildungsrichtung').getElementsByTagName('option');
+                for (var i = 0; i < op.length; i++) {                    
+                  if (op[i].value > "5") {
+                    op[i].hidden = false;
+                  } else if (op[i].value < "6") {
+                    op[i].hidden = true;
+                  }
+                }
+              }
+            }   
+        }
+    document.getElementById('ausbildungsrichtung').onchange = changeListenerAusb;
+    function changeListenerAusb() {
+      var ausb = this.value
+      var mathe = document.getElementById('mathematik1').checked              
+      if (ausb != "6" && mathe) {
+          document.getElementById('cas1').checked = false;          
+          document.getElementById('cas0').checked = true;          
+          document.getElementById('cas').style.visibility = 'hidden';                    
+      } else if (ausb == "6" && mathe) {        
+          document.getElementById('cas1').checked= false;          
+          document.getElementById('cas0').checked = true;
+          document.getElementById('cas').style.visibility = 'visible';          
+      }             
+    }
+	document.getElementById('mathematik1').onclick = clickListenerMathe1;
+    function clickListenerMathe1(){
+      var ausb = document.getElementById('ausbildungsrichtung').value
+      if (ausb == "6") {
+          document.getElementById('cas').style.visibility = 'visible';                    
+      } else {
+          document.getElementById('cas').style.visibility = 'hidden';                     
+      }	  
+    }
+    document.getElementById('mathematik0').onclick = clickListenerMathe0;
+    function clickListenerMathe0(){          
+          document.getElementById('cas1').removeAttribute("checked");
+          document.getElementById('cas0').setAttribute("checked","");          
+          document.getElementById('cas').style.visibility = 'hidden';                
     } 
+                    
   </f:asset.script>  
     <h1>Teilnehmerinnen und Teilnehmer für Nachtermin - Ändern</h1>
 
@@ -66,7 +126,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label for="ausbildungsrichtung">Ausbildungsrichtung</label>
-						<f:form.select class="form-control" property="ausbildungsrichtung" value="{nachtermin.ausbildungsrichtung}" options="{auswahlausbildungsrichtung}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
+						<f:form.select class="form-control" id="ausbildungsrichtung" property="ausbildungsrichtung" value="{nachtermin.ausbildungsrichtung}" options="{auswahlausbildungsrichtung}" optionValueField="uid" optionLabelField="bezeichnung" prependOptionLabel="bitte auswählen...." prependOptionValue="" required="true"/>
 					</div>					
 				</div>
 				<div class="row mb-3">
@@ -92,17 +152,28 @@
                         <label class="form-check-label" for="englisch0">Nein</label>  
                       </div>                  
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                       <label for="mathematik">Mathematik</label>
                       <div class="form-check">
                         <f:form.radio class="form-check-input" property="mathematik" id="mathematik1" value="1"/>
                         <label class="form-check-label" for="mathematik1">Ja</label>
                       </div>
                       <div class="form-check">
-                        <f:form.radio class="form-check-input" property="mathematik" id="mathematik0" value="0"  />
+                        <f:form.radio class="form-check-input" property="mathematik" id="mathematik0" value="0"/>
                         <label class="form-check-label" for="mathematik0">Nein</label>  
                       </div>                          
-                  </div> 
+                  </div>
+                  <div class="col-md-1" id="cas" {f:if(condition:'{nachtermin.ausbildungsrichtung.uid} == 6 && {nachtermin.mathematik}', then:'style="visibility: visible;"', else:'style="visibility: hidden;"' )}>
+                      <label for="cas">CAS</label>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="cas" id="cas1" value="1"/>
+                        <label class="form-check-label" for="cas1">Ja</label>
+                      </div>
+                      <div class="form-check">
+                        <f:form.radio class="form-check-input" property="cas" id="cas0" value="0"/>
+                        <label class="form-check-label" for="cas0">Nein</label>  
+                      </div>                          
+                  </div>                  
                   <div class="col-md-3">
                       <label for="fach4">4. Fach</label>
                       <div class="form-check">
