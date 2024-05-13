@@ -150,6 +150,7 @@ return [
         ],
         'ausbildungsrichtung' => [
             'exclude' => true,
+			'onChange' => 'reload',			
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.ausbildungsrichtung',
             'config' => [
                 'type' => 'select',
