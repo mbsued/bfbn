@@ -986,6 +986,12 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_nachtermin_list.description">
 				<source>Online-Abfrage Teilnehmer Nachtermin</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_nachtermin_status.name">
+				<source>BFBN Nachtermin Status</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_nachtermin_status.description">
+				<source>Online-Auskunft Abfrage Nachtermin</source>
 			</trans-unit>			
 		</body>
 	</file>

@@ -94,6 +94,12 @@ call_user_func(
             'NachterminList',
 			[\MbFosbos\Bfbn\Controller\NachterminController::class => 'list,statusfehlanzeige,show,edit,update,new,create,delete'],
 			[\MbFosbos\Bfbn\Controller\NachterminController::class => 'list,statusfehlanzeige,show,edit,update,new,create,delete']			
+        );
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Bfbn',
+            'NachterminStatus',
+			[\MbFosbos\Bfbn\Controller\NachterminStatusController::class => 'liststatus'],
+			[\MbFosbos\Bfbn\Controller\NachterminStatusController::class => 'liststatus']			
         );		
 		// wizards
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
@@ -217,6 +223,15 @@ call_user_func(
 							tt_content_defValues {
 								CType = list
 								list_type = bfbn_nachterminlist
+							}
+						}
+						nachterminstatus {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_status.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_status.description
+							tt_content_defValues {
+								CType = list
+								list_type = bfbn_nachterminstatus
 							}
 						}						
 					}

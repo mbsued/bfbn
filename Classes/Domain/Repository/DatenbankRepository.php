@@ -1,6 +1,7 @@
 <?php
 namespace MbFosbos\Bfbn\Domain\Repository;
 
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
@@ -98,5 +99,50 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			->fetchOne();
 					
 		return $count;
-	}	
+	}
+	
+    /**
+     * @param int $art
+     * @param int $bezirk	 
+	 */		
+	
+	public function findNachterminStatus(int $art,int $bezirk)
+	{
+		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_statusnachtermin');
+		$whereExpressions = [
+			$queryBuilder->expr()->eq('tx_bfbn_domain_model_institution.mbbezirk', $queryBuilder->createNamedParameter($bezirk, Connection::PARAM_INT)),
+			$queryBuilder->expr()->lt('tx_bfbn_domain_model_institution.status', $queryBuilder->createNamedParameter(4, Connection::PARAM_INT))
+		];
+		if ($art == 1) {
+			$andwhereExpressions = [
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_statusnachtermin.meldung', $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)),
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_statusnachtermin.fehlanzeige', $queryBuilder->createNamedParameter(0, Connection::PARAM_INT))		
+			];
+		}
+		if ($art == 2) {
+			$andwhereExpressions = [
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_statusnachtermin.meldung', $queryBuilder->createNamedParameter(1, Connection::PARAM_INT))		
+			];
+		}
+		if ($art == 3) {
+			$andwhereExpressions = [
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_statusnachtermin.fehlanzeige', $queryBuilder->createNamedParameter(1, Connection::PARAM_INT))		
+			];
+		}		
+		$result = $queryBuilder
+			->select('tx_bfbn_domain_model_institution.nummer','tx_bfbn_domain_model_institution.kurzbezeichnung','tx_bfbn_domain_model_statusnachtermin.tstamp')
+			->from('tx_bfbn_domain_model_statusnachtermin')
+			->join(
+				'tx_bfbn_domain_model_statusnachtermin',
+				'tx_bfbn_domain_model_institution',
+				'tx_bfbn_domain_model_institution',
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_institution.uid', $queryBuilder->quoteIdentifier('tx_bfbn_domain_model_statusnachtermin.institution'))
+			)
+			->where(...$whereExpressions)
+			->andWhere(...$andwhereExpressions)
+			->orderBy('tx_bfbn_domain_model_institution.nummer')
+			->executeQuery();
+					
+		return $result->fetchAllAssociative();
+	}		
 }

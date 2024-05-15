@@ -172,3 +172,15 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_nachter
 	'bfbn_nachterminlist', 
 	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_nachterminlist.xml'	
 );
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
+	'NachterminStatus',
+	'Nachtermin Status',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_nachterminstatus'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_nachterminstatus'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_nachterminstatus', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_nachterminstatus.xml'	
+);
