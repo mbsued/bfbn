@@ -21,7 +21,7 @@ use Psr\Http\Message\ResponseInterface;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024 
  *
  ***/
 /**
@@ -500,7 +500,8 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		$personen = $this->PersonRepository->findDemanded($demand);		
 		$this->view->assign('personen', $personen);
 		if ($whichart == 1) {
-			$this->view->assign('institution', $suche->getInstitution());	
+			$gesuchteinstitution = $this->InstitutionRepository->findByUid($suche->getInstitution());
+			$this->view->assign('institution', $gesuchteinstitution);	
 		}		
 		if ($whichart == 2) {
 			$funktionen = $suche->getFunktionen();
@@ -512,7 +513,8 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			$this->view->assign('gesuchtefunktionen', $gesuchtefunktionen);	
 		}
 		if ($whichart == 3) {
-			$this->view->assign('institution', $suche->getInstitution());			
+			$gesuchteinstitution = $this->InstitutionRepository->findByUid($suche->getInstitution());
+			$this->view->assign('institution', $gesuchteinstitution);			
 			$funktionen = $suche->getFunktionen();
 			foreach ($funktionen as $funktion)
 			{
@@ -528,14 +530,13 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 		return $this->htmlResponse($this->view->render());
     }
  
- /**
+	/**
      * action export
      * 
 	 * @param array $personen
-	 * @param array $settings
      * @return void
      */
-    public function exportAction(array $personen, array $settings): ResponseInterface	
+    public function exportAction(array $personen): ResponseInterface	
 	{
 
 		if (!is_null($personen)) {
@@ -591,6 +592,7 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			->withExtensionName('bfbn'); 
 	}
 
+	
 	public function initializeCreateftAction() {
         if ($this->arguments->hasArgument('person')) {
             $this->arguments->getArgument('person')->getPropertyMappingConfiguration()->forProperty('bestelltab')->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\DateTimeConverter',\TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT,'Y-m-d');
