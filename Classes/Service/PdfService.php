@@ -48,6 +48,7 @@ class PdfService
 		$mpdf->WriteHTML($htmlParsed);
         return $mpdf;
     }
+	
 
     /**
      * @param $htmlFile

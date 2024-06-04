@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+						
+  <h1>Fortbildungsvorschlag Einzelansicht</h1>
+
+  <f:flashMessages />
+	
+	<f:if condition="{fortbildung}">
+		<f:then>
+			<div class="mt-3 mb-3">
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border border-bottom-0 border-end-0 border-primary bg-primary-subtle">Vorschlag von</div>
+					<div class="col-md-9 col-12 p-2 border border-bottom-0 border-primary">{fortbildung.kurzbezeichnung} ({fortbildung.nummer})</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border border-bottom-0 border-end-0 border-primary bg-primary-subtle">Vorschlag für</div>
+					<div class="col-md-9 col-12 p-2 border-bottom-0 border border-primary">{fortbildung.bezeichnung}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border-bottom-0 border-end-0 border border-primary bg-primary-subtle">Thema</div>
+					<div class="col-md-9 col-12 p-2 border-bottom-0 border border-primary">{fortbildung.thema}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border-bottom-0 border-end-0 border border-primary bg-primary-subtle">Fach/Fächer oder fachübergreifend</div>
+					<div class="col-md-9 col-12 p-2 border-bottom-0 border border-primary">{fortbildung.fach}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border-bottom-0 border-end-0 border border-primary bg-primary-subtle">Zielgruppe</div>
+					<div class="col-md-9 col-12 p-2 border-bottom-0 border border-primary">{fortbildung.zielgruppe}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border-bottom-0 border-end-0 border border-primary bg-primary-subtle">Inhalt/Zweck</div>
+					<div class="col-md-9 col-12 p-2 border-bottom-0 border border-primary">{fortbildung.inhalt}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-12 p-2 border border-end-0 border-primary bg-primary-subtle">Referent/Referenten</div>
+					<div class="col-md-9 col-12 p-2 border border-primary">{fortbildung.referent}</div>
+				</div>
+			</div>
+			<div class="mb-3">
+				<f:link.file class="btn btn-primary" file="{datei}" download="true" filename="fortbildungsvorschlag.pdf" target ="_blank" title="Fortbildungsvorschlag als pdf-Datei herunterladen"><i class="fas fa-file-pdf me-2"></i>Fortbildungsvorschlag herunterladen</f:link.file>
+			</div>
+		</f:then>
+	</f:if>			
+
+</f:section>
+</html>

@@ -39,8 +39,8 @@ class FortbildungRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         
     protected function createConstraintsFromDemand(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query, $demand)
 	{
-        $constraints = array();    
-		
+        $constraints = array();
+	
 		$institution = $demand -> getInstitution();
         if ((!empty($institution))) 
 		{
@@ -53,5 +53,5 @@ class FortbildungRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	{
         $orderings = array('fach' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,'thema' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
         return $orderings;
-    }	
+    }
 }

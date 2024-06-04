@@ -144,5 +144,48 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			->executeQuery();
 					
 		return $result->fetchAllAssociative();
-	}		
+	}
+
+	public function findFortbildungFma($demand)
+	{
+		$startingpoint = $demand -> getStartingpoint();
+		if ((!empty($startingpoint))) 
+		{
+			$pidList = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $startingpoint, TRUE);
+		}
+		
+        $bezirke = $demand -> getBezirk();
+        if ((!empty($bezirke))) 
+		{      
+			if (!is_array($bezirke)) {
+				$bezirke = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $bezirke, TRUE);
+			}
+        }
+		
+		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_fortbildung');
+		$whereExpressions = [
+			$queryBuilder->expr()->in('tx_bfbn_domain_model_institution.mbbezirk', $queryBuilder->createNamedParameter($bezirke, Connection::PARAM_INT_ARRAY)),
+			$queryBuilder->expr()->in('tx_bfbn_domain_model_fortbildung.pid', $queryBuilder->createNamedParameter($pidList, Connection::PARAM_INT_ARRAY))
+		];		
+		$result = $queryBuilder
+			->select('tx_bfbn_domain_model_institution.nummer','tx_bfbn_domain_model_institution.kurzbezeichnung','tx_bfbn_domain_model_fortbildung.*','tx_bfbn_domain_model_fortbildungart.bezeichnung')
+			->from('tx_bfbn_domain_model_fortbildung')
+			->join(
+				'tx_bfbn_domain_model_fortbildung',
+				'tx_bfbn_domain_model_institution',
+				'tx_bfbn_domain_model_institution',
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_institution.uid', $queryBuilder->quoteIdentifier('tx_bfbn_domain_model_fortbildung.institution'))
+			)
+			->join(
+				'tx_bfbn_domain_model_fortbildung',
+				'tx_bfbn_domain_model_fortbildungart',
+				'tx_bfbn_domain_model_fortbildungart',
+				$queryBuilder->expr()->eq('tx_bfbn_domain_model_fortbildungart.uid', $queryBuilder->quoteIdentifier('tx_bfbn_domain_model_fortbildung.art'))
+			)			
+			->where(...$whereExpressions)
+			->orderBy('tx_bfbn_domain_model_institution.nummer')
+			->executeQuery();
+					
+		return $result->fetchAllAssociative();
+	}			
 }

@@ -975,6 +975,12 @@
 			<trans-unit id="tx_bfbn_fortbildung_list.description">
 				<source>Online-Abfrage Fortbildung</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_fortbildung_fma.name">
+				<source>BFBN Fortbildung FMA</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_fortbildung_fma.description">
+				<source>Fortbildungsvorschläge für FMA</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_elitepruefer_list.name">
 				<source>BFBN Abfrage Eliteprüfer</source>
 			</trans-unit>

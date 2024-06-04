@@ -532,13 +532,15 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
  
 	/**
      * action export
-     * 
-	 * @param array $personen
+     *
+	 * @param int $institution	
+	 * @param array $funktionen
      * @return void
      */
-    public function exportAction(array $personen): ResponseInterface	
+    public function exportAction(int $institution = NULL, array $funktionen = NULL): ResponseInterface	
 	{
-
+		$demand = $this->PersonDemandFactory->createDemandObjectForExport($institution,$funktionen,$this->settings);
+		$personen = $this->PersonRepository->findDemanded($demand);
 		if (!is_null($personen)) {
 			$fieldsstack[] = 'Titel';
 			$fieldsstack[] = 'Vorname';
@@ -552,33 +554,33 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			$recordsstack[] = $fieldsstack;			
 			foreach ($personen as $person)
 			{
-				$personzubearbeiten = $this->PersonRepository->findByUid($person);
-				$personfunktionen = $personzubearbeiten->getFunktionen();
+
+				$personfunktionen = $person->getFunktionen();
 				foreach ($personfunktionen as $personfunktion)
 				{
 					$funktion = $personfunktion->getBezeichnung();
 				}
-				$personinstitutionen = $personzubearbeiten->getInstitutionen();
+				$personinstitutionen = $person->getInstitutionen();
 				foreach ($personinstitutionen as $personinstitution)
 				{
 					$institution = $personinstitution->getKurzbezeichnung();
 					$nummer = $personinstitution->getNummer();
 				}
 				$fieldsstack=[];
-				$fieldsstack[] = $personzubearbeiten->getTitel();
-				$fieldsstack[] = $personzubearbeiten->getVorname();
-				$fieldsstack[] = $personzubearbeiten->getNachname();
-				$fieldsstack[] = $personzubearbeiten->getGeschlecht()->getBezeichnung();
+				$fieldsstack[] = $person->getTitel();
+				$fieldsstack[] = $person->getVorname();
+				$fieldsstack[] = $person->getNachname();
+				$fieldsstack[] = $person->getGeschlecht()->getBezeichnung();
 				$fieldsstack[] = $funktion;
 				$fieldsstack[] = $institution;
 				$fieldsstack[] = $nummer;
-				if (!is_null($personzubearbeiten->getBestelltab())) {
-					$fieldsstack[] = $personzubearbeiten->getBestelltab()->format("d.m.Y");
+				if (!is_null($person->getBestelltab())) {
+					$fieldsstack[] = $person->getBestelltab()->format("d.m.Y");
 				} else
 				{
 					$fieldsstack[] = '';
 				}
-				$fieldsstack[] = $personzubearbeiten->getTstamp()->format("d.m.Y");				
+				$fieldsstack[] = $person->getTstamp()->format("d.m.Y");				
 				$recordsstack[] = $fieldsstack; 				
 			}
  

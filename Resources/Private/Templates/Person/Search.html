@@ -1,4 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+  
 <f:layout name="Default" />
 
 <f:section name="content">
@@ -11,13 +12,13 @@
     searchable: false,
     columns: [
     	{
-        select: 5,
+        select: 4,
         sortable: true,
         sort: "asc"
     	}
     ],
     perPage: 10,
-    perPageSelect: [10,20,30,40,50],
+    perPageSelect: [10,20,30],
     labels: {
         placeholder: "Suchen...",
         perPage: "{select} Zeilen pro Seite",
@@ -27,8 +28,8 @@
         infoFiltered: "Zeige {start} bis {end} von {rows} Einträgen (gefiltert von {rowsTotal} Einträgen)"
     }    
   });
-
-  </f:asset.script>   
+  </f:asset.script>
+  
   <f:if condition="{art} == 1">
     <f:then>
       <h1>Ergebnis der Suche von Funktionsträgern ({institution.kurzbezeichnung})</h1>
@@ -41,7 +42,7 @@
                     <f:for each="{gesuchtefunktionen}" as="funktion" iteration="funktionIteration">                    
                       &nbsp;{funktion.bezeichnung}
                     </f:for>
-            )
+             )
           </h5>
         </f:then>
         <f:else>
@@ -51,7 +52,7 @@
               <h5>(gesuchte Funktionen:             
                         <f:for each="{gesuchtefunktionen}" as="funktion" iteration="funktionIteration">                    
                           &nbsp;{funktion.bezeichnung}
-                        </f:for>
+                        </f:for>               
                 )
               </h5>
             </f:then>
@@ -65,6 +66,7 @@
   </f:if>   
 
     <f:flashMessages />
+ 
   	<f:if condition="{personen}">
       <f:then>
         <div class="table-responsive-sm">         
@@ -121,7 +123,23 @@
             </tbody>
           </table>
         </div>
-        <f:link.action action="export" class="btn btn-primary" arguments="{personen:  personen, settings: settings}"><i class="fas fa-download me-2"></i>Export</f:link.action>
+        <f:if condition="{art} == 1">
+          <f:then>
+            <f:link.action action="export" class="btn btn-primary" arguments="{institution: suche.institution}"><i class="fas fa-download me-2"></i>Export</f:link.action>
+          </f:then>
+          <f:else>
+            <f:if condition="{art} == 2">
+              <f:then>
+                <f:link.action action="export" class="btn btn-primary" arguments="{funktionen: suche.funktionen}"><i class="fas fa-download me-2"></i>Export</f:link.action>  
+              </f:then>
+              <f:else>
+                <f:if condition="{art} == 3">
+                  <f:link.action action="export" class="btn btn-primary" arguments="{institution: suche.institution, funktionen: suche.funktionen}"><i class="fas fa-download me-2"></i>Export</f:link.action>  
+                </f:if>  
+              </f:else>
+            </f:if>
+          </f:else>
+        </f:if>
       </f:then>
       <f:else>
       		<h4>Es wurde keine Funktionsträger gefunden!</h4> 	 

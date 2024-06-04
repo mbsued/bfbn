@@ -1,12 +1,20 @@
 <?php
 namespace MbFosbos\Bfbn\Controller;
 
+use TYPO3\CMS\Core\Core\Environment;
 use MbFosbos\Bfbn\Factory\AbfrageDemandFactory;
+use MbFosbos\Bfbn\Factory\FortbildungDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
 use MbFosbos\Bfbn\Domain\Repository\FortbildungRepository;
 use MbFosbos\Bfbn\Domain\Repository\FortbildungartRepository;
 use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
+use MbFosbos\Bfbn\Domain\Repository\DatenbankRepository;
+use MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository;
+use MbFosbos\Bfbn\Domain\Repository\PdfTemplateRepository;
 use MbFosbos\Bfbn\Service\AccessControlService;
+use MbFosbos\Bfbn\Service\PdfService;
+use MbFosbos\Bfbn\Service\CsvService;
+
 use Psr\Http\Message\ResponseInterface;
 
 /***
@@ -32,6 +40,13 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     private $AbfrageDemandFactory = null;
 
+	/**
+     * FortbildungDemandFactory
+     * 
+     * @var \MbFosbos\Bfbn\Factory\FortbildungDemandFactory 	 
+     */
+    private $FortbildungDemandFactory = null;
+	
     /**
      * InstitutionRepository
      * 
@@ -60,11 +75,51 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      * @var \MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository
      */
     private $FrontendUserRepository = null;	
+ 
+ /**
+     * DatenbankRepository
+     * 
+     * @var \MbFosbos\Bfbn\Domain\Repository\DatenbankRepository 	 
+     */
+	 
+    private $DatenbankRepository = null;
+
+    /**
+     * htmlTemplateRepository
+     *
+     * @var HtmlTemplateRepository
+     */
+    private $htmlTemplateRepository = null;
+
+    /**
+     * pdfTemplateRepository
+     *
+     * @var PdfTemplateRepository
+     */
+    private $pdfTemplateRepository = null;
 	
 	/**
 	 * @var \MbFosbos\Bfbn\Service\AccessControlService
 	 */
 	protected $AccessControlService;
+
+    /**
+     * Pdf Service
+     *
+     * @var \MbFosbos\Bfbn\Service\PdfService
+     */
+    private $pdfService;
+
+
+    /**
+     * Inject the Fortbildung Demand Factory
+     *
+     * @param \MbFosbos\Bfbn\Factory\FortbildungDemandFactory $FortbildungDemandFactory
+     */
+    public function injectFortbildungDemandFactory(FortbildungDemandFactory $FortbildungDemandFactory)
+    {
+        $this->FortbildungDemandFactory = $FortbildungDemandFactory;
+    }
 
     /**
      * Inject the Abfrage Demand Factory
@@ -115,6 +170,32 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     {
         $this->FrontendUserRepository = $FrontendUserRepository;
     }
+	
+    /**
+     * Inject the Datenbank repository
+     *
+     * @param \MbFosbos\Bfbn\Domain\Repository\DatenbankRepository $DatenbankRepository
+     */
+    public function injectDatenbankRepository(DatenbankRepository $DatenbankRepository)
+    {
+        $this->DatenbankRepository = $DatenbankRepository;
+    }
+
+    /**
+     * @param \MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository $htmlTemplateRepository
+     */
+    public function injectHtmlTemplateRepository(HtmlTemplateRepository $htmlTemplateRepository)
+    {
+        $this->htmlTemplateRepository = $htmlTemplateRepository;
+    }
+
+    /**
+     * @param \MbFosbos\Bfbn\Domain\Repository\PdfTemplateRepository $pdfTemplateRepository
+     */
+    public function injectPdfTemplateRepository(PdfTemplateRepository $pdfTemplateRepository)
+    {
+        $this->pdfTemplateRepository = $pdfTemplateRepository;
+    }
 
     /**
      * Inject the access service
@@ -126,6 +207,23 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->AccessControlService = $AccessControlService;
     }
 
+    /**
+     * @param PdfService $pdfService
+     */
+    public function injectPdfService(PdfService $pdfService)
+    {
+        $this->pdfService = $pdfService;
+    }
+	
+    /**
+     * Inject the csv service
+     *
+     * @param \MbFosbos\Bfbn\Service\CsvService $CsvService
+     */
+    public function injectCsvService(CsvService $CsvService)
+    {
+        $this->CsvService = $CsvService;
+    }
 
     /**
      * action show
@@ -178,7 +276,7 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     public function editAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung): ResponseInterface	
 	{
 		if ($this->AccessControlService->hasLoggedInFrontendUser()) {
-			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());				 
+			$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());			 
 			$gesuchteinstitution = $this->InstitutionRepository->findByUid($user->getCompany());
 			if (!is_null($gesuchteinstitution)) {					
 				if ($this->AccessControlService->checkLoggedInFrontendUser($gesuchteinstitution->getBearbeiter())) {
@@ -324,4 +422,145 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 			return $this->htmlResponse();			
 		} 	
     }
+	/**
+     * action listfma
+     * 
+     * @return void
+     */
+    public function listfmaAction(\MbFosbos\Bfbn\Domain\Model\Fortbildung $fortbildung=null): ResponseInterface
+	{
+        if (is_null($fortbildung)) {
+			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
+				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());
+
+				$username = $user->getUsername();
+
+				if (substr($username,0,3) === "fma" || $username === 'intern') {
+					$demand = $this->FortbildungDemandFactory->createDemandObjectFromSettings($this->settings);				
+					$fortbildungen = $this->DatenbankRepository->findFortbildungFma($demand);
+					$this->view->assign('fortbildungen', $fortbildungen);						
+				} else {
+					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');	
+				}
+			} else {
+				$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			}		
+        }
+		return $this->htmlResponse();
+    }
+	
+    /**
+     * action showfma
+     * 
+     * @param array $fortbildung
+     * @return void
+     */
+    public function showfmaAction(array $fortbildung): ResponseInterface
+    {
+        if (!is_null($fortbildung)) {
+			if ($this->AccessControlService->hasLoggedInFrontendUser()) {
+				$user=$this->FrontendUserRepository->findByUid($this->AccessControlService->getFrontendUserUid());
+
+				$username = $user->getUsername();
+
+				if (substr($username,0,3) === "fma" || $username === 'intern') {
+					$pdfTemplateUid = $this->settings['pdftemplate'];
+							
+					/** @var PdfTemplate $pdfTemplate */
+					$pdfTemplate = $this->pdfTemplateRepository->findByUid($pdfTemplateUid);		
+					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pdfTemplate->getFile()->getOriginalResource()->getPublicUrl()); */
+					$filename = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
+					if (strpos($filename,"/") == 0) {
+						$filename = mb_substr($filename,1);
+					}  
+					if ($pdfTemplate && $pdfTemplate->getUid() && \nn\t3::File()->exists($filename)) {						
+						$pdfTemplateFile = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
+						$pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName();
+					} else {
+						$pdfTemplateFile = null;
+						$pdfFileName = null;
+					}
+
+					$htmlTemplateUid = $this->settings['htmltemplate'];
+					/** @var HtmlTemplate $pdfTemplate */
+					$htmlTemplate = $this->htmlTemplateRepository->findByUid($htmlTemplateUid);
+					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($htmlTemplate);	*/
+					$filename = $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl();
+					if (strpos($filename,"/") == 0) {
+						$filename = mb_substr($filename,1);
+					}  		
+					$htmlTemplateFile =
+						$htmlTemplate && $htmlTemplate->getUid() && \nn\t3::File()->exists($filename)
+							? $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl()
+							: null;
+					
+					$mpdf = $this->pdfService->generate($pdfTemplateFile, $htmlTemplateFile, $fortbildung);
+
+					$filename = $this->settings['ablageordner'] . 'vorschlag.pdf';
+					$tempFile = \nn\t3::File()->absPath($filename);
+					$tempFileUnique = \nn\t3::File()->uniqueFilename($tempFile);   
+					$mpdf->OutputFile($tempFileUnique);
+					$file = \nn\t3::Fal()->createSysFile($tempFileUnique); 
+
+					$this->view->assign('fortbildung', $fortbildung);
+					$this->view->assign('datei', $file);
+				} else {
+					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');	
+				}
+			} else {
+				$this->addFlashMessage('Benutzer nicht eingeloggt.');
+			}		
+        }
+		return $this->htmlResponse();
+					
+    }
+	/**
+     * action export
+     * 
+     * @return void
+     */
+    public function exportAction(): ResponseInterface	
+	{
+
+		$demand = $this->FortbildungDemandFactory->createDemandObjectFromSettings($this->settings);				
+		$fortbildungen = $this->DatenbankRepository->findFortbildungFma($demand);
+		if (!is_null($fortbildungen)) {
+			$fieldsstack[] = 'eingereicht von';
+			$fieldsstack[] = 'eingereicht für';
+			$fieldsstack[] = 'Thema';
+			$fieldsstack[] = 'Fach';
+			$fieldsstack[] = 'Zielgruppe';
+			$fieldsstack[] = 'Inhalt';
+			$fieldsstack[] = 'Referent';			
+			$fieldsstack[] = 'erstellt am';
+			$fieldsstack[] = 'letzte Änderung';			
+			$recordsstack[] = $fieldsstack;			
+			foreach ($fortbildungen as $fortbildung)
+			{
+
+				$fieldsstack=[];
+				$fieldsstack[] = $fortbildung['kurzbezeichnung'] . '(' . $fortbildung['nummer'] . ')';
+				$fieldsstack[] = $fortbildung['bezeichnung'];
+				$fieldsstack[] = $fortbildung['thema'];
+				$fieldsstack[] = $fortbildung['fach'];
+				$fieldsstack[] = $fortbildung['zielgruppe'];
+				$fieldsstack[] = $fortbildung['inhalt'];
+				$fieldsstack[] = $fortbildung['referent'];
+				$intcrdate = (int)$fortbildung['crdate'];
+				$fieldsstack[] = date("d.m.Y",$intcrdate);
+				$inttstamp = (int)$fortbildung['tstamp'];
+				$fieldsstack[] = date("d.m.Y",$inttstamp);
+				$recordsstack[] = $fieldsstack; 				
+			}
+ 
+			$this->CsvService->setData($recordsstack);
+		
+			$this->CsvService->saveToOutput('export_fortbildungen');			
+		}
+
+		return (new ForwardResponse('listfma'))
+			->withControllerName(('Fortbildung'))
+			->withExtensionName('bfbn'); 
+	}	
+	
 }

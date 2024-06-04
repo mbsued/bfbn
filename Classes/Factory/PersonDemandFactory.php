@@ -64,6 +64,35 @@ class PersonDemandFactory
         return $demand;
     }
 	
+	public function createDemandObjectForExport($institution = NULL, $funktionen = NULL, $settings): PersonDemand
+	{
+		$demand = new PersonDemand;
+        /** $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\PersonDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model  */
+        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
+		$demand->setStartingpoint(Page::extendPidListByChildren(
+            (string)($settings['startingpoint'] ?? ''),
+            (int)($settings['recursive'] ?? 0)
+        ));
+        if ($settings['art']==1) {
+			$demand->setInstitution($institution);
+		}
+        if ($settings['art']==2) {			
+			if (!is_array($funktionen)) {
+				$funktionen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $funktionen, TRUE);
+			}						
+			$demand->setFunktionen($funktionen);
+		}
+        if ($settings['art']==3) {
+			$demand->setInstitution($institution);
+			if (!is_array($funktionen)) {
+				$funktionen = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $funktionen, TRUE);
+			}						
+			$demand->setFunktionen($funktionen);
+		}
+	
+        return $demand;
+    }
+	
 	public function createDemandObjectForInstitution($settings): InstitutionDemand
 	{
 		$demand = new InstitutionDemand();

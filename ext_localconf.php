@@ -85,6 +85,12 @@ call_user_func(
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
+            'FortbildungFma',
+			[\MbFosbos\Bfbn\Controller\FortbildungController::class => 'listfma,showfma,export'],
+			[\MbFosbos\Bfbn\Controller\FortbildungController::class => 'listfma,showfma,export']			
+        );		
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Bfbn',
             'EliteprueferList',
 			[\MbFosbos\Bfbn\Controller\EliteprueferController::class => 'list,show,edit,update,new,create,delete'],
 			[\MbFosbos\Bfbn\Controller\EliteprueferController::class => 'list,show,edit,update,new,create,delete']			
@@ -207,6 +213,15 @@ call_user_func(
 								list_type = bfbn_fortbildunglist
 							}
 						}
+						fortbildungfma {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_fma.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_fma.description
+							tt_content_defValues {
+								CType = list
+								list_type = bfbn_fortbildungfma
+							}
+						}						
 						eliteprueferlist {
 							iconIdentifier = bfbnsvgicon
 							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_elitepruefer_list.name
