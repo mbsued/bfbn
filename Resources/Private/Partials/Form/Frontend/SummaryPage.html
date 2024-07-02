@@ -1,0 +1,214 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+	<formvh:renderRenderable renderable="{page}">
+		<f:if condition="{page.label}">
+			<h1 class="text-center">{formvh:translateElementProperty(element: page, property: 'label')}</h1>
+		</f:if>
+		<h2 class="mt-4 mb-3">{formvh:translateElementProperty(element: page.rootForm.pages.0, property: 'label')}</h2>
+		<div class="bg-body-secondary p-3 mb-4">
+			<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fs-auswahl-institution, property: 'label')}</h3>
+			<div class="flex-grow-1">
+				<div class="row ms-3 mb-3">						
+					<formvh:renderFormValue renderable="{page.rootForm.elements.schulart}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>
+				</div>				
+			</div>			
+			<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fs-angaben-institution, property: 'label')}</h3>
+			<div class="flex-grow-1">
+				<div class="row ms-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.schulnummer}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.instname}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.inststrasse}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3 mb-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.instplz}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.instort}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+			</div>
+			<div class="flex-grow-1 ms-3">
+				<div class="row">						
+					<h5>Kontaktdaten</h5>
+				</div>	
+			</div>
+			<div class="flex-grow-1">
+				<div class="row ms-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.instperson}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3">
+					Telefon:&nbsp;
+					<formvh:renderFormValue renderable="{page.rootForm.elements.insttelefon}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3 mb-3">
+				E-Mail:&nbsp;
+					<formvh:renderFormValue renderable="{page.rootForm.elements.instemail}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>					
+			</div>			
+			<f:form.button property="__currentPage" value="0"
+                       class="btn btn-primary btn-sm ms-3"
+                       additionalAttributes="{respectSubmittedDataValue: false}"
+                       formnovalidate="formnovalidate"><i class="fas fa-pen me-2"></i>
+				Ändern
+			</f:form.button>
+		</div>
+		<h2 class="mt-4 mb-3">{formvh:translateElementProperty(element: page.rootForm.pages.1, property: 'label')}</h2>
+		<div class="bg-body-secondary p-3 mb-4">
+			<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fs-angaben-person, property: 'label')}</h3>
+			<div class="flex-grow-1">
+				<div class="row ms-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.vorname}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.nachname}" as="formValue">
+						{formValue.processedValue}, 
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.geschlecht}" as="formValue">
+						{formValue.processedValue}, 
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.gebdat}" as="formValue">
+						geboren am {formValue.processedValue}
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.gebort}" as="formValue">
+						in {formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+			</div>
+			<div class="flex-grow-1">
+				<div class="row ms-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.strasse}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>				
+				</div>
+			</div>
+			<div class="flex-grow-1">
+				<div class="row ms-3 mb-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.plz}" as="formValue">
+						{formValue.processedValue} 
+					</formvh:renderFormValue>
+					<formvh:renderFormValue renderable="{page.rootForm.elements.ort}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>		
+				</div>
+			</div>
+			<div class="flex-grow-1 ms-3">
+				<div class="row">						
+					<h5>Kontaktdaten</h5>
+				</div>	
+			</div>
+			<div class="flex-grow-1">
+				<div class="row ms-3">
+					Telefon:&nbsp;
+					<formvh:renderFormValue renderable="{page.rootForm.elements.telefon}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3 mb-3">
+				E-Mail:&nbsp;
+					<formvh:renderFormValue renderable="{page.rootForm.elements.email}" as="formValue">
+						{formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>					
+			</div>
+			<formvh:renderFormValue renderable="{page.rootForm.elements.schulart}" as="formValue">
+			<f:if condition="{formValue.value} < 6">	
+				<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fs-schul, property: 'label')}</h3>
+				<div class="flex-grow-1">
+					<div class="row ms-3 mb-3">
+						<formvh:renderFormValue renderable="{page.rootForm.elements.jgst}" as="formValue">
+							Jahrgangsstufe {formValue.processedValue}, 
+						</formvh:renderFormValue>
+						<formvh:renderFormValue renderable="{page.rootForm.elements.ausb}" as="formValue">
+							Ausbildungsrichtung {formValue.processedValue} 
+						</formvh:renderFormValue>					
+					</div>
+				</div>				
+			</f:if>
+			</formvh:renderFormValue>
+			<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fs-voraussetzungen, property: 'label')}</h3>
+			<div class="flex-grow-1">
+				<div class="row ms-3">					
+					<formvh:renderFormValue renderable="{page.rootForm.elements.ndhoch}" as="formValue">
+						Notendurchschnitt der Hochschulzugangsberechtigung (tatsächlich bzw. voraussichtlich): {formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>
+				<div class="row ms-3 mb-3">
+					<formvh:renderFormValue renderable="{page.rootForm.elements.ndabprf}" as="formValue">
+						Notendurchschnitt in der schriftlichen Abschlussprüfung: {formValue.processedValue}
+					</formvh:renderFormValue>					
+				</div>					
+			</div>			
+			<f:form.button property="__currentPage" value="1"
+                       class="btn btn-primary btn-sm ms-3"
+                       additionalAttributes="{respectSubmittedDataValue: false}"
+                       formnovalidate="formnovalidate"><i class="fas fa-pen me-2"></i>
+				Ändern
+			</f:form.button>		
+		</div>
+		<h2 class="mt-4 mb-3">{formvh:translateElementProperty(element: page.rootForm.pages.2, property: 'label')}</h2>
+		<div class="bg-body-secondary p-3 mb-4">
+			<formvh:renderFormValue renderable="{page.rootForm.elements.schulart}" as="formValue">
+			<f:if condition="{formValue.value} < 6">	
+				<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fach3, property: 'label')}</h3>
+				<div class="flex-grow-1">
+					<div class="row ms-3 mb-3">
+						<formvh:renderFormValue renderable="{page.rootForm.elements.fach3}" as="formValue">
+							{formValue.processedValue} 
+						</formvh:renderFormValue>				
+					</div>
+				</div>
+				<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fach4, property: 'label')}</h3>
+				<div class="flex-grow-1">
+					<div class="row ms-3 mb-3">
+						<formvh:renderFormValue renderable="{page.rootForm.elements.fach4}" as="formValue">
+							{formValue.processedValue} 
+						</formvh:renderFormValue>				
+					</div>
+				</div>				
+			</f:if>
+			</formvh:renderFormValue>
+			<formvh:renderFormValue renderable="{page.rootForm.elements.schulart}" as="formValue">
+			<f:if condition="{formValue.value} > 5">	
+				<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fach3frei, property: 'label')}</h3>
+				<div class="flex-grow-1">
+					<div class="row ms-3 mb-3">
+						<formvh:renderFormValue renderable="{page.rootForm.elements.fach3gesetzt}" as="formValue">
+							{formValue.processedValue} 
+						</formvh:renderFormValue>				
+					</div>
+				</div>
+				<h3>{formvh:translateElementProperty(element: page.rootForm.elements.fach4frei, property: 'label')}</h3>
+				<div class="flex-grow-1">
+					<div class="row ms-3 mb-3">
+						<formvh:renderFormValue renderable="{page.rootForm.elements.fach4frei}" as="formValue">
+							{formValue.processedValue} 
+						</formvh:renderFormValue>				
+					</div>
+				</div>				
+			</f:if>
+			</formvh:renderFormValue>			
+			<f:form.button property="__currentPage" value="2"
+                       class="btn btn-primary btn-sm ms-3"
+                       additionalAttributes="{respectSubmittedDataValue: false}"
+                       formnovalidate="formnovalidate"><i class="fas fa-pen me-2"></i>
+				Ändern
+			</f:form.button>
+		</div>
+	</formvh:renderRenderable>
+</html>
