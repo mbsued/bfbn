@@ -25,6 +25,12 @@ call_user_func(
         );
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Bfbn',
+            'InstitutionAbfrage',
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'listForAbfrage'],
+			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'listForAbfrage']			
+        );		
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'Bfbn',
             'InstitutionEdit',
 			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \MbFosbos\Bfbn\Controller\PersonController::class => 'new,create,delete'],
 			[\MbFosbos\Bfbn\Controller\InstitutionController::class => 'showforedit,edit,update', \MbFosbos\Bfbn\Controller\PersonController::class => 'new,create,delete']			
@@ -123,6 +129,15 @@ call_user_func(
 								list_type = bfbn_institutionlist
 							}
 						}
+						institutionabfrage {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_abfragelist.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_abfragelist.description
+							tt_content_defValues {
+								CType = list
+								list_type = bfbn_institutionabfrage
+							}
+						}						
 						institutionedit {
 							iconIdentifier = bfbnsvgicon
 							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_edit.name

@@ -17,6 +17,20 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class InstitutionDemandFactory
 {
 
+	public function createDemandObjectFromAbfrageSettings($settings) : InstitutionDemand
+	{
+		$demand = new InstitutionDemand();
+        /** $demand = $this->objectManager->get('MbFosbos\\Bfbn\\Domain\\Model\\InstitutionDemand'); // Neuer Inhalt ist der Dateiname vom Domain Modell -> Classes -> Domain -> Model */
+        $demand->setCategories(GeneralUtility::trimExplode(',', $settings['categories'], true));
+		$demand->setStartingpoint(Page::extendPidListByChildren(
+			(string)($settings['startingpoint'] ?? ''),
+            (int)($settings['recursive'] ?? 0)
+        ));
+		$demand->setBezirk(GeneralUtility::trimExplode(',', $settings['bezirke'], true));
+		$demand->setStatus(GeneralUtility::trimExplode(',', $settings['status'], true));		
+        return $demand;
+    }
+	
 	public function createDemandObjectFromSettings($settings) : InstitutionDemand
 	{
 		$demand = new InstitutionDemand();
@@ -33,6 +47,7 @@ class InstitutionDemandFactory
 		$demand->setIvk($settings['ivk']);		
         return $demand;
     }
+
 	
 	public function createDemandObjectFromSearch($suche,$settings) : InstitutionDemand
 	{

@@ -33,7 +33,6 @@
       </f:if>      
     </f:else>
   </f:if>
-  <h1>Neuer Ansprechpartner</h1>
 
   <f:flashMessages />
 
@@ -42,9 +41,30 @@
   <f:form action="createft" name="person" object="{person}" arguments="{funktion : funktion}">
 
     <div class="card mt-3">
-      <div class="card-header">Neuer Ansprechpartner für {institution.kurzbezeichnung}
+      <div class="card-header">Neuer Ansprechpartner ({funktion.bezeichnung}) für {institution.kurzbezeichnung}
       </div>
       <div class="card-body">
+        <f:if condition="{funktion.uid} == 63">
+          <f:then>
+            <div class="row mb-2">
+              <p class="lead">Bitte tragen Sie hier nur Schulsozialpädagogen ein, die im Rahmen der Programmes "Schule öffnet sich" beschäftigt sind.</p>
+            </div>	
+          </f:then>
+        </f:if>        
+         <f:if condition="{funktion.uid} == 66">
+          <f:then>
+            <div class="row mb-2">
+              <p class="lead"> Bitte tragen Sie hier nur Fachkräfte der Jugendsozialarbeit (JaS) ein.</p>
+            </div>	
+          </f:then>
+        </f:if>
+         <f:if condition="{funktion.uid} == 67">
+          <f:then>
+            <div class="row mb-2">
+              <p class="lead">Bitte tragen Sie hier nur Lehrkräfte ein, die ein Erweiterungsstudium Sonderpädagogik absolviert haben.</p>
+            </div>	
+          </f:then>
+        </f:if>        
         <div class="row">
           <div class="form-group col-md-2">
             <label for="titel">Akad. Titel</label>

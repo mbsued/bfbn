@@ -427,6 +427,19 @@ class InstitutionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->view->assign('institutionen', $institutionen);
 		return $this->htmlResponse($this->view->render());
     }
+	
+    /**
+     * action listForAbfrage
+     * 
+     * @return void
+     */
+    public function listForAbfrageAction(): ResponseInterface
+	{
+        $demand = $this->InstitutionDemandFactory->createDemandObjectFromAbfrageSettings($this->settings);
+		$institutionen = $this->InstitutionRepository->findDemanded($demand);	
+        $this->view->assign('institutionen', $institutionen);
+		return $this->htmlResponse($this->view->render());
+    }
 
     /**
      * action show

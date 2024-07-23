@@ -17,6 +17,18 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_institu
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'Bfbn',
+	'InstitutionAbfrage',
+	'Abfrageliste der Institutionen',
+	'bfbnsvgicon'
+);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['bfbn_institutionabfrage'] = 'layout,recursive,select_key,pages';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['bfbn_institutionabfrage'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	'bfbn_institutionabfrage', 
+	'FILE:EXT:' . 'bfbn' . '/Configuration/FlexForms/flexform_instabfragelist.xml'	
+);
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Bfbn',
 	'InstitutionDetail',
 	'Detailansicht der Institutionen',
 	'bfbnsvgicon'

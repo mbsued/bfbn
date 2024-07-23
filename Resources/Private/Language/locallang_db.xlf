@@ -909,6 +909,12 @@
 			<trans-unit id="tx_bfbn_institution_list.description">
 				<source>Listenansicht der Institutionen</source>
 			</trans-unit>
+			<trans-unit id="tx_bfbn_institution_abfragelist.name">
+				<source>BFBN Institutionen (Abfrage-Liste)</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_institution_abfragelist.description">
+				<source>Listenansicht der Institutionen (für Abfragen)</source>
+			</trans-unit>			
 			<trans-unit id="tx_bfbn_institution_edit.name">
 				<source>BFBN Institutionen (Ändern)</source>
 			</trans-unit>
