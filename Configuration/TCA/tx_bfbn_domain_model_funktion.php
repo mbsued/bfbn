@@ -21,11 +21,6 @@ return [
     ],
     'interface' => [
     ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, art, bezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-        '2' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, art, bezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-        '3' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, art, bezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],		
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
@@ -119,6 +114,15 @@ return [
                 'maxitems' => 1,
             ],            
         ],
+        'sorting' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_funktion.sorting',
+            'config' => [
+                'type' => 'input',
+                'size' => 3,
+                'eval' => 'trim'
+            ],
+        ],		
 	],
 	'types' => [
         '1' => [
@@ -154,7 +158,29 @@ return [
 			'showitem' => 
 				'art,
 				--linebreak--,
-				bezeichnung'
+				bezeichnung,
+				--linebreak--,
+				sorting'
 		],
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+				--linebreak--,
+				fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+				--linebreak--,editlock
+			',
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],		
     ],		
 ];

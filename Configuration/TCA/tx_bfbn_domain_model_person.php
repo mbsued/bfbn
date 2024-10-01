@@ -20,9 +20,6 @@ return [
     ],
     'interface' => [
     ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nachname, vorname, titel, amtsbezeichnung, emailfach, arbeitetfuer, arbeitetfuer2, geschlecht, bestelltab, funktionen, institutionen, faecher, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime, tstamp'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
@@ -133,6 +130,7 @@ return [
             ],
         ],
         'emailfach' => [
+			'displayCond' => 'FIELD:pid:IN:37,69',		
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.emailfach',
             'config' => [
@@ -201,7 +199,7 @@ return [
             ]
         ],
         'tstamp' => [
-            'label' => 'tstamp',
+            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.tstamp',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -214,6 +212,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_bfbn_domain_model_funktion',
+				'foreign_table_where' => 'AND tx_bfbn_domain_model_funktion.art IN (###PAGE_TSCONFIG_IDLIST###)',
                 'MM' => 'tx_bfbn_person_funktion_mm',
                 'size' => 10,
                 'autoSizeMax' => 30,
@@ -240,6 +239,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_bfbn_domain_model_institution',
+				'foreign_table_where' => 'AND tx_bfbn_domain_model_institution.mbbezirk IN (###PAGE_TSCONFIG_IDLIST###)',
                 'MM' => 'tx_bfbn_institution_person_mm',
 				'MM_opposite_field' => 'personen',
                 'size' => 10,
@@ -260,6 +260,7 @@ return [
             ],            
         ],
         'faecher' => [
+			'displayCond' => 'FIELD:pid:IN:37,69',		
             'exclude' => true,
             'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.faecher',
             'config' => [
@@ -283,6 +284,85 @@ return [
                     ],
                 ],
             ],            
-        ],    
+        ],
+        'sortierung' => [
+			'displayCond' => 'FIELD:pid:IN:37',		
+            'exclude' => true,
+            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.sortierung',
+            'config' => [
+                'type' => 'input',
+                'size' => 3,
+                'eval' => 'trim'
+            ],
+        ],		
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,					
+				--div--;Zuordnung,
+					--palette--;;paletteZuordnung,					
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,
+                    --palette--;;paletteChange,'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'nachname,
+				--linebreak--,
+				vorname,
+				--linebreak--,
+				titel,				
+				--linebreak--,
+				amtsbezeichnung,
+				--linebreak--,
+				geschlecht,
+				--linebreak--,				
+				sortierung'
+		],
+		'paletteZuordnung' => [
+			'showitem' => 
+				'emailfach,
+				--linebreak--,
+				arbeitetfuer, arbeitetfuer2,
+				--linebreak--,
+				institutionen,				
+				--linebreak--,
+				funktionen,
+				--linebreak--,
+				bestelltab,
+				--linebreak--,				
+				faecher'
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+				--linebreak--,
+				fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+				--linebreak--,editlock
+			',
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],
+		'paletteChange' => [
+			'showitem' => '
+				tstamp
+			',
+		],		
+    ],	
 ];

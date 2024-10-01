@@ -16,7 +16,7 @@
                             <renderType>selectMultipleSideBySide</renderType>
                             <autoSizeMax>50</autoSizeMax>
                             <foreign_table>tx_bfbn_domain_model_funktion</foreign_table>
-							<foreign_table_where>AND tx_bfbn_domain_model_funktion.uid > 10</foreign_table_where>
+							<foreign_table_where>AND tx_bfbn_domain_model_funktion.art IN (4,5,6,7,8,9)</foreign_table_where>
                             <maxitems>9999</maxitems>
                             <size>10</size> 
                           </config>

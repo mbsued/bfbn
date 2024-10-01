@@ -123,8 +123,15 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\MbFosbos\Bfbn\Domain\Model\Fach>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy	 
      */
-    protected $faecher = null;	
-
+    protected $faecher = null;
+	
+    /**
+     * sortierung
+     * 
+     * @var integer
+	 * 
+     */
+    protected $sortierung = 0;
     /**
      * __construct
      */
@@ -489,5 +496,26 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setFaecher(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $faecher)
     {
         $this->faecher = $faecher;
-    }		
+    }
+
+    /**
+     * Returns the sortierung
+     * 
+     * @return integer $sortierung
+     */
+    public function getSortierung()
+    {
+        return $this->sortierung;
+    }
+
+    /**
+     * Sets the sortierung
+     * 
+     * @param integer $sortierung
+     * @return void
+     */
+    public function setSortierung($sortierung)
+    {
+        $this->sortierung = $sortierung;
+    }	
 }

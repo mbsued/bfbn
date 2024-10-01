@@ -158,6 +158,9 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_person.bestelltab" resname="tx_bfbn_domain_model_person.bestelltab">
 				<source>bestellt ab</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.tstamp" resname="tx_bfbn_domain_model_person.tstamp">
+				<source>letzte Änderung</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_person.funktionen" resname="tx_bfbn_domain_model_person.funktionen">
 				<source>Funktionen</source>
@@ -167,6 +170,9 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_person.faecher" resname="tx_bfbn_domain_model_person.faecher">
 				<source>Fächer</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_person.sortierung" resname="tx_bfbn_domain_model_person.sortierung">
+				<source>Sortierung</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_funktion" resname="tx_bfbn_domain_model_funktion">
 				<source>Funktion</source>
@@ -176,6 +182,9 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_funktion.art" resname="tx_bfbn_domain_model_funktion.art">
 				<source>Art</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_funktion.sorting" resname="tx_bfbn_domain_model_funktion.sorting">
+				<source>Sortierung</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_funktionart" resname="tx_bfbn_domain_model_funktionart">
 				<source>Funktionart</source>

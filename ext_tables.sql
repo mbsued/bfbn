@@ -58,14 +58,16 @@ CREATE TABLE tx_bfbn_domain_model_person (
 	bestelltab int(11) unsigned DEFAULT '0' NOT NULL,	
 	funktionen int(11) unsigned DEFAULT '0' NOT NULL,
 	institutionen int(11) unsigned DEFAULT '0' NOT NULL,
-	faecher int(11) unsigned DEFAULT '0' NOT NULL,	
+	faecher int(11) unsigned DEFAULT '0' NOT NULL,
+	sortierung int(11) unsigned DEFAULT '0' NOT NULL,	
 
 );
 
 CREATE TABLE tx_bfbn_domain_model_funktion (
 
 	bezeichnung varchar(255) DEFAULT '' NOT NULL,
-	art int(11) unsigned DEFAULT '0' NOT NULL
+	art int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
  
 );
 

@@ -22,20 +22,20 @@
 					<f:then>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
 							<f:render section="MB1" arguments="{institution: institution}" />
-							<f:render section="MB2" arguments="{institution: institution, uid: 6, ueberschrifttext: 'Mitarbeiterinnen und Mitarbeiter'}" />	
+							<f:render section="MB2" arguments="{institution: institution, uid: 6, ueberschrifttext: 'Mitarbeiterinnen und Mitarbeiter', sort: 'sortierung'}" />	
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-							<f:render section="MB2" arguments="{institution: institution, uid: 8, ueberschrifttext: 'Verwaltung'}" />
-							<f:render section="MB2" arguments="{institution: institution, uid: 7, ueberschrifttext: 'Sekretariat'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 8, ueberschrifttext: 'Verwaltung', sort: 'nachname'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 7, ueberschrifttext: 'Sekretariat', sort: 'nachname'}" />
 						</div>
 					</f:then>
 					<f:else>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12">							
-							<f:render section="MB2" arguments="{institution: institution, uid: 1, ueberschrifttext: 'Schulleitung'}" />
-							<f:render section="MB2" arguments="{institution: institution, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung'}" />							
+							<f:render section="MB2" arguments="{institution: institution, uid: 1, ueberschrifttext: 'Schulleitung', sort: 'nachname'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 2, ueberschrifttext: 'Stellvertretende Schulleitung', sort: 'nachname'}" />							
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-6 col-12">
-							<f:render section="MB2" arguments="{institution: institution, uid: 3, ueberschrifttext: 'Sekretariat'}" />
+							<f:render section="MB2" arguments="{institution: institution, uid: 3, ueberschrifttext: 'Sekretariat', sort: 'nachname'}" />
 						</div>						
 					</f:else>
 				</f:if>
@@ -78,7 +78,7 @@
 
 <f:section name="MB2">
 	<f:variable name="ueberschrift" value="Nein" />
-	<f:for each="{institution.personen -> v:iterator.sort(sortBy: 'nachname')}" as="person" iteration="personIteration">
+	<f:for each="{institution.personen -> v:iterator.sort(sortBy: '{sort}')}" as="person" iteration="personIteration">
 		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
 			<f:if condition="{funktion.uid} == {uid}">
 				<f:if condition="{ueberschrift} == 'Nein'">

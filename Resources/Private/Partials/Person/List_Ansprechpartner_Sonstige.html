@@ -46,6 +46,13 @@
                                         <f:then>
                                           <f:variable name="sonderpaedagogikcounter">{sonderpaedagogikcounter+1}</f:variable>  
                                         </f:then>
+                                         <f:else>
+                                           <f:if condition="{funktion.uid} == 70">
+                                            <f:then>
+                                              <f:variable name="erasmuscounter">{erasmuscounter+1}</f:variable>  
+                                            </f:then>
+                                           </f:if>
+                                         </f:else>
                                        </f:if>
                                       </f:else>
                                     </f:if>
@@ -115,6 +122,16 @@
         <f:variable name="varseminarlehr1"></f:variable>
         <f:variable name="varseminarlehr2"></f:variable>              
       </f:else>
+    </f:if>
+    <f:if condition="{funktion70da} == 1">
+      <f:then>
+        <f:variable name="varerasmus1">Weiteren</f:variable>
+        <f:variable name="varerasmus2">Weiteren</f:variable>              
+      </f:then>
+      <f:else>
+        <f:variable name="varerasmus1"></f:variable>
+        <f:variable name="varerasmus2"></f:variable>              
+      </f:else>
     </f:if>    
     <f:render section="Sonstige" arguments="{personen: personen, institution: institution}" />    
 
@@ -126,7 +143,7 @@
           <f:variable name="counter">{counter+1}</f:variable>
         </f:then>                
       </f:if>
-      <f:if condition="{funktion51da} == 0 || erwschulcounter} < 4">
+      <f:if condition="{funktion51da} == 0 || {erwschulcounter} < 4">
         <f:then>
           <f:render section="Linkaufbau" arguments="{funktionuid: '51', vartext1: varerwschul1, vartext2: varerwschul2, fach: 'Mitglied erw. SL'}" />                 
           <f:variable name="counter">{counter+1}</f:variable>                
@@ -205,7 +222,7 @@
 
       <f:if condition="{funktion57da} == 0">
         <f:then>         
-          <f:render section="Linkaufbau" arguments="{funktionuid: '57', vartext1: '', vartext2: '', fach: 'Inklusionsbeauftragter'}" />                  
+          <f:render section="Linkaufbau" arguments="{funktionuid: '57', vartext1: '', vartext2: '', fach: 'Ansprechperson Inklusion'}" />                  
           <f:variable name="counter">{counter+1}</f:variable>
         </f:then>
       </f:if>
@@ -284,6 +301,45 @@
         <div class="row mt-2"> 
           </f:then>
       </f:if>
+      <f:if condition="{funktion68da} == 0">
+        <f:then>            
+          <f:render section="Linkaufbau" arguments="{funktionuid: '68', vartext1: '', vartext2: '', fach: 'Fortbildungskoordination'}" />                  
+          <f:variable name="counter">{counter+1}</f:variable>
+        </f:then>
+      </f:if>
+      <f:if condition="{counter} == 3">
+        <f:then>
+          </div> 
+        <f:variable name="counter">0</f:variable>
+        <div class="row mt-2"> 
+          </f:then>
+      </f:if>
+      <f:if condition="{funktion69da} == 0">
+        <f:then>            
+          <f:render section="Linkaufbau" arguments="{funktionuid: '69', vartext1: '', vartext2: '', fach: 'Schulentwicklung/QmbS (Leitung)'}" />                  
+          <f:variable name="counter">{counter+1}</f:variable>
+        </f:then>
+      </f:if>
+      <f:if condition="{counter} == 3">
+        <f:then>
+          </div> 
+        <f:variable name="counter">0</f:variable>
+        <div class="row mt-2"> 
+          </f:then>
+      </f:if>
+      <f:if condition="{funktion70da} == 0 || {erasmuscounter} < 2">
+        <f:then>         
+          <f:render section="Linkaufbau" arguments="{funktionuid: '70', vartext1: varerasmus1, vartext2: varerasmus2, fach: 'Erasmusbeauftragter (akkreditiert)'}" />                  
+          <f:variable name="counter">{counter+1}</f:variable>
+        </f:then>
+      </f:if>
+      <f:if condition="{counter} == 3">
+        <f:then>
+          </div> 
+        <f:variable name="counter">0</f:variable>
+        <div class="row mt-2"> 
+          </f:then>
+      </f:if>      
       <f:if condition="{funktion63da} == 0 || {schulsozialpaedagogikcounter} < 2">
         <f:then>
           <f:render section="Linkaufbau" arguments="{funktionuid: '63', vartext1: '', vartext2: '', fach: 'Schulsozialpädagogik'}" />          

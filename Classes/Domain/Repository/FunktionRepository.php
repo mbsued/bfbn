@@ -9,7 +9,7 @@ namespace MbFosbos\Bfbn\Domain\Repository;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024 
  *
  ***/
 /**
@@ -60,7 +60,7 @@ class FunktionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	{
         $query = $this -> createQuery();
         $query -> getQuerySettings() -> setRespectStoragePage(false);
-        $query -> setOrderings($this -> createOrdering());
+        $query -> setOrderings($this -> createOrderingBySort());
         $constraints = $this -> createConstraintsFromDemand($query, $demand);
         if (!empty($constraints)) 
 		{
@@ -98,5 +98,11 @@ class FunktionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	{
         $orderings = array('uid' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
         return $orderings;
-    }			
+    }
+
+    protected function createOrderingBySort() 
+	{
+        $orderings = array('sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING);
+        return $orderings;
+    }	
 }

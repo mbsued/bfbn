@@ -290,6 +290,19 @@
               	<div class="row mt-2"> 
               </f:then>
             </f:if>
+            <f:if condition="{funktion32da} == 0  && {schulehattec} == 1">
+              <f:then>            
+                <f:render section="Linkaufbau" arguments="{funktionuid: '32', vartext1: '', vartext2: '', fach: 'Chemie (T)'}" />                  
+                <f:variable name="counter">{counter+1}</f:variable>
+              </f:then>
+            </f:if>
+            <f:if condition="{counter} == 3">
+              <f:then>
+               	</div> 
+              	<f:variable name="counter">0</f:variable>
+              	<div class="row mt-2"> 
+              </f:then>
+            </f:if>            
             <f:if condition="{schulehatwuv} == 1">
               <f:then>
                 <f:if condition="{funktion26da} == 0 || {wirtschaftcounter} < 3">
