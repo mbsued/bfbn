@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung',
+        'title' => $ll . 'tx_bfbn_domain_model_fortbildung',
         'label' => 'thema',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'thema',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, art, institution, thema, fach, zielgruppe, inhalt, referent,  --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime, tstamp, crdate'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -97,7 +96,7 @@ return [
 	
         'art' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.art',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.art',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -109,7 +108,7 @@ return [
         ],
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.institution',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -121,7 +120,7 @@ return [
         ],
         'thema' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.thema',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.thema',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -130,7 +129,7 @@ return [
         ],
         'fach' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.fach',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.fach',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -139,7 +138,7 @@ return [
         ],
         'zielgruppe' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.zielgruppe',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.zielgruppe',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -148,7 +147,7 @@ return [
         ],		
         'inhalt' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.inhalt',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.inhalt',
             'config' => [
                 'type' => 'text',
                 'cols' => '30',
@@ -179,7 +178,7 @@ return [
         ],
         'referent' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_fortbildung.referent',
+            'label' => $ll . 'tx_bfbn_domain_model_fortbildung.referent',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -187,18 +186,67 @@ return [
             ],
         ],		
         'crdate' => [
-            'label' => 'crdate',
+            'label' => $ll_core . 'LGL.creationDate',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
             ]
         ],
         'tstamp' => [
-            'label' => 'tstamp',
+            'label' => $ll_core . 'LGL.timestamp',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
             ]
         ],		
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,
+				--div--;Inhalt,
+					--palette--;;paletteInhalt,				
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'institution,
+				--linebreak--,
+				art,
+				--linebreak--,				
+				thema,
+				--linebreak--,
+				fach,
+				--linebreak--,
+				zielgruppe, referent,
+				--linebreak--,
+				crdate, tstamp'
+		],
+		'paletteInhalt' => [
+			'showitem' => 
+				'inhalt'
+		],		
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],
+	],	
 ];

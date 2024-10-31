@@ -1,12 +1,15 @@
 <?php
 
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_bfbn_domain_model_institution',
    'categories'
 );
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution',
+        'title' => $ll . 'tx_bfbn_domain_model_institution',
         'label' => 'nummer',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -24,25 +27,17 @@ return [
         'searchFields' => 'bezeichnung,kurzbezeichnung,nummer,',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_institution.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, kurzbezeichnung, nummer, strasse, plz, ort, telefon, fax, email, homepage, laengengrad, breitengrad, regierungsbezirk, mbbezirk, status, art, personen,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-        '2' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, kurzbezeichnung, nummer, strasse, plz, ort, bezeichnungfos, kurzbezeichnungfos, nummerfos, bezeichnungbos, kurzbezeichnungbos, nummerbos, telefon, fax, email, homepage, laengengrad, breitengrad, vorklassefos, vorklassebos, vorkursfos, vorkursbos, bosteilzeit, dbfh, profilinklusion, ivk, regierungsbezirk, mbbezirk, mbbezirk2, status, art, vorkursartbos, vorkurstagbos, vorkursartfos, vorkurstagfos, ausbildungsrichtungen, sprachen, sprachenintw, personen, hinweis, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-        '3' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, kurzbezeichnung, nummer, strasse, plz, ort, bezeichnungfos, kurzbezeichnungfos, nummerfos, telefon, fax, email, homepage, laengengrad, breitengrad, vorklassefos, vorkursfos, vorkursartfos, vorkurstagfos, dbfh, profilinklusion, ivk, regierungsbezirk, mbbezirk, mbbezirk2, status, art, ausbildungsrichtungen, sprachen, sprachenintw, personen, hinweis, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-        '4' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, kurzbezeichnung, nummer, strasse, plz, ort, bezeichnungbos, kurzbezeichnungbos, nummerbos, telefon, fax, email, homepage, laengengrad, breitengrad, vorklassebos, vorkursbos, vorkursartbos, vorkurstagbos, bosteilzeit, profilinklusion, ivk, regierungsbezirk, mbbezirk, mbbezirk2, status, art, ausbildungsrichtungen, sprachen, sprachenintw, personen, hinweis, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],	
-	],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -64,7 +59,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -78,7 +73,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -90,7 +85,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -105,7 +100,7 @@ return [
         ],
         'bezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bezeichnung',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.bezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -116,7 +111,7 @@ return [
         ],
         'kurzbezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.kurzbezeichnung',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.kurzbezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -127,7 +122,7 @@ return [
         ],
         'nummer' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.nummer',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.nummer',
             'config' => [
                 'type' => 'input',
                 'size' => 4,
@@ -139,7 +134,7 @@ return [
         ],
         'strasse' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.strasse',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.strasse',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -149,7 +144,7 @@ return [
         ],
         'plz' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.plz',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.plz',
             'config' => [
                 'type' => 'input',
                 'size' => 5,
@@ -161,7 +156,7 @@ return [
         ],
         'ort' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.ort',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.ort',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -171,7 +166,7 @@ return [
         ],
         'bezeichnungfos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bezeichnungfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.bezeichnungfos',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -180,7 +175,7 @@ return [
         ],
         'kurzbezeichnungfos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.kurzbezeichnungfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.kurzbezeichnungfos',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -189,7 +184,7 @@ return [
         ],
         'nummerfos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.nummerfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.nummerfos',
             'config' => [
                 'type' => 'input',
                 'size' => 4,
@@ -200,7 +195,7 @@ return [
         ],
         'bezeichnungbos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bezeichnungbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.bezeichnungbos',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -209,7 +204,7 @@ return [
         ],
         'kurzbezeichnungbos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.kurzbezeichnungbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.kurzbezeichnungbos',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -218,7 +213,7 @@ return [
         ],
         'nummerbos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.nummerbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.nummerbos',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -229,7 +224,7 @@ return [
         ],
         'telefon' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.telefon',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.telefon',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -239,7 +234,7 @@ return [
         ],
         'fax' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.fax',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.fax',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -249,7 +244,7 @@ return [
         ],
         'email' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.email',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.email',
             'config' => [
                 'type' => 'email',
                 'size' => 30,
@@ -258,7 +253,7 @@ return [
         ],
         'homepage' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.homepage',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.homepage',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -268,7 +263,7 @@ return [
         ],
 		'breitengrad' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.breitengrad',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.breitengrad',
             'config' => [
                 'type' => 'input',
                 'eval' => \MbFosbos\Bfbn\Evaluation\LatitudeEvaluation::class,
@@ -277,7 +272,7 @@ return [
         ],
         'laengengrad' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.laengengrad',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.laengengrad',
             'config' => [
                 'type' => 'input',
                 'eval' => \MbFosbos\Bfbn\Evaluation\LatitudeEvaluation::class,
@@ -286,7 +281,7 @@ return [
         ],
         'vorklassefos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorklassefos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorklassefos',
 			'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -300,7 +295,7 @@ return [
         ],
         'vorklassebos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorklassebos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorklassebos',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -315,7 +310,7 @@ return [
         'vorkursfos' => [
             'exclude' => true,
 			'onChange' => 'reload',			
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkursfos',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -330,7 +325,7 @@ return [
         'vorkursbos' => [
             'exclude' => true,
 			'onChange' => 'reload',
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkursbos',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -344,7 +339,7 @@ return [
         ],
         'bosteilzeit' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bosteilzeit',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.bosteilzeit',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -358,7 +353,7 @@ return [
         ],		
         'dbfh' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.dbfh',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.dbfh',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -372,7 +367,7 @@ return [
         ],
         'profilinklusion' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.profilinklusion',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.profilinklusion',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -386,7 +381,7 @@ return [
         ],
         'ivk' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.ivk',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.ivk',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -400,7 +395,7 @@ return [
         ],		
         'regierungsbezirk' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.regierungsbezirk',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.regierungsbezirk',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -413,7 +408,7 @@ return [
         ],
         'mbbezirk' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.mbbezirk',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.mbbezirk',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -426,7 +421,7 @@ return [
         ],
         'mbbezirk2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.mbbezirk2',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.mbbezirk2',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -445,7 +440,7 @@ return [
         ],		
         'status' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.status',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.status',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -458,7 +453,7 @@ return [
         ],
         'art' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.art',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.art',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -472,7 +467,7 @@ return [
         'vorkursartbos' => [
 			'displayCond' => 'FIELD:vorkursbos:REQ:true',
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursartbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkursartbos',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -485,7 +480,7 @@ return [
         'vorkurstagbos' => [
 			'displayCond' => 'FIELD:vorkursbos:REQ:true',
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkurstagbos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkurstagbos',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -498,7 +493,7 @@ return [
         'vorkursartfos' => [
 			'displayCond' => 'FIELD:vorkursfos:REQ:true',
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkursartfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkursartfos',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -511,7 +506,7 @@ return [
         'vorkurstagfos' => [
 			'displayCond' => 'FIELD:vorkursfos:REQ:true',
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.vorkurstagfos',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.vorkurstagfos',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -523,7 +518,7 @@ return [
         ],		
         'ausbildungsrichtungen' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.ausbildungsrichtungen',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.ausbildungsrichtungen',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -549,7 +544,7 @@ return [
         ],
         'sprachen' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.sprachen',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.sprachen',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectCheckBox',
@@ -559,7 +554,7 @@ return [
         ],
         'sprachenintw' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.sprachenintw',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.sprachenintw',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectCheckBox',
@@ -569,7 +564,7 @@ return [
         ],		
         'personen' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.personen',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.personen',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -595,7 +590,7 @@ return [
         ],
         'bearbeiter' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.bearbeiter',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.bearbeiter',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -621,7 +616,7 @@ return [
         ],		
         'hinweis' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institution.hinweis',
+            'label' => $ll . 'tx_bfbn_domain_model_institution.hinweis',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

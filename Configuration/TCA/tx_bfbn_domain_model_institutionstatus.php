@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institutionstatus',
+        'title' => $ll . 'tx_bfbn_domain_model_institutionstatus',
         'label' => 'bezeichnung',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'bezeichnung',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_datensatz.svg'
     ],
-    'interface' => [        
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, bezeichnung, langbezeichnung, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -96,7 +95,7 @@ return [
         ],
         'bezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institutionstatus.bezeichnung',
+            'label' => $ll . 'tx_bfbn_domain_model_institutionstatus.bezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -106,7 +105,7 @@ return [
 		
         'langbezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_institutionstatus.langbezeichnung',
+            'label' => $ll . 'tx_bfbn_domain_model_institutionstatus.langbezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -114,4 +113,39 @@ return [
             ],
         ],    
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'bezeichnung,
+				--linebreak--,
+				langbezeichnung'
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],
+	],				
 ];

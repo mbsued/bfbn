@@ -185,6 +185,9 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_funktion.sorting" resname="tx_bfbn_domain_model_funktion.sorting">
 				<source>Sortierung</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_funktion.anzahl" resname="tx_bfbn_domain_model_funktion.anzahl">
+				<source>max. Anzahl</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_funktionart" resname="tx_bfbn_domain_model_funktionart">
 				<source>Funktionart</source>

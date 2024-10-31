@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin',
+        'title' => $ll . 'tx_bfbn_domain_model_nachtermin',
         'label' => 'nachname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'nachname',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nachname, vorname, geschlecht, geburtsdatum, jahrgangsstufe, ausbildungsrichtung, deutsch, englisch, mathematik, cas, fach4, gruppenpruefung, ergaenzungspruefung, sprache, nachweis,institution, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -96,7 +95,7 @@ return [
         ],
         'nachname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.nachname',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.nachname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -106,7 +105,7 @@ return [
         ],
         'vorname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.vorname',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.vorname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -116,7 +115,7 @@ return [
         ],
         'geschlecht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.geschlecht',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.geschlecht',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -128,7 +127,7 @@ return [
         ],
         'geburtsdatum' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.geburtsdatum',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.geburtsdatum',
             'config' => [
                 'type' => 'datetime',
 				'format' => 'date',
@@ -138,7 +137,8 @@ return [
         ],		
         'jahrgangsstufe' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.jahrgangsstufe',
+			'onChange' => 'reload',			
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.jahrgangsstufe',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -151,7 +151,7 @@ return [
         'ausbildungsrichtung' => [
             'exclude' => true,
 			'onChange' => 'reload',			
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.ausbildungsrichtung',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.ausbildungsrichtung',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',			
@@ -163,7 +163,7 @@ return [
         ],
         'deutsch' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.deutsch',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.deutsch',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -177,7 +177,7 @@ return [
         ],
         'englisch' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.englisch',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.englisch',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -191,7 +191,7 @@ return [
         ],
         'mathematik' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.mathematik',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.mathematik',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -206,7 +206,7 @@ return [
         'cas' => [
             'exclude' => true,
 			'displayCond' => 'FIELD:ausbildungsrichtung:=:6',			
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.cas',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.cas',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -220,7 +220,7 @@ return [
         ],		
         'fach4' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.fach4',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.fach4',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -234,7 +234,7 @@ return [
         ],
         'gruppenpruefung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.gruppenpruefung',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.gruppenpruefung',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -247,9 +247,10 @@ return [
             ]
         ],
         'ergaenzungspruefung' => [
+			'displayCond' => 'FIELD:jahrgangsstufe:=:3',		
             'exclude' => true,
 			'onChange' => 'reload',
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.ergaenzungspruefung',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.ergaenzungspruefung',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -264,7 +265,7 @@ return [
         'sprache' => [
             'exclude' => true,
 			'displayCond' => 'FIELD:ergaenzungspruefung:REQ:true',			
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.sprache',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.sprache',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -282,7 +283,7 @@ return [
         ],
         'nachweis' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachtermin.nachweis',
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.nachweis',
             'config' => [
                 'type' => 'check',
 				'renderType' => 'checkboxToggle',
@@ -296,7 +297,7 @@ return [
         ],				
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elitepruefer.institution',
+            'label' => $ll . 'tx_bfbn_domain_model_elitepruefer.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -307,4 +308,57 @@ return [
             ],            
         ],    
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,
+				--div--;Inhalt,
+                    --palette--;;paletteContent,					
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'
+				],
+    ],			
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'institution,
+				--linebreak--,
+				vorname,nachname,
+				--linebreak--,
+				geschlecht,geburtsdatum'
+		],
+		'paletteContent' => [
+			'showitem' => 
+				'jahrgangsstufe,ausbildungsrichtung,
+				--linebreak--,
+				deutsch,englisch,mathematik,cas,fach4,
+				--linebreak--,
+				gruppenpruefung,ergaenzungspruefung,sprache,
+				--linebreak--,
+				nachweis'
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+				--linebreak--,
+				fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+				--linebreak--,editlock
+			',
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],		
+    ],		
 ];

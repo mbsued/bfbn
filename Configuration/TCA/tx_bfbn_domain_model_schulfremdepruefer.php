@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer',
+        'title' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer',
         'label' => 'nachname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -96,7 +100,7 @@ return [
         ],
         'titel' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.titel',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.titel',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -105,7 +109,7 @@ return [
         ],
         'nachname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.nachname',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.nachname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -115,7 +119,7 @@ return [
         ],
         'vorname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.vorname',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.vorname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -125,7 +129,7 @@ return [
         ],
         'geschlecht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.geschlecht',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.geschlecht',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -137,7 +141,7 @@ return [
         ],
         'schule' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.schule',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.schule',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -147,7 +151,7 @@ return [
         ],
         'lehrbefaehigung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.lehrbefaehigung',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.lehrbefaehigung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -157,7 +161,7 @@ return [
         ],		
         'abschluss' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.abschluss',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.abschluss',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -169,7 +173,7 @@ return [
         ],		
         'fach1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.fach1',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.fach1',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -181,10 +185,16 @@ return [
         ],
         'fach2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.fach2',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.fach2',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    0 => [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],				
                 'foreign_table' => 'tx_bfbn_domain_model_fachkurz',
                 'default' => 1,
                 'minitems' => 1,
@@ -193,10 +203,16 @@ return [
         ],
         'fach3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.fach3',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.fach3',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    0 => [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],				
                 'foreign_table' => 'tx_bfbn_domain_model_fachkurz',
                 'default' => 1,
                 'minitems' => 1,
@@ -205,7 +221,7 @@ return [
         ],		
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_schulfremdepruefer.institution',
+            'label' => $ll . 'tx_bfbn_domain_model_schulfremdepruefer.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -216,4 +232,61 @@ return [
             ],            
         ],    
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,					
+				--div--;Zuordnung,
+					--palette--;;paletteZuordnung,					
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'institution,
+				--linebreak--,
+				nachname,
+				--linebreak--,
+				vorname,
+				--linebreak--,
+				titel,				
+				--linebreak--,
+				geschlecht,
+				--lienbreak--,
+				schule'
+		],
+		'paletteZuordnung' => [
+			'showitem' => 
+				'lehrbefaehigung,
+				--linebreak--,
+				abschluss,
+				--linebreak--,
+				fach1,fach2,fach3'
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+				--linebreak--,
+				fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+				--linebreak--,editlock
+			',
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],		
+    ],	
 ];

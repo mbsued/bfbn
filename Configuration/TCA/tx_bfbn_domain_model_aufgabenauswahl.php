@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl',
+        'title' => $ll . 'tx_bfbn_domain_model_aufgabenauswahl',
         'label' => 'institution',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'institution',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, deutsch1a, deutsch1l, deutsch1e, deutsch1d, deutsch2a, deutsch2l, deutsch2e, deutsch2d, deutsch3a, deutsch3l, deutsch3e, deutsch3d, deutsch4a, deutsch4l, deutsch4e, deutsch4d, deutsch5a, deutsch5l, deutsch5e, deutsch5d, deutsch6a, deutsch6l, deutsch6e, deutsch6d, deutsch7a, deutsch7l, deutsch7e, deutsch7d, mathe1a1, mathe1a2, mathe1b1, mathe1b2, mathe2a1, mathe2a2, mathe2b1, mathe2b2, mathe3a1, mathe3a2, mathe3b1, mathe3b2, mathe4a1, mathe4a2, mathe4b1, mathe4b2, mathe5a1, mathe5a2, mathe5b1, mathe5b2, mathe6a1, mathe6a2, mathe6b1, mathe6b2, mathe7a1, mathe7a2, mathe7b1, mathe7b2, physik1, physik2, physik3, paepsy1, paepsy2, gesuwi1, gesuwi2, gest1, gest2, gest3, schulart, jahrgangsstufe, institution, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -97,7 +96,7 @@ return [
 
         'deutsch1a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch1a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch1a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -106,7 +105,7 @@ return [
         ],
         'deutsch1l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch1l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch1l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -115,7 +114,7 @@ return [
         ],
         'deutsch1e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch1e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch1e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -124,7 +123,7 @@ return [
         ],
         'deutsch1d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch1d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch1d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -133,7 +132,7 @@ return [
         ],
         'deutsch2a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch2a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch2a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -142,7 +141,7 @@ return [
         ],
         'deutsch2l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch2l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch2l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -151,7 +150,7 @@ return [
         ],
         'deutsch2e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch2e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch2e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -160,7 +159,7 @@ return [
         ],
         'deutsch2d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch2d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch2d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -169,7 +168,7 @@ return [
         ],
         'deutsch3a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch3a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch3a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -178,7 +177,7 @@ return [
         ],
         'deutsch3l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch3l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch3l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -187,7 +186,7 @@ return [
         ],
         'deutsch3e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch3e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch3e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -196,7 +195,7 @@ return [
         ],
         'deutsch3d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch3d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch3d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -205,7 +204,7 @@ return [
         ],
         'deutsch4a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch4a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch4a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -214,7 +213,7 @@ return [
         ],
         'deutsch4l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch4l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch4l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -223,7 +222,7 @@ return [
         ],
         'deutsch4e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch4e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch4e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -232,7 +231,7 @@ return [
         ],
         'deutsch4d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch4d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch4d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -241,7 +240,7 @@ return [
         ],
         'deutsch5a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch5a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch5a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -250,7 +249,7 @@ return [
         ],
         'deutsch5l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch5l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch5l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -259,7 +258,7 @@ return [
         ],
         'deutsch5e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch5e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch5e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -268,7 +267,7 @@ return [
         ],
         'deutsch5d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch5d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch5d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -277,7 +276,7 @@ return [
         ],
         'deutsch6a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch6a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch6a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -286,7 +285,7 @@ return [
         ],
         'deutsch6l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch6l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch6l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -295,7 +294,7 @@ return [
         ],
         'deutsch6e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch6e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch6e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -304,7 +303,7 @@ return [
         ],
         'deutsch6d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch6d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch6d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -313,7 +312,7 @@ return [
         ],
         'deutsch7a' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch7a',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch7a',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -322,7 +321,7 @@ return [
         ],
         'deutsch7l' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch7l',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch7l',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -331,7 +330,7 @@ return [
         ],
         'deutsch7e' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch7e',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch7e',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -340,7 +339,7 @@ return [
         ],
         'deutsch7d' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.deutsch7d',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.deutsch7d',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -349,7 +348,7 @@ return [
         ],
         'mathe1a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe1a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe1a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -358,7 +357,7 @@ return [
         ],
         'mathe1a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe1a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe1a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -367,7 +366,7 @@ return [
         ],
         'mathe1b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe1b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe1b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -376,7 +375,7 @@ return [
         ],
         'mathe1b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe1b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe1b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -385,7 +384,7 @@ return [
         ],
         'mathe2a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe2a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe2a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -394,7 +393,7 @@ return [
         ],
         'mathe2a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe2a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe2a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -403,7 +402,7 @@ return [
         ],
         'mathe2b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe2b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe2b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -412,7 +411,7 @@ return [
         ],
         'mathe2b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe2b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe2b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -421,7 +420,7 @@ return [
         ],
         'mathe3a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe3a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe3a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -430,7 +429,7 @@ return [
         ],
         'mathe3a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe3a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe3a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -439,7 +438,7 @@ return [
         ],
         'mathe3b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe3b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe3b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -448,7 +447,7 @@ return [
         ],
         'mathe3b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe3b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe3b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -457,7 +456,7 @@ return [
         ],
         'mathe4a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe4a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe4a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -466,7 +465,7 @@ return [
         ],
         'mathe4a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe4a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe4a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -475,7 +474,7 @@ return [
         ],
         'mathe4b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe4b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe4b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -484,7 +483,7 @@ return [
         ],
         'mathe4b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe4b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe4b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -493,7 +492,7 @@ return [
         ],
         'mathe5a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe5a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe5a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -502,7 +501,7 @@ return [
         ],
         'mathe5a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe5a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe5a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -511,7 +510,7 @@ return [
         ],
         'mathe5b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe5b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe5b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -520,7 +519,7 @@ return [
         ],
         'mathe5b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe5b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe5b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -529,7 +528,7 @@ return [
         ],
         'mathe6a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe6a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe6a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -538,7 +537,7 @@ return [
         ],
         'mathe6a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe6a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe6a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -547,7 +546,7 @@ return [
         ],
         'mathe6b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe6b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe6b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -556,7 +555,7 @@ return [
         ],
         'mathe6b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe6b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe6b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -565,7 +564,7 @@ return [
         ],
         'mathe7a1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe7a1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe7a1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -574,7 +573,7 @@ return [
         ],
         'mathe7a2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe7a2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe7a2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -583,7 +582,7 @@ return [
         ],
         'mathe7b1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe7b1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe7b1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -592,7 +591,7 @@ return [
         ],
         'mathe7b2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.mathe7b2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.mathe7b2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -601,7 +600,7 @@ return [
         ],
         'physik1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.physik1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.physik1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -610,7 +609,7 @@ return [
         ],
         'physik2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.physik2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.physik2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -619,7 +618,7 @@ return [
         ],
         'physik3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.physik3',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.physik3',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -628,7 +627,7 @@ return [
         ],
         'paepsy1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.paepsy1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.paepsy1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -637,7 +636,7 @@ return [
         ],
         'paepsy2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.paepsy2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.paepsy2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -646,7 +645,7 @@ return [
         ],
         'gesuwi1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.gesuwi1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.gesuwi1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -655,7 +654,7 @@ return [
         ],
         'gesuwi2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.gesuwi2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.gesuwi2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -664,7 +663,7 @@ return [
         ],
         'gest1' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.gest1',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.gest1',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -673,7 +672,7 @@ return [
         ],
         'gest2' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.gest2',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.gest2',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -682,7 +681,7 @@ return [
         ],
         'gest3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.gest3',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.gest3',
             'config' => [
                 'type' => 'input',
                 'size' => 2,
@@ -691,7 +690,7 @@ return [
         ],		
         'schulart' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.schulart',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.schulart',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -703,7 +702,7 @@ return [
         ],		
         'jahrgangsstufe' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.jahrgangsstufe',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.jahrgangsstufe',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -716,7 +715,7 @@ return [
         ],
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_aufgabenauswahl.institution',
+            'label' => $ll. 'tx_bfbn_domain_model_aufgabenauswahl.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',

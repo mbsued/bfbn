@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite',
+        'title' => $ll. 'tx_bfbn_domain_model_elite',
         'label' => 'instname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -19,23 +23,17 @@ return [
         'searchFields' => 'instname,schulnummer',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, institution, instname, schulnummer, inststrasse, instplz, instort, instperson, insttelefon, instemail, nachname, vorname, geschlecht, gebdat, gebort, strasse, plz, ort, telefon, email, ndhoch, ndabprf, jgst, ar, fach3, fach4, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-	
-	],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -57,7 +55,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -71,7 +69,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -83,7 +81,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -98,7 +96,7 @@ return [
         ],
         'fe_group' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
+            'label' => $ll_core . 'LGL.fe_group',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -106,15 +104,15 @@ return [
                 'maxitems' => 20,
                 'items' => [
                     0 => [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
+                        'label' => $ll_core . 'LGL.hide_at_login',
                         'value' => -1,
                     ],
                     1 => [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
+                        'label' => $ll_core . 'LGL.any_login',
                         'value' => -2,
                     ],
                     2 => [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
+                        'label' => $ll_core . 'LGL.usergroups',
                         'value' => '--div--',
                     ],
                 ],
@@ -124,7 +122,7 @@ return [
         ],
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.institution',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.institution',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -135,7 +133,7 @@ return [
         ],
         'instname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.instname',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.instname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -146,7 +144,7 @@ return [
         ],
         'schulnummer' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.schulnummer',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.schulnummer',
             'config' => [
                 'type' => 'input',
                 'size' => 4,
@@ -157,7 +155,7 @@ return [
         ],
         'inststrasse' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.inststrasse',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.inststrasse',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -167,7 +165,7 @@ return [
         ],
         'instplz' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.instplz',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.instplz',
             'config' => [
                 'type' => 'input',
                 'size' => 5,
@@ -179,7 +177,7 @@ return [
         ],
         'instort' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.instort',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.instort',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -189,7 +187,7 @@ return [
         ],
         'instperson' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.instperson',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.instperson',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -199,7 +197,7 @@ return [
         ],
         'insttelefon' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.insttelefon',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.insttelefon',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -209,7 +207,7 @@ return [
         ],
         'instemail' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.instemail',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.instemail',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -219,7 +217,7 @@ return [
         ],
         'nachname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.nachname',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.nachname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -229,7 +227,7 @@ return [
         ],
         'vorname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.vorname',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.vorname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -239,7 +237,7 @@ return [
         ],
         'geschlecht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.geschlecht',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.geschlecht',
             'config' => [
                 'type' => 'input',
                 'size' => 10,
@@ -249,7 +247,7 @@ return [
         ],
         'gebdat' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.gebdat',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.gebdat',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -259,7 +257,7 @@ return [
         ],
         'gebort' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.gebort',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.gebort',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -269,7 +267,7 @@ return [
         ],
         'strasse' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.strasse',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.strasse',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -279,7 +277,7 @@ return [
         ],
         'plz' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.plz',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.plz',
             'config' => [
                 'type' => 'input',
                 'size' => 5,
@@ -289,7 +287,7 @@ return [
         ],
 		'ort' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.ort',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.ort',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
@@ -299,7 +297,7 @@ return [
         ],
         'telefon' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.telefon',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.telefon',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
@@ -309,7 +307,7 @@ return [
         ],
         'email' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.email',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.email',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
@@ -319,7 +317,7 @@ return [
         ],
         'ndhoch' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.ndhoch',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.ndhoch',
             'config' => [
                 'type' => 'input',
                 'size' => 4,				
@@ -329,7 +327,7 @@ return [
         ],
         'ndabprf' => [
             'exclude' => true,			
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.ndabprf',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.ndabprf',
             'config' => [
                 'type' => 'input',
                 'size' => 4,				
@@ -339,7 +337,7 @@ return [
         ],
         'jgst' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.jgst',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.jgst',
             'config' => [
                 'type' => 'input',
                 'size' => 2,				
@@ -348,7 +346,7 @@ return [
         ],
         'ar' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.ar',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.ar',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
@@ -357,7 +355,7 @@ return [
         ],		
         'fach3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.fach3',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.fach3',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				
@@ -367,7 +365,7 @@ return [
         ],		
         'fach4' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_elite.fach4',
+            'label' => $ll. 'tx_bfbn_domain_model_elite.fach4',
             'config' => [
                 'type' => 'input',
                 'size' => 30,				

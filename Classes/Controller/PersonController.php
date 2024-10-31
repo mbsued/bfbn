@@ -186,6 +186,9 @@ class PersonController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 						$personen = $this->PersonRepository->findDemanded($demand);
 						$this->view->assign('personen', $personen);
 						$this->view->assign('institution',$gesuchteinstitution);
+						$demand = $this->PersonDemandFactory->createDemandObjectForFunktionen($this->settings);
+						$auswahlfunktionen = $this->FunktionRepository->findDemanded($demand);		
+						$this->view->assign('auswahlfunktionen', $auswahlfunktionen);						
 					} else {
 						$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');
 					}

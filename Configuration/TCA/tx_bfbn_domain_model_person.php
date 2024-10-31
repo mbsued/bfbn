@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person',
+        'title' => $ll . 'tx_bfbn_domain_model_person',
         'label' => 'nachname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -23,14 +27,14 @@ return [
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -52,7 +56,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -66,7 +70,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -78,7 +82,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -93,7 +97,7 @@ return [
         ],
         'nachname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.nachname',
+            'label' => $ll . 'tx_bfbn_domain_model_person.nachname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -103,7 +107,7 @@ return [
         ],
         'vorname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.vorname',
+            'label' => $ll . 'tx_bfbn_domain_model_person.vorname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -113,7 +117,7 @@ return [
         ],
         'titel' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.titel',
+            'label' => $ll . 'tx_bfbn_domain_model_person.titel',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -122,7 +126,7 @@ return [
         ],
         'amtsbezeichnung' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.amtsbezeichnung',
+            'label' => $ll . 'tx_bfbn_domain_model_person.amtsbezeichnung',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -132,7 +136,7 @@ return [
         'emailfach' => [
 			'displayCond' => 'FIELD:pid:IN:37,69',		
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.emailfach',
+            'label' => $ll . 'tx_bfbn_domain_model_person.emailfach',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -142,7 +146,7 @@ return [
         'arbeitetfuer' => [
 			'displayCond' => 'FIELD:pid:IN:37,69,369',
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.arbeitetfuer',
+            'label' => $ll . 'tx_bfbn_domain_model_person.arbeitetfuer',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -161,7 +165,7 @@ return [
         'arbeitetfuer2' => [
 			'displayCond' => 'FIELD:pid:IN:37,69',		
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.arbeitetfuer2',
+            'label' => $ll . 'tx_bfbn_domain_model_person.arbeitetfuer2',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -179,7 +183,7 @@ return [
         ],				
         'geschlecht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.geschlecht',
+            'label' => $ll . 'tx_bfbn_domain_model_person.geschlecht',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -192,14 +196,14 @@ return [
         'bestelltab' => [
 			'displayCond' => 'FIELD:funktionen:IN:56,57,58,59,60',		
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.bestelltab',
+            'label' => $ll . 'tx_bfbn_domain_model_person.bestelltab',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
             ]
         ],
         'tstamp' => [
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.tstamp',
+            'label' => $ll . 'tx_bfbn_domain_model_person.tstamp',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -207,7 +211,7 @@ return [
         ],		
         'funktionen' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.funktionen',
+            'label' => $ll . 'tx_bfbn_domain_model_person.funktionen',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -234,7 +238,7 @@ return [
         ],
         'institutionen' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.institutionen',
+            'label' => $ll . 'tx_bfbn_domain_model_person.institutionen',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -262,7 +266,7 @@ return [
         'faecher' => [
 			'displayCond' => 'FIELD:pid:IN:37,69',		
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.faecher',
+            'label' => $ll . 'tx_bfbn_domain_model_person.faecher',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -288,7 +292,7 @@ return [
         'sortierung' => [
 			'displayCond' => 'FIELD:pid:IN:37',		
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_person.sortierung',
+            'label' => $ll . 'tx_bfbn_domain_model_person.sortierung',
             'config' => [
                 'type' => 'input',
                 'size' => 3,

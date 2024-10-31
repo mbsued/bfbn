@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht',
+        'title' => $ll . 'tx_bfbn_domain_model_nachricht',
         'label' => 'sender_name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'sender_name,sender_email,empfaenger_email,betreff',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_nachricht.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, sender_name, sender_email, empfaenger_email,betreff,mailtext, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime, tstamp, crdate'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,19 +68,19 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
                 'default' => 0,
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
-                ]
+                ],
             ],
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -91,12 +90,12 @@ return [
                 ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
-                ]
+                ],
             ],
         ],
         'sender_email' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht.sender_email',
+            'label' => $ll . 'tx_bfbn_domain_model_nachricht.sender_email',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -105,7 +104,7 @@ return [
         ],
         'sender_name' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht.sender_name',
+            'label' => $ll . 'tx_bfbn_domain_model_nachricht.sender_name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -114,7 +113,7 @@ return [
         ],
         'empfaenger_email' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht.empfaenger_email',
+            'label' => $ll . 'tx_bfbn_domain_model_nachricht.empfaenger_email',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -123,7 +122,7 @@ return [
         ],
         'betreff' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht.betreff',
+            'label' => $ll . 'tx_bfbn_domain_model_nachricht.betreff',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -132,7 +131,7 @@ return [
         ],
         'mailtext' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_nachricht.mailtext',
+            'label' => $ll . 'tx_bfbn_domain_model_nachricht.mailtext',
             'config' => [
                 'type' => 'text',
                 'cols' => '30',
@@ -162,18 +161,67 @@ return [
             ],
         ],		
         'crdate' => [
-            'label' => 'crdate',
+            'label' => $ll_core . 'LGL.creationDate',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
-            ]
+            ],
         ],
         'tstamp' => [
-            'label' => 'tstamp',
+            'label' => $ll_core . 'LGL.timestamp',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
-            ]
+            ],
         ],		
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,
+				--div--;Inhalt,
+                    --palette--;;paletteContent,					
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'
+				],
+    ],			
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'sender_email,sender_name,
+				--linebreak--,
+				empfaenger_email,
+				--linebreak--,
+				betreff,
+				--linebreak--,
+				crdate, tstamp'
+		],
+		'paletteContent' => [
+			'showitem' => 
+				'mailtext'
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel,
+				--linebreak--,
+				fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel,
+				--linebreak--,editlock
+			',
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],		
+    ],		
 ];

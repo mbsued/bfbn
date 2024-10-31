@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung',
+        'title' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung',
         'label' => 'nachname',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'nachname',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, nachname, vorname,  geschlecht, sprache, institution, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -96,7 +95,7 @@ return [
         ],
         'nachname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung.nachname',
+            'label' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung.nachname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -106,7 +105,7 @@ return [
         ],
         'vorname' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung.vorname',
+            'label' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung.vorname',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -116,7 +115,7 @@ return [
         ],
         'geschlecht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung.geschlecht',
+            'label' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung.geschlecht',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -128,7 +127,7 @@ return [
         ],		
         'sprache' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung.sprache',
+            'label' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung.sprache',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -140,7 +139,7 @@ return [
         ],
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_ergaenzungspruefung.institution',
+            'label' => $ll. 'tx_bfbn_domain_model_ergaenzungspruefung.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -151,4 +150,45 @@ return [
             ],            
         ],    
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,					
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'nachname,
+				--linebreak--,
+				vorname,
+				--linebreak--,
+				geschlecht,
+				--linebreak--,				
+				sprache,
+				--linebreak--,
+				institution'
+		],		
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],
+	],		
 ];

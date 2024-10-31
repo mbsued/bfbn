@@ -9,7 +9,7 @@ namespace MbFosbos\Bfbn\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2021 
+ *  (c) 2024
  *
  ***/
 /**
@@ -31,6 +31,13 @@ class Funktion extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \MbFosbos\Bfbn\Domain\Model\Funktionart
      */
     protected $art = null;	
+
+    /**
+     * anzahl
+     * 
+     * @var integer
+     */
+    protected $anzahl = 0;
 
     /**
      * Returns the bezeichnung
@@ -73,4 +80,25 @@ class Funktion extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->art = $art;
     }
+	
+    /**
+     * Returns the anzahl
+     * 
+     * @return integer $anzahl
+     */
+    public function getAnzahl()
+    {
+        return $this->anzahl;
+    }
+
+    /**
+     * Sets the anzahl
+     * 
+     * @param integer $anzahl
+     * @return void
+     */
+    public function setAnzahl($anzahl)
+    {
+        $this->anzahl = $anzahl;
+    }	
 }

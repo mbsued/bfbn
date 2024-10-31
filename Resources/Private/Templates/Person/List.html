@@ -2,86 +2,19 @@
 
 <f:layout name="Default" />
 <f:section name="content">
-  
-  <f:variable name="schulehatabu">0</f:variable>
-  <f:variable name="schulehatgst">0</f:variable>
-  <f:variable name="schulehatgsu">0</f:variable>
-  <f:variable name="schulehatiwi">0</f:variable>
-  <f:variable name="schulehatsoz">0</f:variable>
-  <f:variable name="schulehattec">0</f:variable>
-  <f:variable name="schulehatwuv">0</f:variable>
 
-  <f:variable name="schulehatfranzoesisch">0</f:variable>
-  <f:variable name="schulehatitalienisch">0</f:variable>
-  <f:variable name="schulehatlatein">0</f:variable>
-  <f:variable name="schulehatspanisch">0</f:variable>
-  <f:variable name="schulehatrussisch">0</f:variable>
-  
-  <f:variable name="schulehatseminar">0</f:variable>
-  <f:variable name="schulehatfpa">0</f:variable>
-  
-  <f:variable name="funktion11da">0</f:variable>
-  <f:variable name="funktion12da">0</f:variable>
-  <f:variable name="funktion13da">0</f:variable>
-  <f:variable name="funktion14da">0</f:variable>
-  <f:variable name="funktion15da">0</f:variable>
-  <f:variable name="funktion16da">0</f:variable> 
-  <f:variable name="funktion17da">0</f:variable>
-  <f:variable name="funktion18da">0</f:variable>
-  <f:variable name="funktion19da">0</f:variable>
-  <f:variable name="funktion20da">0</f:variable>
-  <f:variable name="funktion21da">0</f:variable>
-  <f:variable name="funktion22da">0</f:variable>
-  <f:variable name="funktion23da">0</f:variable>
-  <f:variable name="funktion24da">0</f:variable>
-  <f:variable name="funktion25da">0</f:variable>
-  <f:variable name="funktion26da">0</f:variable>
-  <f:variable name="funktion27da">0</f:variable>
-  <f:variable name="funktion28da">0</f:variable>
-  <f:variable name="funktion29da">0</f:variable>
-  <f:variable name="funktion30da">0</f:variable>
-  <f:variable name="funktion31da">0</f:variable>
-  <f:variable name="funktion32da">0</f:variable>
-  
-  <f:variable name="deutschcounter">0</f:variable>
-  <f:variable name="seminarfachcounter">0</f:variable>
-  <f:variable name="englischcounter">0</f:variable>
-  <f:variable name="mathecounter">0</f:variable>
-  <f:variable name="wirtschaftcounter">0</f:variable>
-  <f:variable name="physikcounter">0</f:variable>  
-  
-  <f:variable name="maschulcounter">0</f:variable>
-  <f:variable name="erwschulcounter">0</f:variable>
-  <f:variable name="fpacounter">0</f:variable>
-  <f:variable name="verbindcounter">0</f:variable>
-  <f:variable name="seminarcounter">0</f:variable>
-  <f:variable name="erasmuscounter">0</f:variable>
-  <f:variable name="schulpsychologiecounter">0</f:variable>
-  <f:variable name="schulsozialpaedagogikcounter">0</f:variable>
-  <f:variable name="sonderpaedagogikcounter">0</f:variable>
-
-  <f:variable name="funktion50da">0</f:variable>
-  <f:variable name="funktion51da">0</f:variable>
-  <f:variable name="funktion52da">0</f:variable>
-  <f:variable name="funktion53da">0</f:variable>
-  <f:variable name="funktion54da">0</f:variable>
-  <f:variable name="funktion55da">0</f:variable>
-  <f:variable name="funktion56da">0</f:variable>
-  <f:variable name="funktion57da">0</f:variable>
-  <f:variable name="funktion58da">0</f:variable>
-  <f:variable name="funktion59da">0</f:variable>
-  <f:variable name="funktion60da">0</f:variable>
-  <f:variable name="funktion61da">0</f:variable>
-  <f:variable name="funktion62da">0</f:variable>
-  <f:variable name="funktion63da">0</f:variable>
-  <f:variable name="funktion64da">0</f:variable>
-  <f:variable name="funktion65da">0</f:variable>
-  <f:variable name="funktion66da">0</f:variable>
-  <f:variable name="funktion67da">0</f:variable>
-  <f:variable name="funktion68da">0</f:variable>
-  <f:variable name="funktion69da">0</f:variable>
-  <f:variable name="funktion70da">0</f:variable>
-   
+  <f:for each="{0:'seminar',1:'abu',2:'gst',3:'gsu',4:'iwi',5:'soz',6:'tec', 7:'wuv',8:'franzoesisch',9:'italienisch',10:'latein',11:'russisch',12:'spanisch',13:'fpa'}" as="schulehat" iteration="schulehatIteration">
+    <f:variable name="{schulehat{schulehat}}">0</f:variable>  
+  </f:for> 
+  <f:for each="{auswahlfunktionen}" as="auswahlfunktion" iteration="funktionIteration">
+    <f:variable name="funktion{auswahlfunktion.uid}da">0</f:variable>
+    <f:variable name="funktion{auswahlfunktion.uid}counter">0</f:variable>
+    <f:variable name="funktion{auswahlfunktion.uid}noetig">1</f:variable>
+    <f:variable name="maxanzahl{auswahlfunktion.uid}">{auswahlfunktion.anzahl}</f:variable>
+    <f:variable name="funktion{auswahlfunktion.uid}name">{auswahlfunktion.bezeichnung}</f:variable>
+    <f:variable name="var{auswahlfunktion.uid}text1"></f:variable>
+    <f:variable name="var{auswahlfunktion.uid}text2"></f:variable>    
+  </f:for>   
   <f:if condition="{institution.art.uid} == 2">
     <f:then> 
       <f:variable name="schulehatfpa">1</f:variable>

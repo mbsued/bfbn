@@ -1,7 +1,11 @@
 <?php
+
+$ll = 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:';
+$ll_core = 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik',
+        'title' => $ll . 'tx_bfbn_domain_model_unfallstatistik',
         'label' => 'institution',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,22 +22,17 @@ return [
         'searchFields' => 'institution',
         'iconfile' => 'EXT:bfbn/Resources/Public/Icons/tx_bfbn_domain_model_abfrage.svg'
     ],
-    'interface' => [
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, schueler, unterricht, sport, pause, schulweg, schulwegpolizei, sonstige, institution, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
-    ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $ll_core . 'LGL.language',
             'config' => [
                 'type' => 'language',
             ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'label' => $ll_core . 'LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -55,7 +54,7 @@ return [
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+            'label' => $ll_core . 'LGL.visible',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
@@ -69,7 +68,7 @@ return [
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'label' => $ll_core . 'LGL.starttime',
             'config' => [
                 'type' => 'datetime', 
                 'format' => 'datetime',
@@ -81,7 +80,7 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'label' => $ll_core . 'LGL.endtime',
             'config' => [
                 'type' => 'datetime',
                 'format' => 'datetime',
@@ -96,7 +95,7 @@ return [
         ],
         'schueler' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.schueler',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.schueler',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -106,7 +105,7 @@ return [
         ],
         'unterricht' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.unterricht',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.unterricht',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -116,7 +115,7 @@ return [
         ],
         'sport' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.sport',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.sport',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -126,7 +125,7 @@ return [
         ],
         'pause' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.pause',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.pause',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -136,7 +135,7 @@ return [
         ],
         'schulweg' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.schulweg',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.schulweg',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -146,7 +145,7 @@ return [
         ],
         'schulwegpolizei' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.schulwegpolizei',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.schulwegpolizei',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -156,7 +155,7 @@ return [
         ],
         'sonstige' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.sonstige',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.sonstige',
             'config' => [
                 'type' => 'number',
                 'size' => 2,
@@ -166,7 +165,7 @@ return [
         ],		
         'institution' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_domain_model_unfallstatistik.institution',
+            'label' => $ll . 'tx_bfbn_domain_model_unfallstatistik.institution',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -177,4 +176,43 @@ return [
             ],            
         ],    
     ],
+	'types' => [
+        '1' => [
+			'showitem' => '
+					--palette--;;paletteCore,
+				--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,				
+                    --palette--;;paletteLanguage,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+                    --palette--;;paletteHidden,
+                    --palette--;;paletteAccess,'					
+				],
+    ],
+	'palettes' => [
+		'paletteCore' => [
+			'showitem' => 
+				'institution,
+				--linebreak--,
+				schueler,
+				--linebreak--,
+				unterricht,sport,pause,
+				--linebreak--,
+				schulweg,schulwegpolizei,sonstige'
+		],
+		'paletteLanguage' => [
+			'showitem' => '
+				sys_language_uid;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:sys_language_uid_formlabel,l10n_parent, l10n_diffsource,
+			',
+		],		
+		'paletteAccess' => [
+			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
+			'showitem' => '
+				starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,
+				endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+		],
+		'paletteHidden' => [
+			'showitem' => '
+				hidden
+			',
+		],
+	],	
 ];
