@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2024-11-14T12:00:00Z" product-name="bfbn">
+		<header/>
+		<body>
+			<trans-unit id="bfbn_institutionlist.title">
+				<source>Liste der Institutionen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionlist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionsearch.title">
+				<source>Suche nach Institutionen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionsearch.description">
+				<source>Beschreibung</source>
+			</trans-unit>			
+			<trans-unit id="bfbn_institutionabfrage.title">
+				<source>Abfrageliste der Institutionen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionabfrage.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutiondetail.title">
+				<source>Detailansicht der Institutionen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutiondetail.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionedit.title">
+				<source>Editansicht der Institutionen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_institutionedit.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_personlist.title">
+				<source>Listansicht der Personen einer Institution</source>
+			</trans-unit>
+			<trans-unit id="bfbn_personlist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_personsearch.title">
+				<source>Suchansicht der Personen einer Institution</source>
+			</trans-unit>
+			<trans-unit id="bfbn_personsearch.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_ergaenzungspruefunglist.title">
+				<source>Ergänzungspruefung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_ergaenzungspruefunglist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_schulfremdeprueferlist.title">
+				<source>Schulfremdeprüfer</source>
+			</trans-unit>
+			<trans-unit id="bfbn_schulfremdeprueferlist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_aufgabenauswahllist.title">
+				<source>Aufgabenauswahl</source>
+			</trans-unit>
+			<trans-unit id="bfbn_aufgabenauswahllist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_meldunglist.title">
+				<source>Meldung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_meldunglist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_unfallstatistiklist.title">
+				<source>Unfallstatistik</source>
+			</trans-unit>
+			<trans-unit id="bfbn_unfallstatistiklist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fortbildunglist.title">
+				<source>Fortbildung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fortbildunglist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fortbildungfma.title">
+				<source>Fortbildung FMA</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fortbildungfma.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_eliteprueferlist.title">
+				<source>Eliteprüfer</source>
+			</trans-unit>
+			<trans-unit id="bfbn_eliteprueferlist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nachterminlist.title">
+				<source>Nachtermin</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nachterminlist.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nachterminstatus.title">
+				<source>Nachtermin Status</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nachterminstatus.description">
+				<source>Beschreibung</source>
+			</trans-unit>			
+		</body>
+	</file>
+</xliff>

@@ -57,9 +57,8 @@
 				<div class="col-sm-10 col-sm-offset-2">
                   	<f:form.button class="btn btn-primary" type="submit"><i class="fas fa-save me-2"></i>Speichern</f:form.button>
 					
-					<f:form.hidden property="institution" value="{institution}" />                  
-                  	<f:form.hidden property="pid" value="{settings.fortbildung.ordnerwest}" />
-                  
+					<f:form.hidden property="institution" value="{institution}" />             
+                    <f:render partial="Abfragen/Ablageordner9" arguments="{institution:institution, settings:settings}" />                      
 				</div>
 			</div>
 		</div>
