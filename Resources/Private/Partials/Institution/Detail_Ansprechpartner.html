@@ -1,5 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-  {namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<html 
+	xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers" 
+	data-namespace-typo3-fluid="true">
 
 <div class="row">
 	<div class="col-xl-12 col-lg-12 col-md-12 col-12">
@@ -78,7 +80,7 @@
 
 <f:section name="MB2">
 	<f:variable name="ueberschrift" value="Nein" />
-	<f:for each="{institution.personen -> v:iterator.sort(sortBy: '{sort}')}" as="person" iteration="personIteration">
+	<f:for each="{institution.personen -> b:iterator.sort(sortBy: '{sort}')}" as="person" iteration="personIteration">
 		<f:for each="{person.funktionen}" as="funktion" iteration="funktionIteration">	
 			<f:if condition="{funktion.uid} == {uid}">
 				<f:if condition="{ueberschrift} == 'Nein'">

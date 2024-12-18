@@ -49,7 +49,7 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$queryBuilder->selectLiteral(
 					'distinct a.*', '(acos(sin(' . floatval($latitude * M_PI / 180) . ') * sin(breitengrad * ' . floatval(M_PI / 180) . ') + cos(' . floatval($latitude * M_PI / 180) . ') *
 					cos(breitengrad * ' . floatval(M_PI / 180) . ') * cos((' . floatval($longitude) . ' - laengengrad) * ' . floatval(M_PI / 180) . '))) * 6370 as `distance`');		
-		$queryBuilder->having('`distance` <= ' . $queryBuilder->createNamedParameter($distance, \PDO::PARAM_INT));
+		$queryBuilder->having('`distance` <= ' . $queryBuilder->createNamedParameter($distance, Connection::PARAM_INT));
 		$queryBuilder->where(
 			$queryBuilder->expr()->in(
 				'a.pid',
@@ -75,7 +75,7 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_statusnachtermin');
 		$queryBuilder	
 			->update('tx_bfbn_domain_model_statusnachtermin','t')
-			->where($queryBuilder->expr()->eq('t.institution', $queryBuilder->createNamedParameter($institution, \PDO::PARAM_INT)))
+			->where($queryBuilder->expr()->eq('t.institution', $queryBuilder->createNamedParameter($institution, Connection::PARAM_INT)))
 			->set('t.fehlanzeige', $fehlanzeige)
 			->set('t.meldung', $meldung)
 			->set('t.tstamp', $timestamp)
@@ -93,7 +93,7 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 			->count('uid')
 			->from('tx_bfbn_domain_model_nachtermin')
 			->where(
-				$queryBuilder->expr()->eq('institution', $queryBuilder->createNamedParameter($institution, \PDO::PARAM_INT))
+				$queryBuilder->expr()->eq('institution', $queryBuilder->createNamedParameter($institution, Connection::PARAM_INT))
 				)
 			->executeQuery()
 			->fetchOne();
