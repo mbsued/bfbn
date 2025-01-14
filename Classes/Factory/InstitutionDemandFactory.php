@@ -76,36 +76,57 @@ class InstitutionDemandFactory
 							$ausbildungsrichtungenarray[] = (1);
 							$ausbildungsrichtungenarray[] = (2);
 							$ausbildungsrichtungenarray[] = (3);
+							$ausbildungsrichtungenarray[] = (34);
+							$ausbildungsrichtungenarray[] = (35);
+							$ausbildungsrichtungenarray[] = (36);							
 							break;
 						case 2:
 							$ausbildungsrichtungenarray[] = (6);
 							$ausbildungsrichtungenarray[] = (7);
 							$ausbildungsrichtungenarray[] = (8);
+							$ausbildungsrichtungenarray[] = (39);
+							$ausbildungsrichtungenarray[] = (40);
+							$ausbildungsrichtungenarray[] = (41);							
 							break;						
 						case 3:
 							$ausbildungsrichtungenarray[] = (9);
 							$ausbildungsrichtungenarray[] = (10);
 							$ausbildungsrichtungenarray[] = (11);
+							$ausbildungsrichtungenarray[] = (42);
+							$ausbildungsrichtungenarray[] = (43);
+							$ausbildungsrichtungenarray[] = (44);							
 							break;					
 						case 4:
 							$ausbildungsrichtungenarray[] = (14);
 							$ausbildungsrichtungenarray[] = (15);
 							$ausbildungsrichtungenarray[] = (16);
+							$ausbildungsrichtungenarray[] = (47);
+							$ausbildungsrichtungenarray[] = (48);
+							$ausbildungsrichtungenarray[] = (49);							
 							break;						
 						case 5:
 							$ausbildungsrichtungenarray[] = (19);
 							$ausbildungsrichtungenarray[] = (20);
 							$ausbildungsrichtungenarray[] = (21);
+							$ausbildungsrichtungenarray[] = (52);
+							$ausbildungsrichtungenarray[] = (53);
+							$ausbildungsrichtungenarray[] = (54);							
 							break;						
 						case 6:
 							$ausbildungsrichtungenarray[] = (24);
 							$ausbildungsrichtungenarray[] = (25);
 							$ausbildungsrichtungenarray[] = (26);
+							$ausbildungsrichtungenarray[] = (57);
+							$ausbildungsrichtungenarray[] = (58);
+							$ausbildungsrichtungenarray[] = (59);							
 							break;							
 						case 7:
 							$ausbildungsrichtungenarray[] = (29);
 							$ausbildungsrichtungenarray[] = (30);
 							$ausbildungsrichtungenarray[] = (31);
+							$ausbildungsrichtungenarray[] = (62);
+							$ausbildungsrichtungenarray[] = (63);
+							$ausbildungsrichtungenarray[] = (64);							
 							break;						
 					}
 				} else {
@@ -115,26 +136,38 @@ class InstitutionDemandFactory
 						case 1:
 							$ausbildungsrichtungenarray[] = (4);
 							$ausbildungsrichtungenarray[] = (5);
+							$ausbildungsrichtungenarray[] = (37);
+							$ausbildungsrichtungenarray[] = (38);							
 							break;
 						case 3:
 							$ausbildungsrichtungenarray[] = (12);
 							$ausbildungsrichtungenarray[] = (13);
+							$ausbildungsrichtungenarray[] = (45);
+							$ausbildungsrichtungenarray[] = (46);							
 							break;					
 						case 4:
 							$ausbildungsrichtungenarray[] = (17);
 							$ausbildungsrichtungenarray[] = (18);
+							$ausbildungsrichtungenarray[] = (50);
+							$ausbildungsrichtungenarray[] = (51);							
 							break;						
 						case 5:
 							$ausbildungsrichtungenarray[] = (22);
 							$ausbildungsrichtungenarray[] = (23);
+							$ausbildungsrichtungenarray[] = (55);
+							$ausbildungsrichtungenarray[] = (56);							
 							break;						
 						case 6:
 							$ausbildungsrichtungenarray[] = (27);
 							$ausbildungsrichtungenarray[] = (28);
+							$ausbildungsrichtungenarray[] = (60);
+							$ausbildungsrichtungenarray[] = (61);							
 							break;							
 						case 7:
 							$ausbildungsrichtungenarray[] = (32);
 							$ausbildungsrichtungenarray[] = (33);
+							$ausbildungsrichtungenarray[] = (65);
+							$ausbildungsrichtungenarray[] = (66);							
 							break;							
 					}					
 				}
