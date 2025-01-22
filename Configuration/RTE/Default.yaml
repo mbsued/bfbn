@@ -1,0 +1,18 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:t3sbootstrap/Configuration/RTE/Default.yaml" }
+    - { resource: "EXT:rte_ckeditor_fontawesome/Configuration/RTE/PluginFA6.yaml" }    
+
+# Add configuration for the editor
+# For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
+editor:
+
+ config:
+ 
+   contentsCss: 
+     - 'EXT:bfbn/Resources/Public/Backend/RTE/bfbn.css'
+
+   style:
+     definitions:
+       # Blockstile
+       - { name: 'Jumbotron', element: 'p', classes: ['ueberschrift1','text-responsive'], isBlock: 'true' }

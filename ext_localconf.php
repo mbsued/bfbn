@@ -288,7 +288,7 @@ $boot = function () {
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['bfbn'] = \MbFosbos\Bfbn\Ajax\PdfResponse::class . '::processRequest';
 	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['afterBuildingFinished'][1676311200] = \MbFosbos\Bfbn\Utility\FormHook::class;
-	
+	$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bfbn'] = 'EXT:bfbn/Configuration/RTE/Default.yaml';	
 };
 
 $boot();

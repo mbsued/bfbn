@@ -1,0 +1,6 @@
+.text-responsive {
+  font-size: calc(100% + 1vw + 1vh);
+}
+.ueberschrift1 {
+	font-size: clamp(24px,4vw,96px);  
+} 
