@@ -16,3 +16,6 @@ editor:
      definitions:
        # Blockstile
        - { name: 'Jumbotron', element: 'p', classes: ['ueberschrift1','text-responsive'], isBlock: 'true' }
+       - { name: 'Zitat ', element: 'p', classes: ['zitat'], isBlock: 'true' }
+       - { name: 'Zitattext ', element: 'p', classes: ['zitat-text'], isBlock: 'true' }
+       - { name: 'Text-36', element: 'p', classes: ['fs-36'], isBlock: 'true' }
