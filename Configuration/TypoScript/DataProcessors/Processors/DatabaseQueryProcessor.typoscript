@@ -1,0 +1,119 @@
+tt_content {
+    bfbn_fma_header =< lib.contentElement
+    bfbn_fma_header {
+        templateName = FmaHeader
+		dataProcessing.10 = flex-form
+		dataProcessing.10 {
+			fieldname = pi_flexform
+			as = setting
+		}
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+            table = tx_bfbn_domain_model_person
+			selectFields (
+			  tx_bfbn_domain_model_person.vorname, tx_bfbn_domain_model_person.nachname, tx_bfbn_domain_model_person.titel, tx_bfbn_domain_model_person.geschlecht,tx_bfbn_domain_model_person.emailfach,
+			  tx_bfbn_domain_model_fach.pageuidfach, tx_bfbn_domain_model_fach.bezeichnung,
+			  tx_bfbn_domain_model_institution.kurzbezeichnung, tx_bfbn_domain_model_person.arbeitetfuer
+			)
+			join (
+			  tx_bfbn_person_fach_mm ON (tx_bfbn_domain_model_person.uid = tx_bfbn_person_fach_mm.uid_local) 
+				JOIN tx_bfbn_domain_model_fach ON (tx_bfbn_domain_model_fach.uid = tx_bfbn_person_fach_mm.uid_foreign) 
+				JOIN tx_bfbn_institution_person_mm ON (tx_bfbn_domain_model_person.uid = tx_bfbn_institution_person_mm.uid_foreign) 
+				JOIN tx_bfbn_domain_model_institution on (tx_bfbn_domain_model_institution.uid=tx_bfbn_institution_person_mm.uid_local)
+			)
+			where (
+			  (tx_bfbn_domain_model_fach.uid = ###FACH###)
+			  AND tx_bfbn_domain_model_institution.art>1 
+			)
+			markers {
+				FACH.data = flexform : pi_flexform:fach
+			}
+            orderBy = tx_bfbn_domain_model_person.arbeitetfuer
+            pidInList.field = pages
+            as = personen
+        }
+    }
+	bfbn_smv_header =< lib.contentElement
+    bfbn_smv_header {
+        templateName = SmvHeader
+		dataProcessing.10 = flex-form
+		dataProcessing.10 {
+			fieldname = pi_flexform
+			as = setting
+		}		
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+            table = tx_bfbn_domain_model_person
+			selectFields (
+			  tx_bfbn_domain_model_person.vorname, tx_bfbn_domain_model_person.nachname, tx_bfbn_domain_model_person.titel, tx_bfbn_domain_model_person.geschlecht,tx_bfbn_domain_model_person.emailfach,
+			  tx_bfbn_domain_model_institution.kurzbezeichnung, tx_bfbn_domain_model_person.arbeitetfuer
+			)
+			join (
+				tx_bfbn_institution_person_mm ON (tx_bfbn_domain_model_person.uid = tx_bfbn_institution_person_mm.uid_foreign) 
+				JOIN tx_bfbn_domain_model_institution on (tx_bfbn_domain_model_institution.uid=tx_bfbn_institution_person_mm.uid_local)
+				)
+			where (
+				tx_bfbn_domain_model_institution.art > 1 
+				)			
+			orderBy = tx_bfbn_domain_model_person.arbeitetfuer
+			pidInList.field = pages
+			as = personen
+        }
+    }
+	bfbn_fma_uebersicht =< lib.contentElement
+	bfbn_fma_uebersicht {
+        templateName = FmaUebersicht
+		dataProcessing.10 = flex-form
+		dataProcessing.10 {
+			fieldname = pi_flexform
+			as = setting
+		}
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+			table = tx_bfbn_domain_model_person
+			selectFields (
+			  tx_bfbn_domain_model_person.vorname, tx_bfbn_domain_model_person.nachname, tx_bfbn_domain_model_person.titel, tx_bfbn_domain_model_person.geschlecht, tx_bfbn_domain_model_person.emailfach, tx_bfbn_domain_model_person.arbeitetfuer, 
+			  tx_bfbn_domain_model_fach.pageuidfach, tx_bfbn_domain_model_fach.bezeichnung, tx_bfbn_domain_model_fach.uid AS fach_uid, tx_bfbn_domain_model_fach.pid AS fach_pid, tx_bfbn_domain_model_institution.kurzbezeichnung, tx_bfbn_domain_model_institution.mbbezirk,  tx_bfbn_domain_model_fach.bild
+			)
+			join (
+			  tx_bfbn_person_fach_mm ON (tx_bfbn_domain_model_person.uid = tx_bfbn_person_fach_mm.uid_local) 
+				JOIN tx_bfbn_domain_model_fach ON (tx_bfbn_domain_model_fach.uid = tx_bfbn_person_fach_mm.uid_foreign) 
+				JOIN tx_bfbn_institution_person_mm ON (tx_bfbn_domain_model_person.uid = tx_bfbn_institution_person_mm.uid_foreign) 
+				JOIN tx_bfbn_domain_model_institution on (tx_bfbn_domain_model_institution.uid=tx_bfbn_institution_person_mm.uid_local)
+			)
+			where (
+			  ((tx_bfbn_domain_model_person.arbeitetfuer=###BEZIRK### OR tx_bfbn_domain_model_person.arbeitetfuer2=###BEZIRK###)
+			   AND tx_bfbn_domain_model_institution.art>1 AND tx_bfbn_domain_model_fach.anzeigefachberatung=1) OR ((tx_bfbn_domain_model_fach.uid=62 OR tx_bfbn_domain_model_fach.uid=37) AND tx_bfbn_domain_model_institution.art>1)  
+			)
+			markers {
+				BEZIRK.data = flexform : pi_flexform:bezirk
+			}
+			orderBy = tx_bfbn_domain_model_fach.bezeichnung
+			pidInList.field = pages
+			as = personen
+			dataProcessing {
+				10 = database-query
+				10 {
+					table = tx_bfbn_domain_model_fach
+					pidInList.data = field:fach_pid
+					where {
+						data = field:fach_uid
+						wrap = uid=|
+					}
+					orderBy = sorting
+					as = fach				
+					dataProcessing	{
+						10 = files
+						10 {
+							references.table = tx_bfbn_domain_model_fach
+							references.fieldName = bild
+						}
+					}
+				}	
+			}
+		}
+	}
+}

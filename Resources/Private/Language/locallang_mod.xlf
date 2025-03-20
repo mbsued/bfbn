@@ -104,6 +104,24 @@
 			</trans-unit>
 			<trans-unit id="bfbn_nachterminstatus.description">
 				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_header.title">
+				<source>Header Fachmitarbeiter</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_header.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_smv_header.title">
+				<source>Header SMV</source>
+			</trans-unit>
+			<trans-unit id="bfbn_smv_header.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_uebersicht.title">
+				<source>Übersicht FMA</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_uebersicht.description">
+				<source>Beschreibung</source>
 			</trans-unit>			
 		</body>
 	</file>

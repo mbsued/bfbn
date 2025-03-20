@@ -119,3 +119,10 @@ page {
 		bfbncss = EXT:bfbn/Resources/Public/CSS/iconpack.css
 	}
 }
+
+lib.contentElement {
+   templateRootPaths.200 = EXT:bfbn/Resources/Private/Templates/ContentElements/
+   partialRootPaths.200 = EXT:bfbn/Resources/Private/Partials/ContentElements/
+   layoutRootPaths.200 = EXT:bfbn/Resources/Private/Layout/
+}
+@import 'EXT:bfbn/Configuration/TypoScript/DataProcessors/Processors/*.typoscript'

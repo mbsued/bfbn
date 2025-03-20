@@ -1022,6 +1022,24 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_nachtermin_status.description">
 				<source>Online-Auskunft Abfrage Nachtermin</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_header.name">
+				<source>BFBN FMA Header</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_header.description">
+				<source>Fachmitarbeiter Header</source>
+			</trans-unit>
+			<trans-unit id="bfbn_smv_header.name">
+				<source>BFBN SMV Header</source>
+			</trans-unit>
+			<trans-unit id="bfbn_smv_header.description">
+				<source>SMV Header</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_uebersicht.name">
+				<source>BFBN FMA Übersicht</source>
+			</trans-unit>
+			<trans-unit id="bfbn_fma_uebersicht.description">
+				<source>FMA Übersicht</source>
 			</trans-unit>			
 		</body>
 	</file>

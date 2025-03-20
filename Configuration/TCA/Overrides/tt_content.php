@@ -66,3 +66,130 @@ foreach ($pluginFlexFormConfigs as $pluginName => $flexFormFile) {
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
     ';
 }
+
+/**
+ * Include Flexforms
+ */
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bfbn/Configuration/FlexForms/ContentElements/bfbn_fma_header.xml',
+    'bfbn_fma_header'
+);
+
+
+ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_mod.xlf:bfbn_fma_header.title',
+        'value' => 'bfbn_fma_header',
+        'icon' => 'mimetypes-x-content-table',
+    ],
+);
+
+$GLOBALS['TCA']['tt_content']['types']['bfbn_fma_header'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+            recursive,
+			pi_flexform,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+            categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,'
+];
+
+/**
+ * Include Flexforms
+ */
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bfbn/Configuration/FlexForms/ContentElements/bfbn_smv_header.xml',
+    'bfbn_smv_header'
+);
+
+ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_mod.xlf:bfbn_smv_header.title',
+        'value' => 'bfbn_smv_header',
+        'icon' => 'mimetypes-x-content-table',
+    ],
+);
+
+$GLOBALS['TCA']['tt_content']['types']['bfbn_smv_header'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+            recursive,
+			pi_flexform,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+            categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,'
+];
+
+/**
+ * Include Flexforms
+ */
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:bfbn/Configuration/FlexForms/ContentElements/bfbn_fma_uebersicht.xml',
+    'bfbn_fma_uebersicht'
+);
+
+ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'LLL:EXT:bfbn/Resources/Private/Language/locallang_mod.xlf:bfbn_fma_uebersicht.title',
+        'value' => 'bfbn_fma_uebersicht',
+        'icon' => 'mimetypes-x-content-table',
+    ],
+);
+
+$GLOBALS['TCA']['tt_content']['types']['bfbn_fma_uebersicht'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            pages,
+            recursive,
+			pi_flexform,
+		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+            categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,'
+];

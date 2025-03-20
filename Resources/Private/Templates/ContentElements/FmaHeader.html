@@ -1,0 +1,170 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+		xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers"  
+		data-namespace-typo3-fluid="true">
+	
+	<div class="row p-0 mt-3 row-eq-height">
+		<f:for each="{personen}" as="person">
+			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 mb-5">
+			
+				<f:variable name="link">t3://page?uid={setting.kontakt}&Region={person.data.arbeitetfuer}&Fach={person.data.emailfach}&Geschlecht={person.data.geschlecht}&Nachname={person.data.nachname}</f:variable>
+				
+				<f:if condition="{setting.fach} == '64'">
+					<f:then>
+						<f:switch expression="{person.data.arbeitetfuer}">
+							<f:case value="1">
+								<f:variable name="header">Dienststelle - Nordbayern</f:variable>
+								<f:variable name="mb_bezirk">Nordbayern</f:variable>
+							</f:case>
+							<f:case value="2">
+								<f:variable name="header">Dienststelle - Ostbayern</f:variable>
+								<f:variable name="mb_bezirk">Ostbayern</f:variable>
+							</f:case>
+							<f:case value="3">
+								<f:variable name="header">Dienststelle - Südbayern</f:variable>
+								<f:variable name="mb_bezirk">Südbayern</f:variable>
+							</f:case>
+							<f:case value="4">
+								<f:variable name="header">Dienststelle - Westbayern</f:variable>
+								<f:variable name="mb_bezirk">Westbayern</f:variable>
+							</f:case>
+							<f:defaultCase>
+								<f:variable name="header">Dienststelle - MB-Bezirk</f:variable>
+								<f:variable name="mb_bezirk">MB-Bezirk</f:variable>
+							</f:defaultCase>
+						</f:switch>						
+					</f:then>
+					<f:else>
+						<f:if condition="{setting.fach} == '62' || {setting.fach} == '37'">
+							<f:then>
+								<f:switch expression="{person.data.arbeitetfuer}">
+									<f:case value="1">
+										<f:variable name="header">Fachberatung - Bayern</f:variable>
+										<f:variable name="mb_bezirk">Bayern</f:variable>
+									</f:case>
+									<f:case value="2">
+										<f:variable name="header">Fachberatung - Bayern</f:variable>
+										<f:variable name="mb_bezirk">Bayern</f:variable>
+									</f:case>
+									<f:case value="3">
+										<f:variable name="header">Fachberatung - Bayern</f:variable>
+										<f:variable name="mb_bezirk">Bayern</f:variable>
+									</f:case>
+									<f:case value="4">
+										<f:variable name="header">Fachberatung - Bayern</f:variable>
+										<f:variable name="mb_bezirk">Bayern</f:variable>
+									</f:case>
+									<f:defaultCase>
+										<f:variable name="header">Fachberatung - Bayern</f:variable>
+										<f:variable name="mb_bezirk">Bayern</f:variable>
+									</f:defaultCase>
+								</f:switch>
+							</f:then>
+							<f:else>
+								<f:if condition="{setting.fach} == '35' || {setting.fach} == '36'">
+									<f:then>
+										<f:switch expression="{person.data.arbeitetfuer}">
+											<f:case value="1">
+												<f:variable name="header">{person.data.bezeichnung} - Nordbayern</f:variable>
+												<f:variable name="mb_bezirk">Nordbayern</f:variable>
+											</f:case>
+											<f:case value="2">
+												<f:variable name="header">{person.data.bezeichnung} - Ostbayern</f:variable>
+												<f:variable name="mb_bezirk">Ostbayern</f:variable>
+											</f:case>
+											<f:case value="3">
+												<f:variable name="header">{person.data.bezeichnung} - Südbayern</f:variable>
+												<f:variable name="mb_bezirk">Südbayern</f:variable>
+											</f:case>
+											<f:case value="4">
+												<f:variable name="header">{person.data.bezeichnung} - Westbayern</f:variable>
+												<f:variable name="mb_bezirk">Westbayern</f:variable>
+											</f:case>
+											<f:defaultCase>
+												<f:variable name="header">{person.data.bezeichnung} - Bayern</f:variable>
+												<f:variable name="mb_bezirk">Bayern</f:variable>
+											</f:defaultCase>
+										</f:switch>									
+									</f:then>
+									<f:else>
+										<f:switch expression="{person.data.arbeitetfuer}">
+											<f:case value="1">
+												<f:variable name="header">Fachberatung - Nordbayern</f:variable>
+												<f:variable name="mb_bezirk">Nordbayern</f:variable>
+											</f:case>
+											<f:case value="2">
+												<f:variable name="header">Fachberatung - Ostbayern</f:variable>
+												<f:variable name="mb_bezirk">Ostbayern</f:variable>
+											</f:case>
+											<f:case value="3">
+												<f:variable name="header">Fachberatung - Südbayern</f:variable>
+												<f:variable name="mb_bezirk">Südbayern</f:variable>
+											</f:case>
+											<f:case value="4">
+												<f:variable name="header">Fachberatung - Westbayern</f:variable>
+												<f:variable name="mb_bezirk">Westbayern</f:variable>
+											</f:case>
+											<f:defaultCase>
+												<f:variable name="header">Fachberatung - Bayern</f:variable>
+												<f:variable name="mb_bezirk">Bayern</f:variable>
+											</f:defaultCase>
+										</f:switch>
+									</f:else>
+								</f:if>
+							</f:else>
+						</f:if>
+					</f:else>
+				</f:if>
+
+				<f:switch expression="{setting.fach}">
+					<f:case value="35"><f:variable name="link_title">Kontakt zum {person.data.bezeichnung} in {mb_bezirk}</f:variable></f:case>
+					<f:case value="36"><f:variable name="link_title">Kontakt zum {person.data.bezeichnung} in {mb_bezirk}</f:variable></f:case>
+					<f:case value="64"><f:variable name="link_title">Kontakt für allgemeine Anfragen zur Inklusion in {mb_bezirk}</f:variable></f:case>
+					<f:case value="65"><f:variable name="link_title">Kontakt für sonderpädagogische Fachberatung in {mb_bezirk}</f:variable></f:case>
+					<f:defaultCase><f:variable name="link_title">Kontakt zur Fachberatung in {mb_bezirk}</f:variable></f:defaultCase>
+				</f:switch>
+				
+				<f:if condition="{person.data.title}">
+					<f:then>						
+						<f:variable name="fma">{person.data.titel} {person.data.vorname} {person.data.nachname}</f:variable>	
+					</f:then>
+					<f:else>
+						<f:variable name="fma">{person.data.vorname} {person.data.nachname}</f:variable>	
+					</f:else>
+				</f:if>
+				
+				<f:variable name="schule">{person.data.kurzbezeichnung}</f:variable>
+				
+				<f:link.typolink parameter="{link}" class="ce-link" title="{link_title}">
+					<div class="card above h-100 ce-link-content">
+						<div class="card-header myColor-hbl">{header}</div>
+						<div class="card-body">
+							<div>
+								<f:if condition="<b:IconpackDa /> == true">
+									<f:then>
+										<b:icon iconfig="fa6:solid,user,fixed:true" additionalAttributes="{class:'me-3',aria-hidden='true'}" />
+									</f:then>
+									<f:else>
+										<i class="fas fa-user fa-fw me-3"></i>
+									</f:else>
+								</f:if>
+								{fma}
+							</div>
+							<div>
+								<f:if condition="<b:IconpackDa /> == true">
+									<f:then>
+										<b:icon iconfig="fa6:solid,school,fixed:true" additionalAttributes="{class:'me-3',aria-hidden='true'}" />
+									</f:then>
+									<f:else>
+										<i class="fas fa-school fa-fw me-3"></i>
+									</f:else>
+								</f:if>							
+								{schule}
+							</div>
+						</div>
+					</div>
+				</f:link.typolink>
+			</div>
+		</f:for>
+	</div>
+
+</html>
