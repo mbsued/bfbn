@@ -86,28 +86,48 @@
 										</f:switch>									
 									</f:then>
 									<f:else>
-										<f:switch expression="{person.data.arbeitetfuer}">
-											<f:case value="1">
-												<f:variable name="header">Fachberatung - Nordbayern</f:variable>
-												<f:variable name="mb_bezirk">Nordbayern</f:variable>
-											</f:case>
-											<f:case value="2">
-												<f:variable name="header">Fachberatung - Ostbayern</f:variable>
-												<f:variable name="mb_bezirk">Ostbayern</f:variable>
-											</f:case>
-											<f:case value="3">
-												<f:variable name="header">Fachberatung - Südbayern</f:variable>
-												<f:variable name="mb_bezirk">Südbayern</f:variable>
-											</f:case>
-											<f:case value="4">
-												<f:variable name="header">Fachberatung - Westbayern</f:variable>
-												<f:variable name="mb_bezirk">Westbayern</f:variable>
-											</f:case>
-											<f:defaultCase>
-												<f:variable name="header">Fachberatung - Bayern</f:variable>
-												<f:variable name="mb_bezirk">Bayern</f:variable>
-											</f:defaultCase>
-										</f:switch>
+										<f:if condition="{setting.fach} == '39'">
+											<f:then>
+												<f:switch expression="{person.data.arbeitetfuer}">
+													<f:case value="1">
+														<f:variable name="header">Fachberatung - Nord-/Westbayern</f:variable>
+														<f:variable name="mb_bezirk">Nordbayern/Westbayern</f:variable>
+													</f:case>
+													<f:case value="3">
+														<f:variable name="header">Fachberatung - Ost-/Südbayern</f:variable>
+														<f:variable name="mb_bezirk">Ostbayern/Südbayern</f:variable>
+													</f:case>
+													<f:defaultCase>
+														<f:variable name="header">Fachberatung - Bayern</f:variable>
+														<f:variable name="mb_bezirk">Bayern</f:variable>
+													</f:defaultCase>
+												</f:switch>											
+											</f:then>
+											<f:else>
+												<f:switch expression="{person.data.arbeitetfuer}">
+													<f:case value="1">
+														<f:variable name="header">Fachberatung - Nordbayern</f:variable>
+														<f:variable name="mb_bezirk">Nordbayern</f:variable>
+													</f:case>
+													<f:case value="2">
+														<f:variable name="header">Fachberatung - Ostbayern</f:variable>
+														<f:variable name="mb_bezirk">Ostbayern</f:variable>
+													</f:case>
+													<f:case value="3">
+														<f:variable name="header">Fachberatung - Südbayern</f:variable>
+														<f:variable name="mb_bezirk">Südbayern</f:variable>
+													</f:case>
+													<f:case value="4">
+														<f:variable name="header">Fachberatung - Westbayern</f:variable>
+														<f:variable name="mb_bezirk">Westbayern</f:variable>
+													</f:case>
+													<f:defaultCase>
+														<f:variable name="header">Fachberatung - Bayern</f:variable>
+														<f:variable name="mb_bezirk">Bayern</f:variable>
+													</f:defaultCase>
+												</f:switch>											
+											</f:else>
+										</f:if>										
 									</f:else>
 								</f:if>
 							</f:else>
