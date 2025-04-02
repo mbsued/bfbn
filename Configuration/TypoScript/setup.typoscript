@@ -125,4 +125,13 @@ lib.contentElement {
    partialRootPaths.200 = EXT:bfbn/Resources/Private/Partials/ContentElements/
    layoutRootPaths.200 = EXT:bfbn/Resources/Private/Layout/
 }
+
+tt_content {
+  bfbn_ueberschrift_jumbotron =< lib.contentElement
+  bfbn_ueberschrift_jumbotron {
+    templateName = UeberschriftJumbotron
+  }
+}
+
+
 @import 'EXT:bfbn/Configuration/TypoScript/DataProcessors/Processors/*.typoscript'

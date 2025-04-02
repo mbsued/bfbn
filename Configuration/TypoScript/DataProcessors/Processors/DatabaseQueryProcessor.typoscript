@@ -116,4 +116,46 @@ tt_content {
 			}
 		}
 	}
+	bfbn_faecher_uebersicht =< lib.contentElement
+	bfbn_faecher_uebersicht {
+		templateName = FaecherUebersicht
+		dataProcessing.10 = flex-form
+		dataProcessing.10 {
+			fieldname = pi_flexform
+			as = setting
+		}		
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+            table = pages
+			selectFields (
+			  pages.uid, pages.title, pages.subtitle
+			)
+			orderBy = pages.sorting
+			pidInList.field = pages
+			as = faecher
+        }		
+	}
+	bfbn_nav_mb =< lib.contentElement
+	bfbn_nav_mb {
+		templateName = NavigationMB		
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+            table = pages
+			selectFields (
+			  pages.uid, pages.title, pages.subtitle, pages.rowDescription
+			  )
+			join (
+			  sys_category_record_mm ON (pages.uid = sys_category_record_mm.uid_foreign) 
+				JOIN sys_category ON (sys_category.uid = sys_category_record_mm.uid_local) 
+			)
+			where (
+				sys_category.title='Navigation - MB'
+			)			  
+			orderBy = pages.sorting
+			pidInList.field = pages
+			as = seiten
+        }		
+	}	
 }

@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+		xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers"  
+		data-namespace-typo3-fluid="true">
+	
+	<div class="gallery g-4 row row-cols-1 row-cols-md-{setting.anzahl}">
+		<f:for each="{faecher}" as="fach">
+			<f:if condition="{fach.data.uid} != {setting.ausgeschlossen}">
+				<div class="col">
+				
+					<f:variable name="link_page">t3://page?uid={fach.data.uid}</f:variable>
+					
+					<f:if condition="{fach.data.pid} == 70 || {fach.data.pid} == 98 || {fach.data.pid} == 99">
+						<f:then>
+							<f:variable name="link_page_title">Interner Link: Informationen zum Fach {fach.data.title}</f:variable>
+							<f:variable name="pagging">pt-2</f:variable>
+						</f:then>
+						<f:else>
+							<f:variable name="link_page_title">Interner Link: {fach.data.title}</f:variable>
+							<f:variable name="pagging">py-4</f:variable>
+						</f:else>
+					</f:if>
+					<f:link.typolink parameter="{link_page}" class="ce-link" title="{link_page_title}">
+						<div class="card above h-100 {pagging} bg-body fach-card ce-link-content">
+							<div class="card-body">							
+								<div class="card-text">
+									<p class="text-center">
+										<f:if condition="<b:IconpackDa /> == true">
+											<f:then>
+												<b:icon iconfig="fa6:solid,{fach.data.subtitle},size:3x" additionalAttributes="{aria-hidden='true'}" />
+											</f:then>
+											<f:else>
+												<i class="fas fa-{fach.data.subtitle} fa-3x"></i>
+											</f:else>
+										</f:if>
+									</p>
+									<h5 class="text-center">{fach.data.title}</h5>
+								</div>
+							</div>
+						</div>
+					</f:link.typolink>
+				</div>
+			</f:if>
+		</f:for>
+	</div>
+
+</html>

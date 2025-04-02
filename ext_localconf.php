@@ -299,6 +299,30 @@ call_user_func(
 							tt_content_defValues {
 								CType = bfbn_fma_uebersicht
 							}
+						}
+						bfbn_ueberschrift_jumbotron {
+							iconIdentifier = content-text
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_ueberschrift_jumbotron.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_ueberschrift_jumbotron.description
+							tt_content_defValues {
+								CType = bfbn_ueberschrift_jumbotron
+							}
+						}
+						bfbn_faecher_uebersicht {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_faecher_uebersicht.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_faecher_uebersicht.description
+							tt_content_defValues {
+								CType = bfbn_faecher_uebersicht
+							}
+						}
+						bfbn_nav_mb {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_nav_mb.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_nav_mb.description
+							tt_content_defValues {
+								CType = bfbn_nav_mb
+							}
 						}						
 					}
 					show = *

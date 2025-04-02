@@ -123,6 +123,24 @@
 			<trans-unit id="bfbn_fma_uebersicht.description">
 				<source>Beschreibung</source>
 			</trans-unit>			
+			<trans-unit id="bfbn_ueberschrift_jumbotron.title">
+				<source>Überschrift Jumbotron</source>
+			</trans-unit>
+			<trans-unit id="bfbn_ueberschrift_jumbotron.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_faecher_uebersicht.title">
+				<source>Übersicht Fächer</source>
+			</trans-unit>
+			<trans-unit id="bfbn_faecher_uebersicht.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nav_mb.title">
+				<source>Navigation MB-Seiten</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nav_mb.description">
+				<source>Beschreibung</source>
+			</trans-unit>			
 		</body>
 	</file>
 </xliff>

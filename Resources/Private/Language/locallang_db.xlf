@@ -1040,6 +1040,24 @@
 			</trans-unit>
 			<trans-unit id="bfbn_fma_uebersicht.description">
 				<source>FMA Übersicht</source>
+			</trans-unit>
+			<trans-unit id="bfbn_ueberschrift_jumbotron.name">
+				<source>BFBN Überschrift Jumbotron</source>
+			</trans-unit>
+			<trans-unit id="bfbn_ueberschrift_jumbotron.description">
+				<source>Überschrift im Jumbotron mit Icon und Name</source>
+			</trans-unit>
+			<trans-unit id="bfbn_faecher_uebersicht.name">
+				<source>BFBN Fächer Übersicht</source>
+			</trans-unit>
+			<trans-unit id="bfbn_faecher_uebersicht.description">
+				<source>Übersichtsseite Fächer</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nav_mb.name">
+				<source>BFBN Navigation MB</source>
+			</trans-unit>
+			<trans-unit id="bfbn_nav_mb.description">
+				<source>Navigation MB-Seiten</source>
 			</trans-unit>			
 		</body>
 	</file>
