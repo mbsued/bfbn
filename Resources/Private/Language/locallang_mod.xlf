@@ -140,6 +140,18 @@
 			</trans-unit>
 			<trans-unit id="bfbn_nav_mb.description">
 				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_abfrage_uebersicht.title">
+				<source>Übersicht Online-Abfragen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_abfrage_uebersicht.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="bfbn_zitat_text.title">
+				<source>Text Zitat</source>
+			</trans-unit>
+			<trans-unit id="bfbn_zitat_text.description">
+				<source>Beschreibung</source>
 			</trans-unit>			
 		</body>
 	</file>

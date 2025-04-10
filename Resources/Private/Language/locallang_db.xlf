@@ -1058,6 +1058,18 @@
 			</trans-unit>
 			<trans-unit id="bfbn_nav_mb.description">
 				<source>Navigation MB-Seiten</source>
+			</trans-unit>
+			<trans-unit id="bfbn_abfrage_uebersicht.name">
+				<source>BFBN Abfrage Übersicht</source>
+			</trans-unit>
+			<trans-unit id="bfbn_abfrage_uebersicht.description">
+				<source>Übersichtsseite Online-Abfragen</source>
+			</trans-unit>
+			<trans-unit id="bfbn_zitat_text.name">
+				<source>BFBN Zitat Text</source>
+			</trans-unit>
+			<trans-unit id="bfbn_zitat_text.description">
+				<source>Text des Zitates mit Urheber</source>
 			</trans-unit>			
 		</body>
 	</file>

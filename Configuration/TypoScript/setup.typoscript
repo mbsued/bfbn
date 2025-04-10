@@ -131,6 +131,10 @@ tt_content {
   bfbn_ueberschrift_jumbotron {
     templateName = UeberschriftJumbotron
   }
+  bfbn_zitat_text =< lib.contentElement
+  bfbn_zitat_text {
+	templateName = ZitatText
+  }
 }
 
 

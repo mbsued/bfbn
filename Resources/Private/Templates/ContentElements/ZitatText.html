@@ -1,0 +1,18 @@
+<html data-namespace-typo3-fluid="true"
+	xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers">
+	
+	<div class="p-3">
+		<p class="zitat">
+			<f:if condition="<b:IconpackDa /> == true">
+				<f:then>
+					<b:icon iconfig="fa6:solid,quote-right" additionalAttributes="{aria-hidden='true'}" />
+				</f:then>
+				<f:else>
+					<i class="fas fa-quote-right" aria-hidden="true"></i>
+				</f:else>
+			</f:if>
+		</p>
+		<f:format.html>{data.bodytext}</f:format.html>
+	</div>	
+</html>

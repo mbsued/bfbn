@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+		xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers"  
+		data-namespace-typo3-fluid="true">
+
+		<f:for each="{seiten}" as="seite">
+
+				<div class="d-grid mb-2">
+				
+					<f:variable name="link_page">t3://page?uid={seite.data.uid}</f:variable>
+					<f:variable name="link_page_title">Interner Link: {seite.data.subtitle}</f:variable>
+					
+					<f:if condition="{seite.data.endtime} > 0">
+						<f:then>
+							<f:variable name="offen">(offen bis {seite.data.endtime -> f:format.date(format: 'd.m.Y')})</f:variable>
+						</f:then>						
+						<f:else>
+							<f:variable name="offen"></f:variable>
+						</f:else>
+					</f:if>
+
+					<f:link.typolink parameter="{link_page}" class="mb-2 btn btn-outline-primary" title="{link_page_title}" additionalAttributes="{role:'button'}">
+						<f:if condition="<b:IconpackDa /> == true">
+							<f:then>
+								<b:icon iconfig="fa6:solid,list-check" additionalAttributes="{class:'me-2',aria-hidden='true'}" />
+							</f:then>
+							<f:else>
+								<i class="fas fa-list-check me-2"></i>
+							</f:else>
+						</f:if>
+						{seite.data.subtitle} {offen}
+					</f:link.typolink>
+					
+				</div>
+
+		</f:for>
+
+</html>

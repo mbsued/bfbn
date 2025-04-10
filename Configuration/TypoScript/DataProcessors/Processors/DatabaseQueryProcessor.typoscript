@@ -157,5 +157,27 @@ tt_content {
 			pidInList.field = pages
 			as = seiten
         }		
+	}
+	bfbn_abfrage_uebersicht =< lib.contentElement
+	bfbn_abfrage_uebersicht {
+		templateName = AbfrageUebersicht		
+        dataProcessing.20 = database-query
+        dataProcessing.20 {
+            if.isTrue.field = pages
+            table = pages
+			selectFields (
+			  pages.uid, pages.title, pages.subtitle, pages.rowDescription, pages.endtime
+			  )
+			join (
+			  sys_category_record_mm ON (pages.uid = sys_category_record_mm.uid_foreign) 
+				JOIN sys_category ON (sys_category.uid = sys_category_record_mm.uid_local) 
+			)
+			where (
+				sys_category.title='Online-Abfragen'
+			)			  
+			orderBy = pages.sorting
+			pidInList.field = pages
+			as = seiten
+        }		
 	}	
 }

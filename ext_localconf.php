@@ -323,6 +323,22 @@ call_user_func(
 							tt_content_defValues {
 								CType = bfbn_nav_mb
 							}
+						}
+						bfbn_abfrage_uebersicht {
+							iconIdentifier = bfbnsvgicon
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_abfrage_uebersicht.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_abfrage_uebersicht.description
+							tt_content_defValues {
+								CType = bfbn_abfrage_uebersicht
+							}
+						}
+						bfbn_zitat_text {
+							iconIdentifier = content-text
+							title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_zitat_text.name
+							description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_zitat_text.description
+							tt_content_defValues {
+								CType = bfbn_zitat_text
+							}
 						}						
 					}
 					show = *
