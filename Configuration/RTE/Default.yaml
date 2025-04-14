@@ -1,7 +1,6 @@
 # Load default processing options
 imports:
-    - { resource: "EXT:t3sbootstrap/Configuration/RTE/Default.yaml" }
-    - { resource: "EXT:rte_ckeditor_fontawesome/Configuration/RTE/PluginFA6.yaml" }    
+    - { resource: "EXT:t3sbootstrap/Configuration/RTE/Default.yaml" }   
 
 # Add configuration for the editor
 # For complete documentation see https://ckeditor.com/docs/ckeditor5/latest/features/index.html
@@ -18,4 +17,6 @@ editor:
        - { name: 'Jumbotron', element: 'p', classes: ['ueberschrift1','text-responsive'], isBlock: 'true' }
        - { name: 'Zitat ', element: 'p', classes: ['zitat'], isBlock: 'true' }
        - { name: 'Zitattext ', element: 'p', classes: ['zitat-text'], isBlock: 'true' }
+       - { name: 'Zitat-Slider ', element: 'p', classes: ['zitat-slider'], isBlock: 'true' }
+       - { name: 'Zitattext-Slider ', element: 'p', classes: ['zitat-text-slider'], isBlock: 'true' }       
        - { name: 'Text-36', element: 'p', classes: ['fs-36'], isBlock: 'true' }

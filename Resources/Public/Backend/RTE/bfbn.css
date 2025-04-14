@@ -5,13 +5,21 @@
 	font-size: clamp(24px,4vw,96px);
 }
 /*Zitat */
-.zitat i {
+.zitat {
 	font-size: 2.5rem;
 }	
 .zitat-text {
 	font-size: 1.5rem;
 	font-style: italic;
 	font-weight: 300;
+}
+.zitat-slider {
+	font-size: 12px; 
+}
+.zitat-text-slider 	{
+	font-style: italic; 
+	font-weight: 300;
+	font-size: 12px;
 }
 .fs-36 {
 font-size: 36px;
