@@ -389,7 +389,8 @@ CREATE TABLE tx_bfbn_domain_model_nachtermin (
 	gruppenpruefung smallint(5) unsigned DEFAULT '0' NOT NULL,
 	ergaenzungspruefung smallint(5) unsigned DEFAULT '0' NOT NULL,	
 	sprache int(11) unsigned DEFAULT '0' NOT NULL,
-	nachweis smallint(5) unsigned DEFAULT '0' NOT NULL,	
+	nachweis smallint(5) unsigned DEFAULT '0' NOT NULL,
+	ersatzschule smallint(5) unsigned DEFAULT '0' NOT NULL,
 	institution int(11) unsigned DEFAULT '0' NOT NULL,	
 
 );

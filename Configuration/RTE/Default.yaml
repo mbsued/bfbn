@@ -7,6 +7,9 @@ imports:
 editor:
 
  config:
+   htmlSupport:
+     allow:
+       - { name: 'a', attributes: true, classes: true, styles: true }
  
    contentsCss: 
      - 'EXT:bfbn/Resources/Public/Backend/RTE/bfbn.css'

@@ -126,6 +126,13 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $nachweis = false;
 
     /**
+     * ersatzschule
+     * 
+     * @var integer
+     */
+    protected $ersatzschule = false;
+	
+    /**
      * institution
      * 
      * @var \MbFosbos\Bfbn\Domain\Model\Institution
@@ -447,6 +454,27 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setNachweis(int $nachweis)
     {
         $this->nachweis = $nachweis;
+    }
+
+    /**
+     * Returns ersatzschule
+     * 
+     * @return integer $ersatzschule
+     */
+    public function getErsatzschule()
+    {
+        return $this->ersatzschule;
+    }
+	
+    /**
+     * Sets ersatzchule
+     * 
+     * @param integer $ersatzschule
+     * @return void
+     */
+    public function setErsatzschule(int $ersatzschule)
+    {
+        $this->ersatzschule = $ersatzschule;
     }
 	
     /**

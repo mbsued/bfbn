@@ -863,6 +863,9 @@
 			</trans-unit>
 			<trans-unit id="tx_bfbn_domain_model_nachtermin.nachweis" resname="tx_bfbn_domain_model_nachtermin.nachweis">
 				<source>Nachweise liegen vor</source>
+			</trans-unit>
+			<trans-unit id="tx_bfbn_domain_model_nachtermin.ersatzschule" resname="tx_bfbn_domain_model_nachtermin.ersatzschule">
+				<source>Teilnehmer an Ersatzschule</source>
 			</trans-unit>			
 			<trans-unit id="tx_bfbn_domain_model_nachtermin.institution" resname="tx_bfbn_domain_model_nachtermin.institution">
 				<source>Institution</source>

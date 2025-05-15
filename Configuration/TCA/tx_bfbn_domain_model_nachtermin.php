@@ -294,7 +294,21 @@ return [
                 ],
                 'default' => 0,
             ]
-        ],				
+        ],
+        'ersatzschule' => [
+            'exclude' => true,
+            'label' => $ll . 'tx_bfbn_domain_model_nachtermin.ersatzschule',
+            'config' => [
+                'type' => 'check',
+				'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                    ]
+                ],
+                'default' => 0,
+            ]
+        ],		
         'institution' => [
             'exclude' => true,
             'label' => $ll . 'tx_bfbn_domain_model_elitepruefer.institution',
@@ -338,7 +352,7 @@ return [
 				--linebreak--,
 				gruppenpruefung,ergaenzungspruefung,sprache,
 				--linebreak--,
-				nachweis'
+				ersatzschule,nachweis'
 		],		
 		'paletteAccess' => [
 			'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
