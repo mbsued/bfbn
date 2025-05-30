@@ -2,47 +2,41 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>Übersicht Fachmitarbeiter</sheetTitle>
-                </TCEforms>
+				<sheetTitle>Übersicht Fachmitarbeiter</sheetTitle>
                 <type>array</type>
                 <el>
 					<bezirk>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>MB-Bezirk</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectMultipleSideBySide</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>tx_bfbn_domain_model_mbbezirk</foreign_table>
-                            <maxitems>1</maxitems>
-                            <size>4</size> 
-                          </config>
-                        </TCEforms>					
+					  <exclude>1</exclude>
+					  <label>MB-Bezirk</label>
+					  <config>
+						<type>select</type>
+						<renderType>selectMultipleSideBySide</renderType>
+						<autoSizeMax>50</autoSizeMax>
+						<foreign_table>tx_bfbn_domain_model_mbbezirk</foreign_table>
+						<maxitems>1</maxitems>
+						<size>4</size> 
+					  </config>					
 					</bezirk>
 					<kontakt>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Seite - Kontakt</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+					  <exclude>1</exclude>
+					  <label>Seite - Kontakt</label>
+					  <config>
+						<type>select</type>
+						<renderType>selectTree</renderType>
+						<autoSizeMax>50</autoSizeMax>
+						<foreign_table>pages</foreign_table>
+						<foreign_table_where>AND pages.pid IN(0,1) ORDER BY pages.sorting</foreign_table_where>
+						<maxitems>9999</maxitems>
+						<renderMode>tree</renderMode>
+						<size>10</size>
+						<treeConfig>
+							<appearance>
+								<expandAll>1</expandAll>
+								<showHeader>1</showHeader>
+							</appearance>
+							<parentField>pid</parentField>
+						</treeConfig>
+					  </config>				
 					</kontakt>					
                 </el>
             </ROOT>

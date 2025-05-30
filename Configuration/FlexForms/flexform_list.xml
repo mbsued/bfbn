@@ -2,38 +2,33 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>Institution</sheetTitle>
-                </TCEforms>
+				<sheetTitle>Institution</sheetTitle>
                 <type>array</type>
                 <el>
 					<settings.ansicht>
-						<TCEforms>
-							<exclude>1</exclude>						
-							<label>Ansicht</label>
-							<onChange>reload</onChange>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">Liste</numIndex>
-										<numIndex index="1">1</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">Karte</numIndex>
-										<numIndex index="1">2</numIndex>
-									</numIndex>
-									<numIndex index="2">
-										<numIndex index="0">Liste + Karte</numIndex>
-										<numIndex index="1">3</numIndex>
-									</numIndex>									
-								</items>
-							</config>
-						</TCEforms>
+						<exclude>1</exclude>						
+						<label>Ansicht</label>
+						<onChange>reload</onChange>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="0">
+									<numIndex index="0">Liste</numIndex>
+									<numIndex index="1">1</numIndex>
+								</numIndex>
+								<numIndex index="1">
+									<numIndex index="0">Karte</numIndex>
+									<numIndex index="1">2</numIndex>
+								</numIndex>
+								<numIndex index="2">
+									<numIndex index="0">Liste + Karte</numIndex>
+									<numIndex index="1">3</numIndex>
+								</numIndex>									
+							</items>
+						</config>
 					</settings.ansicht>
 					<settings.kartehoehe>
-						<TCEforms>
 							<exclude>1</exclude>						
 							<label>Höhe der Karte</label>							
 							<config>
@@ -50,10 +45,8 @@
 								</slider>
 								<default>700</default>
 							</config>
-						</TCEforms>
 					</settings.kartehoehe>					
 					<settings.kartezoom>
-						<TCEforms>
 							<exclude>1</exclude>						
 							<label>Zoomfaktor der Karte</label>							
 							<config>
@@ -70,122 +63,84 @@
 								</slider>
 								<default>7</default>
 							</config>
-						</TCEforms>
 					</settings.kartezoom>
 					<settings.ueberschrift>
-						<TCEforms>
-							<exclude>1</exclude>						
-							<label>Überschrift einblenden</label>							
+						<exclude>1</exclude>						
+						<label>Überschrift einblenden</label>							
                          <config>
 							<type>check</type>
                             <default>0</default>
-                          </config>
-						</TCEforms>
+						</config>
 					</settings.ueberschrift>					
 					<settings.bezirke>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>MB-Bezirke</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>MB-Bezirke</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectMultipleSideBySide</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>tx_bfbn_domain_model_mbbezirk</foreign_table>
-                            <maxitems>3</maxitems>
-                            <size>10</size> 
-                          </config>
-                        </TCEforms>
+							<renderType>selectMultipleSideBySide</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>tx_bfbn_domain_model_mbbezirk</foreign_table>
+							<maxitems>3</maxitems>
+							<size>10</size> 
+						</config>
                     </settings.bezirke>
                     <settings.ausbildungsrichtungen>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ausbildungsrichtungen</label>
-                         <config>
+                        <exclude>1</exclude>
+                        <label>Ausbildungsrichtungen</label>
+                        <config>
 							<type>select</type>
                             <renderType>selectMultipleSideBySide</renderType>
                             <autoSizeMax>50</autoSizeMax>
                             <foreign_table>tx_bfbn_domain_model_institutionausbildungsrichtung</foreign_table>
                             <maxitems>33</maxitems>
                             <size>10</size> 
-                          </config>
-                        </TCEforms>
+                        </config>
                     </settings.ausbildungsrichtungen>
                     <settings.sprachen>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Sprachen</label>
-                         <config>
+						<exclude>1</exclude>
+						<label>Sprachen</label>
+						<config>
 							<type>select</type>
                             <renderType>selectMultipleSideBySide</renderType>
                             <autoSizeMax>50</autoSizeMax>
                             <foreign_table>tx_bfbn_domain_model_institutionsprache</foreign_table>
                             <maxitems>10</maxitems>
                             <size>10</size> 
-                          </config>
-                        </TCEforms>
+						</config>
                     </settings.sprachen>
                     <settings.inklusion>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Profil-Inklusion</label>
-                         <config>
+						<exclude>1</exclude>
+						<label>Profil-Inklusion</label>
+						<config>
 							<type>check</type>
                             <default>0</default>
-                          </config>
-                        </TCEforms>
+						</config>
                     </settings.inklusion>
                     <settings.ivk>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Integrationsvorklasse</label>
-                         <config>
+						<exclude>1</exclude>
+						<label>Integrationsvorklasse</label>
+						<config>
 							<type>check</type>
                             <default>0</default>
-                          </config>
-                        </TCEforms>
-                    </settings.ivk>					
-                    <settings.categories>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Kategorien</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>sys_category</foreign_table>
-                            <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>parent</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>
-                    </settings.categories>
+						</config>
+                    </settings.ivk>
 					<settings.startingpoint>
-						<TCEforms>
-							<exclude>1</exclude>
-							<label>Datensatzsammlung</label>
-							<config>
-								<type>group</type>
-								<internal_type>db</internal_type>
-								<allowed>pages</allowed>
-								<size>3</size>
-								<maxitems>50</maxitems>
-								<minitems>0</minitems>
-								<show_thumbs>1</show_thumbs>
-								<wizards>
+						<exclude>1</exclude>
+						<label>Datensatzsammlung</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
 								<suggest>
 									<type>suggest</type>
 								</suggest>
-								</wizards>
-							</config>
-						</TCEforms>
+							</wizards>
+						</config>
 					</settings.startingpoint>
                 </el>
             </ROOT>

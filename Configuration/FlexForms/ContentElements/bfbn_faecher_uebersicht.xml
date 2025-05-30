@@ -2,53 +2,47 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>Übersicht Fächer/Unterseiten</sheetTitle>
-                </TCEforms>
+				<sheetTitle>Übersicht Fächer/Unterseiten</sheetTitle>
                 <type>array</type>
                 <el>
 					<anzahl>
-						<TCEforms>
-							<exclude>1</exclude>						
-							<label>Anzahl Karten pro Zeile</label>							
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">4</numIndex>
-										<numIndex index="1">4</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">5</numIndex>
-										<numIndex index="1">5</numIndex>
-									</numIndex>									
-								</items>
-							</config>
-						</TCEforms>					
+						<exclude>1</exclude>						
+						<label>Anzahl Karten pro Zeile</label>							
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="0">
+									<numIndex index="0">4</numIndex>
+									<numIndex index="1">4</numIndex>
+								</numIndex>
+								<numIndex index="1">
+									<numIndex index="0">5</numIndex>
+									<numIndex index="1">5</numIndex>
+								</numIndex>									
+							</items>
+						</config>		
 					</anzahl>
 					<ausgeschlossen>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Seite - ausgeschlossen</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,11,20) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+					  <exclude>1</exclude>
+					  <label>Seite - ausgeschlossen</label>
+					  <config>
+						<type>select</type>
+						<renderType>selectTree</renderType>
+						<autoSizeMax>50</autoSizeMax>
+						<foreign_table>pages</foreign_table>
+						<foreign_table_where>AND pages.pid IN(0,1,11,20) ORDER BY pages.sorting</foreign_table_where>
+						<maxitems>9999</maxitems>
+						<renderMode>tree</renderMode>
+						<size>10</size>
+						<treeConfig>
+							<appearance>
+								<expandAll>1</expandAll>
+								<showHeader>1</showHeader>
+							</appearance>
+							<parentField>pid</parentField>
+						</treeConfig>
+					  </config>					
 					</ausgeschlossen>					
                 </el>
             </ROOT>

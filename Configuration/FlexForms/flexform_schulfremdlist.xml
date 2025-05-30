@@ -2,180 +2,123 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>Schulfremdepruefer</sheetTitle>
-                </TCEforms>
+				<sheetTitle>Schulfremdepruefer</sheetTitle>
                 <type>array</type>
                 <el>
 					<settings.termin>
-						<TCEforms>
-                          <exclude>1</exclude>					
-						  <label>Termin</label>
-						  <config>
+						<exclude>1</exclude>					
+						<label>Termin</label>
+						<config>
 							<type>input</type>
 							<renderType>inputDateTime</renderType>							
 							<eval>datetime</eval>							
-						  </config>
-						</TCEforms>  
+						</config> 
 					</settings.termin>
 					<settings.schulfremde.ordnerstandard>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ordner Standard</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Ordner Standard</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+							<renderType>selectTree</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>pages</foreign_table>
+							<foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
+							<maxitems>9999</maxitems>
+							<renderMode>tree</renderMode>
+							<size>10</size>
+							<treeConfig>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+								</appearance>
+								<parentField>pid</parentField>
+							</treeConfig>
+						</config>					
 					</settings.schulfremde.ordnerstandard>					
 					<settings.schulfremde.ordnernord>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ordner Nord</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Ordner Nord</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+							<renderType>selectTree</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>pages</foreign_table>
+							<foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
+							<maxitems>9999</maxitems>
+							<renderMode>tree</renderMode>
+							<size>10</size>
+							<treeConfig>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+								</appearance>
+								<parentField>pid</parentField>
+							</treeConfig>
+						</config>				
 					</settings.schulfremde.ordnernord>
 					<settings.schulfremde.ordnerost>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ordner Ost</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Ordner Ost</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+							<renderType>selectTree</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>pages</foreign_table>
+							<foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
+							<maxitems>9999</maxitems>
+							<renderMode>tree</renderMode>
+							<size>10</size>
+							<treeConfig>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+								</appearance>
+								<parentField>pid</parentField>
+							</treeConfig>
+						</config>				
 					</settings.schulfremde.ordnerost>
 					<settings.schulfremde.ordnersued>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ordner Süd</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Ordner Süd</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
+							<renderType>selectTree</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>pages</foreign_table>
+							<foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
+							<maxitems>9999</maxitems>
+							<renderMode>tree</renderMode>
+							<size>10</size>
+							<treeConfig>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+								</appearance>
+								<parentField>pid</parentField>
+							</treeConfig>
+						</config>			
 					</settings.schulfremde.ordnersued>
 					<settings.schulfremde.ordnerwest>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Ordner West</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Ordner West</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>pages</foreign_table>
-                            <foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>pid</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>					
-					</settings.schulfremde.ordnerwest>						
-                    <settings.categories>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Kategorien</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>sys_category</foreign_table>
-                            <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>parent</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>
-                    </settings.categories>
-					<settings.startingpoint>
-						<TCEforms>
-							<exclude>1</exclude>
-							<label>Datensatzsammlung</label>
-							<config>
-								<type>group</type>
-								<internal_type>db</internal_type>
-								<allowed>pages</allowed>
-								<size>3</size>
-								<maxitems>50</maxitems>
-								<minitems>0</minitems>
-								<show_thumbs>1</show_thumbs>
-								<wizards>
-								<suggest>
-									<type>suggest</type>
-								</suggest>
-								</wizards>
-							</config>
-						</TCEforms>
-					</settings.startingpoint>
+							<renderType>selectTree</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>pages</foreign_table>
+							<foreign_table_where>AND pages.pid IN(0,1,81,118) ORDER BY pages.sorting</foreign_table_where>
+							<maxitems>9999</maxitems>
+							<renderMode>tree</renderMode>
+							<size>10</size>
+							<treeConfig>
+								<appearance>
+									<expandAll>1</expandAll>
+									<showHeader>1</showHeader>
+								</appearance>
+								<parentField>pid</parentField>
+							</treeConfig>
+						</config>			
+					</settings.schulfremde.ordnerwest>
                 </el>
             </ROOT>
         </sDEF>

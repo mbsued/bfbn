@@ -2,82 +2,51 @@
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>Institution</sheetTitle>
-                </TCEforms>
+				<sheetTitle>Institution</sheetTitle>
                 <type>array</type>
                 <el>
                     <settings.funktionen>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Funktionen</label>
-                         <config>
+						<exclude>1</exclude>
+						<label>Funktionen</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectMultipleSideBySide</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>tx_bfbn_domain_model_funktion</foreign_table>
+							<renderType>selectMultipleSideBySide</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>tx_bfbn_domain_model_funktion</foreign_table>
 							<foreign_table_where>AND tx_bfbn_domain_model_funktion.art IN (4,5,6,7,8,9)</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <size>10</size> 
-                          </config>
-                        </TCEforms>
+							<maxitems>9999</maxitems>
+							<size>10</size> 
+						</config>
                     </settings.funktionen>
 					<settings.funktionart>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Art der Funktionen</label>
-                          <config>
+						<exclude>1</exclude>
+						<label>Art der Funktionen</label>
+						<config>
 							<type>select</type>
-                            <renderType>selectMultipleSideBySide</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>tx_bfbn_domain_model_funktionart</foreign_table>
-                            <maxitems>10</maxitems>
-                            <size>10</size> 
-                          </config>
-                        </TCEforms>
-                    </settings.funktionart>					
-                    <settings.categories>
-                        <TCEforms>
-                          <exclude>1</exclude>
-                          <label>Kategorien</label>
-                          <config>
-							<type>select</type>
-                            <renderType>selectTree</renderType>
-                            <autoSizeMax>50</autoSizeMax>
-                            <foreign_table>sys_category</foreign_table>
-                            <foreign_table_where> AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC</foreign_table_where>
-                            <maxitems>9999</maxitems>
-                            <renderMode>tree</renderMode>
-                            <size>10</size>
-                            <treeConfig>
-                                <appearance>
-                                    <expandAll>1</expandAll>
-                                    <showHeader>1</showHeader>
-                                </appearance>
-                                <parentField>parent</parentField>
-                            </treeConfig>
-                          </config>
-                        </TCEforms>
-                    </settings.categories>
+							<renderType>selectMultipleSideBySide</renderType>
+							<autoSizeMax>50</autoSizeMax>
+							<foreign_table>tx_bfbn_domain_model_funktionart</foreign_table>
+							<maxitems>10</maxitems>
+							<size>10</size> 
+						</config>
+                    </settings.funktionart>
 					<settings.startingpoint>
-						<TCEforms>
-							<exclude>1</exclude>
-							<label>Datensatzsammlung</label>
-							<config>
-								<type>group</type>
-								<internal_type>db</internal_type>
-								<allowed>pages</allowed>
-								<size>3</size>
-								<maxitems>50</maxitems>
-								<minitems>0</minitems>
-								<show_thumbs>1</show_thumbs>
-								<wizards>
-								<suggest>
-									<type>suggest</type>
-								</suggest>
-								</wizards>
-							</config>
-						</TCEforms>
+						<exclude>1</exclude>
+						<label>Datensatzsammlung</label>
+						<config>
+							<type>group</type>
+							<internal_type>db</internal_type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+							<show_thumbs>1</show_thumbs>
+							<wizards>
+							<suggest>
+								<type>suggest</type>
+							</suggest>
+							</wizards>
+						</config>
 					</settings.startingpoint>
                 </el>
             </ROOT>
