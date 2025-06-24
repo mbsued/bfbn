@@ -1,0 +1,209 @@
+mod {
+	wizards.newContentElement.wizardItems.bfbn {
+		header = BFBN
+		after = common
+		elements {
+			institutionlist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_list.description
+				tt_content_defValues {
+					CType = bfbn_institutionlist
+				}
+			}
+			institutiondetail {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_detail.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_detail.description
+				tt_content_defValues {
+					CType = bfbn_institutiondetail
+				}
+			}						
+			institutionabfrage {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_abfragelist.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_abfragelist.description
+				tt_content_defValues {
+					CType = bfbn_institutionabfrage
+				}
+			}						
+			institutionedit {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_edit.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_edit.description
+				tt_content_defValues {
+					CType = bfbn_institutionedit
+				}
+			}
+			personlist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_list.description
+				tt_content_defValues {
+					CType = bfbn_personlist
+				}
+			}
+			personsearch {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_search.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_person_search.description
+				tt_content_defValues {
+					CType = bfbn_personsearch
+				}
+			}						
+			institutionsearch {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_search.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_institution_search.description
+				tt_content_defValues {
+					CType = bfbn_institutionsearch
+				}
+			}
+			ergaenzungspruefunglist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_ergprf_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_ergprf_list.description
+				tt_content_defValues {
+					CType = bfbn_ergaenzungspruefunglist
+				}
+			}
+			schulfremdeprueferlist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_schulfremd_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_schulfremd_list.description
+				tt_content_defValues {
+					CType = bfbn_schulfremdeprueferlist
+				}
+			}
+			aufgabenauswahllist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_aufgabenauswahl_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_aufgabenauswahl_list.description
+				tt_content_defValues {
+					CType = bfbn_aufgabenauswahllist
+				}
+			}
+			unfallstatistiklist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_unfallstatistik_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_unfallstatistik_list.description
+				tt_content_defValues {
+					CType = bfbn_unfallstatistiklist
+				}
+			}
+			meldunglist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_meldung_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_meldung_list.description
+				tt_content_defValues {
+					CType = bfbn_meldunglist
+				}
+			}
+			fortbildunglist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_list.description
+				tt_content_defValues {
+					CType = bfbn_fortbildunglist
+				}
+			}
+			fortbildungfma {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_fma.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_fortbildung_fma.description
+				tt_content_defValues {
+					CType = bfbn_fortbildungfma
+				}
+			}						
+			eliteprueferlist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_elitepruefer_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_elitepruefer_list.description
+				tt_content_defValues {
+					CType = bfbn_eliteprueferlist
+				}
+			}
+			nachterminlist {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_list.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_list.description
+				tt_content_defValues {
+					CType = bfbn_nachterminlist
+				}
+			}
+			nachterminstatus {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_status.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:tx_bfbn_nachtermin_status.description
+				tt_content_defValues {
+					CType = bfbn_nachterminstatus
+				}
+			}
+			bfbn_fma_header {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_fma_header.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_fma_header.description
+				tt_content_defValues {
+					CType = bfbn_fma_header
+				}
+			}
+			bfbn_smv_header {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_smv_header.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_smv_header.description
+				tt_content_defValues {
+					CType = bfbn_smv_header
+				}
+			}
+			bfbn_fma_uebersicht {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_fma_uebersicht.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_fma_uebersicht.description
+				tt_content_defValues {
+					CType = bfbn_fma_uebersicht
+				}
+			}
+			bfbn_ueberschrift_jumbotron {
+				iconIdentifier = content-text
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_ueberschrift_jumbotron.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_ueberschrift_jumbotron.description
+				tt_content_defValues {
+					CType = bfbn_ueberschrift_jumbotron
+				}
+			}
+			bfbn_faecher_uebersicht {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_faecher_uebersicht.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_faecher_uebersicht.description
+				tt_content_defValues {
+					CType = bfbn_faecher_uebersicht
+				}
+			}
+			bfbn_nav_mb {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_nav_mb.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_nav_mb.description
+				tt_content_defValues {
+					CType = bfbn_nav_mb
+				}
+			}
+			bfbn_abfrage_uebersicht {
+				iconIdentifier = bfbnsvgicon
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_abfrage_uebersicht.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_abfrage_uebersicht.description
+				tt_content_defValues {
+					CType = bfbn_abfrage_uebersicht
+				}
+			}
+			bfbn_zitat_text {
+				iconIdentifier = content-text
+				title = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_zitat_text.name
+				description = LLL:EXT:bfbn/Resources/Private/Language/locallang_db.xlf:bfbn_zitat_text.description
+				tt_content_defValues {
+					CType = bfbn_zitat_text
+				}
+			}						
+		}
+		show = *
+	}
+}
