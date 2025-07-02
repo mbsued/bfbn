@@ -1,11 +1,14 @@
 <?php
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') || die('Access denied.');
 
 if(!class_exists('\Mpdf\Mpdf')){
-    $composerAutoloadFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('bfbn')
+    $composerAutoloadFile = ExtensionManagementUtility::extPath('bfbn')
         . 'Resources/Private/PHP/autoload.php';
 
     require_once($composerAutoloadFile);
@@ -140,7 +143,17 @@ $boot = function () {
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['bfbn'] = \MbFosbos\Bfbn\Ajax\PdfResponse::class . '::processRequest';
 	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['afterBuildingFinished'][1676311200] = \MbFosbos\Bfbn\Utility\FormHook::class;
-	$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bfbn'] = 'EXT:bfbn/Configuration/RTE/Default.yaml';	
+	$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bfbn'] = 'EXT:bfbn/Configuration/RTE/Default.yaml';
+
+	/***************
+     * Extension configuration
+     */
+    $extconf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('bfbn');
+	
+	// kartenApi
+    if (array_key_exists('kartenApi', $extconf) && !empty($extconf['kartenApi'])) {
+        ExtensionManagementUtility::addTypoScriptConstants('plugin.tx_bfbn.apikey = ' . $extconf['kartenApi']);
+	} 
 };
 
 $boot();

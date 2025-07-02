@@ -1,0 +1,2 @@
+# cat=Karten; type=string; label=Schlüssel der Karten-API
+kartenApi = 

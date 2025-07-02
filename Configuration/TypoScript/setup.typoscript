@@ -91,7 +91,8 @@ plugin.tx_bfbn {
 			ordnerost = 327
 			ordnerwest = 329
 			ordnersued = 328		
-		}		
+		}
+		apikey = {$plugin.tx_bfbn.apikey}	
 	}
 }
 
