@@ -1,4 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers" 
+	data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 <f:section name="content">
@@ -40,7 +42,7 @@
 				</div>
 			</div>
 			<div class="mb-3">
-				<f:link.file class="btn btn-primary" file="{datei}" download="true" filename="fortbildungsvorschlag.pdf" target ="_blank" title="Fortbildungsvorschlag als pdf-Datei herunterladen"><i class="fas fa-file-pdf me-2"></i>Fortbildungsvorschlag herunterladen</f:link.file>
+                <a href="/index.php?eID=bfbn&file={datei}&filename=fortbildungsvorschlag.pdf" title="Fortbildungsvorschlag als pdf-Datei herunterladen" target="_blank" class="btn btn-primary"><b:icon iconfig="fa6:solid,file-pdf" additionalAttributes="{class:'me-2',aria-hidden='true'}" />Fortbildungsvorschlag herunterladen</a>
 			</div>
 		</f:then>
 	</f:if>			

@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" xmlns:b="http://typo3.org/ns/MbFosbos/Bfbn/ViewHelpers" data-namespace-typo3-fluid="true">
 <div id="{form.identifier}">
 	<div class="mb-3 mt-3">
 		<f:if condition="{isPreparedMessage}">
@@ -11,8 +11,8 @@
 		</f:if>
 	</div>
     <f:if condition="{tempPdfFile}">
-        <div class="mt-5 mb-5">
-			<a href="/index.php?eID=bfbn&file={tempPdfFile}" target="_blank" class="btn btn-primary"><f:translate key="LLL:EXT:bfbn/Resources/Private/Language/locallang.xlf:bfbn.openPdfLink"/></a>
+        <div class="mt-3 mb-3">
+			<a href="/index.php?eID=bfbn&file={tempPdfFile}&filename={filename}" target="_blank" class="btn btn-primary"><b:icon iconfig="fa6:solid,file-pdf" additionalAttributes="{class:'me-2',aria-hidden='true'}" /><f:translate key="LLL:EXT:bfbn/Resources/Private/Language/locallang.xlf:bfbn.openPdfLink"/></a>
 		</div>
     </f:if>
 </div>

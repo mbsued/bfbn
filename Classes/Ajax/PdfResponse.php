@@ -1,6 +1,12 @@
 <?php
 namespace MbFosbos\Bfbn\Ajax;
 
+use Mpdf\Output\Destination;
+use Mpdf\Mpdf;
+use Mpdf\MpdfException;
+use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
+use setasign\Fpdi\PdfParser\PdfParserException;
+use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use MbFosbos\Bfbn\Service\PdfService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,32 +23,36 @@ class PdfResponse
     /**
      * @param ServerRequestInterface $request
      * @return ResponseInterface
-     * @throws \Mpdf\MpdfException
-     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
-     * @throws \setasign\Fpdi\PdfParser\PdfParserException
-     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
+     * @throws MpdfException
+     * @throws CrossReferenceException
+     * @throws PdfParserException
+     * @throws PdfTypeException
      */
     public function processRequest(ServerRequestInterface $request)
     {
-        $param = $request->getQueryParams();
+        $response = GeneralUtility::makeInstance(Response::class);
+		$param = $request->getQueryParams();
         $mpdf = null;
         if (isset($param['file']) && $param['file']) {
             $mpdf = $this->pdf($param['file']);
         }
-        if ($mpdf) {
-            $mpdf->Output(PdfService::PDF_NAME, \Mpdf\Output\Destination::INLINE);
-			return (new Response())->withStatus(200);
+         if ($mpdf) {
+            $filename = $this->filename = $request->getParsedBody()['filename'] ?? $request->getQueryParams()['filename'] ?? null;
+            $mpdf->Output($filename, Destination::INLINE);
         } else {
-            return (new Response())->withStatus(404);
+            $response->getBody()->write('<h1>Fehler</h1><p>Die Datei wurde vom Server gelöscht, bevor sie geöffnet wurde<br />Sie kann nicht erneut geladen oder gespeichert werden ohne vorher nochmals das Formular abzusenden.</p>');
+            return $response->withStatus(404);
         }
+
+        return $response;
     }
 
     /**
      * @param $uploadedTempFileName
-     * @return \Mpdf\Mpdf|null
-     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
-     * @throws \setasign\Fpdi\PdfParser\PdfParserException
-     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
+     * @return Mpdf|null
+     * @throws CrossReferenceException
+     * @throws PdfParserException
+     * @throws PdfTypeException
      */
     private function pdf($uploadedTempFileName)
     {
@@ -52,13 +62,14 @@ class PdfResponse
             GeneralUtility::validPathStr($uploadedTempFile)
             && @is_file($uploadedTempFile)
         ) {
-            $mpdf = new \Mpdf\Mpdf(['fontDir' => ExtensionManagementUtility::extPath('bfbn') . 'Resources/Public/Fonts',]);
+            $mpdf = new Mpdf(['fontDir' => ExtensionManagementUtility::extPath('bfbn') . 'Resources/Public/Fonts', 'tempDir' => Environment::getVarPath()]);
 			
-            $pagecount = $mpdf->SetSourceFile($uploadedTempFile);
+            $mpdf->SetDocTemplate($uploadedTempFile);
+			$pagecount = $mpdf->SetSourceFile($uploadedTempFile);
 			
 			for ($i = 1; $i <= $pagecount; $i++) {
 				$import_page = $mpdf->ImportPage($i);
-				$mpdf->UseTemplate($import_page);
+				$mpdf->useTemplate($import_page);
 				if ($i < $pagecount) {
 					$mpdf->AddPage();
 				}

@@ -4,20 +4,27 @@ declare(strict_types=1);
 
 namespace MbFosbos\Bfbn\Domain\Finishers;
 
-use MbFosbos\Bfbn\Service\PdfService;
+use Mpdf\Output\Destination;
+use Mpdf\Mpdf;
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
+use TYPO3\CMS\Fluid\View\TemplateView;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use MbFosbos\Bfbn\Service\PdfService;
 
 /**
  * @inheritDoc
  */
+ 
 class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\ConfirmationFinisher
 {
     /**
      * @inheritDoc
      */
-    protected function executeInternal()
+	 
+    protected function executeInternal(): string
     {
         $contentElementUid = $this->parseOption('contentElementUid');
         $typoscriptObjectPath = $this->parseOption('typoscriptObjectPath');
@@ -42,9 +49,6 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
             $message = $this->parseOption('message');
         }
 
-        $standaloneView = $this->initializeStandaloneView(
-            $this->finisherContext->getFormRuntime()
-        );
 
         //Extended
         $tempPdfFile = '';
@@ -56,7 +60,7 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
             );
 
             if ($openPdfNewWindows) {
-                /** @var \Mpdf\Mpdf $mpdf */
+                /** @var Mpdf $mpdf */
                 $mpdf = $this->finisherContext->getFinisherVariableProvider()->get(
                     'Pdf',
                     'mpdf',
@@ -65,17 +69,69 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
 
                 if ($mpdf) {
                     $tempPdfFile = GeneralUtility::tempnam(PdfService::PDF_TEMP_PREFIX, PdfService::PDF_TEMP_SUFFIX);
-					$mpdf->Output($tempPdfFile, \Mpdf\Output\Destination::FILE); 
+					$mpdf->Output($tempPdfFile, Destination::FILE); 
                 }
             }
+			$filename = $this->finisherContext->getFinisherVariableProvider()->get(
+                'Pdf',
+                'filename',
+                PdfService::PDF_NAME
+            );
         }
 
-        $standaloneView->assignMultiple([
-            'message' => $message,
-			'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '', 
-            'isPreparedMessage' => !empty($contentElementUid)
-        ]);
+		$filename = isset($filename) ? $filename : '';
+        $langId = isset($langId) ? $langId: '';
+		
+		$context = GeneralUtility::makeInstance(Context::class);
+        $langId = $context->getPropertyFromAspect('language', 'id');
 
-        return $standaloneView->render();
+		$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(Typo3Version::class);
+        $majorVersion = $typo3Version->getMajorVersion();
+
+        if ($majorVersion >= 12) {
+            $templateRootPaths = $this->parseOption('templateRootPaths');
+            $partialRootPaths = $this->parseOption('partialRootPaths');
+            $layoutRootPaths = $this->parseOption('layoutRootPaths');
+            $templateName = $this->parseOption('templateName');
+
+            // Create Fluid View
+            /** @var TemplateView $view */
+            $view = GeneralUtility::makeInstance(TemplateView::class);
+            $view->setTemplateRootPaths($templateRootPaths);
+            $view->setPartialRootPaths($partialRootPaths);
+            $view->setLayoutRootPaths($layoutRootPaths);
+            $view->setTemplate($templateName);
+    
+            $view->assignMultiple([
+                'message' => $message,
+                'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '',
+                'isPreparedMessage' => !empty($contentElementUid),
+                'langId' => $langId,
+                'filename' => $filename
+            ]);
+
+            $output = $view->render();
+
+            if ($output === null) {
+                $output = 'An error occurred while rendering the confirmation template.';
+            }
+
+            return (string)$output;
+        } else {
+            $standaloneView = $this->initializeStandaloneView(
+                $this->finisherContext->getFormRuntime()
+            );
+            $context = GeneralUtility::makeInstance(Context::class);
+            $langId = $context->getPropertyFromAspect('language', 'id');
+            $standaloneView->assignMultiple([
+                'message' => $message,
+                'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '',
+                'isPreparedMessage' => !empty($contentElementUid),
+                'langId' => $langId,
+                'filename' => $filename
+            ]);
+
+            return $standaloneView->render();
+        }
     }
 }

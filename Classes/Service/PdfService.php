@@ -2,9 +2,13 @@
 
 namespace MbFosbos\Bfbn\Service;
 
+use Mpdf\MpdfException;
 use \Mpdf\Mpdf;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
+use setasign\Fpdi\PdfParser\PdfParserException;
+use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class PdfService
@@ -13,16 +17,22 @@ class PdfService
     const PDF_TEMP_PREFIX = 'form-tempfile-';
     const PDF_TEMP_SUFFIX = '-generated';
 
+    private StandaloneView $standaloneView;
+
+    public function __construct(StandaloneView $standaloneView)
+    {
+        $this->standaloneView = $standaloneView;
+    }
 
     /**
      * @param $pdfFile
      * @param $htmlFile
      * @param array $values
      * @return Mpdf
-     * @throws \Mpdf\MpdfException
-     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
-     * @throws \setasign\Fpdi\PdfParser\PdfParserException
-     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
+     * @throws MpdfException
+     * @throws CrossReferenceException
+     * @throws PdfParserException
+     * @throws PdfTypeException
      */
     public function generate(
         $pdfFile,
@@ -40,12 +50,19 @@ class PdfService
             return null;
         }
 
-        $mpdf = new \Mpdf\Mpdf(['fontDir' => ExtensionManagementUtility::extPath('bfbn') . 'Resources/Public/Fonts',]);
+        $mpdf = new Mpdf(['fontDir' => ExtensionManagementUtility::extPath('bfbn') . 'Resources/Public/Fonts', 'tempDir' => Environment::getVarPath()]);
 		 
-		$template = \nn\t3::File()->absPath(ltrim($pdfFile,'/'));
-		$mpdf->SetDocTemplate($template,true);	
-		$htmlParsed = $this->parse($htmlFile, $values);
-		$mpdf->WriteHTML($htmlParsed);
+		$mpdf->SetDocTemplate($pdfFile,true);	
+		$pagecount = $mpdf->SetSourceFile($pdfFile);
+        for ($i=1; $i<=$pagecount; $i++) {
+          if ($i == 1) {
+            $htmlParsed = $this->parse($htmlFile, $values);
+            $mpdf->WriteHTML($htmlParsed);
+          }
+          $import_page = $mpdf->importPage($i);
+          $mpdf->useTemplate($import_page);
+          if ($i < $pagecount) $mpdf->AddPage();
+        }
         return $mpdf;
     }
 	
@@ -58,7 +75,11 @@ class PdfService
     private function parse($htmlFile, $values)
     {
  		
-		return \nn\t3::Template()->render(ltrim($htmlFile, '/'), $values); 
+		$this->standaloneView->setFormat('html');
+
+        $this->standaloneView->setTemplatePathAndFilename($htmlFile);
+        $this->standaloneView->assignMultiple($values);
+        return $this->standaloneView->render();
 		
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MbFosbos\Bfbn\Domain\Finishers;
 
+use TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher;
 use MbFosbos\Bfbn\Domain\Model\HtmlTemplate;
 use MbFosbos\Bfbn\Domain\Model\PdfTemplate;
 use MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository;
@@ -12,7 +13,7 @@ use TYPO3\CMS\Form\Domain\Model\FormDefinition;
 use TYPO3\CMS\Form\Domain\Model\FormElements\FormElementInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
+class PdfFinisher extends AbstractFinisher
 {
     /**
      * htmlTemplateRepository
@@ -65,31 +66,30 @@ class PdfFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 				
         /** @var PdfTemplate $pdfTemplate */
         $pdfTemplate = $this->pdfTemplateRepository->findByUid($pdfTemplateUid);		
-		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pdfTemplate->getFile()->getOriginalResource()->getPublicUrl()); */
-		$filename = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
-		if (strpos($filename,"/") == 0) {
-			$filename = mb_substr($filename,1);
-		}  
-        if ($pdfTemplate && $pdfTemplate->getUid() && \nn\t3::File()->exists($filename)) {						
-            $pdfTemplateFile = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
-            $pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName();
+		if ($pdfTemplate && $pdfTemplate->getFile() instanceof FileReference) {
+            $pdfTemplateResource = $pdfTemplate->getFile()->getOriginalResource();
+            $pdfTemplateFile = $pdfTemplateResource->getForLocalProcessing();
+            $pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName(); // Make sure pdfFileName is set here
         } else {
             $pdfTemplateFile = null;
-            $pdfFileName = null;
+            $pdfFileName = 'default.pdf';  // Set a default value for $pdfFileName
         }
-
+		
         $htmlTemplateUid = (int)$this->parseOption('htmlTemplate');
         /** @var HtmlTemplate $pdfTemplate */
         $htmlTemplate = $this->htmlTemplateRepository->findByUid($htmlTemplateUid);
 		/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($htmlTemplate);	*/
-		$filename = $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl();
-		if (strpos($filename,"/") == 0) {
-			$filename = mb_substr($filename,1);
-		}  		
-        $htmlTemplateFile =
-            $htmlTemplate && $htmlTemplate->getUid() && \nn\t3::File()->exists($filename)
-                ? $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl()
-                : null;
+		if ($htmlTemplate && $htmlTemplate->getFile() instanceof FileReference) {
+            $htmlTemplateResource = $htmlTemplate->getFile()->getOriginalResource();
+            $htmlTemplateFile = $htmlTemplateResource->getForLocalProcessing();
+        } else {
+            $htmlTemplateFile = null;  // Optionally set a default value if the HTML template is missing
+        }
+
+        // Ensure $pdfTemplateFile and $htmlTemplateFile are valid paths before generating PDF
+        if (!$pdfTemplateFile || !$htmlTemplateFile) {
+            throw new \RuntimeException('Both PDF and HTML template files must be provided.');
+        }
 		
         $mpdf = $this->pdfService->generate($pdfTemplateFile, $htmlTemplateFile, $this->parseForm());
 

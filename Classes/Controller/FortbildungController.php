@@ -1,7 +1,10 @@
 <?php
 namespace MbFosbos\Bfbn\Controller;
 
+use Mpdf\Output\Destination;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 use MbFosbos\Bfbn\Factory\AbfrageDemandFactory;
 use MbFosbos\Bfbn\Factory\FortbildungDemandFactory;
 use MbFosbos\Bfbn\Domain\Repository\InstitutionRepository;
@@ -11,6 +14,7 @@ use MbFosbos\Bfbn\Domain\Repository\FrontendUserRepository;
 use MbFosbos\Bfbn\Domain\Repository\DatenbankRepository;
 use MbFosbos\Bfbn\Domain\Repository\HtmlTemplateRepository;
 use MbFosbos\Bfbn\Domain\Repository\PdfTemplateRepository;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use MbFosbos\Bfbn\Service\AccessControlService;
 use MbFosbos\Bfbn\Service\PdfService;
 use MbFosbos\Bfbn\Service\CsvService;
@@ -468,42 +472,40 @@ class FortbildungController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 							
 					/** @var PdfTemplate $pdfTemplate */
 					$pdfTemplate = $this->pdfTemplateRepository->findByUid($pdfTemplateUid);		
-					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pdfTemplate->getFile()->getOriginalResource()->getPublicUrl()); */
-					$filename = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
-					if (strpos($filename,"/") == 0) {
-						$filename = mb_substr($filename,1);
-					}  
-					if ($pdfTemplate && $pdfTemplate->getUid() && \nn\t3::File()->exists($filename)) {						
-						$pdfTemplateFile = $pdfTemplate->getFile()->getOriginalResource()->getPublicUrl();
-						$pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName();
+					if ($pdfTemplate && $pdfTemplate->getFile() instanceof FileReference) {
+						$pdfTemplateResource = $pdfTemplate->getFile()->getOriginalResource();
+						$pdfTemplateFile = $pdfTemplateResource->getForLocalProcessing();
+						$pdfFileName = $pdfTemplate->getFile()->getOriginalResource()->getName(); // Make sure pdfFileName is set here
 					} else {
 						$pdfTemplateFile = null;
-						$pdfFileName = null;
+						$pdfFileName = 'default.pdf';  // Set a default value for $pdfFileName
 					}
 
 					$htmlTemplateUid = $this->settings['htmltemplate'];
 					/** @var HtmlTemplate $pdfTemplate */
 					$htmlTemplate = $this->htmlTemplateRepository->findByUid($htmlTemplateUid);
 					/** print \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($htmlTemplate);	*/
-					$filename = $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl();
-					if (strpos($filename,"/") == 0) {
-						$filename = mb_substr($filename,1);
-					}  		
-					$htmlTemplateFile =
-						$htmlTemplate && $htmlTemplate->getUid() && \nn\t3::File()->exists($filename)
-							? $htmlTemplate->getFile()->getOriginalResource()->getPublicUrl()
-							: null;
+					if ($htmlTemplate && $htmlTemplate->getFile() instanceof FileReference) {
+						$htmlTemplateResource = $htmlTemplate->getFile()->getOriginalResource();
+						$htmlTemplateFile = $htmlTemplateResource->getForLocalProcessing();
+					} else {
+						$htmlTemplateFile = null;  // Optionally set a default value if the HTML template is missing
+					}
+
+					// Ensure $pdfTemplateFile and $htmlTemplateFile are valid paths before generating PDF
+					if (!$pdfTemplateFile || !$htmlTemplateFile) {
+						throw new \RuntimeException('Both PDF and HTML template files must be provided.');
+					}
 					
 					$mpdf = $this->pdfService->generate($pdfTemplateFile, $htmlTemplateFile, $fortbildung);
 
-					$filename = $this->settings['ablageordner'] . 'vorschlag.pdf';
-					$tempFile = \nn\t3::File()->absPath($filename);
-					$tempFileUnique = \nn\t3::File()->uniqueFilename($tempFile);   
-					$mpdf->OutputFile($tempFileUnique);
-					$file = \nn\t3::Fal()->createSysFile($tempFileUnique); 
+					if ($mpdf) {
+						$temppdffile = GeneralUtility::tempnam(PdfService::PDF_TEMP_PREFIX, PdfService::PDF_TEMP_SUFFIX);
+						$mpdf->Output($temppdffile, Destination::FILE); 
+					}
 
 					$this->view->assign('fortbildung', $fortbildung);
-					$this->view->assign('datei', $file);
+					$this->view->assign('datei', $temppdffile ? PathUtility::basename($temppdffile) : '');
 				} else {
 					$this->addFlashMessage('Sie haben keine Berechtigung die Aktion auszuführen.');	
 				}

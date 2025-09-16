@@ -60,6 +60,10 @@ TYPO3:
                                 templateName: ConfirmationWithLink
                                 templateRootPaths:
                                     20: 'EXT:bfbn/Resources/Private/Frontend/Templates/Finishers/Confirmation/'
+                                layoutRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Frontend/Layouts/Finishers/Confirmation/'
+                                partialRootPaths:
+                                    20: 'EXT:bfbn/Resources/Private/Frontend/Partials/Finishers/Confirmation/'                                    
 
                     formEditor:
                         # TYPO3 8–9
