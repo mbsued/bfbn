@@ -132,7 +132,7 @@ return [
 				'type' => 'number',
 				'range' => [
 					'lower' => 1,
-					'upper' => 5,
+					'upper' => 9,
 				],
 				'slider' => [
 					'step' => 1,
