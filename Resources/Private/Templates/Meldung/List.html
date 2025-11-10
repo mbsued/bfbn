@@ -143,9 +143,107 @@
                     </f:if>
                   </f:then>
                   <f:else>
-                      <h1>Meldung</h1>
-                      <f:variable name="text1">Bitte laden Sie hier die die Datei hoch.</f:variable>
-                      <f:variable name="art">Meldung</f:variable>           
+					<f:if condition="{settings.art}==4">
+						<f:then>
+							<h1>Meldung der benötigten Modifikationen an den Angaben zur Abschlussprüfung</h1>
+							<f:variable name="text1">Bitte laden Sie hier die Meldung der benötigten Modifikationen an den Angaben zur Abschlussprüfung <f:format.date format="%Y">{settings.termin}</f:format.date> in der Form tp_nnnn_modifikationap_<f:format.date format="%Y">{settings.termin}</f:format.date>.xlsx (nnnn = Schulnummer) hoch.</f:variable>
+							<f:variable name="art">Modifikation an den Angaben zur AP</f:variable>
+							<f:variable name="artl">modifikationap</f:variable>
+							<f:variable name="datei">modifikationap</f:variable>
+							<f:variable name="fileext">xlsx</f:variable>                      
+							<f:variable name="antwort">6107</f:variable>
+							<f:if condition="{institution.mbbezirk.uid}==1">
+							  <f:then>
+								  <f:variable name="pid">{settings.modifikation.ordnernord}</f:variable>
+								  <f:variable name="email_empf">{settings.emailn}</f:variable>
+								  <f:variable name="email_empf_name">MB-Dienststelle Nordbayern</f:variable>
+							  </f:then>
+							  <f:else>
+								<f:if condition="{institution.mbbezirk.uid}==2">
+								  <f:then>
+									  <f:variable name="pid">{settings.modifikation.ordnerost}</f:variable>
+									  <f:variable name="email_empf">{settings.emailo}</f:variable>                  
+									  <f:variable name="email_empf_name">MB-Dienststelle Ostbayern</f:variable>
+								  </f:then>
+								  <f:else>
+									<f:if condition="{institution.mbbezirk.uid}==3">
+									  <f:then>
+										  <f:variable name="pid">{settings.modifikation.ordnersued}</f:variable>
+										  <f:variable name="email_empf">{settings.emails}</f:variable>                      
+										  <f:variable name="email_empf_name">MB-Dienststelle Südbayern</f:variable>
+									  </f:then>
+									  <f:else>
+										<f:if condition="{institution.mbbezirk.uid}==4">
+										  <f:then>
+											  <f:variable name="pid">{settings.modifikation.ordnerwest}</f:variable>
+											  <f:variable name="email_empf">{settings.emailw}</f:variable>                          
+											  <f:variable name="email_empf_name">MB-Dienststelle Westbayern</f:variable>
+										  </f:then>
+										  <f:else>
+										  </f:else>
+										</f:if>                      
+									  </f:else>
+									</f:if>                  
+								  </f:else>
+								</f:if>              
+							  </f:else>
+							</f:if>						
+						</f:then>
+						<f:else>
+							<f:if condition="{settings.art}==5">
+								<f:then>
+									<h1>Meldung der Unfallstatistik</h1>
+									<f:variable name="text1">Bitte laden Sie hier die Unfallstatistik <f:format.date format="%Y">{settings.termin}</f:format.date> in der Form tp_nnnn_unfallstatistik_<f:format.date format="%Y">{settings.termin}</f:format.date>.xlsx (nnnn = Schulnummer) hoch.</f:variable>
+									<f:variable name="art">Unfallstatistik</f:variable>
+									<f:variable name="artl">unfallstatistik</f:variable>
+									<f:variable name="datei">unfallstatistik</f:variable>
+									<f:variable name="fileext">xlsx</f:variable>                      
+									<f:variable name="antwort">6108</f:variable>
+									<f:if condition="{institution.mbbezirk.uid}==1">
+									  <f:then>
+										  <f:variable name="pid">{settings.unfallstatistik.ordnernord}</f:variable>
+										  <f:variable name="email_empf">{settings.emailn}</f:variable>
+										  <f:variable name="email_empf_name">MB-Dienststelle Nordbayern</f:variable>
+									  </f:then>
+									  <f:else>
+										<f:if condition="{institution.mbbezirk.uid}==2">
+										  <f:then>
+											  <f:variable name="pid">{settings.unfallstatistik.ordnerost}</f:variable>
+											  <f:variable name="email_empf">{settings.emailo}</f:variable>                  
+											  <f:variable name="email_empf_name">MB-Dienststelle Ostbayern</f:variable>
+										  </f:then>
+										  <f:else>
+											<f:if condition="{institution.mbbezirk.uid}==3">
+											  <f:then>
+												  <f:variable name="pid">{settings.unfallstatistik.ordnersued}</f:variable>
+												  <f:variable name="email_empf">{settings.emails}</f:variable>                      
+												  <f:variable name="email_empf_name">MB-Dienststelle Südbayern</f:variable>
+											  </f:then>
+											  <f:else>
+												<f:if condition="{institution.mbbezirk.uid}==4">
+												  <f:then>
+													  <f:variable name="pid">{settings.unfallstatistik.ordnerwest}</f:variable>
+													  <f:variable name="email_empf">{settings.emailw}</f:variable>                          
+													  <f:variable name="email_empf_name">MB-Dienststelle Westbayern</f:variable>
+												  </f:then>
+												  <f:else>
+												  </f:else>
+												</f:if>                      
+											  </f:else>
+											</f:if>                  
+										  </f:else>
+										</f:if>              
+									  </f:else>
+									</f:if>								
+								</f:then>
+								<f:else>
+								  <h1>Meldung</h1>
+								  <f:variable name="text1">Bitte laden Sie hier die die Datei hoch.</f:variable>
+								  <f:variable name="art">Meldung</f:variable>
+								</f:else>
+							</f:if>
+					  </f:else>
+					</f:if>
                   </f:else>
                 </f:if>           
             </f:else>

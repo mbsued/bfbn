@@ -9,8 +9,11 @@ use Mpdf\Mpdf;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface as ExtbaseConfigurationManagerInterface;
 use TYPO3\CMS\Fluid\View\TemplateView;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use MbFosbos\Bfbn\Service\PdfService;
 
@@ -24,15 +27,28 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
      * @inheritDoc
      */
 	 
+    public function __construct(
+        private readonly ExtbaseConfigurationManagerInterface $extbaseConfigurationManager,
+        private readonly ViewFactoryInterface $viewFactory,
+    ) {}
+	
     protected function executeInternal(): string
     {
+		$options = $this->options;
+        if (!isset($options['templateName']) || !is_string($options['templateName'])) {
+            throw new FinisherException(
+                'The option "templateName" must be set for the ConfirmationFinisher.',
+                1521573955
+            );
+        }	
+		
         $contentElementUid = $this->parseOption('contentElementUid');
         $typoscriptObjectPath = $this->parseOption('typoscriptObjectPath');
         $typoscriptObjectPath = is_string($typoscriptObjectPath) ? $typoscriptObjectPath : '';
         if (!empty($contentElementUid)) {
             $pathSegments = GeneralUtility::trimExplode('.', $typoscriptObjectPath);
             $lastSegment = array_pop($pathSegments);
-            $setup = $this->typoScriptSetup;
+            $setup = $this->extbaseConfigurationManager->getConfiguration(ExtbaseConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
             foreach ($pathSegments as $segment) {
                 if (!array_key_exists($segment . '.', $setup)) {
                     throw new FinisherException(
@@ -42,9 +58,11 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
                 }
                 $setup = $setup[$segment . '.'];
             }
-            $this->contentObjectRenderer->start([$contentElementUid], '');
-            $this->contentObjectRenderer->setCurrentVal((string)$contentElementUid);
-            $message = $this->contentObjectRenderer->cObjGetSingle($setup[$lastSegment], $setup[$lastSegment . '.'], $lastSegment);
+			$contentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+            $contentObjectRenderer->setRequest($this->finisherContext->getRequest()->withoutAttribute('extbase'));
+            $contentObjectRenderer->start([$contentElementUid]);
+            $contentObjectRenderer->setCurrentVal((string)$contentElementUid);
+            $message = $contentObjectRenderer->cObjGetSingle($setup[$lastSegment], $setup[$lastSegment . '.'], $lastSegment);
         } else {
             $message = $this->parseOption('message');
         }

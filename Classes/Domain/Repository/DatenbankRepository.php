@@ -55,12 +55,12 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 				'a.pid',
 				$queryBuilder->createNamedParameter(
 				$arrayOfPids,
-				\Doctrine\DBAL\Connection::PARAM_INT_ARRAY
+				Connection::PARAM_INT_ARRAY
 				)
 			)
 		);
 		$queryBuilder->orderBy('distance');
-		$result =  $queryBuilder->execute()->fetchAll();
+		$result =  $queryBuilder->executeQuery()->fetchAllAssociative();
 		return $result;
     }
 
@@ -74,11 +74,11 @@ class DatenbankRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		$timestamp = time();
 		$queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_bfbn_domain_model_statusnachtermin');
 		$queryBuilder	
-			->update('tx_bfbn_domain_model_statusnachtermin','t')
-			->where($queryBuilder->expr()->eq('t.institution', $queryBuilder->createNamedParameter($institution, Connection::PARAM_INT)))
-			->set('t.fehlanzeige', $fehlanzeige)
-			->set('t.meldung', $meldung)
-			->set('t.tstamp', $timestamp)
+			->update('tx_bfbn_domain_model_statusnachtermin')
+			->where($queryBuilder->expr()->eq('institution', $queryBuilder->createNamedParameter($institution, Connection::PARAM_INT)))
+			->set('fehlanzeige', $fehlanzeige)
+			->set('meldung', $meldung)
+			->set('tstamp', $timestamp)
 			->executeStatement();
 	}
 	

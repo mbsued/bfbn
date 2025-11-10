@@ -44,7 +44,7 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * geburtsdatum
      * 
-     * @var @var \MbFosbos\Bfbn\Domain\Model\DateTime
+     * @var  \MbFosbos\Bfbn\Domain\Model\DateTime
      */
     protected $geburtsdatum;
 
@@ -132,7 +132,14 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $ersatzschule = false;
 	
-    /**
+     /**
+     * modifikation
+     * 
+     * @var integer
+     */
+    protected $modifikation = false;
+	
+	 /**
      * institution
      * 
      * @var \MbFosbos\Bfbn\Domain\Model\Institution
@@ -475,6 +482,27 @@ class Nachtermin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setErsatzschule(int $ersatzschule)
     {
         $this->ersatzschule = $ersatzschule;
+    }
+	
+    /**
+     * Returns modifikation
+     * 
+     * @return integer $modifikation
+     */
+    public function getModifikation()
+    {
+        return $this->modifikation;
+    }
+	
+    /**
+     * Sets modifikation
+     * 
+     * @param integer $modifikation
+     * @return void
+     */
+    public function setModifikation(int $modifikation)
+    {
+        $this->modifikation = $modifikation;
     }
 	
     /**

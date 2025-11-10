@@ -3,8 +3,8 @@
 <f:layout name="Default" />
 <f:section name="content">
 
-  <f:for each="{0:'seminar',1:'abu',2:'gst',3:'gsu',4:'iwi',5:'soz',6:'tec', 7:'wuv',8:'franzoesisch',9:'italienisch',10:'latein',11:'russisch',12:'spanisch',13:'fpa'}" as="schulehat" iteration="schulehatIteration">
-    <f:variable name="{schulehat{schulehat}}">0</f:variable>  
+  <f:for each="{0:'seminar',1:'abu',2:'gst',3:'gsu',4:'iwi',5:'soz',6:'tec',7:'wuv',8:'franzoesisch',9:'italienisch',10:'latein',11:'russisch',12:'spanisch',13:'fpa'}" as="schulehat" iteration="schulehatIteration">
+    <f:variable name="schulehat{schulehat}">0</f:variable>  
   </f:for> 
   <f:for each="{auswahlfunktionen}" as="auswahlfunktion" iteration="funktionIteration">
     <f:variable name="funktion{auswahlfunktion.uid}da">0</f:variable>

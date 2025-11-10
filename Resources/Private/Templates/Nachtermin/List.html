@@ -7,7 +7,7 @@
   <div class="mt-3 mb-2">
     <p><b>Termin: <f:format.date format="%A, %d. %B %Y">{settings.termin}</f:format.date></b>	</p>
 	<p>
-      Es sind die Teilnehmerinnen und Teilnehmer zum Nachtermin zu melden. Fehlanzeige ist erfoderlich.
+      Es sind die Teilnehmerinnen und Teilnehmer zum Nachtermin zu melden. Fehlanzeige ist erforderlich.
     </p>    
   </div>
     <f:flashMessages />
@@ -37,8 +37,8 @@
                 <td>{nachtermin.geburtsdatum-> f:format.date(format: 'd.m.Y')}</td>
                 <td>{nachtermin.jahrgangsstufe.bezeichnung}</td>
                 <td>{nachtermin.ausbildungsrichtung.bezeichnung}</td>
-                <td style="text-align:center"><f:link.action action="edit" class="btn btn-primary" arguments="{nachtermin : nachtermin}"><i class="fas fa-pen me-2"></i>Ändern</f:link.action></td>
-                <td style="text-align:center"><f:link.action action="delete" class="btn btn-primary" arguments="{nachtermin : nachtermin}"><i class="fas fa-trash-alt me-2"></i>Löschen</f:link.action></td>
+                <td style="text-align:center"><f:link.action action="edit" class="btn btn-primary" arguments="{nachtermin : nachtermin}"><f:render partial="Button/Aendern" /></f:link.action></td>
+                <td style="text-align:center"><f:link.action action="delete" class="btn btn-primary" arguments="{nachtermin : nachtermin}"><f:render partial="Button/Loeschen" /></f:link.action></td>
               </tr>
             </f:for>
             </tbody>
@@ -59,13 +59,25 @@
             <f:else>
               <f:if condition="{status.meldung} == 1">
                 <f:then>
-                  <div class="mb-3"><f:link.action class="btn btn-primary" action="new"><i class="far fa-plus-square me-2"></i>Teilnehmerin bzw. Teilnehmer für Nachtermin vorgeben</f:link.action></div>
+					<div class="mb-3">						
+						<f:link.action class="btn btn-primary" action="new">
+							<f:render partial="Button/Neu" arguments="{Text:'Teilnehmerin bzw. Teilnehmer für Nachtermin vorgeben'}"/>							
+						</f:link.action>
+					</div>
                 </f:then> 
                 <f:else>
                   <p>Bisher wurden keine Teilnehmerinnen und Teilnehmer für den Nachtermin vorgegeben.</p>
                   <div class="row md-3">
-                    <div class="col-md-6"><f:link.action class="btn btn-primary" action="new"><i class="far fa-plus-square me-2"></i>Teilnehmerin bzw. Teilnehmer für Nachtermin vorgeben</f:link.action></div>                
-                    <div class="col-md-6"><f:link.action class="btn btn-primary" action="statusfehlanzeige"><i class="far fa-plus-square me-2"></i>Fehlanzeige melden</f:link.action></div>              
+                    <div class="col-md-6">
+						<f:link.action class="btn btn-primary" action="new">
+							<f:render partial="Button/Neu" arguments="{Text:'Teilnehmerin bzw. Teilnehmer für Nachtermin vorgeben'}"/>							
+						</f:link.action>
+					</div>                
+                    <div class="col-md-6">
+						<f:link.action class="btn btn-primary" action="statusfehlanzeige">
+							<f:render partial="Button/Neu" arguments="{Text:'Fehlanzeige melden'}"/>							
+						</f:link.action>
+					</div>              
                   </div>
                 </f:else>
               </f:if>

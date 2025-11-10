@@ -14,7 +14,6 @@ services:
   dashboard.widget.bfbnnewsn:
     class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
     arguments:
-      $view: '@dashboard.views.widget'
       $buttonProvider: '@dashboard.buttons.bfbnnewsn'
       $cache: '@cache.dashboard.rss'
       $options:
@@ -39,7 +38,6 @@ services:
   dashboard.widget.bfbnnewso:
     class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
     arguments:
-      $view: '@dashboard.views.widget'
       $buttonProvider: '@dashboard.buttons.bfbnnewso'
       $cache: '@cache.dashboard.rss'
       $options:
@@ -64,7 +62,6 @@ services:
   dashboard.widget.bfbnnewss:
     class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
     arguments:
-      $view: '@dashboard.views.widget'
       $buttonProvider: '@dashboard.buttons.bfbnnewss'
       $cache: '@cache.dashboard.rss'
       $options:
@@ -89,7 +86,6 @@ services:
   dashboard.widget.bfbnnewsw:
     class: 'TYPO3\CMS\Dashboard\Widgets\RssWidget'
     arguments:
-      $view: '@dashboard.views.widget'
       $buttonProvider: '@dashboard.buttons.bfbnnewsw'
       $cache: '@cache.dashboard.rss'
       $options:

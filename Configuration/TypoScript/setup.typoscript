@@ -68,8 +68,8 @@ plugin.tx_bfbn {
 			ordnerstandard = 262		
 			ordnernord = 263
 			ordnerost = 264
-			ordnerwest = 265
-			ordnersued = 266		
+			ordnerwest = 266
+			ordnersued = 265		
 		}		
 		maerz {
 			ordnerstandard = 163		
@@ -91,6 +91,13 @@ plugin.tx_bfbn {
 			ordnerost = 327
 			ordnerwest = 329
 			ordnersued = 328		
+		}
+		modifikation {
+			ordnerstandard = 412		
+			ordnernord = 413
+			ordnerost = 414
+			ordnerwest = 416
+			ordnersued = 415		
 		}
 		apikey = {$plugin.tx_bfbn.apikey}	
 	}
