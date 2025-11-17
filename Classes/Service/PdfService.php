@@ -10,6 +10,8 @@ use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 
 class PdfService
 {
@@ -17,12 +19,9 @@ class PdfService
     const PDF_TEMP_PREFIX = 'form-tempfile-';
     const PDF_TEMP_SUFFIX = '-generated';
 
-    private StandaloneView $standaloneView;
-
-    public function __construct(StandaloneView $standaloneView)
-    {
-        $this->standaloneView = $standaloneView;
-    }
+    public function __construct(
+        private readonly ViewFactoryInterface $viewFactory,
+    ) {}
 
     /**
      * @param $pdfFile
@@ -74,12 +73,12 @@ class PdfService
      */
     private function parse($htmlFile, $values)
     {
- 		
-		$this->standaloneView->setFormat('html');
 
-        $this->standaloneView->setTemplatePathAndFilename($htmlFile);
-        $this->standaloneView->assignMultiple($values);
-        return $this->standaloneView->render();
-		
+        $viewFactoryData = new ViewFactoryData(
+            templatePathAndFilename: $htmlFile,
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
+		$view->assignMultiple($values);
+        return $view->render();			
     }
 }

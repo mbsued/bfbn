@@ -9,12 +9,12 @@ use Mpdf\Mpdf;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
+use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface as ExtbaseConfigurationManagerInterface;
-use TYPO3\CMS\Fluid\View\TemplateView;
+use TYPO3\CMS\Fluid\View\FluidViewAdapter;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use MbFosbos\Bfbn\Service\PdfService;
 
 /**
@@ -67,7 +67,6 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
             $message = $this->parseOption('message');
         }
 
-
         //Extended
         $tempPdfFile = '';
         if ($this->finisherContext->getFinisherVariableProvider()->offsetExists('Pdf')) {
@@ -103,53 +102,31 @@ class ConfirmationFinisher extends \TYPO3\CMS\Form\Domain\Finishers\Confirmation
 		$context = GeneralUtility::makeInstance(Context::class);
         $langId = $context->getPropertyFromAspect('language', 'id');
 
-		$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(Typo3Version::class);
-        $majorVersion = $typo3Version->getMajorVersion();
-
-        if ($majorVersion >= 12) {
-            $templateRootPaths = $this->parseOption('templateRootPaths');
-            $partialRootPaths = $this->parseOption('partialRootPaths');
-            $layoutRootPaths = $this->parseOption('layoutRootPaths');
-            $templateName = $this->parseOption('templateName');
-
-            // Create Fluid View
-            /** @var TemplateView $view */
-            $view = GeneralUtility::makeInstance(TemplateView::class);
-            $view->setTemplateRootPaths($templateRootPaths);
-            $view->setPartialRootPaths($partialRootPaths);
-            $view->setLayoutRootPaths($layoutRootPaths);
-            $view->setTemplate($templateName);
-    
-            $view->assignMultiple([
-                'message' => $message,
-                'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '',
-                'isPreparedMessage' => !empty($contentElementUid),
-                'langId' => $langId,
-                'filename' => $filename
-            ]);
-
-            $output = $view->render();
-
-            if ($output === null) {
-                $output = 'An error occurred while rendering the confirmation template.';
-            }
-
-            return (string)$output;
-        } else {
-            $standaloneView = $this->initializeStandaloneView(
-                $this->finisherContext->getFormRuntime()
-            );
-            $context = GeneralUtility::makeInstance(Context::class);
-            $langId = $context->getPropertyFromAspect('language', 'id');
-            $standaloneView->assignMultiple([
-                'message' => $message,
-                'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '',
-                'isPreparedMessage' => !empty($contentElementUid),
-                'langId' => $langId,
-                'filename' => $filename
-            ]);
-
-            return $standaloneView->render();
+        $formRuntime = $this->finisherContext->getFormRuntime();
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: is_array($options['templateRootPaths'] ?? false) ? $options['templateRootPaths'] : [],
+            partialRootPaths: is_array($options['partialRootPaths'] ?? false) ? $options['partialRootPaths'] : [],
+            layoutRootPaths: is_array($options['layoutRootPaths'] ?? false) ? $options['layoutRootPaths'] : [],
+            request: $this->finisherContext->getRequest(),
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
+        if ($view instanceof FluidViewAdapter) {
+            $view->getRenderingContext()->getViewHelperVariableContainer()
+                ->addOrUpdate(RenderRenderableViewHelper::class, 'formRuntime', $formRuntime);
         }
+        if (isset($this->options['variables']) && is_array($this->options['variables'])) {
+            $view->assignMultiple($this->options['variables']);
+        }
+        $view->assignMultiple([
+            'form' => $formRuntime,
+            'finisherVariableProvider' => $this->finisherContext->getFinisherVariableProvider(),
+            'message' => $message,
+			'tempPdfFile' => $tempPdfFile ? PathUtility::basename($tempPdfFile) : '',
+            'isPreparedMessage' => !empty($contentElementUid),
+			'langId' => $langId,
+			'filename' => $filename
+        ]);
+        return $view->render($options['templateName']);
+        
     }
 }

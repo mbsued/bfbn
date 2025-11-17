@@ -8,9 +8,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3') || die('Access denied.');
 
 if(!class_exists('\Mpdf\Mpdf')){
-    $composerAutoloadFile = ExtensionManagementUtility::extPath('bfbn')
-        . 'Resources/Private/PHP/autoload.php';
-
+    $composerAutoloadFile = ExtensionManagementUtility::extPath('bfbn').'Resources/Private/PHP/autoload.php';
     require_once($composerAutoloadFile);
 }
 
