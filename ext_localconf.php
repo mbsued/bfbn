@@ -12,6 +12,11 @@ if(!class_exists('\Mpdf\Mpdf')){
     require_once($composerAutoloadFile);
 }
 
+if(!class_exists('\AltchaOrg\Altcha\Altcha')){
+    $composerAutoloadFile = ExtensionManagementUtility::extPath('bfbn').'Resources/Private/Vendor/autoload.php';
+    require_once($composerAutoloadFile);
+}
+
 call_user_func(
     function()
     {

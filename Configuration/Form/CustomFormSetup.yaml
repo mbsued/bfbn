@@ -7,11 +7,11 @@ TYPO3:
             Form:
               renderingOptions:
                 templateRootPaths:
-                  20: 'EXT:bfbn/Resources/Private/Templates/Form/Frontend/'
+                  200: 'EXT:bfbn/Resources/Private/Templates/Form/Frontend/'
                 partialRootPaths:
-                  20: 'EXT:bfbn/Resources/Private/Partials/Form/Frontend/'
+                  200: 'EXT:bfbn/Resources/Private/Partials/Form/Frontend/'
                 layoutRootPaths:
-                  20: 'EXT:bfbn/Resources/Private/Layouts/Form/Frontend/'
+                  200: 'EXT:bfbn/Resources/Private/Layouts/Form/Frontend/'
             Hidden:
               variants:
                 -
